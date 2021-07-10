@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -48,7 +48,6 @@
 				C4ACB85E518139A990B1D58A /* Pods-VODA_iOS.debug.xcconfig */,
 				835C0E5BB6D174B1D03C169F /* Pods-VODA_iOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -73,7 +72,10 @@
 		9B2BF4672699E3CC00FA072C /* VODA_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				9B2BF4802699E71800FA072C /* VODA */,
+				9BE0A862269A1B51005314C0 /* Utils */,
+				9B2BF47D2699E4BA00FA072C /* Sources */,
+				9B2BF47E2699E4D200FA072C /* Resources */,
+				9B2BF47F2699E4F000FA072C /* SupportingFiles */,
 			);
 			path = VODA_iOS;
 			sourceTree = "<group>";
@@ -89,7 +91,7 @@
 		9B2BF47E2699E4D200FA072C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9B2BF4842699E95700FA072C /* Fonts */,
+				9BE0A865269A1B8C005314C0 /* Fonts */,
 				9B2BF4712699E3CF00FA072C /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -106,53 +108,12 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		9B2BF4802699E71800FA072C /* VODA */ = {
-			isa = PBXGroup;
-			children = (
-				9B2BF4812699E76500FA072C /* Utils */,
-				9B2BF47D2699E4BA00FA072C /* Sources */,
-				9B2BF47E2699E4D200FA072C /* Resources */,
-				9B2BF47F2699E4F000FA072C /* SupportingFiles */,
-			);
-			path = VODA;
-			sourceTree = "<group>";
-		};
-		9B2BF4812699E76500FA072C /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				9B2BF4832699E8B800FA072C /* Network */,
-				9B2BF4822699E82D00FA072C /* Extension */,
-			);
-			name = Utils;
-			sourceTree = "<group>";
-		};
-		9B2BF4822699E82D00FA072C /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Extension;
-			sourceTree = "<group>";
-		};
-		9B2BF4832699E8B800FA072C /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Network;
-			sourceTree = "<group>";
-		};
-		9B2BF4842699E95700FA072C /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 		9B2BF4852699E97200FA072C /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				9B2BF4892699EB3500FA072C /* Storyboard */,
-				9B2BF4872699EAFC00FA072C /* Model */,
-				9B2BF48A2699EB5000FA072C /* View */,
+				9BE0A86F269A1D85005314C0 /* Model */,
+				9BE0A872269A1D8C005314C0 /* View */,
 				9B2BF4862699EAEA00FA072C /* ViewController */,
 			);
 			path = Main;
@@ -166,13 +127,6 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		9B2BF4872699EAFC00FA072C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		9B2BF4892699EB3500FA072C /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,7 +135,44 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		9B2BF48A2699EB5000FA072C /* View */ = {
+		9BE0A862269A1B51005314C0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9BE0A864269A1B6B005314C0 /* Extension */,
+				9BE0A863269A1B61005314C0 /* Network */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9BE0A863269A1B61005314C0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9BE0A864269A1B6B005314C0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		9BE0A865269A1B8C005314C0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9BE0A86F269A1D85005314C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9BE0A872269A1D8C005314C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
