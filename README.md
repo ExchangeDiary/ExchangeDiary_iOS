@@ -26,8 +26,7 @@
 ![Language](https://img.shields.io/badge/language-swift-orange)
 ![Tool](https://img.shields.io/badge/Xcode-12.5.1-red)
 ![License](https://img.shields.io/cocoapods/l/BadgeHub.svg?style=flat)
-
-## [ Library ]
+<br/>
 [![Alamofire](https://img.shields.io/badge/Alamofire-4.9.1-brightgreen)](https://github.com/Alamofire/Alamofire)
 [![Kingfisher](https://img.shields.io/badge/Kingfisher-5.15.8-green)](https://github.com/onevcat/Kingfisher)
 [![Moya](https://img.shields.io/badge/Moya-13.0.1-yellow)](https://github.com/Moya/Moya)
