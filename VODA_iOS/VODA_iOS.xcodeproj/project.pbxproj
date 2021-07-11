@@ -1,0 +1,496 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF4682699E3CC00FA072C /* AppDelegate.swift */; };
+		9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */; };
+		9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46C2699E3CC00FA072C /* MainViewController.swift */; };
+		9B2BF4722699E3CF00FA072C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BF4712699E3CF00FA072C /* Assets.xcassets */; };
+		9BE0A875269A2080005314C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */; };
+		9BE0A886269A2A4E005314C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A885269A2A4E005314C0 /* Main.storyboard */; };
+		D62B1705EB94FBB77F6FF5CF /* Pods_VODA_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE202DC320DB2B380F3FF7CC /* Pods_VODA_iOS.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		835C0E5BB6D174B1D03C169F /* Pods-VODA_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.release.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		9B2BF4652699E3CC00FA072C /* VODA_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VODA_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B2BF4682699E3CC00FA072C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
+		9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
+		9B2BF46C2699E3CC00FA072C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9B2BF4712699E3CF00FA072C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9B2BF4762699E3CF00FA072C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9BE0A885269A2A4E005314C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C4ACB85E518139A990B1D58A /* Pods-VODA_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.debug.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		EE202DC320DB2B380F3FF7CC /* Pods_VODA_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VODA_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9B2BF4622699E3CC00FA072C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D62B1705EB94FBB77F6FF5CF /* Pods_VODA_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5A21726285A1D8F37056E326 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C4ACB85E518139A990B1D58A /* Pods-VODA_iOS.debug.xcconfig */,
+				835C0E5BB6D174B1D03C169F /* Pods-VODA_iOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9B2BF45C2699E3CC00FA072C = {
+			isa = PBXGroup;
+			children = (
+				9B2BF4672699E3CC00FA072C /* VODA_iOS */,
+				9B2BF4662699E3CC00FA072C /* Products */,
+				5A21726285A1D8F37056E326 /* Pods */,
+				A9128262FA506F3E1424ABFB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9B2BF4662699E3CC00FA072C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B2BF4652699E3CC00FA072C /* VODA_iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9B2BF4672699E3CC00FA072C /* VODA_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				9BE0A862269A1B51005314C0 /* Utils */,
+				9B2BF47D2699E4BA00FA072C /* Sources */,
+				9B2BF47E2699E4D200FA072C /* Resources */,
+				9B2BF47F2699E4F000FA072C /* SupportingFiles */,
+			);
+			path = VODA_iOS;
+			sourceTree = "<group>";
+		};
+		9B2BF47D2699E4BA00FA072C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9B2BF4852699E97200FA072C /* Main */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		9B2BF47E2699E4D200FA072C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9BE0A865269A1B8C005314C0 /* Fonts */,
+				9B2BF4712699E3CF00FA072C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9B2BF47F2699E4F000FA072C /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */,
+				9B2BF4682699E3CC00FA072C /* AppDelegate.swift */,
+				9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */,
+				9B2BF4762699E3CF00FA072C /* Info.plist */,
+			);
+			name = SupportingFiles;
+			path = SupportingFiles/Base.lproj;
+			sourceTree = "<group>";
+		};
+		9B2BF4852699E97200FA072C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9B2BF4892699EB3500FA072C /* Storyboard */,
+				9BE0A86F269A1D85005314C0 /* Model */,
+				9BE0A872269A1D8C005314C0 /* View */,
+				9B2BF4862699EAEA00FA072C /* ViewController */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9B2BF4862699EAEA00FA072C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9B2BF46C2699E3CC00FA072C /* MainViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9B2BF4892699EB3500FA072C /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9BE0A885269A2A4E005314C0 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9BE0A862269A1B51005314C0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9BE0A864269A1B6B005314C0 /* Extension */,
+				9BE0A863269A1B61005314C0 /* Network */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9BE0A863269A1B61005314C0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9BE0A864269A1B6B005314C0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		9BE0A865269A1B8C005314C0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9BE0A86F269A1D85005314C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9BE0A872269A1D8C005314C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A9128262FA506F3E1424ABFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE202DC320DB2B380F3FF7CC /* Pods_VODA_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9B2BF4642699E3CC00FA072C /* VODA_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B2BF4792699E3CF00FA072C /* Build configuration list for PBXNativeTarget "VODA_iOS" */;
+			buildPhases = (
+				0E01266D7C3617CA50DD498C /* [CP] Check Pods Manifest.lock */,
+				9B2BF4612699E3CC00FA072C /* Sources */,
+				9B2BF4622699E3CC00FA072C /* Frameworks */,
+				9B2BF4632699E3CC00FA072C /* Resources */,
+				C50DF89ADB9EF435CBF65D9E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VODA_iOS;
+			productName = VODA_iOS;
+			productReference = 9B2BF4652699E3CC00FA072C /* VODA_iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9B2BF45D2699E3CC00FA072C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					9B2BF4642699E3CC00FA072C = {
+						CreatedOnToolsVersion = 12.3;
+					};
+				};
+			};
+			buildConfigurationList = 9B2BF4602699E3CC00FA072C /* Build configuration list for PBXProject "VODA_iOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9B2BF45C2699E3CC00FA072C;
+			productRefGroup = 9B2BF4662699E3CC00FA072C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9B2BF4642699E3CC00FA072C /* VODA_iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9B2BF4632699E3CC00FA072C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BE0A886269A2A4E005314C0 /* Main.storyboard in Resources */,
+				9BE0A875269A2080005314C0 /* LaunchScreen.storyboard in Resources */,
+				9B2BF4722699E3CF00FA072C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E01266D7C3617CA50DD498C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VODA_iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C50DF89ADB9EF435CBF65D9E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9B2BF4612699E3CC00FA072C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */,
+				9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */,
+				9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9B2BF4772699E3CF00FA072C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9B2BF4782699E3CF00FA072C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9B2BF47A2699E3CF00FA072C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4ACB85E518139A990B1D58A /* Pods-VODA_iOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = VODA_iOS/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.voda.VODA-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9B2BF47B2699E3CF00FA072C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 835C0E5BB6D174B1D03C169F /* Pods-VODA_iOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = VODA_iOS/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.voda.VODA-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9B2BF4602699E3CC00FA072C /* Build configuration list for PBXProject "VODA_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B2BF4772699E3CF00FA072C /* Debug */,
+				9B2BF4782699E3CF00FA072C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B2BF4792699E3CF00FA072C /* Build configuration list for PBXNativeTarget "VODA_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B2BF47A2699E3CF00FA072C /* Debug */,
+				9B2BF47B2699E3CF00FA072C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9B2BF45D2699E3CC00FA072C /* Project object */;
+}
