@@ -11,7 +11,7 @@
         <!--Record Sound View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="RecordSoundViewController" customModule="VODA_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecordSoundViewController" id="Y6W-OH-hqX" customClass="RecordSoundViewController" customModule="VODA_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,6 +25,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9f-Vy-DQE" userLabel="recordButton">
                                 <rect key="frame" x="135" y="383" width="140" height="100"/>
                                 <state key="normal" title="Button" image="record"/>
+                                <connections>
+                                    <action selector="recordAudio:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PHy-Ko-E9f"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmK-XZ-UTg">
                                 <rect key="frame" x="75" y="520" width="225" height="40.666666666666629"/>
@@ -49,6 +52,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="Odd-if-Nj1"/>
                     <connections>
+                        <outlet property="recordButton" destination="n9f-Vy-DQE" id="fJY-X1-aC9"/>
+                        <outlet property="recordGuideText" destination="rmK-XZ-UTg" id="DIK-dl-3H8"/>
+                        <outlet property="recordSeconds" destination="Jzo-5I-yud" id="kwX-JZ-CaT"/>
                         <segue destination="LIK-ew-Ac3" kind="show" identifier="playSound" id="VJA-qe-pbc"/>
                     </connections>
                 </viewController>
@@ -107,7 +113,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sn-cr-5o8">
                                         <rect key="frame" x="76.666666666666671" y="0.0" width="46.666666666666671" height="50"/>
-                                        <state key="normal" title="Button" image="resume_160_blue"/>
+                                        <state key="normal" title="Button" image="resume"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzf-Jd-h3l">
                                         <rect key="frame" x="153.33333333333331" y="0.0" width="46.666666666666657" height="50"/>
@@ -187,7 +193,7 @@
         <image name="gobackward" catalog="system" width="121" height="128"/>
         <image name="goforward" catalog="system" width="121" height="128"/>
         <image name="record" width="100" height="100"/>
-        <image name="resume_160_blue" width="160" height="160"/>
+        <image name="resume" width="160" height="160"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
