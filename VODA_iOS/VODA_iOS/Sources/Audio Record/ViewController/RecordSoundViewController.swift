@@ -12,8 +12,8 @@ class RecordSoundViewController: UIViewController {
     @IBOutlet weak var recordSeconds: UILabel!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var recordGuideText: UILabel!
-    
-    var audioRecorder: AVAudioRecorder?
+    private var audioRecorder: AVAudioRecorder?
+    private var recordSecondsTimer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +48,16 @@ class RecordSoundViewController: UIViewController {
         audioRecorder?.isMeteringEnabled = true
         audioRecorder?.prepareToRecord()
         audioRecorder?.record()
+        
+        recordSecondsTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateRecordTime), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateRecordTime() {
+        guard let currentTime = audioRecorder?.currentTime else {
+            return
+        }
+        
+        recordSeconds.text = currentTime.stringFromTimeInterval()
     }
 }
 

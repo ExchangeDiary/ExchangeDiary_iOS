@@ -15,6 +15,7 @@
 		9B904DC626A95DF8004F5B99 /* RecordSoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904DC526A95DF8004F5B99 /* RecordSoundViewController.swift */; };
 		9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904DC726A95E14004F5B99 /* PlaySoundViewController.swift */; };
 		9B904DCA26A95E82004F5B99 /* Audio Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B904DC926A95E82004F5B99 /* Audio Record.storyboard */; };
+		9B904DCC26A9AAF9004F5B99 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904DCB26A9AAF9004F5B99 /* TimeInterval+Extension.swift */; };
 		9BE0A875269A2080005314C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */; };
 		9BE0A886269A2A4E005314C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A885269A2A4E005314C0 /* Main.storyboard */; };
 		D62B1705EB94FBB77F6FF5CF /* Pods_VODA_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE202DC320DB2B380F3FF7CC /* Pods_VODA_iOS.framework */; };
@@ -32,6 +33,7 @@
 		9B904DC526A95DF8004F5B99 /* RecordSoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundViewController.swift; sourceTree = "<group>"; };
 		9B904DC726A95E14004F5B99 /* PlaySoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundViewController.swift; sourceTree = "<group>"; };
 		9B904DC926A95E82004F5B99 /* Audio Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Audio Record.storyboard"; sourceTree = "<group>"; };
+		9B904DCB26A9AAF9004F5B99 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
 		9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BE0A885269A2A4E005314C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C4ACB85E518139A990B1D58A /* Pods-VODA_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.debug.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 		9BE0A864269A1B6B005314C0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				9B904DCB26A9AAF9004F5B99 /* TimeInterval+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				9B904DC626A95DF8004F5B99 /* RecordSoundViewController.swift in Sources */,
 				9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */,
 				9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */,
+				9B904DCC26A9AAF9004F5B99 /* TimeInterval+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
