@@ -9,11 +9,12 @@ import UIKit
 import AVFoundation
 
 class RecordSoundViewController: UIViewController {
-    @IBOutlet weak var recordSeconds: UILabel!
+    @IBOutlet weak var recordTime: UILabel!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var recordGuideText: UILabel!
     private var audioRecorder: AVAudioRecorder?
-    private var recordSecondsTimer: Timer?
+    private var recordTimer: Timer?
+    private var recordTimeLimitTimer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +50,9 @@ class RecordSoundViewController: UIViewController {
         audioRecorder?.prepareToRecord()
         audioRecorder?.record()
         
-        recordSecondsTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateRecordTime), userInfo: nil, repeats: true)
+        recordTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateRecordTime), userInfo: nil, repeats: true)
+        
+        recordTimeLimitTimer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(stopRecording), userInfo: nil, repeats: false)
     }
     
     @objc func updateRecordTime() {
@@ -57,7 +60,15 @@ class RecordSoundViewController: UIViewController {
             return
         }
         
-        recordSeconds.text = currentTime.stringFromTimeInterval()
+        recordTime.text = currentTime.stringFromTimeInterval()
+    }
+    
+    @objc func stopRecording() {
+        recordTimer?.invalidate()
+        audioRecorder?.stop()
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        try? audioSession.setActive(false)
     }
 }
 

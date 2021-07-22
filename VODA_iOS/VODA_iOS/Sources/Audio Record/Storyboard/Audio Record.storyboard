@@ -57,8 +57,8 @@
                     <connections>
                         <outlet property="recordButton" destination="n9f-Vy-DQE" id="fJY-X1-aC9"/>
                         <outlet property="recordGuideText" destination="rmK-XZ-UTg" id="DIK-dl-3H8"/>
-                        <outlet property="recordSeconds" destination="Jzo-5I-yud" id="kwX-JZ-CaT"/>
-                        <segue destination="LIK-ew-Ac3" kind="show" identifier="playSound" id="VJA-qe-pbc"/>
+                        <outlet property="recordTime" destination="Jzo-5I-yud" id="kwX-JZ-CaT"/>
+                        <segue destination="LIK-ew-Ac3" kind="show" identifier="stopRecording" id="VJA-qe-pbc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
