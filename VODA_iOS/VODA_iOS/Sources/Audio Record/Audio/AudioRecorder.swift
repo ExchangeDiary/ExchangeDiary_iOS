@@ -13,16 +13,15 @@ extension Notification.Name {
 }
 
 enum AudioRecorderState: String {
-  case prepared = "prepared"
-  case record = "record"
-  case stopped = "stopped"
-  case errorOccured = "errorOccured"
+    case prepared = "prepared"
+    case record = "record"
+    case stopped = "stopped"
+    case errorOccured = "errorOccured"
 }
 
 protocol AudioRecordDelegate {
     func AudioRecorder(_ audioPlayer: AudioRecorder, stateChanged state: AudioRecorderState)
     func AudioRecorder(_ audioPlayer: AudioRecorder, stateErrorOccured state: AudioRecorderState)
-    func AudioRecorder(_ audioPlayer: AVAudioRecorder, didFinishedWithURL url: URL?)
     func AudioRecorder(_ audioPlayer: AVAudioRecorder, currentTime: String)
 }
 
@@ -45,7 +44,6 @@ class AudioRecorder: NSObject {
     
     func record() {
         state = .record
-        print("녹음합니다.")
         
         let directoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
         print(directoryPath)
@@ -74,10 +72,9 @@ class AudioRecorder: NSObject {
         
         addTimer()
     }
-   
+    
     @objc func stop() {
         state = .stopped
-        print("정지합니다.")
         
         recordTimer?.invalidate()
         audioRecorder?.stop()
@@ -106,8 +103,7 @@ class AudioRecorder: NSObject {
 extension AudioRecorder: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
-            delegate?.AudioRecorder(recorder, didFinishedWithURL: audioRecorder?.url)
-            NotificationCenter.default.post(name: Notification.Name.finishRecord, object: nil)
+            NotificationCenter.default.post(name: Notification.Name.finishRecord, object: nil, userInfo: ["audioRecoderUrl" : audioRecorder?.url])
         } else {
             print("recording was not succesful")
         }

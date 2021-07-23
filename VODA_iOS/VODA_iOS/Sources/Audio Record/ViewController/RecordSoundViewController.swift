@@ -16,11 +16,10 @@ class RecordSoundViewController: UIViewController {
     var recordState: String?
     var recordedAudioURL: URL?
     var audioRecorder: AudioRecorder?
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "stopRecording" {
             let playSoundViewController = segue.destination as? PlaySoundViewController
-            let recordedAudioURL = sender as! URL
             playSoundViewController?.recordedAudioURL = recordedAudioURL
         }
     }
@@ -32,7 +31,7 @@ class RecordSoundViewController: UIViewController {
         audioRecorder = VODA_iOS.AudioRecorder.shared
         audioRecorder?.delegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(push), name: Notification.Name.finishRecord, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(finishRecord), name: Notification.Name.finishRecord, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,11 +51,14 @@ class RecordSoundViewController: UIViewController {
         audioRecorder?.stop()
     }
     
-    @objc func updateRecordTime() {
-    }
-    
-    @objc func push() {
+    @objc func finishRecord(_ notification: Notification) {
         performSegue(withIdentifier: "stopRecording", sender: recordedAudioURL)
+        
+        guard let recordedurl = notification.userInfo?["audioRecoderUrl"] as? URL else {
+            return
+        }
+        recordedAudioURL = recordedurl
+        print("recordedAudioURL: \(recordedurl)")
     }
 }
 
@@ -71,12 +73,7 @@ extension RecordSoundViewController: AudioRecordDelegate {
         print("error occured")
     }
     
-    func AudioRecorder(_ audioPlayer: AVAudioRecorder, didFinishedWithURL url: URL?) {
-        recordedAudioURL = url
-    }
-    
     func AudioRecorder(_ audioPlayer: AVAudioRecorder, currentTime: String) {
         recordTime.text = currentTime
-        print("currentTime: \(currentTime)")
     }
 }
