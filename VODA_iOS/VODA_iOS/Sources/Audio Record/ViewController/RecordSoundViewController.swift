@@ -11,19 +11,34 @@ import AVFoundation
 class RecordSoundViewController: UIViewController {
     @IBOutlet weak var recordTime: UILabel!
     @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordGuideText: UILabel!
     private var audioRecorder: AVAudioRecorder?
     private var recordTimer: Timer?
     private var recordTimeLimitTimer: Timer?
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "stopRecording" {
+            let playSoundViewController = segue.destination as? PlaySoundViewController
+            let recordedAudioURL = sender as! URL
+            playSoundViewController?.recordedAudioURL = recordedAudioURL
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        stopButton.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        stopButton.isHidden = true
     }
     
     @IBAction func recordAudio(_ sender: Any) {
-        recordButton.setImage(UIImage(named: "stop"), for: .normal)
+        recordButton.isHidden = true
         recordGuideText.isHidden = true
+        stopButton.isHidden = false
         
         let directoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
         print(directoryPath)
@@ -55,20 +70,20 @@ class RecordSoundViewController: UIViewController {
         recordTimeLimitTimer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(stopRecording), userInfo: nil, repeats: false)
     }
     
+    @IBAction func stopRecording(_ sender: Any) {
+        recordTimer?.invalidate()
+        audioRecorder?.stop()
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        try? audioSession.setActive(false)
+    }
+    
     @objc func updateRecordTime() {
         guard let currentTime = audioRecorder?.currentTime else {
             return
         }
         
         recordTime.text = currentTime.stringFromTimeInterval()
-    }
-    
-    @objc func stopRecording() {
-        recordTimer?.invalidate()
-        audioRecorder?.stop()
-        
-        let audioSession = AVAudioSession.sharedInstance()
-        try? audioSession.setActive(false)
     }
 }
 
