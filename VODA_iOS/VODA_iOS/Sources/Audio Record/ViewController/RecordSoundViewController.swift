@@ -13,10 +13,10 @@ class RecordSoundViewController: UIViewController {
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordGuideText: UILabel!
-    private var audioRecorder: AVAudioRecorder?
-    private var recordTimer: Timer?
-    private var recordTimeLimitTimer: Timer?
-    
+    var recordState: String?
+    var recordedAudioURL: URL?
+    var audioRecorder: AudioRecorder?
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "stopRecording" {
             let playSoundViewController = segue.destination as? PlaySoundViewController
@@ -28,6 +28,11 @@ class RecordSoundViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         stopButton.isHidden = true
+        
+        audioRecorder = VODA_iOS.AudioRecorder.shared
+        audioRecorder?.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(push), name: Notification.Name.finishRecord, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,60 +45,38 @@ class RecordSoundViewController: UIViewController {
         recordGuideText.isHidden = true
         stopButton.isHidden = false
         
-        let directoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-        print(directoryPath)
-        let recordingName = "recordedVoice.m4a"
-        
-        let pathArray = [directoryPath, recordingName]
-        guard let filePath = URL(string: pathArray.joined(separator: "/")) else {
-            return
-        }
-        print(filePath)
-        
-        let recordSettings = [AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue,
-                              AVEncoderBitRateKey: 32,
-                              AVNumberOfChannelsKey: 1,
-                              AVSampleRateKey: 12000] as [String : Any]
-        
-        let session = AVAudioSession.sharedInstance()
-        try? session.setCategory(AVAudioSession.Category.playAndRecord, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
-        
-        try? audioRecorder = AVAudioRecorder(url: filePath, settings: recordSettings)
-        
-        audioRecorder?.delegate = self
-        audioRecorder?.isMeteringEnabled = true
-        audioRecorder?.prepareToRecord()
         audioRecorder?.record()
-        
-        recordTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateRecordTime), userInfo: nil, repeats: true)
-        
-        recordTimeLimitTimer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(stopRecording), userInfo: nil, repeats: false)
     }
     
     @IBAction func stopRecording(_ sender: Any) {
-        recordTimer?.invalidate()
         audioRecorder?.stop()
-        
-        let audioSession = AVAudioSession.sharedInstance()
-        try? audioSession.setActive(false)
     }
     
     @objc func updateRecordTime() {
-        guard let currentTime = audioRecorder?.currentTime else {
-            return
-        }
-        
-        recordTime.text = currentTime.stringFromTimeInterval()
+    }
+    
+    @objc func push() {
+        performSegue(withIdentifier: "stopRecording", sender: recordedAudioURL)
     }
 }
 
-// MARK: AVAudioRecorderDelegate
-extension RecordSoundViewController: AVAudioRecorderDelegate {
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        if flag {
-            performSegue(withIdentifier: "stopRecording", sender: audioRecorder?.url)
-        } else {
-            print("recording was not succesful")
-        }
+// Mark: AudioRecordDelegate
+extension RecordSoundViewController: AudioRecordDelegate {
+    func AudioRecorder(_ audioPlayer: AudioRecorder, stateChanged state: AudioRecorderState) {
+        recordState = state.rawValue
+        print("recordState: \(recordState)")
+    }
+    
+    func AudioRecorder(_ audioPlayer: AudioRecorder, stateErrorOccured state: AudioRecorderState) {
+        print("error occured")
+    }
+    
+    func AudioRecorder(_ audioPlayer: AVAudioRecorder, didFinishedWithURL url: URL?) {
+        recordedAudioURL = url
+    }
+    
+    func AudioRecorder(_ audioPlayer: AVAudioRecorder, currentTime: String) {
+        recordTime.text = currentTime
+        print("currentTime: \(currentTime)")
     }
 }
