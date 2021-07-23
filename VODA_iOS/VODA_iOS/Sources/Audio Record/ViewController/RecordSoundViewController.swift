@@ -15,7 +15,7 @@ class RecordSoundViewController: UIViewController {
     @IBOutlet weak var recordGuideText: UILabel!
     var recordState: String?
     var recordedAudioURL: URL?
-    var audioRecorder: AudioRecorder?
+    var audioRecorder: AudioRecordManager?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "stopRecording" {
@@ -28,7 +28,7 @@ class RecordSoundViewController: UIViewController {
         super.viewDidLoad()
         stopButton.isHidden = true
         
-        audioRecorder = VODA_iOS.AudioRecorder.shared
+        audioRecorder = AudioRecordManager.shared
         audioRecorder?.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(finishRecord), name: Notification.Name.finishRecord, object: nil)
@@ -64,16 +64,16 @@ class RecordSoundViewController: UIViewController {
 
 // Mark: AudioRecordDelegate
 extension RecordSoundViewController: AudioRecordDelegate {
-    func AudioRecorder(_ audioPlayer: AudioRecorder, stateChanged state: AudioRecorderState) {
+    func AudioRecorder(_ audioPlayer: AudioRecordManager, stateChanged state: AudioRecordState) {
         recordState = state.rawValue
         print("recordState: \(recordState)")
     }
     
-    func AudioRecorder(_ audioPlayer: AudioRecorder, stateErrorOccured state: AudioRecorderState) {
+    func AudioRecorder(_ audioPlayer: AudioRecordManager, stateErrorOccured state: AudioRecordState) {
         print("error occured")
     }
     
-    func AudioRecorder(_ audioPlayer: AVAudioRecorder, currentTime: String) {
+    func AudioRecorder(_ audioPlayer: AudioRecordManager, currentTime: String) {
         recordTime.text = currentTime
     }
 }

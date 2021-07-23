@@ -1,5 +1,5 @@
 //
-//  AudioRecorder.swift
+//  AudioRecordManager.swift
 //  VODA_iOS
 //
 //  Created by 전소영 on 2021/07/23.
@@ -12,7 +12,7 @@ extension Notification.Name {
     static let finishRecord = Notification.Name("finishRecord")
 }
 
-enum AudioRecorderState: String {
+enum AudioRecordState: String {
     case prepared = "prepared"
     case record = "record"
     case stopped = "stopped"
@@ -20,27 +20,25 @@ enum AudioRecorderState: String {
 }
 
 protocol AudioRecordDelegate {
-    func AudioRecorder(_ audioPlayer: AudioRecorder, stateChanged state: AudioRecorderState)
-    func AudioRecorder(_ audioPlayer: AudioRecorder, stateErrorOccured state: AudioRecorderState)
-    func AudioRecorder(_ audioPlayer: AVAudioRecorder, currentTime: String)
+    func AudioRecorder(_ audioPlayer: AudioRecordManager, stateChanged state: AudioRecordState)
+    func AudioRecorder(_ audioPlayer: AudioRecordManager, stateErrorOccured state: AudioRecordState)
+    func AudioRecorder(_ audioPlayer: AudioRecordManager, currentTime: String)
 }
 
-class AudioRecorder: NSObject {
+class AudioRecordManager: NSObject {
     var audioRecorder: AVAudioRecorder?
     var recordTimer: Timer?
     var recordTimeLimitTimer: Timer?
     var delegate: AudioRecordDelegate?
-    static let shared = AudioRecorder()
+    static let shared = AudioRecordManager()
     
-    var state: AudioRecorderState = .prepared {
+    var state: AudioRecordState = .prepared {
         didSet {
             delegate?.AudioRecorder(self, stateChanged: state)
         }
     }
     
-    private override init() {
-        
-    }
+    private override init() { }
     
     func record() {
         state = .record
@@ -89,7 +87,7 @@ class AudioRecorder: NSObject {
         }
         let currentTime = audioRecorder.currentTime
         
-        delegate?.AudioRecorder(audioRecorder, currentTime: currentTime.stringFromTimeInterval())
+        delegate?.AudioRecorder(self, currentTime: currentTime.stringFromTimeInterval())
     }
     
     func addTimer() {
@@ -100,7 +98,7 @@ class AudioRecorder: NSObject {
 }
 
 // MARK: AVAudioRecorderDelegate
-extension AudioRecorder: AVAudioRecorderDelegate {
+extension AudioRecordManager: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
             NotificationCenter.default.post(name: Notification.Name.finishRecord, object: nil, userInfo: ["audioRecoderUrl" : audioRecorder?.url])
