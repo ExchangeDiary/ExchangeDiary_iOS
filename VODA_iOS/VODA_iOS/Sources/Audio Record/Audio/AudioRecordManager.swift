@@ -8,77 +8,84 @@
 import Foundation
 import AVFoundation
 
-extension Notification.Name {
-    static let finishRecord = Notification.Name("finishRecord")
+enum AudioRecordStatus {
+    case idle
+    case prepared
+    case record
+    case stopped
+    case finished
+    case errorOccured
 }
 
-enum AudioRecordState: String {
-    case prepared = "prepared"
-    case record = "record"
-    case stopped = "stopped"
-    case errorOccured = "errorOccured"
-}
-
-protocol AudioRecordDelegate {
-    func AudioRecorder(_ audioPlayer: AudioRecordManager, stateChanged state: AudioRecordState)
-    func AudioRecorder(_ audioPlayer: AudioRecordManager, stateErrorOccured state: AudioRecordState)
+protocol AudioRecordDelegate: AnyObject {
+    func AudioRecorder(_ audioPlayer: AudioRecordManager, statusChanged status: AudioRecordStatus)
+    func AudioRecorder(_ audioPlayer: AudioRecordManager, statusErrorOccured status: AudioRecordStatus)
+    func AudioRecorder(_ audioPlayer: AudioRecordManager, didFinishedWithUrl url: URL?)
     func AudioRecorder(_ audioPlayer: AudioRecordManager, currentTime: String)
 }
 
 class AudioRecordManager: NSObject {
     var audioRecorder: AVAudioRecorder?
     var recordTimer: Timer?
-    var recordTimeLimitTimer: Timer?
-    var delegate: AudioRecordDelegate?
+ 
+    weak var delegate: AudioRecordDelegate?
     static let shared = AudioRecordManager()
+    let audioSession = AVAudioSession.sharedInstance()
     
-    var state: AudioRecordState = .prepared {
+    var status: AudioRecordStatus = .idle {
         didSet {
-            delegate?.AudioRecorder(self, stateChanged: state)
+            delegate?.AudioRecorder(self, statusChanged: status)
         }
     }
     
     private override init() { }
     
     func record() {
-        state = .record
-        
-        let directoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        guard let directoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first as? String else {
+            return
+        }
         print(directoryPath)
         let recordingName = "recordedVoice.m4a"
-        
-        let pathArray = [directoryPath, recordingName]
-        guard let filePath = URL(string: pathArray.joined(separator: "/")) else {
+        guard let filePath = URL(string: [directoryPath, recordingName].joined(separator: "/")) else {
             return
         }
         print(filePath)
         
-        let recordSettings = [AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue,
-                              AVEncoderBitRateKey: 32,
-                              AVNumberOfChannelsKey: 1,
-                              AVSampleRateKey: 12000] as [String : Any]
+        let recordSettings: [String: Any] = [AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue,
+                                             AVEncoderBitRateKey: 32,
+                                             AVNumberOfChannelsKey: 1,
+                                             AVSampleRateKey: 12000]
         
-        let session = AVAudioSession.sharedInstance()
-        try? session.setCategory(AVAudioSession.Category.playAndRecord, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
-        
-        try? audioRecorder = AVAudioRecorder(url: filePath, settings: recordSettings)
-        
-        audioRecorder?.delegate = self
-        audioRecorder?.isMeteringEnabled = true
-        audioRecorder?.prepareToRecord()
-        audioRecorder?.record()
-        
-        addTimer()
+        do {
+            try? audioSession.setCategory(AVAudioSession.Category.playAndRecord, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
+            
+            try? audioRecorder = AVAudioRecorder(url: filePath, settings: recordSettings)
+            audioRecorder?.delegate = self
+            audioRecorder?.isMeteringEnabled = true
+            audioRecorder?.prepareToRecord()
+            
+            status = .prepared
+            
+            audioRecorder?.record()
+            addTimer()
+            
+            status = .record
+        } catch {
+            print(error)
+        }
     }
     
     @objc func stop() {
-        state = .stopped
+        status = .stopped
         
         recordTimer?.invalidate()
         audioRecorder?.stop()
         
-        let audioSession = AVAudioSession.sharedInstance()
-        try? audioSession.setActive(false)
+        do {
+            try? audioSession.setActive(false)
+        } catch {
+            print(error)
+        }
     }
     
     @objc func getCurrentTime() {
@@ -87,13 +94,15 @@ class AudioRecordManager: NSObject {
         }
         let currentTime = audioRecorder.currentTime
         
+        if currentTime >= 30.0 {
+            stop()
+        }
+        
         delegate?.AudioRecorder(self, currentTime: currentTime.stringFromTimeInterval())
     }
     
     func addTimer() {
         recordTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(getCurrentTime), userInfo: nil, repeats: true)
-        
-        recordTimeLimitTimer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(stop), userInfo: nil, repeats: false)
     }
 }
 
@@ -101,7 +110,8 @@ class AudioRecordManager: NSObject {
 extension AudioRecordManager: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
-            NotificationCenter.default.post(name: Notification.Name.finishRecord, object: nil, userInfo: ["audioRecoderUrl" : audioRecorder?.url])
+            status = .finished
+            delegate?.AudioRecorder(self, didFinishedWithUrl: audioRecorder?.url)
         } else {
             print("recording was not succesful")
         }

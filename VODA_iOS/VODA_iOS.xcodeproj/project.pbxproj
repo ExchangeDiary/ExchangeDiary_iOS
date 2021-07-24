@@ -13,6 +13,7 @@
 		9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46C2699E3CC00FA072C /* MainViewController.swift */; };
 		9B2BF4722699E3CF00FA072C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BF4712699E3CF00FA072C /* Assets.xcassets */; };
 		9B6C8B4026AA963200D089D3 /* AudioRecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B3F26AA963200D089D3 /* AudioRecordManager.swift */; };
+		9B6C8B4526ABA1FD00D089D3 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B4426ABA1FD00D089D3 /* SegueIdentifier.swift */; };
 		9B904DC626A95DF8004F5B99 /* RecordSoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904DC526A95DF8004F5B99 /* RecordSoundViewController.swift */; };
 		9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904DC726A95E14004F5B99 /* PlaySoundViewController.swift */; };
 		9B904DCA26A95E82004F5B99 /* Audio Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B904DC926A95E82004F5B99 /* Audio Record.storyboard */; };
@@ -32,6 +33,7 @@
 		9B2BF4712699E3CF00FA072C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B2BF4762699E3CF00FA072C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		9B6C8B3F26AA963200D089D3 /* AudioRecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordManager.swift; sourceTree = "<group>"; };
+		9B6C8B4426ABA1FD00D089D3 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		9B904DC526A95DF8004F5B99 /* RecordSoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundViewController.swift; sourceTree = "<group>"; };
 		9B904DC726A95E14004F5B99 /* PlaySoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundViewController.swift; sourceTree = "<group>"; };
 		9B904DC926A95E82004F5B99 /* Audio Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Audio Record.storyboard"; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			children = (
 				9BE0A864269A1B6B005314C0 /* Extension */,
 				9BE0A863269A1B61005314C0 /* Network */,
+				9B6C8B4426ABA1FD00D089D3 /* SegueIdentifier.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */,
 				9B904DC626A95DF8004F5B99 /* RecordSoundViewController.swift in Sources */,
 				9B6C8B4026AA963200D089D3 /* AudioRecordManager.swift in Sources */,
+				9B6C8B4526ABA1FD00D089D3 /* SegueIdentifier.swift in Sources */,
 				9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */,
 				9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */,
 				9B904DCC26A9AAF9004F5B99 /* TimeInterval+Extension.swift in Sources */,

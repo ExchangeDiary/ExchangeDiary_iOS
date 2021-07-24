@@ -13,14 +13,15 @@ class RecordSoundViewController: UIViewController {
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordGuideText: UILabel!
-    var recordState: String?
-    var recordedAudioURL: URL?
+    
+    var recordStatus: String?
+    var recordedAudioUrl: URL?
     var audioRecorder: AudioRecordManager?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "stopRecording" {
+        if segue.identifier == SegueIdentifier.stopRecording {
             let playSoundViewController = segue.destination as? PlaySoundViewController
-            playSoundViewController?.recordedAudioURL = recordedAudioURL
+            playSoundViewController?.recordedAudioURL = recordedAudioUrl
         }
     }
     
@@ -30,8 +31,6 @@ class RecordSoundViewController: UIViewController {
         
         audioRecorder = AudioRecordManager.shared
         audioRecorder?.delegate = self
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(finishRecord), name: Notification.Name.finishRecord, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,26 +49,26 @@ class RecordSoundViewController: UIViewController {
     @IBAction func stopRecording(_ sender: Any) {
         audioRecorder?.stop()
     }
-    
-    @objc func finishRecord(_ notification: Notification) {
-        performSegue(withIdentifier: "stopRecording", sender: recordedAudioURL)
-        
-        guard let recordedurl = notification.userInfo?["audioRecoderUrl"] as? URL else {
-            return
-        }
-        recordedAudioURL = recordedurl
-        print("recordedAudioURL: \(recordedurl)")
-    }
 }
 
 // Mark: AudioRecordDelegate
 extension RecordSoundViewController: AudioRecordDelegate {
-    func AudioRecorder(_ audioPlayer: AudioRecordManager, stateChanged state: AudioRecordState) {
-        recordState = state.rawValue
-        print("recordState: \(recordState)")
+    func AudioRecorder(_ audioPlayer: AudioRecordManager, didFinishedWithUrl url: URL?) {
+        guard let recordedUrl = url else {
+            return
+        }
+        recordedAudioUrl = recordedUrl
+        print("recordedAudioURL: \(recordedUrl)")
     }
     
-    func AudioRecorder(_ audioPlayer: AudioRecordManager, stateErrorOccured state: AudioRecordState) {
+    func AudioRecorder(_ audioPlayer: AudioRecordManager, statusChanged status: AudioRecordStatus) {
+        if status == .finished {
+            performSegue(withIdentifier: SegueIdentifier.stopRecording, sender: self)
+        }
+        print("recordState: \(status)")
+    }
+    
+    func AudioRecorder(_ audioPlayer: AudioRecordManager, statusErrorOccured status: AudioRecordStatus) {
         print("error occured")
     }
     
