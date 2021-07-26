@@ -57,7 +57,7 @@ class AudioRecordManager: NSObject {
                                              AVSampleRateKey: 12000]
         
         do {
-            try? audioSession.setCategory(AVAudioSession.Category.playAndRecord, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
+            try? audioSession.setCategory(.playAndRecord, options: [.allowBluetooth,.defaultToSpeaker])
             
             try? audioRecorder = AVAudioRecorder(url: filePath, settings: recordSettings)
             audioRecorder?.delegate = self
