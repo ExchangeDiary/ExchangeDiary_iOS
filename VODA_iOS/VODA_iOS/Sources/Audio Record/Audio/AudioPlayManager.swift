@@ -20,6 +20,7 @@ enum AudioPlayerStatus: String {
 enum AudioPlayerError {
     case AudioFileError
     case AudioEngineError
+    case AudioManualRenderingModeError
     
     var message: String {
         switch self {
@@ -27,6 +28,8 @@ enum AudioPlayerError {
             return "Audio File Error"
         case .AudioEngineError:
             return "Audio Engine Error"
+        case .AudioManualRenderingModeError:
+            return "Audio Manual Rendering Mode Error"
         }
     }
 }
@@ -63,12 +66,22 @@ class AudioPlayManager: NSObject {
         }
     }
     
+    func play(pitch: Float? = nil) {
+        status = .playing
+        
+        if let pitch = pitch {
+            setAudioEffect(pitch: pitch)
+        }
+        
+        audioPlayer?.play()
+    }
+    
     func setAudioEffect(pitch: Float) {
         audioEngine.attach(audioPlayerNode)
         let changePitchNode = AVAudioUnitTimePitch()
         changePitchNode.pitch = pitch
         audioEngine.attach(changePitchNode)
-    
+        
         connectAudioNodes(audioPlayerNode, changePitchNode, audioEngine.mainMixerNode)
         
         audioPlayerNode.stop()
@@ -76,6 +89,16 @@ class AudioPlayManager: NSObject {
             return
         }
         audioPlayerNode.scheduleFile(sourceFile, at: nil)
+        
+        do {
+            let maxNumberOfFrames: AVAudioFrameCount = 4096
+            guard let format = format else {
+                return
+            }
+            try audioEngine.enableManualRenderingMode(.offline, format: format, maximumFrameCount: maxNumberOfFrames)
+        } catch {
+            print(AudioPlayerError.AudioManualRenderingModeError.message)
+        }
         
         do {
             try audioEngine.start()
@@ -91,16 +114,6 @@ class AudioPlayManager: NSObject {
         }
     }
     
-    func play(pitch: Float? = nil) {
-        status = .playing
-        
-        if let pitch = pitch {
-            setAudioEffect(pitch: pitch)
-        }
-
-        audioPlayer?.play()
-    }
-    
     func pause() {
         status = .paused
         audioPlayer?.pause()
@@ -108,7 +121,60 @@ class AudioPlayManager: NSObject {
     
     func stop() {
         status = .stopped
+        
+        audioPlayerNode.stop()
+        
+        audioEngine.stop()
+        audioEngine.reset()
+        
         audioPlayer?.stop()
+    }
+    
+    func offlineManualRendering() {
+        let outputFile: AVAudioFile
+        guard let sourceFile = sourceFile else {
+            return
+        }
+        
+        do {
+            let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+            let outputURL = URL(fileURLWithPath: documentsPath + "/mixLoopProcessed.mp4")
+            outputFile = try AVAudioFile(forWriting: outputURL, settings: sourceFile.fileFormat.settings)
+        } catch {
+            fatalError("could not open output audio file, \(error)")
+        }
+        
+        let buffer: AVAudioPCMBuffer = AVAudioPCMBuffer(pcmFormat: audioEngine.manualRenderingFormat, frameCapacity: audioEngine.manualRenderingMaximumFrameCount)!
+        
+        
+        while audioEngine.manualRenderingSampleTime < sourceFile.length {
+            do {
+                let framesToRender = min(buffer.frameCapacity, AVAudioFrameCount(sourceFile.length - audioEngine.manualRenderingSampleTime))
+                let status = try audioEngine.renderOffline(framesToRender, to: buffer)
+                switch status {
+                case .success:
+                    // data rendered successfully
+                    try outputFile.write(from: buffer)
+                    
+                case .insufficientDataFromInputNode:
+                    break
+                    
+                case .cannotDoInCurrentContext:
+                    break
+                    
+                case .error:
+                    fatalError("render failed")
+                }
+            } catch {
+                fatalError("render failed, \(error)")
+            }
+        }
+        
+        audioPlayerNode.stop()
+        audioEngine.stop()
+        
+        print("Output \(outputFile.url)")
+        print("AVAudioEngine offline rendering completed")
     }
 }
 
