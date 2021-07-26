@@ -56,6 +56,7 @@
 		9B2BF45C2699E3CC00FA072C = {
 			isa = PBXGroup;
 			children = (
+				4CBFAC7E26A44D0600924F64 /* .swiftlint.yml */,
 				9B2BF4672699E3CC00FA072C /* VODA_iOS */,
 				9B2BF4662699E3CC00FA072C /* Products */,
 				5A21726285A1D8F37056E326 /* Pods */,
@@ -106,7 +107,6 @@
 				9B2BF4682699E3CC00FA072C /* AppDelegate.swift */,
 				9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */,
 				9B2BF4762699E3CF00FA072C /* Info.plist */,
-				4CBFAC7E26A44D0600924F64 /* .swiftlint.yml */,
 			);
 			name = SupportingFiles;
 			path = SupportingFiles/Base.lproj;
@@ -299,7 +299,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 		C50DF89ADB9EF435CBF65D9E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
