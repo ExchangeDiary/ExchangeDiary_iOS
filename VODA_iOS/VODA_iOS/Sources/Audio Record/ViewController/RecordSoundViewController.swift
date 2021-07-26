@@ -59,12 +59,10 @@ extension RecordSoundViewController: AudioRecordManagerDelegate {
         }
         recordedAudioUrl = recordedUrl
         print("recordedAudioURL: \(recordedUrl)")
+        performSegue(withIdentifier: SegueIdentifier.stopRecording, sender: self)
     }
     
     func audioRecorder(_ audioPlayer: AudioRecordManager, statusChanged status: AudioRecordStatus) {
-        if status == .finished {
-            performSegue(withIdentifier: SegueIdentifier.stopRecording, sender: self)
-        }
         print("recordState: \(status)")
     }
     
