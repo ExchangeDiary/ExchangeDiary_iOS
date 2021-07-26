@@ -75,7 +75,7 @@ class AudioPlayManager: NSObject {
         status = .playing
         
         if let pitch = pitch {
-            setAudioEffect(pitch: pitch)
+            setAudioEffect(pitch: pitch, isPlaying: true)
         } else {
             do {
                 guard let recordedAudioUrl = recordAudioUrl else {
@@ -90,7 +90,7 @@ class AudioPlayManager: NSObject {
         }
     }
     
-    func setAudioEffect(pitch: Float) {
+    func setAudioEffect(pitch: Float, isPlaying: Bool) {
         audioEngine = AVAudioEngine()
         audioPlayerNode = AVAudioPlayerNode()
         
@@ -107,16 +107,17 @@ class AudioPlayManager: NSObject {
         }
         audioPlayerNode.scheduleFile(sourceFile, at: nil)
         
-        
-//        do {
-//            let maxNumberOfFrames: AVAudioFrameCount = 4096
-//            guard let format = format else {
-//                return
-//            }
-//            try audioEngine.enableManualRenderingMode(.offline, format: format, maximumFrameCount: maxNumberOfFrames)
-//        } catch {
-//            print(AudioPlayerError.AudioManualRenderingModeError.message)
-//        }
+        if !isPlaying {
+            do {
+                let maxNumberOfFrames: AVAudioFrameCount = 4096
+                guard let format = format else {
+                    return
+                }
+                try audioEngine.enableManualRenderingMode(.offline, format: format, maximumFrameCount: maxNumberOfFrames)
+            } catch {
+                print(AudioPlayerError.AudioManualRenderingModeError.message)
+            }
+        }
         
         do {
             try audioEngine.start()
@@ -193,8 +194,8 @@ class AudioPlayManager: NSObject {
         audioPlayerNode.stop()
         audioEngine.stop()
         
-        print("Output \(outputFile.url)")
         print("AVAudioEngine offline rendering completed")
+        print("Output \(outputFile.url)")
     }
 }
 

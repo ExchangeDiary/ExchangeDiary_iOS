@@ -42,8 +42,8 @@ class PlaySoundViewController: UIViewController {
     }
     
     @IBAction func sendVoiceFile(_ sender: Any) {
-        audioPlayer?.play(pitch: pitch)
-        if pitch != nil {
+        if let pitchValue = pitch {
+            audioPlayer?.setAudioEffect(pitch: pitchValue, isPlaying: false)
             audioPlayer?.offlineManualRendering()
         }
     }
