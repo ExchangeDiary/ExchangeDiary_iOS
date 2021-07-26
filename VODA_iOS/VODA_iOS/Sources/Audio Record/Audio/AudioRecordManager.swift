@@ -17,24 +17,24 @@ enum AudioRecordStatus {
     case errorOccured
 }
 
-protocol AudioRecordDelegate: AnyObject {
-    func AudioRecorder(_ audioPlayer: AudioRecordManager, statusChanged status: AudioRecordStatus)
-    func AudioRecorder(_ audioPlayer: AudioRecordManager, statusErrorOccured status: AudioRecordStatus)
-    func AudioRecorder(_ audioPlayer: AudioRecordManager, didFinishedWithUrl url: URL?)
-    func AudioRecorder(_ audioPlayer: AudioRecordManager, currentTime: String)
+protocol AudioRecordManagerDelegate: AnyObject {
+    func audioRecorder(_ audioPlayer: AudioRecordManager, statusChanged status: AudioRecordStatus)
+    func audioRecorder(_ audioPlayer: AudioRecordManager, statusErrorOccured status: AudioRecordStatus)
+    func audioRecorder(_ audioPlayer: AudioRecordManager, didFinishedWithUrl url: URL?)
+    func audioRecorder(_ audioPlayer: AudioRecordManager, currentTime: String)
 }
 
 class AudioRecordManager: NSObject {
     var audioRecorder: AVAudioRecorder?
     var recordTimer: Timer?
  
-    weak var delegate: AudioRecordDelegate?
+    weak var delegate: AudioRecordManagerDelegate?
     static let shared = AudioRecordManager()
     let audioSession = AVAudioSession.sharedInstance()
     
     var status: AudioRecordStatus = .idle {
         didSet {
-            delegate?.AudioRecorder(self, statusChanged: status)
+            delegate?.audioRecorder(self, statusChanged: status)
         }
     }
     
@@ -98,7 +98,7 @@ class AudioRecordManager: NSObject {
             stop()
         }
         
-        delegate?.AudioRecorder(self, currentTime: currentTime.stringFromTimeInterval())
+        delegate?.audioRecorder(self, currentTime: currentTime.stringFromTimeInterval())
     }
     
     func addTimer() {
@@ -111,7 +111,7 @@ extension AudioRecordManager: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
             status = .finished
-            delegate?.AudioRecorder(self, didFinishedWithUrl: audioRecorder?.url)
+            delegate?.audioRecorder(self, didFinishedWithUrl: audioRecorder?.url)
         } else {
             print("recording was not succesful")
         }

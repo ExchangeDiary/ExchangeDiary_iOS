@@ -52,8 +52,8 @@ class RecordSoundViewController: UIViewController {
 }
 
 // Mark: AudioRecordDelegate
-extension RecordSoundViewController: AudioRecordDelegate {
-    func AudioRecorder(_ audioPlayer: AudioRecordManager, didFinishedWithUrl url: URL?) {
+extension RecordSoundViewController: AudioRecordManagerDelegate {
+    func audioRecorder(_ audioPlayer: AudioRecordManager, didFinishedWithUrl url: URL?) {
         guard let recordedUrl = url else {
             return
         }
@@ -61,18 +61,18 @@ extension RecordSoundViewController: AudioRecordDelegate {
         print("recordedAudioURL: \(recordedUrl)")
     }
     
-    func AudioRecorder(_ audioPlayer: AudioRecordManager, statusChanged status: AudioRecordStatus) {
+    func audioRecorder(_ audioPlayer: AudioRecordManager, statusChanged status: AudioRecordStatus) {
         if status == .finished {
             performSegue(withIdentifier: SegueIdentifier.stopRecording, sender: self)
         }
         print("recordState: \(status)")
     }
     
-    func AudioRecorder(_ audioPlayer: AudioRecordManager, statusErrorOccured status: AudioRecordStatus) {
+    func audioRecorder(_ audioPlayer: AudioRecordManager, statusErrorOccured status: AudioRecordStatus) {
         print("error occured")
     }
     
-    func AudioRecorder(_ audioPlayer: AudioRecordManager, currentTime: String) {
+    func audioRecorder(_ audioPlayer: AudioRecordManager, currentTime: String) {
         recordTime.text = currentTime
     }
 }
