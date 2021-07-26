@@ -11,6 +11,7 @@ class PlaySoundViewController: UIViewController {
     var recordedAudioUrl: URL?
     var audioPlayer: AudioPlayManager?
     var pitch: Float?
+    var sendAudioUrl: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +42,21 @@ class PlaySoundViewController: UIViewController {
         pitch = nil
     }
     
-    @IBAction func sendVoiceFile(_ sender: Any) {
+    @IBAction func sendAudioData(_ sender: Any) {
         if let pitchValue = pitch {
             audioPlayer?.setAudioEffect(pitch: pitchValue, isPlaying: false)
-            audioPlayer?.offlineManualRendering()
+            sendAudioUrl = audioPlayer?.offlineManualRendering()
+        } else {
+             sendAudioUrl = recordedAudioUrl
+        }
+        
+        guard let url = sendAudioUrl else {
+            return
+        }
+        print("sendAudioUrl: \(url)")
+        
+        guard let data = try? Data(contentsOf: url) else {
+            return
         }
     }
 }

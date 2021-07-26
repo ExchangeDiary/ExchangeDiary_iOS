@@ -151,51 +151,50 @@ class AudioPlayManager: NSObject {
         audioPlayer?.stop()
     }
     
-    func offlineManualRendering() {
-        let outputFile: AVAudioFile
-        guard let sourceFile = sourceFile else {
-            return
-        }
+    func offlineManualRendering() -> URL {
+        var outputFile = AVAudioFile()
         
-        do {
-            let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-            let outputURL = URL(fileURLWithPath: documentsPath + "/mixLoopProcessed.mp4")
-            outputFile = try AVAudioFile(forWriting: outputURL, settings: sourceFile.fileFormat.settings)
-        } catch {
-            fatalError("could not open output audio file, \(error)")
-        }
-        
-        let buffer: AVAudioPCMBuffer = AVAudioPCMBuffer(pcmFormat: audioEngine.manualRenderingFormat, frameCapacity: audioEngine.manualRenderingMaximumFrameCount)!
-        
-        
-        while audioEngine.manualRenderingSampleTime < sourceFile.length {
+        if let sourceFile = sourceFile {
             do {
-                let framesToRender = min(buffer.frameCapacity, AVAudioFrameCount(sourceFile.length - audioEngine.manualRenderingSampleTime))
-                let status = try audioEngine.renderOffline(framesToRender, to: buffer)
-                switch status {
-                case .success:
-                    // data rendered successfully
-                    try outputFile.write(from: buffer)
-                    
-                case .insufficientDataFromInputNode:
-                    break
-                    
-                case .cannotDoInCurrentContext:
-                    break
-                    
-                case .error:
-                    fatalError("render failed")
-                }
+                let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+                let outputURL = URL(fileURLWithPath: documentsPath + "/mixLoopProcessed.mp4")
+                outputFile = try AVAudioFile(forWriting: outputURL, settings: sourceFile.fileFormat.settings)
             } catch {
-                fatalError("render failed, \(error)")
+                print(AudioPlayerError.AudioFileError.message)
             }
+            
+            let buffer: AVAudioPCMBuffer = AVAudioPCMBuffer(pcmFormat: audioEngine.manualRenderingFormat, frameCapacity: audioEngine.manualRenderingMaximumFrameCount)!
+            
+            while audioEngine.manualRenderingSampleTime < sourceFile.length {
+                do {
+                    let framesToRender = min(buffer.frameCapacity, AVAudioFrameCount(sourceFile.length - audioEngine.manualRenderingSampleTime))
+                    let status = try audioEngine.renderOffline(framesToRender, to: buffer)
+                    switch status {
+                    case .success:
+                        // data rendered successfully
+                        try outputFile.write(from: buffer)
+                        
+                    case .insufficientDataFromInputNode:
+                        break
+                        
+                    case .cannotDoInCurrentContext:
+                        break
+                        
+                    case .error:
+                        print(AudioPlayerError.AudioManualRenderingModeError.message)
+                    }
+                } catch {
+                    fatalError("\(AudioPlayerError.AudioManualRenderingModeError.message), \(error)")
+                }
+            }
+            audioPlayerNode.stop()
+            audioEngine.stop()
         }
-        
-        audioPlayerNode.stop()
-        audioEngine.stop()
         
         print("AVAudioEngine offline rendering completed")
         print("Output \(outputFile.url)")
+        
+        return outputFile.url
     }
 }
 
