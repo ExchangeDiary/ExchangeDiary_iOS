@@ -61,6 +61,8 @@ class AudioRecordManager: NSObject {
             
             try? audioRecorder = AVAudioRecorder(url: filePath, settings: recordSettings)
             audioRecorder?.delegate = self
+            
+            try? audioSession.setActive(true)
             audioRecorder?.isMeteringEnabled = true
             audioRecorder?.prepareToRecord()
             

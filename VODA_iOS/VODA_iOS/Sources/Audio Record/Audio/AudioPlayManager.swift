@@ -21,6 +21,7 @@ enum AudioPlayerError {
     case AudioFileError
     case AudioEngineError
     case AudioManualRenderingModeError
+    case AudioPlayerError
     
     var message: String {
         switch self {
@@ -30,6 +31,8 @@ enum AudioPlayerError {
             return "Audio Engine Error"
         case .AudioManualRenderingModeError:
             return "Audio Manual Rendering Mode Error"
+        case .AudioPlayerError:
+            return "Audio Player Error"
         }
     }
 }
@@ -45,6 +48,7 @@ class AudioPlayManager: NSObject {
     var audioPlayer: AVAudioPlayer?
     var audioEngine = AVAudioEngine()
     var audioPlayerNode = AVAudioPlayerNode()
+    var recordAudioUrl: URL?
     
     weak var delegate: AudioPlayManagerDelegate?
     static let shared = AudioPlayManager()
@@ -60,6 +64,7 @@ class AudioPlayManager: NSObject {
     func setupAudio(recordedAudioUrl: URL) {
         do {
             sourceFile = try AVAudioFile(forReading: recordedAudioUrl as URL)
+            recordAudioUrl = recordedAudioUrl
             format = sourceFile?.processingFormat
         } catch {
             print(AudioPlayerError.AudioFileError.message)
@@ -71,12 +76,24 @@ class AudioPlayManager: NSObject {
         
         if let pitch = pitch {
             setAudioEffect(pitch: pitch)
+        } else {
+            do {
+                guard let recordedAudioUrl = recordAudioUrl else {
+                    return
+                }
+                audioPlayer = try AVAudioPlayer(contentsOf: recordedAudioUrl)
+            } catch {
+                print(AudioPlayerError.AudioPlayerError.message)
+            }
+            
+            audioPlayer?.play()
         }
-        
-        audioPlayer?.play()
     }
     
     func setAudioEffect(pitch: Float) {
+        audioEngine = AVAudioEngine()
+        audioPlayerNode = AVAudioPlayerNode()
+        
         audioEngine.attach(audioPlayerNode)
         let changePitchNode = AVAudioUnitTimePitch()
         changePitchNode.pitch = pitch
@@ -90,15 +107,16 @@ class AudioPlayManager: NSObject {
         }
         audioPlayerNode.scheduleFile(sourceFile, at: nil)
         
-        do {
-            let maxNumberOfFrames: AVAudioFrameCount = 4096
-            guard let format = format else {
-                return
-            }
-            try audioEngine.enableManualRenderingMode(.offline, format: format, maximumFrameCount: maxNumberOfFrames)
-        } catch {
-            print(AudioPlayerError.AudioManualRenderingModeError.message)
-        }
+        
+//        do {
+//            let maxNumberOfFrames: AVAudioFrameCount = 4096
+//            guard let format = format else {
+//                return
+//            }
+//            try audioEngine.enableManualRenderingMode(.offline, format: format, maximumFrameCount: maxNumberOfFrames)
+//        } catch {
+//            print(AudioPlayerError.AudioManualRenderingModeError.message)
+//        }
         
         do {
             try audioEngine.start()
@@ -106,6 +124,8 @@ class AudioPlayManager: NSObject {
             print(AudioPlayerError.AudioEngineError.message)
             return
         }
+        
+        audioPlayerNode.play()
     }
     
     func connectAudioNodes(_ nodes: AVAudioNode...) {

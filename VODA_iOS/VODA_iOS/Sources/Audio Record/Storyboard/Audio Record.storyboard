@@ -129,6 +129,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sn-cr-5o8">
                                         <rect key="frame" x="76.666666666666671" y="0.0" width="46.666666666666671" height="50"/>
                                         <state key="normal" title="Button" image="resume"/>
+                                        <connections>
+                                            <action selector="playSound:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="xju-Pj-RMM"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzf-Jd-h3l">
                                         <rect key="frame" x="153.33333333333331" y="0.0" width="46.666666666666657" height="50"/>
@@ -141,16 +144,29 @@
                                     <constraint firstAttribute="height" constant="50" id="rvm-C9-i2j"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="wS6-7H-WHM">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wS6-7H-WHM">
                                 <rect key="frame" x="90" y="698" width="200" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZr-QR-hXe">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="53.333333333333336" height="70"/>
                                         <state key="normal" title="Button" image="chipmunk_100"/>
+                                        <connections>
+                                            <action selector="setHighPitch:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="yFQ-nK-29g"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXT-Rm-N57">
-                                        <rect key="frame" x="125" y="0.0" width="75" height="70"/>
+                                        <rect key="frame" x="73.333333333333343" y="0.0" width="53.333333333333343" height="70"/>
                                         <state key="normal" title="Button" image="darthvader_100"/>
+                                        <connections>
+                                            <action selector="setRowPitch:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="0X2-Wc-h61"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATR-pd-K6t">
+                                        <rect key="frame" x="146.66666666666666" y="0.0" width="53.333333333333343" height="70"/>
+                                        <state key="normal" title="효과없음"/>
+                                        <connections>
+                                            <action selector="setNoPitch:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="YyM-Do-LIa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -158,6 +174,14 @@
                                     <constraint firstAttribute="width" constant="200" id="WpR-sF-RxX"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0C-hv-INu">
+                                <rect key="frame" x="310" y="123" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="완료"/>
+                                <connections>
+                                    <action selector="sendVoiceFile:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="HOI-UD-TWe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S5c-f0-gb9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
