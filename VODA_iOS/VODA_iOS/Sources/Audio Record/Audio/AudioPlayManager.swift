@@ -66,6 +66,8 @@ class AudioPlayManager: NSObject {
             sourceFile = try AVAudioFile(forReading: recordedAudioUrl as URL)
             recordAudioUrl = recordedAudioUrl
             format = sourceFile?.processingFormat
+            
+            status = .prepared
         } catch {
             print(AudioPlayerError.AudioFileError.message)
         }
@@ -95,6 +97,7 @@ class AudioPlayManager: NSObject {
         audioPlayerNode = AVAudioPlayerNode()
         
         audioEngine.attach(audioPlayerNode)
+        
         let changePitchNode = AVAudioUnitTimePitch()
         changePitchNode.pitch = pitch
         audioEngine.attach(changePitchNode)
@@ -102,6 +105,7 @@ class AudioPlayManager: NSObject {
         connectAudioNodes(audioPlayerNode, changePitchNode, audioEngine.mainMixerNode)
         
         audioPlayerNode.stop()
+        
         guard let sourceFile = sourceFile else {
             return
         }

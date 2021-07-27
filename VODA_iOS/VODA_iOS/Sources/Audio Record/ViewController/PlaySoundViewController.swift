@@ -8,8 +8,8 @@
 import UIKit
 
 class PlaySoundViewController: UIViewController {
-    var recordedAudioUrl: URL?
     var audioPlayer: AudioPlayManager?
+    var recordedAudioUrl: URL?
     var pitch: Float?
     var sendAudioUrl: URL?
     
