@@ -13,7 +13,6 @@ enum AudioRecordStatus {
     case prepared
     case record
     case stopped
-    case finished
     case errorOccured
 }
 
@@ -73,7 +72,7 @@ class AudioRecordManager: NSObject {
             
             status = .record
         } catch {
-            print(error)
+            print(error.localizedDescription.description)
         }
     }
     
@@ -112,7 +111,6 @@ class AudioRecordManager: NSObject {
 extension AudioRecordManager: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
-            status = .finished
             delegate?.audioRecorder(self, didFinishedWithUrl: audioRecorder?.url)
         } else {
             print("recording was not succesful")

@@ -17,6 +17,7 @@ class RecordSoundViewController: UIViewController {
     var recordStatus: String?
     var recordedAudioUrl: URL?
     var audioRecorder: AudioRecordManager?
+    var recordState: AudioRecordStatus?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.stopRecording {
@@ -27,7 +28,7 @@ class RecordSoundViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        stopButton.isHidden = true
+        setUpRecordButtonUI(.idle)
         
         audioRecorder = AudioRecordManager.shared
         audioRecorder?.delegate = self
@@ -35,19 +36,33 @@ class RecordSoundViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        stopButton.isHidden = true
+        recordTime.text = "00 : 00"
+        
     }
     
     @IBAction func recordAudio(_ sender: Any) {
-        recordButton.isHidden = true
-        recordGuideText.isHidden = true
-        stopButton.isHidden = false
-        
         audioRecorder?.record()
     }
     
     @IBAction func stopRecording(_ sender: Any) {
         audioRecorder?.stop()
+    }
+    
+    func setUpRecordButtonUI(_ recordState: AudioRecordStatus) {
+        switch recordState {
+        case .idle, .prepared:
+            stopButton.isHidden = true
+        case .record:
+            recordButton.isHidden = true
+            recordGuideText.isHidden = true
+            stopButton.isHidden = false
+        case .stopped:
+            stopButton.isHidden = true
+            recordButton.isHidden = false
+            recordGuideText.isHidden = false
+        default:
+            break
+        }
     }
 }
 
@@ -64,6 +79,7 @@ extension RecordSoundViewController: AudioRecordManagerDelegate {
     
     func audioRecorder(_ audioPlayer: AudioRecordManager, statusChanged status: AudioRecordStatus) {
         print("recordState: \(status)")
+        setUpRecordButtonUI(status)
     }
     
     func audioRecorder(_ audioPlayer: AudioRecordManager, statusErrorOccured status: AudioRecordStatus) {
