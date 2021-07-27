@@ -202,6 +202,9 @@ class AudioPlayManager: NSObject {
     }
 }
 
+// MARK: AVAudioPlayerDelegate
 extension AudioPlayManager: AVAudioPlayerDelegate {
-    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        stop()
+    }
 }
