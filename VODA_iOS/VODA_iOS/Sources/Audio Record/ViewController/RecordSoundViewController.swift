@@ -14,10 +14,9 @@ class RecordSoundViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordGuideText: UILabel!
     
-    var recordStatus: String?
     var recordedAudioUrl: URL?
     var audioRecorder: AudioRecordManager?
-    var recordState: AudioRecordStatus?
+    var recordStatus: AudioRecordStatus?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.stopRecording {
@@ -37,7 +36,6 @@ class RecordSoundViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         recordTime.text = "00 : 00"
-        
     }
     
     @IBAction func recordAudio(_ sender: Any) {
@@ -48,8 +46,8 @@ class RecordSoundViewController: UIViewController {
         audioRecorder?.stop()
     }
     
-    func setUpRecordButtonUI(_ recordState: AudioRecordStatus) {
-        switch recordState {
+    func setUpRecordButtonUI(_ recordStatus: AudioRecordStatus) {
+        switch recordStatus {
         case .idle, .prepared:
             stopButton.isHidden = true
         case .record:
@@ -74,11 +72,12 @@ extension RecordSoundViewController: AudioRecordManagerDelegate {
         }
         recordedAudioUrl = recordedUrl
         print("recordedAudioURL: \(recordedUrl)")
+        
         performSegue(withIdentifier: SegueIdentifier.stopRecording, sender: self)
     }
     
     func audioRecorder(_ audioPlayer: AudioRecordManager, statusChanged status: AudioRecordStatus) {
-        print("recordState: \(status)")
+        print("recordStatus: \(status)")
         setUpRecordButtonUI(status)
     }
     
