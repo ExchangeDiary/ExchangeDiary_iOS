@@ -67,7 +67,6 @@ class AudioPlayManager: NSObject {
             recordAudioUrl = recordedAudioUrl
             format = sourceFile?.processingFormat
             
-            status = .prepared
         } catch {
             print(AudioPlayerError.AudioFileError.message)
         }
@@ -84,6 +83,12 @@ class AudioPlayManager: NSObject {
                     return
                 }
                 audioPlayer = try AVAudioPlayer(contentsOf: recordedAudioUrl)
+                
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.delegate = self
+                audioPlayer?.isMeteringEnabled = true
+                
+                status = .prepared
             } catch {
                 print(AudioPlayerError.AudioPlayerError.message)
             }
