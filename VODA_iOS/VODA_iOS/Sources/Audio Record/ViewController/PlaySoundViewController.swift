@@ -8,26 +8,35 @@
 import UIKit
 
 class PlaySoundViewController: UIViewController {
+    @IBOutlet weak var statusButton: UIButton!
+    
     var audioPlayer: AudioPlayManager?
     var recordedAudioUrl: URL?
     var pitch: Float?
     var sendAudioUrl: URL?
+    var playStatus: AudioPlayerStatus?
+    var isPlaying = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         audioPlayer = AudioPlayManager.shared
         audioPlayer?.delegate = self
         
         guard let recordedUrl = recordedAudioUrl else {
             return
         }
-        audioPlayer?.setupAudio(recordedAudioUrl: recordedUrl)
+        audioPlayer?.setupAudio(audioUrl: recordedUrl)
     }
     
-    
     @IBAction func playSound(_ sender: Any) {
-        audioPlayer?.play(pitch: pitch)
+        if isPlaying {
+            audioPlayer?.pause()
+            isPlaying = false
+        } else {
+            audioPlayer?.play(pitch: pitch)
+            isPlaying = true
+        }
     }
     
     @IBAction func setHighPitch(_ sender: Any) {
@@ -37,17 +46,17 @@ class PlaySoundViewController: UIViewController {
     @IBAction func setRowPitch(_ sender: Any) {
         pitch = -800
     }
- 
+    
     @IBAction func setNoPitch(_ sender: Any) {
         pitch = nil
     }
     
     @IBAction func sendAudioData(_ sender: Any) {
         if let pitchValue = pitch {
-            audioPlayer?.setAudioEffect(pitch: pitchValue, isPlaying: false)
+            audioPlayer?.setAudioEffect(pitch: pitchValue, playOrRender: "render")
             sendAudioUrl = audioPlayer?.offlineManualRendering()
         } else {
-             sendAudioUrl = recordedAudioUrl
+            sendAudioUrl = recordedAudioUrl
         }
         
         guard let url = sendAudioUrl else {
@@ -55,8 +64,20 @@ class PlaySoundViewController: UIViewController {
         }
         print("sendAudioUrl: \(url)")
         
+        //FIXME: 추후 서버로 보낼 오디오 데이터
         guard let data = try? Data(contentsOf: url) else {
             return
+        }
+    }
+    
+    func changeStatusButtonImage(_ playStatus: AudioPlayerStatus) {
+        switch playStatus {
+        case .idle, .prepared, .paused, .stopped:
+            statusButton.setImage(UIImage(named: "resume"), for: .normal)
+        case .playing:
+            statusButton.setImage(UIImage(named: "pause"), for: .normal)
+        default:
+            break
         }
     }
 }
@@ -64,7 +85,8 @@ class PlaySoundViewController: UIViewController {
 // Mark: AudioPlayManagerDelegate
 extension PlaySoundViewController: AudioPlayManagerDelegate {
     func audioPlayer(_ audioPlayer: AudioPlayManager, statusChanged status: AudioPlayerStatus) {
-        print("status: \(status)")
+        print("play status: \(status)")
+        changeStatusButtonImage(status)
     }
     
     func audioPlayer(_ audioPlayer: AudioPlayManager, statusErrorOccured status: AudioPlayerStatus) {

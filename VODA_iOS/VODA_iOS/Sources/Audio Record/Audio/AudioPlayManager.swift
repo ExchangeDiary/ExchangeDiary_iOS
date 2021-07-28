@@ -48,7 +48,6 @@ class AudioPlayManager: NSObject {
     var audioPlayer: AVAudioPlayer?
     var audioEngine = AVAudioEngine()
     var audioPlayerNode = AVAudioPlayerNode()
-    var recordAudioUrl: URL?
     
     weak var delegate: AudioPlayManagerDelegate?
     static let shared = AudioPlayManager()
@@ -61,12 +60,17 @@ class AudioPlayManager: NSObject {
     
     private override init() { }
     
-    func setupAudio(recordedAudioUrl: URL) {
+    func setupAudio(audioUrl: URL) {
         do {
-            sourceFile = try AVAudioFile(forReading: recordedAudioUrl as URL)
-            recordAudioUrl = recordedAudioUrl
+            sourceFile = try AVAudioFile(forReading: audioUrl as URL)
             format = sourceFile?.processingFormat
             
+            audioPlayer = try AVAudioPlayer(contentsOf: audioUrl)
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.delegate = self
+            audioPlayer?.isMeteringEnabled = true
+            
+            status = .prepared
         } catch {
             print(AudioPlayerError.AudioFileError.message)
         }
@@ -76,28 +80,13 @@ class AudioPlayManager: NSObject {
         status = .playing
         
         if let pitch = pitch {
-            setAudioEffect(pitch: pitch, isPlaying: true)
+            setAudioEffect(pitch: pitch, playOrRender: "play")
         } else {
-            do {
-                guard let recordedAudioUrl = recordAudioUrl else {
-                    return
-                }
-                audioPlayer = try AVAudioPlayer(contentsOf: recordedAudioUrl)
-                
-                audioPlayer?.prepareToPlay()
-                audioPlayer?.delegate = self
-                audioPlayer?.isMeteringEnabled = true
-                
-                status = .prepared
-            } catch {
-                print(AudioPlayerError.AudioPlayerError.message)
-            }
-            
             audioPlayer?.play()
         }
     }
     
-    func setAudioEffect(pitch: Float, isPlaying: Bool) {
+    func setAudioEffect(pitch: Float, playOrRender: String) {
         audioEngine = AVAudioEngine()
         audioPlayerNode = AVAudioPlayerNode()
         
@@ -110,13 +99,12 @@ class AudioPlayManager: NSObject {
         connectAudioNodes(audioPlayerNode, changePitchNode, audioEngine.mainMixerNode)
         
         audioPlayerNode.stop()
-        
         guard let sourceFile = sourceFile else {
             return
         }
         audioPlayerNode.scheduleFile(sourceFile, at: nil)
         
-        if !isPlaying {
+        if playOrRender == "render" {
             do {
                 let maxNumberOfFrames: AVAudioFrameCount = 4096
                 guard let format = format else {
@@ -151,7 +139,6 @@ class AudioPlayManager: NSObject {
     
     func stop() {
         status = .stopped
-        
         audioPlayerNode.stop()
         
         audioEngine.stop()

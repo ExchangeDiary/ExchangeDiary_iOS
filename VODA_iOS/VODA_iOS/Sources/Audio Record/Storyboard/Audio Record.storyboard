@@ -202,6 +202,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Q40-Z3-9pt"/>
+                    <connections>
+                        <outlet property="statusButton" destination="4sn-cr-5o8" id="kId-8m-gCI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYl-xG-0hX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
