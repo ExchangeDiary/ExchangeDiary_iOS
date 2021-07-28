@@ -87,8 +87,10 @@ class AudioPlayManager: NSObject {
     }
     
     func setAudioEffect(pitch: Float, playOrRender: String) {
-        audioEngine = AVAudioEngine()
-        audioPlayerNode = AVAudioPlayerNode()
+        if playOrRender == "render" {
+            audioEngine = AVAudioEngine()
+            audioPlayerNode = AVAudioPlayerNode()
+        }
         
         audioEngine.attach(audioPlayerNode)
         
