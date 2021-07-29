@@ -53,7 +53,7 @@ class PlaySoundViewController: UIViewController {
     
     @IBAction func sendAudioData(_ sender: Any) {
         if let pitchValue = pitch {
-            audioPlayer?.setAudioEffect(pitch: pitchValue, playOrRender: "render")
+            audioPlayer?.playWithAudioEffect(pitch: pitchValue, playOrRender: "render")
             sendAudioUrl = audioPlayer?.offlineManualRendering()
         } else {
             sendAudioUrl = recordedAudioUrl
