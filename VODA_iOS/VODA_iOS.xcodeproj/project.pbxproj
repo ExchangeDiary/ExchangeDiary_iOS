@@ -7,18 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4CBFAC8026A44D0600924F64 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CBFAC7E26A44D0600924F64 /* .swiftlint.yml */; };
 		9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF4682699E3CC00FA072C /* AppDelegate.swift */; };
 		9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */; };
 		9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46C2699E3CC00FA072C /* MainViewController.swift */; };
 		9B2BF4722699E3CF00FA072C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BF4712699E3CF00FA072C /* Assets.xcassets */; };
+		9B6C8B4A26B3E58B00D089D3 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CBFAC7F26A44D0600924F64 /* .swiftlint.yml */; };
+		9B6C8B4C26B3EE9C00D089D3 /* MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B4B26B3EE9C00D089D3 /* MainTab.swift */; };
+		9B6C8B5726B3EFE900D089D3 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6C8B5626B3EFE900D089D3 /* Home.storyboard */; };
+		9B6C8B5926B3EFFF00D089D3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B5826B3EFFF00D089D3 /* HomeViewController.swift */; };
+		9B6C8B5B26B3F01A00D089D3 /* Push.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6C8B5A26B3F01A00D089D3 /* Push.storyboard */; };
+		9B6C8B5D26B3F02600D089D3 /* PushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B5C26B3F02600D089D3 /* PushViewController.swift */; };
+		9B6C8B5F26B3F03700D089D3 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6C8B5E26B3F03700D089D3 /* MyPage.storyboard */; };
+		9B6C8B6126B3F04500D089D3 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B6026B3F04500D089D3 /* MyPageViewController.swift */; };
 		9BE0A875269A2080005314C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */; };
 		9BE0A886269A2A4E005314C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A885269A2A4E005314C0 /* Main.storyboard */; };
 		D62B1705EB94FBB77F6FF5CF /* Pods_VODA_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE202DC320DB2B380F3FF7CC /* Pods_VODA_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4CBFAC7F26A44D0600924F64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = Base; path = .swiftlint.yml; sourceTree = "<group>"; };
+		4CBFAC7F26A44D0600924F64 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		835C0E5BB6D174B1D03C169F /* Pods-VODA_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.release.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		9B2BF4652699E3CC00FA072C /* VODA_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VODA_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2BF4682699E3CC00FA072C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +33,13 @@
 		9B2BF46C2699E3CC00FA072C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9B2BF4712699E3CF00FA072C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B2BF4762699E3CF00FA072C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		9B6C8B4B26B3EE9C00D089D3 /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
+		9B6C8B5626B3EFE900D089D3 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		9B6C8B5826B3EFFF00D089D3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9B6C8B5A26B3F01A00D089D3 /* Push.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Push.storyboard; sourceTree = "<group>"; };
+		9B6C8B5C26B3F02600D089D3 /* PushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushViewController.swift; sourceTree = "<group>"; };
+		9B6C8B5E26B3F03700D089D3 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		9B6C8B6026B3F04500D089D3 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BE0A885269A2A4E005314C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C4ACB85E518139A990B1D58A /* Pods-VODA_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.debug.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -56,7 +70,7 @@
 		9B2BF45C2699E3CC00FA072C = {
 			isa = PBXGroup;
 			children = (
-				4CBFAC7E26A44D0600924F64 /* .swiftlint.yml */,
+				4CBFAC7F26A44D0600924F64 /* .swiftlint.yml */,
 				9B2BF4672699E3CC00FA072C /* VODA_iOS */,
 				9B2BF4662699E3CC00FA072C /* Products */,
 				5A21726285A1D8F37056E326 /* Pods */,
@@ -87,6 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				9B2BF4852699E97200FA072C /* Main */,
+				9B6C8B4E26B3EF7A00D089D3 /* Home */,
+				9B6C8B4F26B3EF7F00D089D3 /* Push */,
+				9B6C8B4D26B3EF6E00D089D3 /* MyPage */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -116,9 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				9B2BF4892699EB3500FA072C /* Storyboard */,
-				9BE0A86F269A1D85005314C0 /* Model */,
-				9BE0A872269A1D8C005314C0 /* View */,
 				9B2BF4862699EAEA00FA072C /* ViewController */,
+				9B6C8B4B26B3EE9C00D089D3 /* MainTab.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -137,6 +153,81 @@
 				9BE0A885269A2A4E005314C0 /* Main.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9B6C8B4D26B3EF6E00D089D3 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				9B6C8B5226B3EFB600D089D3 /* Storyboard */,
+				9B6C8B5526B3EFCD00D089D3 /* ViewController */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		9B6C8B4E26B3EF7A00D089D3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9B6C8B5026B3EFA500D089D3 /* Storyboard */,
+				9B6C8B5326B3EFBD00D089D3 /* ViewController */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		9B6C8B4F26B3EF7F00D089D3 /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				9B6C8B5126B3EFAF00D089D3 /* Storyboard */,
+				9B6C8B5426B3EFC500D089D3 /* ViewController */,
+			);
+			path = Push;
+			sourceTree = "<group>";
+		};
+		9B6C8B5026B3EFA500D089D3 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9B6C8B5626B3EFE900D089D3 /* Home.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9B6C8B5126B3EFAF00D089D3 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9B6C8B5A26B3F01A00D089D3 /* Push.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9B6C8B5226B3EFB600D089D3 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9B6C8B5E26B3F03700D089D3 /* MyPage.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9B6C8B5326B3EFBD00D089D3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9B6C8B5826B3EFFF00D089D3 /* HomeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9B6C8B5426B3EFC500D089D3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9B6C8B5C26B3F02600D089D3 /* PushViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9B6C8B5526B3EFCD00D089D3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9B6C8B6026B3F04500D089D3 /* MyPageViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		9BE0A862269A1B51005314C0 /* Utils */ = {
@@ -167,20 +258,6 @@
 			children = (
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		9BE0A86F269A1D85005314C0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		9BE0A872269A1D8C005314C0 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		A9128262FA506F3E1424ABFB /* Frameworks */ = {
@@ -251,8 +328,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CBFAC8026A44D0600924F64 /* .swiftlint.yml in Resources */,
+				9B6C8B5B26B3F01A00D089D3 /* Push.storyboard in Resources */,
+				9B6C8B4A26B3E58B00D089D3 /* .swiftlint.yml in Resources */,
+				9B6C8B5726B3EFE900D089D3 /* Home.storyboard in Resources */,
 				9BE0A886269A2A4E005314C0 /* Main.storyboard in Resources */,
+				9B6C8B5F26B3F03700D089D3 /* MyPage.storyboard in Resources */,
 				9BE0A875269A2080005314C0 /* LaunchScreen.storyboard in Resources */,
 				9B2BF4722699E3CF00FA072C /* Assets.xcassets in Resources */,
 			);
@@ -325,6 +405,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B6C8B5926B3EFFF00D089D3 /* HomeViewController.swift in Sources */,
+				9B6C8B4C26B3EE9C00D089D3 /* MainTab.swift in Sources */,
+				9B6C8B6126B3F04500D089D3 /* MyPageViewController.swift in Sources */,
+				9B6C8B5D26B3F02600D089D3 /* PushViewController.swift in Sources */,
 				9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */,
 				9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */,
 				9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */,
@@ -332,17 +416,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		4CBFAC7E26A44D0600924F64 /* .swiftlint.yml */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4CBFAC7F26A44D0600924F64 /* Base */,
-			);
-			name = .swiftlint.yml;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9B2BF4772699E3CF00FA072C /* Debug */ = {
