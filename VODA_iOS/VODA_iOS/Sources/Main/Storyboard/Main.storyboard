@@ -54,13 +54,13 @@
                                             <constraint firstAttribute="height" constant="58" id="wNQ-97-0yt"/>
                                         </constraints>
                                         <items>
-                                            <tabBarItem title="" image="push" selectedImage="push" id="IJH-FB-jdb">
+                                            <tabBarItem title="" image="push" selectedImage="selectedPush" id="IJH-FB-jdb">
                                                 <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                                             </tabBarItem>
-                                            <tabBarItem tag="1" title="" image="home" selectedImage="selectedPush" id="t11-pQ-60H" userLabel="home Tab Item">
+                                            <tabBarItem tag="1" title="" image="home" selectedImage="selectedHome" id="t11-pQ-60H" userLabel="home Tab Item">
                                                 <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                                             </tabBarItem>
-                                            <tabBarItem tag="2" title="" image="mypage" selectedImage="mypage" id="YwV-Dd-2Io">
+                                            <tabBarItem tag="2" title="" image="mypage" selectedImage="selectedMypage" id="YwV-Dd-2Io">
                                                 <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                                             </tabBarItem>
                                         </items>
@@ -168,6 +168,8 @@
         <image name="home" width="44" height="44"/>
         <image name="mypage" width="44" height="44"/>
         <image name="push" width="44" height="44"/>
+        <image name="selectedHome" width="44" height="44"/>
+        <image name="selectedMypage" width="44" height="44"/>
         <image name="selectedPush" width="44" height="44"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
