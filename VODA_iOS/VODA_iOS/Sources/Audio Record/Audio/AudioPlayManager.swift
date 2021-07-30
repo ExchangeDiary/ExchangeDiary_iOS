@@ -178,6 +178,7 @@ class AudioPlayManager: NSObject {
         audioPlayerNode.stop()
         
         audioPlayer?.stop()
+        audioPlayer?.currentTime = 0
         
         paused = false
     }

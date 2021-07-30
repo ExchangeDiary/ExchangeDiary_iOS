@@ -41,14 +41,23 @@ class PlaySoundViewController: UIViewController {
     
     @IBAction func setHighPitch(_ sender: Any) {
         pitch = 1000
+        if isPlaying {
+            audioPlayer?.stop()
+        }
     }
     
     @IBAction func setRowPitch(_ sender: Any) {
         pitch = -800
+        if isPlaying {
+            audioPlayer?.stop()
+        }
     }
     
     @IBAction func setNoPitch(_ sender: Any) {
         pitch = nil
+        if isPlaying {
+            audioPlayer?.stop()
+        }
     }
     
     @IBAction func sendAudioData(_ sender: Any) {
