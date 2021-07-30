@@ -86,6 +86,10 @@ class PlaySoundViewController: UIViewController {
 extension PlaySoundViewController: AudioPlayManagerDelegate {
     func audioPlayer(_ audioPlayer: AudioPlayManager, statusChanged status: AudioPlayerStatus) {
         print("play status: \(status)")
+        if status == .stopped {
+            isPlaying = false
+        }
+        
         changeStatusButtonImage(status)
     }
     

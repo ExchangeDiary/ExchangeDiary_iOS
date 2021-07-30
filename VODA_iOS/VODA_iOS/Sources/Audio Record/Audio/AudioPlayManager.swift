@@ -57,11 +57,15 @@ class AudioPlayManager: NSObject {
             delegate?.audioPlayer(self, statusChanged: status)
         }
     }
+    var paused = false
     
     private override init() { }
     
     func setupAudio(audioUrl: URL) {
         do {
+            // FIXME: engine 생성 확인
+            audioEngine = AVAudioEngine()
+            
             sourceFile = try AVAudioFile(forReading: audioUrl as URL)
             format = sourceFile?.processingFormat
             
@@ -80,17 +84,32 @@ class AudioPlayManager: NSObject {
         status = .playing
         
         if let pitch = pitch {
-            setAudioEffect(pitch: pitch, playOrRender: "play")
+            if paused {
+                do {
+                    try? audioEngine.start()
+                    audioPlayerNode.play()
+                } catch {
+                    print("pause play error")
+                }
+            } else {
+                playWithAudioEffect(pitch: pitch, playOrRender: "play")
+            }
         } else {
             audioPlayer?.play()
         }
+        paused = false
     }
     
-    func setAudioEffect(pitch: Float, playOrRender: String) {
+    func playWithAudioEffect(pitch: Float, playOrRender: String) {
+        audioEngine.stop()
+        audioEngine.reset()
+        
+        // FIXME: engine, Node 생성 확인
         if playOrRender == "render" {
             audioEngine = AVAudioEngine()
-            audioPlayerNode = AVAudioPlayerNode()
         }
+        
+        audioPlayerNode = AVAudioPlayerNode()
         
         audioEngine.attach(audioPlayerNode)
         
@@ -104,7 +123,12 @@ class AudioPlayManager: NSObject {
         guard let sourceFile = sourceFile else {
             return
         }
-        audioPlayerNode.scheduleFile(sourceFile, at: nil)
+
+        audioPlayerNode.scheduleFile(sourceFile, at: nil, completionCallbackType: .dataPlayedBack) { [self] _ in 
+            DispatchQueue.main.async {
+                stop()
+            }
+        }
         
         if playOrRender == "render" {
             do {
@@ -136,17 +160,26 @@ class AudioPlayManager: NSObject {
     
     func pause() {
         status = .paused
+        
+        audioEngine.pause()
+        audioPlayerNode.pause()
+        
         audioPlayer?.pause()
+        
+        paused = true
     }
     
     func stop() {
         status = .stopped
-        audioPlayerNode.stop()
-        
+
         audioEngine.stop()
         audioEngine.reset()
         
+        audioPlayerNode.stop()
+        
         audioPlayer?.stop()
+        
+        paused = false
     }
     
     func offlineManualRendering() -> URL {
@@ -199,6 +232,8 @@ class AudioPlayManager: NSObject {
 // MARK: AVAudioPlayerDelegate
 extension AudioPlayManager: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        stop()
+        if flag {
+            stop()
+        }
     }
 }
