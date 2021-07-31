@@ -203,6 +203,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Q40-Z3-9pt"/>
                     <connections>
+                        <outlet property="currentPlayingTime" destination="chr-cN-6Ub" id="Tcs-Q5-6PQ"/>
                         <outlet property="statusButton" destination="4sn-cr-5o8" id="kId-8m-gCI"/>
                         <outlet property="totalDuratioin" destination="zjE-Og-oVR" id="dmA-lg-D1s"/>
                     </connections>

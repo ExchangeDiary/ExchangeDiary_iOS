@@ -10,6 +10,7 @@ import UIKit
 class PlaySoundViewController: UIViewController {
     @IBOutlet weak var statusButton: UIButton!
     @IBOutlet weak var totalDuratioin: UILabel!
+    @IBOutlet weak var currentPlayingTime: UILabel!
     var audioPlayer: AudioPlayManager?
     var recordedAudioUrl: URL?
     var pitch: Float?
@@ -108,5 +109,9 @@ extension PlaySoundViewController: AudioPlayManagerDelegate {
     
     func audioPlayer(_ audioPlayer: AudioPlayManager, duration: String) {
         totalDuratioin.text = duration
+    }
+    
+    func audioPlayer(_ audioPlayer: AudioPlayManager, currentTime: String) {
+        currentPlayingTime.text = currentTime
     }
 }

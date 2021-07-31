@@ -41,6 +41,7 @@ protocol AudioPlayManagerDelegate: AnyObject {
     func audioPlayer(_ audioPlayer: AudioPlayManager, statusChanged status: AudioPlayerStatus)
     func audioPlayer(_ audioPlayer: AudioPlayManager, statusErrorOccured status: AudioPlayerStatus)
     func audioPlayer(_ audioPlayer: AudioPlayManager, duration: String)
+    func audioPlayer(_ audioPlayer: AudioPlayManager, currentTime: String)
 }
 
 class AudioPlayManager: NSObject {
@@ -49,6 +50,7 @@ class AudioPlayManager: NSObject {
     var audioPlayer: AVAudioPlayer?
     var audioEngine = AVAudioEngine()
     var audioPlayerNode = AVAudioPlayerNode()
+    var playTimer: Timer?
     
     weak var delegate: AudioPlayManagerDelegate?
     static let shared = AudioPlayManager()
@@ -101,6 +103,8 @@ class AudioPlayManager: NSObject {
             audioPlayer?.play()
         }
         paused = false
+        
+        addTimer()
     }
     
     func playWithAudioEffect(pitch: Float, playOrRender: String) {
@@ -161,6 +165,14 @@ class AudioPlayManager: NSObject {
         }
     }
     
+    @objc func getCurrentTime() {
+        delegate?.audioPlayer(self, currentTime: audioPlayer?.currentTime.stringFromTimeInterval() ?? "00 : 00")
+    }
+    
+    func addTimer() {
+        playTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(getCurrentTime), userInfo: nil, repeats: true)
+    }
+    
     func pause() {
         status = .paused
         
@@ -175,6 +187,8 @@ class AudioPlayManager: NSObject {
     func stop() {
         status = .stopped
 
+        playTimer?.invalidate()
+        
         audioEngine.stop()
         audioEngine.reset()
         
