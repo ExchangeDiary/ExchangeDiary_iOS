@@ -40,6 +40,7 @@ enum AudioPlayerError {
 protocol AudioPlayManagerDelegate: AnyObject {
     func audioPlayer(_ audioPlayer: AudioPlayManager, statusChanged status: AudioPlayerStatus)
     func audioPlayer(_ audioPlayer: AudioPlayManager, statusErrorOccured status: AudioPlayerStatus)
+    func audioPlayer(_ audioPlayer: AudioPlayManager, duration: String)
 }
 
 class AudioPlayManager: NSObject {
@@ -73,8 +74,10 @@ class AudioPlayManager: NSObject {
             audioPlayer?.prepareToPlay()
             audioPlayer?.delegate = self
             audioPlayer?.isMeteringEnabled = true
-            
+                        
             status = .prepared
+
+            delegate?.audioPlayer(self, duration: audioPlayer?.duration.stringFromTimeInterval() ?? "00 : 00")
         } catch {
             print(AudioPlayerError.AudioFileError.message)
         }
