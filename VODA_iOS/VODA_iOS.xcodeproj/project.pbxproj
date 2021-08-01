@@ -11,6 +11,8 @@
 		4C31E2AB26B6C132003B4E4A /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C31E2AA26B6C132003B4E4A /* UIImageView+Extension.swift */; };
 		4C31E2AD26B6C26E003B4E4A /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C31E2AC26B6C26E003B4E4A /* UILabel+Extension.swift */; };
 		4C31E2AF26B6C29B003B4E4A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C31E2AE26B6C29B003B4E4A /* UIViewController+Extension.swift */; };
+		4C31E2B426B6CF0F003B4E4A /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C31E2B326B6CF0F003B4E4A /* Auth.storyboard */; };
+		4C31E2B626B6CF7E003B4E4A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C31E2B526B6CF7E003B4E4A /* UIColor+Extension.swift */; };
 		9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF4682699E3CC00FA072C /* AppDelegate.swift */; };
 		9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */; };
 		9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46C2699E3CC00FA072C /* MainViewController.swift */; };
@@ -33,6 +35,8 @@
 		4C31E2AA26B6C132003B4E4A /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIImageView+Extension.swift"; path = "Extension/UIImageView+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		4C31E2AC26B6C26E003B4E4A /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UILabel+Extension.swift"; path = "Extension/UILabel+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		4C31E2AE26B6C29B003B4E4A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extension.swift"; path = "Extension/UIViewController+Extension.swift"; sourceTree = SOURCE_ROOT; };
+		4C31E2B326B6CF0F003B4E4A /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		4C31E2B526B6CF7E003B4E4A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "Extension/UIColor+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		4CBFAC7F26A44D0600924F64 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		835C0E5BB6D174B1D03C169F /* Pods-VODA_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.release.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		9B2BF4652699E3CC00FA072C /* VODA_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VODA_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +70,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C31E2B026B6CED2003B4E4A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				4C31E2B226B6CEEC003B4E4A /* ViewController */,
+				4C31E2B126B6CEDB003B4E4A /* Storyboard */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		4C31E2B126B6CEDB003B4E4A /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				4C31E2B326B6CF0F003B4E4A /* Auth.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		4C31E2B226B6CEEC003B4E4A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		5A21726285A1D8F37056E326 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +136,7 @@
 		9B2BF47D2699E4BA00FA072C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				4C31E2B026B6CED2003B4E4A /* Auth */,
 				9B2BF4852699E97200FA072C /* Main */,
 				9B6C8B4E26B3EF7A00D089D3 /* Home */,
 				9B6C8B4F26B3EF7F00D089D3 /* Push */,
@@ -261,6 +290,7 @@
 				4C31E2AA26B6C132003B4E4A /* UIImageView+Extension.swift */,
 				4C31E2AC26B6C26E003B4E4A /* UILabel+Extension.swift */,
 				4C31E2AE26B6C29B003B4E4A /* UIViewController+Extension.swift */,
+				4C31E2B526B6CF7E003B4E4A /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -340,6 +370,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C31E2B426B6CF0F003B4E4A /* Auth.storyboard in Resources */,
 				9B6C8B5B26B3F01A00D089D3 /* Push.storyboard in Resources */,
 				9B6C8B4A26B3E58B00D089D3 /* .swiftlint.yml in Resources */,
 				9B6C8B5726B3EFE900D089D3 /* Home.storyboard in Resources */,
@@ -420,6 +451,7 @@
 				9B6C8B5926B3EFFF00D089D3 /* HomeViewController.swift in Sources */,
 				4C31E2AF26B6C29B003B4E4A /* UIViewController+Extension.swift in Sources */,
 				9B6C8B4C26B3EE9C00D089D3 /* MainTab.swift in Sources */,
+				4C31E2B626B6CF7E003B4E4A /* UIColor+Extension.swift in Sources */,
 				4C31E2AD26B6C26E003B4E4A /* UILabel+Extension.swift in Sources */,
 				4C31E2A926B6C090003B4E4A /* UIView+Extension.swift in Sources */,
 				4C31E2AB26B6C132003B4E4A /* UIImageView+Extension.swift in Sources */,
