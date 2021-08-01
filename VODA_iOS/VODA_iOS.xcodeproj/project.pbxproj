@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C31E2A926B6C090003B4E4A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C31E2A826B6C090003B4E4A /* UIView+Extension.swift */; };
+		4C31E2AB26B6C132003B4E4A /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C31E2AA26B6C132003B4E4A /* UIImageView+Extension.swift */; };
+		4C31E2AD26B6C26E003B4E4A /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C31E2AC26B6C26E003B4E4A /* UILabel+Extension.swift */; };
+		4C31E2AF26B6C29B003B4E4A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C31E2AE26B6C29B003B4E4A /* UIViewController+Extension.swift */; };
 		9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF4682699E3CC00FA072C /* AppDelegate.swift */; };
 		9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */; };
 		9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46C2699E3CC00FA072C /* MainViewController.swift */; };
@@ -25,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C31E2A826B6C090003B4E4A /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extension.swift"; path = "Extension/UIView+Extension.swift"; sourceTree = SOURCE_ROOT; };
+		4C31E2AA26B6C132003B4E4A /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIImageView+Extension.swift"; path = "Extension/UIImageView+Extension.swift"; sourceTree = SOURCE_ROOT; };
+		4C31E2AC26B6C26E003B4E4A /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UILabel+Extension.swift"; path = "Extension/UILabel+Extension.swift"; sourceTree = SOURCE_ROOT; };
+		4C31E2AE26B6C29B003B4E4A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extension.swift"; path = "Extension/UIViewController+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		4CBFAC7F26A44D0600924F64 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		835C0E5BB6D174B1D03C169F /* Pods-VODA_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.release.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		9B2BF4652699E3CC00FA072C /* VODA_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VODA_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,6 +257,10 @@
 		9BE0A864269A1B6B005314C0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				4C31E2A826B6C090003B4E4A /* UIView+Extension.swift */,
+				4C31E2AA26B6C132003B4E4A /* UIImageView+Extension.swift */,
+				4C31E2AC26B6C26E003B4E4A /* UILabel+Extension.swift */,
+				4C31E2AE26B6C29B003B4E4A /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -406,7 +418,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B6C8B5926B3EFFF00D089D3 /* HomeViewController.swift in Sources */,
+				4C31E2AF26B6C29B003B4E4A /* UIViewController+Extension.swift in Sources */,
 				9B6C8B4C26B3EE9C00D089D3 /* MainTab.swift in Sources */,
+				4C31E2AD26B6C26E003B4E4A /* UILabel+Extension.swift in Sources */,
+				4C31E2A926B6C090003B4E4A /* UIView+Extension.swift in Sources */,
+				4C31E2AB26B6C132003B4E4A /* UIImageView+Extension.swift in Sources */,
 				9B6C8B6126B3F04500D089D3 /* MyPageViewController.swift in Sources */,
 				9B6C8B5D26B3F02600D089D3 /* PushViewController.swift in Sources */,
 				9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */,
