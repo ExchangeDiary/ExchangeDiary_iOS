@@ -8,12 +8,12 @@
 import UIKit
 
 extension UIView {
-    func circleRadius() {
+    func makeCircleView() {
         self.layer.cornerRadius = self.frame.height / 2
         self.layer.masksToBounds = true
     }
     
-    func roundRadius(radius: CGFloat) {
+    func makeCornerRadius(radius: CGFloat) {
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true
     }
@@ -27,19 +27,19 @@ extension UIView {
             self.layer.masksToBounds = false
     }
     
-    func topSectionRound(_ radius: CGFloat = 10) {
+    func makeTopSectionRound(_ radius: CGFloat = 10) {
         self.clipsToBounds = true
         self.layer.cornerRadius = radius
         self.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
-    func sectionRoundWithoutLeft(_ radius: CGFloat = 10) {
+    func makeSectionRoundWithoutLeft(_ radius: CGFloat = 10) {
         self.clipsToBounds = true
         self.layer.cornerRadius = radius
         self.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner]
     }
     
-    func bottomSectionRound(_ radius: CGFloat = 10) {
+    func makeBottomSectionRound(_ radius: CGFloat = 10) {
         self.clipsToBounds = true
         self.layer.cornerRadius = radius
         self.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]

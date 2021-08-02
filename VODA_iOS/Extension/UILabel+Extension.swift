@@ -15,10 +15,12 @@ extension UILabel {
         paragraphStyle.alignment = self.textAlignment
 
         let attrString = NSMutableAttributedString()
-        if self.attributedText != nil {
-            attrString.append( self.attributedText!)
+        if let attributedTextValue = self.attributedText {
+            attrString.append(attributedTextValue)
         } else {
-            attrString.append( NSMutableAttributedString(string: self.text!))
+            if let textValue = self.text {
+                attrString.append( NSMutableAttributedString(string: textValue))
+            }
             attrString.addAttribute(NSAttributedString.Key.font, value: self.font ?? "", range: NSRange(location: 0, length: attrString.length))
        }
         

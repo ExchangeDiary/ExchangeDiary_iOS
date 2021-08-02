@@ -1,5 +1,4 @@
 disabled_rules: # rule identifiers to exclude from running
-  - force_cast
   - force_unwrapping
   - trailing_whitespace
   

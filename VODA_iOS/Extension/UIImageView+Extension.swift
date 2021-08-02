@@ -10,22 +10,22 @@ import Foundation
 import Kingfisher
 
 extension UIImageView {
-    func circleImageView() {
+    func makeCircleImageView() {
         self.layer.cornerRadius = self.layer.frame.height / 2
         self.layer.masksToBounds = true
     }
         
-    public func setImage(_ urlString: String?, defaultImgPath: String) {
-        let defaultImg = UIImage(named: defaultImgPath)
+    public func setImage(_ urlString: String?, defaultImagePath: String) {
+        let defaultImage = UIImage(named: defaultImagePath)
             
         if let imageURL = urlString?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
             if imageURL.isEmpty {
-                self.image = defaultImg
+                self.image = defaultImage
             } else {
-                self.kf.setImage(with: URL(string: imageURL), placeholder: defaultImg, options: [.transition(ImageTransition.fade(0.5))])
+                self.kf.setImage(with: URL(string: imageURL), placeholder: defaultImage, options: [.transition(ImageTransition.fade(0.5))])
             }
         } else {
-            self.image = defaultImg
+            self.image = defaultImage
         }
     }
 }
