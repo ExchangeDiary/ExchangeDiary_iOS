@@ -163,6 +163,39 @@ class AudioPlayManager: NSObject {
         }
     }
     
+    func skipForward() {
+        guard var currentTime = audioPlayer?.currentTime else {
+            return
+        }
+        currentTime += 5.0
+        
+        guard let duration = audioPlayer?.duration else {
+            return
+        }
+        if currentTime < duration {
+            audioPlayer?.currentTime = currentTime
+        } else {
+            audioPlayer?.currentTime = duration
+        }
+
+        audioPlayer?.play(atTime: currentTime)
+    }
+    
+    func skipBackward() {
+        guard var currentTime = audioPlayer?.currentTime else {
+            return
+        }
+        currentTime -= 5.0
+        
+        if currentTime > 0 {
+            audioPlayer?.currentTime = currentTime
+        } else {
+            audioPlayer?.currentTime = 0
+        }
+
+        audioPlayer?.play(atTime: currentTime)
+    }
+    
     @objc func getAudioPlayerCurrentTime() {
         guard let currentTime = audioPlayer?.currentTime.stringFromTimeInterval() else {
             return

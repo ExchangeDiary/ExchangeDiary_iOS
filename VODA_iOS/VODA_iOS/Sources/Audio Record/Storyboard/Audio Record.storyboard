@@ -125,6 +125,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="46.666666666666664" height="50"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button" image="gobackward" catalog="system"/>
+                                        <connections>
+                                            <action selector="skipBackward:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="VVR-TN-aZc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sn-cr-5o8">
                                         <rect key="frame" x="76.666666666666671" y="0.0" width="46.666666666666671" height="50"/>
@@ -137,6 +140,9 @@
                                         <rect key="frame" x="153.33333333333331" y="0.0" width="46.666666666666657" height="50"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button" image="goforward" catalog="system"/>
+                                        <connections>
+                                            <action selector="skipForward:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="PjH-kq-vh9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
