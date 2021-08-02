@@ -92,6 +92,7 @@ extension PlaySoundViewController: AudioPlayManagerDelegate {
         print("play status: \(status)")
         if status == .stopped {
             isPlaying = false
+            currentPlayingTime.text = totalDuratioin.text
         }
         
         changeStatusButtonImage(status)
