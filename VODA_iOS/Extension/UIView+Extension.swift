@@ -19,12 +19,12 @@ extension UIView {
     }
     
     func addShadow(width: CGFloat, height: CGFloat, radius: CGFloat, opacity: Float) {
-            self.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            self.layer.shadowOffset = CGSize(width: width, height: height)
+        self.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        self.layer.shadowOffset = CGSize(width: width, height: height)
             
-            self.layer.shadowRadius = radius
-            self.layer.shadowOpacity = opacity
-            self.layer.masksToBounds = false
+        self.layer.shadowRadius = radius
+        self.layer.shadowOpacity = opacity
+        self.layer.masksToBounds = false
     }
     
     func makeTopSectionRound(_ radius: CGFloat = 10) {
