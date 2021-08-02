@@ -131,8 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				9B2BF4892699EB3500FA072C /* Storyboard */,
-				9BE0A86F269A1D85005314C0 /* Model */,
-				9BE0A872269A1D8C005314C0 /* View */,
 				9B2BF4862699EAEA00FA072C /* ViewController */,
 			);
 			path = Main;
@@ -236,20 +234,6 @@
 			children = (
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		9BE0A86F269A1D85005314C0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		9BE0A872269A1D8C005314C0 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		A9128262FA506F3E1424ABFB /* Frameworks */ = {

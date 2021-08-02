@@ -50,7 +50,8 @@ class AudioPlayManager: NSObject {
     var audioPlayer: AVAudioPlayer?
     var audioEngine = AVAudioEngine()
     var audioPlayerNode = AVAudioPlayerNode()
-    var playTimer: Timer?
+    var audioPlayerTimer: Timer?
+    var audioPlayerNodeTimer: Timer?
     
     weak var delegate: AudioPlayManagerDelegate?
     static let shared = AudioPlayManager()
@@ -90,21 +91,17 @@ class AudioPlayManager: NSObject {
         
         if let pitch = pitch {
             if paused {
-                do {
-                    try? audioEngine.start()
-                    audioPlayerNode.play()
-                } catch {
-                    print("pause play error")
-                }
+                try? audioEngine.start()
+                audioPlayerNode.play()
             } else {
                 playWithAudioEffect(pitch: pitch, playOrRender: "play")
             }
+            addAudioPlayerNodeTimer()
         } else {
             audioPlayer?.play()
+            addAudioPlayerTimer()
         }
         paused = false
-        
-        addTimer()
     }
     
     func playWithAudioEffect(pitch: Float, playOrRender: String) {
@@ -165,12 +162,24 @@ class AudioPlayManager: NSObject {
         }
     }
     
-    @objc func getCurrentTime() {
-        delegate?.audioPlayer(self, currentTime: audioPlayer?.currentTime.stringFromTimeInterval() ?? "00 : 00")
+    @objc func getAudioPlayerCurrentTime() {
+        guard let currentTime = audioPlayer?.currentTime.stringFromTimeInterval() else {
+            return
+        }
+        delegate?.audioPlayer(self, currentTime: currentTime)
     }
     
-    func addTimer() {
-        playTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(getCurrentTime), userInfo: nil, repeats: true)
+    @objc func getAudioPlayerNodeCurrentTime() {
+        print("currentTime: \(audioPlayerNode.currentTime.stringFromTimeInterval())")
+        delegate?.audioPlayer(self, currentTime: audioPlayerNode.currentTime.stringFromTimeInterval())
+    }
+    
+    func addAudioPlayerTimer() {
+        audioPlayerTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(getAudioPlayerCurrentTime), userInfo: nil, repeats: true)
+    }
+    
+    func addAudioPlayerNodeTimer() {
+        audioPlayerNodeTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(getAudioPlayerNodeCurrentTime), userInfo: nil, repeats: true)
     }
     
     func pause() {
@@ -178,8 +187,10 @@ class AudioPlayManager: NSObject {
         
         audioEngine.pause()
         audioPlayerNode.pause()
+        audioPlayerNodeTimer?.invalidate()
         
         audioPlayer?.pause()
+        audioPlayerTimer?.invalidate()
         
         paused = true
     }
@@ -187,7 +198,8 @@ class AudioPlayManager: NSObject {
     func stop() {
         status = .stopped
 
-        playTimer?.invalidate()
+        audioPlayerTimer?.invalidate()
+        audioPlayerNodeTimer?.invalidate()
         
         audioEngine.stop()
         audioEngine.reset()
@@ -253,5 +265,14 @@ extension AudioPlayManager: AVAudioPlayerDelegate {
         if flag {
             stop()
         }
+    }
+}
+
+extension AVAudioPlayerNode {
+    var currentTime: TimeInterval {
+        if let nodeTime = lastRenderTime,let playerTime = playerTime(forNodeTime: nodeTime) {
+            return Double(playerTime.sampleTime) / playerTime.sampleRate
+        }
+        return 0
     }
 }
