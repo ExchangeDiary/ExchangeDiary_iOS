@@ -11,11 +11,13 @@ class PlaySoundViewController: UIViewController {
     @IBOutlet weak var statusButton: UIButton!
     @IBOutlet weak var totalDuratioin: UILabel!
     @IBOutlet weak var currentPlayingTime: UILabel!
+    @IBOutlet weak var remainingPlayingTime: UILabel!
     var audioPlayer: AudioPlayManager?
     var recordedAudioUrl: URL?
     var pitch: Float?
     var sendAudioUrl: URL?
     var playStatus: AudioPlayerStatus?
+    var playDuration: String?
     var isPlaying = false
     
     override func viewDidLoad() {
@@ -27,7 +29,13 @@ class PlaySoundViewController: UIViewController {
         guard let recordedUrl = recordedAudioUrl else {
             return
         }
-        audioPlayer?.setupAudio(audioUrl: recordedUrl)
+        audioPlayer?.setUpAudio(audioUrl: recordedUrl)
+        
+        guard let duration = playDuration else {
+            return
+        }
+        
+        remainingPlayingTime.text = "-\(duration)"
     }
     
     @IBAction func playSound(_ sender: Any) {
@@ -90,9 +98,14 @@ class PlaySoundViewController: UIViewController {
 extension PlaySoundViewController: AudioPlayManagerDelegate {
     func audioPlayer(_ audioPlayer: AudioPlayManager, statusChanged status: AudioPlayerStatus) {
         print("play status: \(status)")
+        guard let duration = playDuration else {
+            return
+        }
+        
         if status == .stopped {
             isPlaying = false
-            currentPlayingTime.text = totalDuratioin.text
+            currentPlayingTime.text = duration
+            remainingPlayingTime.text = "-00:00"
         }
         
         changeStatusButtonImage(status)
@@ -103,10 +116,15 @@ extension PlaySoundViewController: AudioPlayManagerDelegate {
     }
     
     func audioPlayer(_ audioPlayer: AudioPlayManager, duration: String) {
-        totalDuratioin.text = duration
+        playDuration = duration
+        totalDuratioin.text = playDuration
     }
     
     func audioPlayer(_ audioPlayer: AudioPlayManager, currentTime: String) {
         currentPlayingTime.text = currentTime
+    }
+    
+    func audioPlayer(_ audioPlayer: AudioPlayManager, remainingTime: String) {
+        remainingPlayingTime.text = "-\(remainingTime)"
     }
 }

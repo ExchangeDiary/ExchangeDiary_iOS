@@ -204,6 +204,7 @@
                     <navigationItem key="navigationItem" id="Q40-Z3-9pt"/>
                     <connections>
                         <outlet property="currentPlayingTime" destination="chr-cN-6Ub" id="Tcs-Q5-6PQ"/>
+                        <outlet property="remainingPlayingTime" destination="QXD-C1-1I9" id="2cx-p6-cKR"/>
                         <outlet property="statusButton" destination="4sn-cr-5o8" id="kId-8m-gCI"/>
                         <outlet property="totalDuratioin" destination="zjE-Og-oVR" id="dmA-lg-D1s"/>
                     </connections>

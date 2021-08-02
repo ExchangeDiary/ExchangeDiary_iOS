@@ -42,6 +42,7 @@ protocol AudioPlayManagerDelegate: AnyObject {
     func audioPlayer(_ audioPlayer: AudioPlayManager, statusErrorOccured status: AudioPlayerStatus)
     func audioPlayer(_ audioPlayer: AudioPlayManager, duration: String)
     func audioPlayer(_ audioPlayer: AudioPlayManager, currentTime: String)
+    func audioPlayer(_ audioPlayer: AudioPlayManager, remainingTime: String)
 }
 
 class AudioPlayManager: NSObject {
@@ -65,7 +66,7 @@ class AudioPlayManager: NSObject {
     
     private override init() { }
     
-    func setupAudio(audioUrl: URL) {
+    func setUpAudio(audioUrl: URL) {
         do {
             // FIXME: engine 생성 확인
             audioEngine = AVAudioEngine()
@@ -167,11 +168,26 @@ class AudioPlayManager: NSObject {
             return
         }
         delegate?.audioPlayer(self, currentTime: currentTime)
+        
+        guard let duration = audioPlayer?.duration else {
+            return
+        }
+    
+        guard let remainingTime = audioPlayer?.currentTime.calculateRemaingTime(from: duration).stringFromTimeInterval() else {
+            return
+        }
+        delegate?.audioPlayer(self, remainingTime: remainingTime)
     }
     
     @objc func getAudioPlayerNodeCurrentTime() {
-        print("currentTime: \(audioPlayerNode.currentTime.stringFromTimeInterval())")
         delegate?.audioPlayer(self, currentTime: audioPlayerNode.currentTime.stringFromTimeInterval())
+        
+        guard let duration = audioPlayer?.duration else {
+            return
+        }
+    
+         let remainingTime = audioPlayerNode.currentTime.calculateRemaingTime(from: duration).stringFromTimeInterval()
+        delegate?.audioPlayer(self, remainingTime: remainingTime)
     }
     
     func addAudioPlayerTimer() {
