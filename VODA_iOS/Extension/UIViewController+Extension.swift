@@ -27,7 +27,7 @@ extension UIViewController {
     }
 
     func setBackButton(color: UIColor) {
-        let backBTN = UIBarButtonItem(image: UIImage(named: "icBack"), // 백버튼 이미지 파일 이름에 맞게 변경해주세요.
+        let backButton = UIBarButtonItem(image: UIImage(named: "icBack"), // 백버튼 이미지 파일 이름에 맞게 변경해주세요.
                 style: .plain,
                 target: self,
                 action: #selector(self.pop))
