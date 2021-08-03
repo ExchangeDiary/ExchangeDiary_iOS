@@ -1,6 +1,6 @@
 disabled_rules: # rule identifiers to exclude from running
+  - force_cast
   - force_unwrapping
-  - trailing_whitespace
   
 opt_in_rules: # some rules are only opt-in
   - empty_count
@@ -9,15 +9,15 @@ opt_in_rules: # some rules are only opt-in
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Carthage
   - Pods
-  - VODA_iOS/SupportingFiles/AppDelegate.swift
-  - VODA_iOS/SupportingFiles/SceneDelegate.swift
+  - VODA_iOS/AppDelegate.swift
+  - VODA_iOS/SceneDelegate.swift
 
-force_cast: warning # implicitlyß
+force_cast: warning # implicitly
 force_try:
   severity: warning # explicitly
 # rules that have both warning and error levels, can set just the warning level
 # implicitly
-line_length: 200
+line_length: 110
 # they can set both implicitly with an array
 type_body_length:
   - 300 # warning
