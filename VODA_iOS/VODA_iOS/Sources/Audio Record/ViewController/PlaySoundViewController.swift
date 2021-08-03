@@ -12,6 +12,7 @@ class PlaySoundViewController: UIViewController {
     @IBOutlet weak var totalDuratioin: UILabel!
     @IBOutlet weak var currentPlayingTime: UILabel!
     @IBOutlet weak var remainingPlayingTime: UILabel!
+    @IBOutlet weak var progressView: UIProgressView!
     var audioPlayer: AudioPlayManager?
     var recordedAudioUrl: URL?
     var pitch: Float?
@@ -36,6 +37,7 @@ class PlaySoundViewController: UIViewController {
         }
         
         remainingPlayingTime.text = "-\(duration)"
+        progressView.progress = 0
     }
     
     @IBAction func playSound(_ sender: Any) {
@@ -134,5 +136,9 @@ extension PlaySoundViewController: AudioPlayManagerDelegate {
     
     func audioPlayer(_ audioPlayer: AudioPlayManager, remainingTime: String) {
         remainingPlayingTime.text = "-\(remainingTime)"
+    }
+    
+    func audioPlayer(_ audioPlayer: AudioPlayManager, progressValue: Float) {
+        progressView.progress = progressValue
     }
 }

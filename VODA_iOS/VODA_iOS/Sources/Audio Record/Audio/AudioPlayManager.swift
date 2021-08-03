@@ -43,6 +43,7 @@ protocol AudioPlayManagerDelegate: AnyObject {
     func audioPlayer(_ audioPlayer: AudioPlayManager, duration: String)
     func audioPlayer(_ audioPlayer: AudioPlayManager, currentTime: String)
     func audioPlayer(_ audioPlayer: AudioPlayManager, remainingTime: String)
+    func audioPlayer(_ audioPlayer: AudioPlayManager, progressValue: Float)
 }
 
 class AudioPlayManager: NSObject {
@@ -196,11 +197,11 @@ class AudioPlayManager: NSObject {
         audioPlayer?.play(atTime: currentTime)
     }
     
-    @objc func getAudioPlayerCurrentTime() {
-        guard let currentTime = audioPlayer?.currentTime.stringFromTimeInterval() else {
+    @objc func updateAudioPlayerValue() {
+        guard let currentTime = audioPlayer?.currentTime else {
             return
         }
-        delegate?.audioPlayer(self, currentTime: currentTime)
+        delegate?.audioPlayer(self, currentTime: currentTime.stringFromTimeInterval())
         
         guard let duration = audioPlayer?.duration else {
             return
@@ -210,25 +211,31 @@ class AudioPlayManager: NSObject {
             return
         }
         delegate?.audioPlayer(self, remainingTime: remainingTime)
+        
+        let progressValue = Float(currentTime / duration)
+        delegate?.audioPlayer(self, progressValue: progressValue)
     }
     
-    @objc func getAudioPlayerNodeCurrentTime() {
+    @objc func updateAudioPlayerNodeValue() {
         delegate?.audioPlayer(self, currentTime: audioPlayerNode.currentTime.stringFromTimeInterval())
         
         guard let duration = audioPlayer?.duration else {
             return
         }
-    
-         let remainingTime = audioPlayerNode.currentTime.calculateRemaingTime(from: duration).stringFromTimeInterval()
+       
+        let remainingTime = audioPlayerNode.currentTime.calculateRemaingTime(from: duration).stringFromTimeInterval()
         delegate?.audioPlayer(self, remainingTime: remainingTime)
+        
+        let progressValue = Float(audioPlayerNode.currentTime / duration)
+        delegate?.audioPlayer(self, progressValue: progressValue)
     }
     
     func addAudioPlayerTimer() {
-        audioPlayerTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(getAudioPlayerCurrentTime), userInfo: nil, repeats: true)
+        audioPlayerTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateAudioPlayerValue), userInfo: nil, repeats: true)
     }
     
     func addAudioPlayerNodeTimer() {
-        audioPlayerNodeTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(getAudioPlayerNodeCurrentTime), userInfo: nil, repeats: true)
+        audioPlayerNodeTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateAudioPlayerNodeValue), userInfo: nil, repeats: true)
     }
     
     func pause() {
