@@ -31,7 +31,7 @@ extension UIViewController {
                 style: .plain,
                 target: self,
                 action: #selector(self.pop))
-        navigationItem.leftBarButtonItem = backBTN
+        navigationItem.leftBarButtonItem = backButton
         navigationItem.leftBarButtonItem?.tintColor = color
         navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
     }
