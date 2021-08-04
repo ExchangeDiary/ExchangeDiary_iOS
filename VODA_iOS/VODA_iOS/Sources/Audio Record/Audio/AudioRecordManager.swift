@@ -16,7 +16,7 @@ enum AudioRecordStatus {
     case errorOccured
 }
 
-protocol AudioRecordManagerDelegate: AnyObject {
+protocol AudioRecordable: AnyObject {
     func audioRecorder(_ audioPlayer: AudioRecordManager, statusChanged status: AudioRecordStatus)
     func audioRecorder(_ audioPlayer: AudioRecordManager, statusErrorOccured status: AudioRecordStatus)
     func audioRecorder(_ audioPlayer: AudioRecordManager, didFinishedWithUrl url: URL?)
@@ -27,7 +27,7 @@ class AudioRecordManager: NSObject {
     var audioRecorder: AVAudioRecorder?
     var recordTimer: Timer?
  
-    weak var delegate: AudioRecordManagerDelegate?
+    weak var delegate: AudioRecordable?
     static let shared = AudioRecordManager()
     let audioSession = AVAudioSession.sharedInstance()
     

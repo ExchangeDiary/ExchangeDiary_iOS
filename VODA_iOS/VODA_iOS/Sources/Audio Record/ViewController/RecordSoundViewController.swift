@@ -65,7 +65,7 @@ class RecordSoundViewController: UIViewController {
 }
 
 // Mark: AudioRecordDelegate
-extension RecordSoundViewController: AudioRecordManagerDelegate {
+extension RecordSoundViewController: AudioRecordable {
     func audioRecorder(_ audioPlayer: AudioRecordManager, didFinishedWithUrl url: URL?) {
         guard let recordedUrl = url else {
             return

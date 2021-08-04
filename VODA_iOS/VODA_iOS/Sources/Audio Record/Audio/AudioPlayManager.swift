@@ -37,7 +37,7 @@ enum AudioPlayerError {
     }
 }
 
-protocol AudioPlayManagerDelegate: AnyObject {
+protocol AudioPlayable: AnyObject {
     func audioPlayer(_ audioPlayer: AudioPlayManager, statusChanged status: AudioPlayerStatus)
     func audioPlayer(_ audioPlayer: AudioPlayManager, statusErrorOccured status: AudioPlayerStatus)
     func audioPlayer(_ audioPlayer: AudioPlayManager, duration: String)
@@ -66,16 +66,13 @@ class AudioPlayManager: NSObject {
     }
     private var isPaused = false
     
-    weak var delegate: AudioPlayManagerDelegate?
+    weak var delegate: AudioPlayable?
     static let shared = AudioPlayManager()
     
     private override init() { }
     
     func setUpAudio(audioUrl: URL) {
         do {
-            // FIXME: engine 생성 확인
-            audioEngine = AVAudioEngine()
-            
             sourceFile = try AVAudioFile(forReading: audioUrl as URL)
             format = sourceFile?.processingFormat
             
@@ -83,8 +80,7 @@ class AudioPlayManager: NSObject {
                 audioLengthSamples = sourceFile.length
                 audioSampleRate = format.sampleRate
             }
-            audioLengthSeconds = Double(0) / audioSampleRate
-            
+           
             audioPlayer = try AVAudioPlayer(contentsOf: audioUrl)
             audioPlayer?.prepareToPlay()
             audioPlayer?.delegate = self
@@ -121,13 +117,7 @@ class AudioPlayManager: NSObject {
         audioEngine.stop()
         audioEngine.reset()
         
-        // FIXME: engine, Node 생성 확인
-        if playOrRender == "render" {
-            audioEngine = AVAudioEngine()
-        }
-        
         audioPlayerNode = AVAudioPlayerNode()
-        
         audioEngine.attach(audioPlayerNode)
         
         let changePitchNode = AVAudioUnitTimePitch()
@@ -172,11 +162,11 @@ class AudioPlayManager: NSObject {
     }
     
     func skipForward(pitch: Float?, seconds: Double) {
-        guard let duration = audioPlayer?.duration else {
-            return
-        }
-        
         if pitch == nil {
+            guard let duration = audioPlayer?.duration else {
+                return
+            }
+            
             guard var audioPlayerCurrentTime = audioPlayer?.currentTime else {
                 return
             }
@@ -227,7 +217,7 @@ class AudioPlayManager: NSObject {
         let wasPlaying = audioPlayerNode.isPlaying
         audioPlayerNode.stop()
         
-        if currentPosition < audioLengthSamples { //file.length보다 작으면
+        if currentPosition < audioLengthSamples {
             updateAudioPlayerNodeValue()
             
             let frameCount = AVAudioFrameCount(audioLengthSamples - seekFrame)
@@ -238,7 +228,7 @@ class AudioPlayManager: NSObject {
                 at: nil
             )
             
-            if wasPlaying { //재생중이었으면 계속 재생하라
+            if wasPlaying {
                 audioPlayerNode.play()
             }
         }
@@ -381,18 +371,8 @@ extension AudioPlayManager: AVAudioPlayerDelegate {
 }
 
 extension AVAudioPlayerNode {
-    var currentTime: TimeInterval {
-        if let nodeTime = lastRenderTime,let playerTime = playerTime(forNodeTime: nodeTime) {
-            return Double(playerTime.sampleTime) / playerTime.sampleRate
-        }
-        return 0
-    }
-    
     var currentFrame: AVAudioFramePosition {
-        guard
-            let lastRenderTime = self.lastRenderTime,
-            let playerTime = self.playerTime(forNodeTime: lastRenderTime)
-        else {
+        guard let lastRenderTime = self.lastRenderTime, let playerTime = self.playerTime(forNodeTime: lastRenderTime) else {
             return 0
         }
         

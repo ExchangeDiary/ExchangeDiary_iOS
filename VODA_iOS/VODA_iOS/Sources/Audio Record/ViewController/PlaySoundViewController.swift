@@ -105,7 +105,7 @@ class PlaySoundViewController: UIViewController {
 }
 
 // Mark: AudioPlayManagerDelegate
-extension PlaySoundViewController: AudioPlayManagerDelegate {
+extension PlaySoundViewController: AudioPlayable {
     func audioPlayer(_ audioPlayer: AudioPlayManager, statusChanged status: AudioPlayerStatus) {
         print("play status: \(status)")
         guard let duration = playDuration else {
