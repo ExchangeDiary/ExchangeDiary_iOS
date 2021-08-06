@@ -276,13 +276,13 @@
                         <outlet property="remainingPlayingTime" destination="QXD-C1-1I9" id="2cx-p6-cKR"/>
                         <outlet property="seekingPointView" destination="7fH-7m-dL9" id="gWV-kL-iDp"/>
                         <outlet property="statusButton" destination="4sn-cr-5o8" id="kId-8m-gCI"/>
-                        <outlet property="totalDuratioin" destination="zjE-Og-oVR" id="dmA-lg-D1s"/>
+                        <outlet property="totalDuration" destination="zjE-Og-oVR" id="dmA-lg-D1s"/>
                         <outlet property="버릴progressView" destination="izO-eN-Uge" id="EED-Bb-rjT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYl-xG-0hX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3855.1999999999998" y="42.857142857142861"/>
+            <point key="canvasLocation" x="3853.8461538461538" y="42.654028436018955"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NYf-Ie-1ii">

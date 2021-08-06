@@ -9,7 +9,7 @@ import UIKit
 
 class PlaySoundViewController: UIViewController {
     @IBOutlet weak var statusButton: UIButton!
-    @IBOutlet weak var totalDuratioin: UILabel!
+    @IBOutlet weak var totalDuration: UILabel!
     @IBOutlet weak var currentPlayingTime: UILabel!
     @IBOutlet weak var remainingPlayingTime: UILabel!
     @IBOutlet weak var progressView: UIView!
@@ -21,8 +21,10 @@ class PlaySoundViewController: UIViewController {
     private var pitch: Float?
     private var sendAudioUrl: URL?
     private var playStatus: AudioPlayerStatus?
-    private var playDuration: String?
     private var isPlaying = false
+    private var playDuration: String? {
+        audioPlayer?.getAudioPlayerDuration().stringFromTimeInterval()
+    }
     var recordedAudioUrl: URL?
     
     override func viewDidLoad() {
@@ -117,12 +119,7 @@ extension PlaySoundViewController: AudioPlayable {
     func audioPlayer(_ audioPlayer: AudioPlayManager, statusErrorOccured status: AudioPlayerStatus) {
         print("error occured")
     }
-    
-    func audioPlayer(_ audioPlayer: AudioPlayManager, duration: String) {
-        playDuration = duration
-        totalDuratioin.text = playDuration
-    }
-    
+   
     func audioPlayer(_ audioPlayer: AudioPlayManager, currentTime: String) {
         currentPlayingTime.text = currentTime
     }

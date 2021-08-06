@@ -40,7 +40,6 @@ enum AudioPlayerError {
 protocol AudioPlayable: AnyObject {
     func audioPlayer(_ audioPlayer: AudioPlayManager, statusChanged status: AudioPlayerStatus)
     func audioPlayer(_ audioPlayer: AudioPlayManager, statusErrorOccured status: AudioPlayerStatus)
-    func audioPlayer(_ audioPlayer: AudioPlayManager, duration: String)
     func audioPlayer(_ audioPlayer: AudioPlayManager, currentTime: String)
     func audioPlayer(_ audioPlayer: AudioPlayManager, remainingTime: String)
     func audioPlayer(_ audioPlayer: AudioPlayManager, progressValue: Float)
@@ -87,11 +86,16 @@ class AudioPlayManager: NSObject {
             audioPlayer?.isMeteringEnabled = true
             
             status = .prepared
-            
-            delegate?.audioPlayer(self, duration: audioPlayer?.duration.stringFromTimeInterval() ?? "00 : 00")
         } catch {
             print(AudioPlayerError.AudioFileError.message)
         }
+    }
+    
+    func getAudioPlayerDuration() -> TimeInterval {
+        guard let duration = audioPlayer?.duration else {
+            return TimeInterval()
+        }
+        return duration
     }
     
     func play(pitch: Float? = nil) {
@@ -163,9 +167,7 @@ class AudioPlayManager: NSObject {
     
     func skipForward(pitch: Float?, seconds: Double) {
         if pitch == nil {
-            guard let duration = audioPlayer?.duration else {
-                return
-            }
+            let duration = getAudioPlayerDuration()
             
             guard var audioPlayerCurrentTime = audioPlayer?.currentTime else {
                 return
