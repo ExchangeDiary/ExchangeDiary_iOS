@@ -57,26 +57,29 @@ class PlaySoundViewController: UIViewController {
     }
     
     @IBAction func skipBackward(_ sender: Any) {
-        audioPlayer?.skipBackward(pitch: pitch, seconds: -5)
+        audioPlayer?.skipBackward(pitch: pitch, seconds: -5.0)
     }
     
     @IBAction func skipForward(_ sender: Any) {
-        audioPlayer?.skipForward(pitch: pitch, seconds: 5)
+        audioPlayer?.skipForward(pitch: pitch, seconds: 5.0)
     }
     
     @IBAction func setHighPitch(_ sender: Any) {
         pitch = 1000
         audioPlayer?.stop()
+        progressBarWidth.constant = 0
     }
     
     @IBAction func setRowPitch(_ sender: Any) {
         pitch = -800
         audioPlayer?.stop()
+        progressBarWidth.constant = 0
     }
     
     @IBAction func setNoPitch(_ sender: Any) {
         pitch = nil
         audioPlayer?.stop()
+        progressBarWidth.constant = 0
     }
     
     @IBAction func sendAudioData(_ sender: Any) {

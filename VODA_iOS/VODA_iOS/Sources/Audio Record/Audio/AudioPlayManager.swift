@@ -172,7 +172,7 @@ class AudioPlayManager: NSObject {
             guard var audioPlayerCurrentTime = audioPlayer?.currentTime else {
                 return
             }
-            audioPlayerCurrentTime += 5.0
+            audioPlayerCurrentTime += seconds
             
             if audioPlayerCurrentTime < duration {
                 audioPlayer?.currentTime = audioPlayerCurrentTime
@@ -191,7 +191,7 @@ class AudioPlayManager: NSObject {
             guard var audioPlayerCurrentTime = audioPlayer?.currentTime else {
                 return
             }
-            audioPlayerCurrentTime -= 5.0
+            audioPlayerCurrentTime += seconds
             
             if audioPlayerCurrentTime > 0 {
                 audioPlayer?.currentTime = audioPlayerCurrentTime
