@@ -12,14 +12,18 @@ class PlaySoundViewController: UIViewController {
     @IBOutlet weak var totalDuratioin: UILabel!
     @IBOutlet weak var currentPlayingTime: UILabel!
     @IBOutlet weak var remainingPlayingTime: UILabel!
-    @IBOutlet weak var progressView: UIProgressView!
-    var audioPlayer: AudioPlayManager?
+    @IBOutlet weak var progressView: UIView!
+    @IBOutlet weak var progressBar: UIView!
+    @IBOutlet weak var progressBarWidth: NSLayoutConstraint!
+    @IBOutlet weak var seekingPointView: UIView!
+    @IBOutlet weak var 버릴progressView: UIProgressView!
+    private var audioPlayer: AudioPlayManager?
+    private var pitch: Float?
+    private var sendAudioUrl: URL?
+    private var playStatus: AudioPlayerStatus?
+    private var playDuration: String?
+    private var isPlaying = false
     var recordedAudioUrl: URL?
-    var pitch: Float?
-    var sendAudioUrl: URL?
-    var playStatus: AudioPlayerStatus?
-    var playDuration: String?
-    var isPlaying = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,20 +95,9 @@ class PlaySoundViewController: UIViewController {
             return
         }
     }
-    
-    func changeStatusButtonImage(_ playStatus: AudioPlayerStatus) {
-        switch playStatus {
-        case .idle, .prepared, .paused, .stopped:
-            statusButton.setImage(UIImage(named: "resume"), for: .normal)
-        case .playing:
-            statusButton.setImage(UIImage(named: "pause"), for: .normal)
-        default:
-            break
-        }
-    }
 }
 
-// Mark: AudioPlayManagerDelegate
+// Mark: AudioPlayable
 extension PlaySoundViewController: AudioPlayable {
     func audioPlayer(_ audioPlayer: AudioPlayManager, statusChanged status: AudioPlayerStatus) {
         print("play status: \(status)")
@@ -139,6 +132,6 @@ extension PlaySoundViewController: AudioPlayable {
     }
     
     func audioPlayer(_ audioPlayer: AudioPlayManager, progressValue: Float) {
-        progressView.progress = progressValue
+        progressBarWidth.constant = CGFloat(progressValue) * progressView.frame.size.width
     }
 }

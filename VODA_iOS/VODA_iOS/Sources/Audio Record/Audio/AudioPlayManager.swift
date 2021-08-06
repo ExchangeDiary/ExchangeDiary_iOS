@@ -59,12 +59,12 @@ class AudioPlayManager: NSObject {
     private var seekFrame: AVAudioFramePosition = 0
     private var currentPosition: AVAudioFramePosition = 0
     private var audioLengthSamples: AVAudioFramePosition = 0
+    private var isPaused = false
     private var status: AudioPlayerStatus = .idle {
         didSet {
             delegate?.audioPlayer(self, statusChanged: status)
         }
     }
-    private var isPaused = false
     
     weak var delegate: AudioPlayable?
     static let shared = AudioPlayManager()
@@ -80,7 +80,7 @@ class AudioPlayManager: NSObject {
                 audioLengthSamples = sourceFile.length
                 audioSampleRate = format.sampleRate
             }
-           
+            
             audioPlayer = try AVAudioPlayer(contentsOf: audioUrl)
             audioPlayer?.prepareToPlay()
             audioPlayer?.delegate = self
@@ -127,10 +127,10 @@ class AudioPlayManager: NSObject {
         connectAudioNodes(audioPlayerNode, changePitchNode, audioEngine.mainMixerNode)
         
         audioPlayerNode.stop()
+        
         guard let sourceFile = sourceFile else {
             return
         }
-        
         audioPlayerNode.scheduleFile(sourceFile, at: nil)
         
         if playOrRender == "render" {

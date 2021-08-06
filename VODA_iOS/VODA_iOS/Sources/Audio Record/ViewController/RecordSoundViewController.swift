@@ -13,10 +13,9 @@ class RecordSoundViewController: UIViewController {
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordGuideText: UILabel!
-    
-    var recordedAudioUrl: URL?
-    var audioRecorder: AudioRecordManager?
-    var recordStatus: AudioRecordStatus?
+    private var recordedAudioUrl: URL?
+    private var audioRecorder: AudioRecordManager?
+    private var recordStatus: AudioRecordStatus?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.stopRecording {
@@ -38,15 +37,7 @@ class RecordSoundViewController: UIViewController {
         recordTime.text = "00 : 00"
     }
     
-    @IBAction func recordAudio(_ sender: Any) {
-        audioRecorder?.record()
-    }
-    
-    @IBAction func stopRecording(_ sender: Any) {
-        audioRecorder?.stop()
-    }
-    
-    func setUpRecordButtonUI(_ recordStatus: AudioRecordStatus) {
+    private func setUpRecordButtonUI(_ recordStatus: AudioRecordStatus) {
         switch recordStatus {
         case .idle, .prepared:
             stopButton.isHidden = true
@@ -62,9 +53,17 @@ class RecordSoundViewController: UIViewController {
             break
         }
     }
+    
+    @IBAction func recordAudio(_ sender: Any) {
+        audioRecorder?.record()
+    }
+    
+    @IBAction func stopRecording(_ sender: Any) {
+        audioRecorder?.stop()
+    }
 }
 
-// Mark: AudioRecordDelegate
+// Mark: AudioRecordable
 extension RecordSoundViewController: AudioRecordable {
     func audioRecorder(_ audioPlayer: AudioRecordManager, didFinishedWithUrl url: URL?) {
         guard let recordedUrl = url else {

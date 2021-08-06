@@ -24,9 +24,9 @@ protocol AudioRecordable: AnyObject {
 }
 
 class AudioRecordManager: NSObject {
-    var audioRecorder: AVAudioRecorder?
-    var recordTimer: Timer?
- 
+    private var audioRecorder: AVAudioRecorder?
+    private var recordTimer: Timer?
+    
     weak var delegate: AudioRecordable?
     static let shared = AudioRecordManager()
     let audioSession = AVAudioSession.sharedInstance()
