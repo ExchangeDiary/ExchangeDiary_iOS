@@ -96,10 +96,11 @@
                                     <constraint firstItem="Mu3-hj-Cuh" firstAttribute="height" secondItem="gcH-Q3-H6V" secondAttribute="height" multiplier="0.395349" id="yiX-rf-WVw"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="간편 로그인으로 시작하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zB9-JH-FCQ">
-                                <rect key="frame" x="86.666666666666671" y="628" width="201.66666666666663" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="간편 로그인" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zB9-JH-FCQ">
+                                <rect key="frame" x="141.33333333333334" y="628.33333333333337" width="92.333333333333343" height="23.333333333333371"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="zB9-JH-FCQ" secondAttribute="height" multiplier="101:12" id="kXx-ae-ACh"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="92.329999999999998" id="gmh-5Y-foo"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="23.329999999999998" id="qjf-R3-3Ee"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

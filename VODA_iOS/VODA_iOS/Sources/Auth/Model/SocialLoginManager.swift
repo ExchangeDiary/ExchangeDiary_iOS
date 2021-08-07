@@ -8,12 +8,13 @@
 import KakaoSDKUser
 import KakaoSDKAuth
 import KakaoSDKCommon
+import GoogleSignIn
 
 class SocialLoginManager: NSObject {
-    func login(with type: SocialLoginType) {
+    func login(with type: SocialLoginType, viewController: UIViewController) {
         switch type {
         case .kakao: self.loginWithKakao()
-        case .google: self.loginWithGoogle()
+        case .google: self.loginWithGoogle(in: viewController)
         }
     }
     
@@ -67,7 +68,21 @@ class SocialLoginManager: NSObject {
         }
     }
     
-    private func loginWithGoogle() {
+    private func loginWithGoogle(in viewController: UIViewController) {
         
+        let signInConfig = GIDConfiguration.init(clientID: SocialLoginType.google.appKey)
+        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: viewController) { user, error in
+            guard error == nil else { return }
+            
+            let userEmail = user?.profile?.email
+            let userFamilyName = user?.profile?.familyName
+            let userGivenName = user?.profile?.givenName
+            let userName = "\(userFamilyName ?? "")\(userGivenName ?? "")"
+            let userProfileImageURL = user?.profile?.imageURL(withDimension: 200)
+            
+            print(userEmail ?? "")
+            print(userName)
+            print(userProfileImageURL ?? "")
+        }
     }
 }

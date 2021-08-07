@@ -35,7 +35,7 @@
 			<string>GOOGLE_APP_KEY</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.942019593044-ltgr599rqbogjp19n28u2583j9tnqfdv.apps.googleusercontent.com</string>
+				<string>com.googleusercontent.apps.942019593044-ltgr599rqbogjp19n28u2583j9tnqfdv</string>
 			</array>
 		</dict>
 	</array>

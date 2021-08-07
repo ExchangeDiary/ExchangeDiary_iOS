@@ -7,6 +7,7 @@
 
 import UIKit
 import AuthenticationServices
+import GoogleSignIn
 
 class SignInViewController: UIViewController {
     
@@ -22,11 +23,11 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func googleLoginTouchUpInsideAction(_ sender: Any) {
-        socialLoginManager.login(with: .google)
+        socialLoginManager.login(with: .google, viewController: self)
     }
     
     @IBAction func kakaoLoginTouchUpInsideAction(_ sender: Any) {
-        socialLoginManager.login(with: .kakao)
+        socialLoginManager.login(with: .kakao, viewController: self)
     }
     
     @available(iOS 13.0, *)
