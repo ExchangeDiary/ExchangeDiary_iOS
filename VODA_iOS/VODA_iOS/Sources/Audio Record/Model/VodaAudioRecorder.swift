@@ -8,41 +8,56 @@
 import Foundation
 import AVFoundation
 
-enum AudioRecordStatus {
+public enum AudioRecordStatus {
     case idle
     case prepared
-    case record
+    case recording
     case stopped
     case errorOccured
 }
 
-protocol AudioRecordable: AnyObject {
-    func audioRecorder(_ audioPlayer: VodaAudioRecorder, statusChanged status: AudioRecordStatus)
-    func audioRecorder(_ audioPlayer: VodaAudioRecorder, statusErrorOccured status: AudioRecordStatus)
+public protocol AudioRecordable: AnyObject {
+    func audioRecorder(_ audioPlayer: VodaAudioRecorder, didChangedStatus status: AudioRecordStatus)
     func audioRecorder(_ audioPlayer: VodaAudioRecorder, didFinishedWithUrl url: URL?)
-    func audioRecorder(_ audioPlayer: VodaAudioRecorder, currentTime: TimeInterval)
+    func audioRecorder(_ audioPlayer: VodaAudioRecorder, didUpdateCurrentTime currentTime: TimeInterval)
 }
 
-class VodaAudioRecorder: NSObject {
+public class VodaAudioRecorder: NSObject {
     private var audioRecorder: AVAudioRecorder?
     private var recordTimer: Timer?
+    private let audioSession = AVAudioSession.sharedInstance()
    
-    public weak var delegate: AudioRecordable?
     public static let shared = VodaAudioRecorder()
-    public let audioSession = AVAudioSession.sharedInstance()
+    public weak var delegate: AudioRecordable?
     
-    public var currentTime: TimeInterval? {
-        audioRecorder?.currentTime
+    public var currentTime: TimeInterval {
+        audioRecorder?.currentTime ?? 0
     }
     
     public var status: AudioRecordStatus = .idle {
         didSet {
-            delegate?.audioRecorder(self, statusChanged: status)
+            delegate?.audioRecorder(self, didChangedStatus: status)
         }
     }
     
     private override init() { }
     
+    @objc private func getCurrentTime() {
+        delegate?.audioRecorder(self, didUpdateCurrentTime: currentTime)
+        
+        let isReachedToMaxTime = currentTime >= 30.0
+        if isReachedToMaxTime {
+            stop()
+        }
+    }
+    
+    private func addTimer() {
+        recordTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(getCurrentTime), userInfo: nil, repeats: true)
+    }
+}
+
+// MARK: public
+extension VodaAudioRecorder {
     public func record() {
         guard let directoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
             return
@@ -60,7 +75,7 @@ class VodaAudioRecorder: NSObject {
                                              AVSampleRateKey: 12000]
         
         do {
-            try? audioSession.setCategory(.playAndRecord, options: [.allowBluetooth,.defaultToSpeaker])
+            try? audioSession.setCategory(.playAndRecord, options: [.allowBluetooth, .defaultToSpeaker])
             
             try? audioRecorder = AVAudioRecorder(url: filePath, settings: recordSettings)
             audioRecorder?.delegate = self
@@ -74,38 +89,25 @@ class VodaAudioRecorder: NSObject {
             audioRecorder?.record()
             addTimer()
             
-            status = .record
+            status = .recording
         } catch {
             print(error.localizedDescription.description)
         }
     }
     
     public func stop() {
-        status = .stopped
-        
         recordTimer?.invalidate()
         audioRecorder?.stop()
         
         try? audioSession.setActive(false)
-    }
-    
-    @objc private func getCurrentTime() {
-        if let currentTime = currentTime {
-            if currentTime >= 30.0 {
-                stop()
-            }
-            delegate?.audioRecorder(self, currentTime: currentTime)
-        }
-    }
-    
-    private func addTimer() {
-        recordTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(getCurrentTime), userInfo: nil, repeats: true)
+        
+        status = .stopped
     }
 }
 
 // MARK: AVAudioRecorderDelegate
 extension VodaAudioRecorder: AVAudioRecorderDelegate {
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+    public func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
             delegate?.audioRecorder(self, didFinishedWithUrl: audioRecorder?.url)
         } else {

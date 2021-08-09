@@ -8,7 +8,7 @@
 import Foundation
 import AVFoundation
 
-enum AudioPlayerStatus: String {
+public enum AudioPlayerStatus: String {
     case idle
     case prepared
     case playing
@@ -17,7 +17,7 @@ enum AudioPlayerStatus: String {
     case errorOccured
 }
 
-enum AudioPlayerError: Error {
+public enum AudioPlayerError: Error {
     case audioFileError
     case audioEngineError
     case audioManualRenderingModeError
@@ -37,13 +37,12 @@ enum AudioPlayerError: Error {
     }
 }
 
-protocol AudioPlayable: AnyObject {
-    func audioPlayer(_ audioPlayer: VodaAudioPlayer, statusChanged status: AudioPlayerStatus)
-    func audioPlayer(_ audioPlayer: VodaAudioPlayer, statusErrorOccured status: AudioPlayerStatus)
-    func audioPlayer(_ audioPlayer: VodaAudioPlayer, currentTime: TimeInterval)
+public protocol AudioPlayable: AnyObject {
+    func audioPlayer(_ audioPlayer: VodaAudioPlayer, didChangedStatus status: AudioPlayerStatus)
+    func audioPlayer(_ audioPlayer: VodaAudioPlayer, didUpdateCurrentTime currentTime: TimeInterval)
 }
 
-class VodaAudioPlayer: NSObject {
+public class VodaAudioPlayer: NSObject {
     private var sourceFile: AVAudioFile?
     private var format: AVAudioFormat?
     private let audioEngine = AVAudioEngine()
@@ -53,21 +52,23 @@ class VodaAudioPlayer: NSObject {
     private var currentAudioFramePosition: AVAudioFramePosition = 0
     private var totalAudioFrameLength: AVAudioFramePosition = 0
     
-    public weak var delegate: AudioPlayable?
     public static let shared = VodaAudioPlayer()
+    public weak var delegate: AudioPlayable?
+    
+    public let defaultSampleRate: Double = 44100
     
     public var status: AudioPlayerStatus = .idle {
         didSet {
-            delegate?.audioPlayer(self, statusChanged: status)
+            delegate?.audioPlayer(self, didChangedStatus: status)
         }
     }
     
     public var duration: TimeInterval {
-        TimeInterval(totalAudioFrameLength / 44100)
+        TimeInterval(totalAudioFrameLength) / defaultSampleRate
     }
     
     public var currentTime: TimeInterval {
-        TimeInterval(currentAudioFramePosition / 44100)
+        TimeInterval(currentAudioFramePosition) / defaultSampleRate
     }
     
     public var pitch: Float {
@@ -95,7 +96,7 @@ class VodaAudioPlayer: NSObject {
     }
 }
 
-//MARK: private
+// MARK: private
 private extension VodaAudioPlayer {
     func setupEngine() {
         audioEngine.attach(audioPlayerNode)
@@ -106,9 +107,11 @@ private extension VodaAudioPlayer {
             audioEngine.connect(nodes[count], to: nodes[count + 1], format: format)
         }
         
-        audioEngine.mainMixerNode.installTap(onBus: 0, bufferSize: 4410, format: audioEngine.mainMixerNode.outputFormat(forBus: 0)) { [weak self] buffer, time in
-            let convertedCount = Double(buffer.frameLength) * (Double(44100) / buffer.format.sampleRate)
-            print("curr__\(convertedCount)__\(buffer.frameLength)__\(UInt32(buffer.format.sampleRate)))")
+        audioEngine.mainMixerNode.installTap(onBus: 0, bufferSize: AVAudioFrameCount(defaultSampleRate / 10), format: audioEngine.mainMixerNode.outputFormat(forBus: 0)) { [weak self] buffer, _ in
+            guard let defaultSampleRate = self?.defaultSampleRate else {
+                return
+            }
+            let convertedCount = Double(buffer.frameLength) * (defaultSampleRate / buffer.format.sampleRate)
             self?.currentAudioFramePosition += AVAudioFramePosition(convertedCount)
         }
     }
@@ -121,8 +124,7 @@ private extension VodaAudioPlayer {
             return
         }
         
-        let convertedFrameLength = Double(sourceFile.length) * (Double(44100) / Double(sourceFile.fileFormat.sampleRate))
-        print("total__\(sourceFile.length)__\(sourceFile.fileFormat.sampleRate)__\(convertedFrameLength)")
+        let convertedFrameLength = Double(sourceFile.length) * (defaultSampleRate / Double(sourceFile.fileFormat.sampleRate))
         totalAudioFrameLength = AVAudioFramePosition(convertedFrameLength)
         
         status = .prepared
@@ -132,13 +134,10 @@ private extension VodaAudioPlayer {
         guard let sourceFile = sourceFile else {
             return
         }
-        if status != .stopped {
-            stop()
-        }
         audioPlayerNode.scheduleFile(sourceFile, at: nil)
     }
     
-    func playAudioPlayerNode() {
+    func startEngine() {
         do {
             try audioEngine.start()
         } catch {
@@ -146,96 +145,104 @@ private extension VodaAudioPlayer {
             return
         }
         audioPlayerNode.play()
-        status = .playing
     }
     
     @objc func updateAudioPlayerNodeValue() {
-        if currentAudioFramePosition >= totalAudioFrameLength {
+        let isFinished = currentAudioFramePosition >= totalAudioFrameLength
+        if isFinished {
             stop()
-            currentAudioFramePosition = 0
         }
         
-        let currentTime = Double(currentAudioFramePosition) / 44100
-        delegate?.audioPlayer(self, currentTime: currentTime)
+        let currentTime = Double(currentAudioFramePosition) / defaultSampleRate
+        delegate?.audioPlayer(self, didUpdateCurrentTime: currentTime)
     }
     
     func addAudioPlayerNodeTimer() {
         audioPlayerNodeTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateAudioPlayerNodeValue), userInfo: nil, repeats: true)
     }
     
-    func setupAudioManualRenderingMode() {
+    func enableOfflineRendering() {
+        guard let format = format else {
+            return
+        }
         do {
             let maxNumberOfFrames: AVAudioFrameCount = 4096
-            guard let format = format else {
-                return
-            }
             try audioEngine.enableManualRenderingMode(.offline, format: format, maximumFrameCount: maxNumberOfFrames)
         } catch {
             print(AudioPlayerError.audioManualRenderingModeError.message)
             return
         }
+        startEngine()
     }
     
-    func offlineManualRendering() -> URL {
-        var outputFile = AVAudioFile()
-        
-        if let sourceFile = sourceFile {
-            do {
-                let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-                let outputURL = URL(fileURLWithPath: documentsPath + "/mixLoopProcessed.mp4")
-                outputFile = try AVAudioFile(forWriting: outputURL, settings: sourceFile.fileFormat.settings)
-            } catch {
-                print(AudioPlayerError.audioFileError.message)
-            }
-            
-            let buffer: AVAudioPCMBuffer = AVAudioPCMBuffer(pcmFormat: audioEngine.manualRenderingFormat, frameCapacity: audioEngine.manualRenderingMaximumFrameCount)!
-            
-            while audioEngine.manualRenderingSampleTime < sourceFile.length {
-                do {
-                    let framesToRender = min(buffer.frameCapacity, AVAudioFrameCount(sourceFile.length - audioEngine.manualRenderingSampleTime))
-                    let status = try audioEngine.renderOffline(framesToRender, to: buffer)
-                    switch status {
-                    case .success:
-                        // data rendered successfully
-                        try outputFile.write(from: buffer)
-                        
-                    case .insufficientDataFromInputNode:
-                        break
-                        
-                    case .cannotDoInCurrentContext:
-                        break
-                        
-                    case .error:
-                        print(AudioPlayerError.audioManualRenderingModeError.message)
-                    }
-                } catch {
-                    fatalError("\(AudioPlayerError.audioManualRenderingModeError.message), \(error)")
-                }
-            }
-            audioPlayerNode.stop()
-            audioEngine.stop()
+    func disableOfflineRendering() {
+        audioPlayerNode.stop()
+        audioEngine.stop()
+        audioEngine.disableManualRenderingMode()
+    }
+    
+    func offlineManualRendering() -> URL? {
+        guard let sourceFile = sourceFile else {
+            return nil
+        }
+        guard let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
+            return nil
         }
         
-        print("AVAudioEngine offline rendering completed")
-        print("Output \(outputFile.url)")
+        var outputFile: AVAudioFile?
+        do {
+            let outputURL = URL(fileURLWithPath: documentPath + "/mixLoopProcessed.mp4")
+            outputFile = try AVAudioFile(forWriting: outputURL, settings: sourceFile.fileFormat.settings)
+        } catch {
+            print(AudioPlayerError.audioFileError.message)
+            return nil
+        }
         
+        guard let outputFile = outputFile,
+              let buffer = AVAudioPCMBuffer(pcmFormat: audioEngine.manualRenderingFormat, frameCapacity: audioEngine.manualRenderingMaximumFrameCount) else {
+            return nil
+        }
+        
+        while audioEngine.manualRenderingSampleTime < sourceFile.length {
+            do {
+                let framesToRender = min(buffer.frameCapacity, AVAudioFrameCount(sourceFile.length - audioEngine.manualRenderingSampleTime))
+                let status = try audioEngine.renderOffline(framesToRender, to: buffer)
+                switch status {
+                case .success:
+                    try outputFile.write(from: buffer)
+                case .error:
+                    print(AudioPlayerError.audioManualRenderingModeError.message)
+                    return nil
+                default:
+                    return nil
+                }
+            } catch {
+                print(AudioPlayerError.audioManualRenderingModeError.message)
+                return nil
+            }
+        }
+        print("Output \(outputFile.url)")
         return outputFile.url
     }
 }
 
-//MARK: public
+// MARK: public
 extension VodaAudioPlayer {
     public func play(with url: URL) {
+        if status != .stopped {
+            stop()
+        }
         prepareAudioFile(with: url)
         scheduleFile()
-        playAudioPlayerNode()
+        startEngine()
+        status = .playing
         addAudioPlayerNodeTimer()
     }
     
     public func resume() {
-        status = .playing
         try? audioEngine.start()
         audioPlayerNode.play()
+        status = .playing
         addAudioPlayerNodeTimer()
     }
     
@@ -245,7 +252,7 @@ extension VodaAudioPlayer {
     }
     
     public func skipBackward(seconds: Double) {
-        let seekToTime = currentTime + seconds
+        let seekToTime = currentTime - seconds
         seek(to: seekToTime)
     }
     
@@ -254,41 +261,38 @@ extension VodaAudioPlayer {
             return
         }
         
-        let seekToTime = min(max(0, time), duration)
-        currentAudioFramePosition = AVAudioFramePosition(seekToTime * 44100)
-        
-        let wasPlaying = audioPlayerNode.isPlaying
         audioPlayerNode.stop()
         
-        if currentAudioFramePosition < totalAudioFrameLength {
-            updateAudioPlayerNodeValue()
-            
-            let startingFrame = AVAudioFramePosition(seekToTime * sourceFile.fileFormat.sampleRate)
-            let frameCount = AVAudioFrameCount(sourceFile.length - startingFrame)
-            audioPlayerNode.scheduleSegment(
-                sourceFile,
-                startingFrame: startingFrame,
-                frameCount: frameCount,
-                at: nil
-            )
-            
-            if wasPlaying {
-                audioPlayerNode.play()
-            }
+        let seekToTime = min(max(0, time), duration)
+        currentAudioFramePosition = AVAudioFramePosition(seekToTime * defaultSampleRate)
+        
+        updateAudioPlayerNodeValue()
+        
+        let startingFrame = AVAudioFramePosition(seekToTime * sourceFile.fileFormat.sampleRate)
+        let frameCount = AVAudioFrameCount(sourceFile.length - startingFrame)
+        
+        audioPlayerNode.scheduleSegment(
+            sourceFile,
+            startingFrame: startingFrame,
+            frameCount: frameCount,
+            at: nil
+        )
+        
+        let wasPlaying = audioPlayerNode.isPlaying
+        if wasPlaying {
+            audioPlayerNode.play()
         }
     }
     
     public func pause() {
-        status = .paused
-        
         audioPlayerNodeTimer?.invalidate()
         audioEngine.pause()
         audioPlayerNode.pause()
+        
+        status = .paused
     }
     
     public func stop() {
-        status = .stopped
-        
         audioPlayerNodeTimer?.invalidate()
         
         audioEngine.stop()
@@ -297,15 +301,21 @@ extension VodaAudioPlayer {
         audioPlayerNode.stop()
         audioPlayerNode.reset()
         currentAudioFramePosition = 0
+        
+        status = .stopped
     }
     
     public func render(with url: URL) -> URL? {
+        if status != .stopped {
+            stop()
+        }
         prepareAudioFile(with: url)
         scheduleFile()
-        setupAudioManualRenderingMode()
-        playAudioPlayerNode()
+
+        enableOfflineRendering()
         let url = offlineManualRendering()
-        audioEngine.disableManualRenderingMode()
+        disableOfflineRendering()
+
         return url
     }
 }

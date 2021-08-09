@@ -13,7 +13,7 @@ class RecordSoundViewController: UIViewController {
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordGuideText: UILabel!
-    private var audioRecorder: VodaAudioRecorder?
+    private var audioRecorder = VodaAudioRecorder.shared
     private var recordStatus: AudioRecordStatus?
     private var recordedAudioUrl: URL?
     var recordedDuration: TimeInterval?
@@ -29,9 +29,8 @@ class RecordSoundViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRecordButtonUI(.idle)
-        
-        audioRecorder = VodaAudioRecorder.shared
-        audioRecorder?.delegate = self
+       
+        audioRecorder.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +42,7 @@ class RecordSoundViewController: UIViewController {
         switch recordStatus {
         case .idle, .prepared:
             stopButton.isHidden = true
-        case .record:
+        case .recording:
             recordButton.isHidden = true
             recordGuideText.isHidden = true
             stopButton.isHidden = false
@@ -57,16 +56,16 @@ class RecordSoundViewController: UIViewController {
     }
     
     @IBAction func recordAudio(_ sender: Any) {
-        audioRecorder?.record()
+        audioRecorder.record()
     }
     
     @IBAction func stopRecording(_ sender: Any) {
-        recordedDuration = audioRecorder?.currentTime
-        audioRecorder?.stop()
+        recordedDuration = audioRecorder.currentTime
+        audioRecorder.stop()
     }
 }
 
-// Mark: AudioRecordable
+// MARK: AudioRecordable
 extension RecordSoundViewController: AudioRecordable {
     func audioRecorder(_ audioPlayer: VodaAudioRecorder, didFinishedWithUrl url: URL?) {
         guard let recordedUrl = url else {
@@ -78,16 +77,12 @@ extension RecordSoundViewController: AudioRecordable {
         performSegue(withIdentifier: SegueIdentifier.stopRecording, sender: self)
     }
     
-    func audioRecorder(_ audioPlayer: VodaAudioRecorder, statusChanged status: AudioRecordStatus) {
+    func audioRecorder(_ audioPlayer: VodaAudioRecorder, didChangedStatus status: AudioRecordStatus) {
         print("recordStatus: \(status)")
         setupRecordButtonUI(status)
     }
     
-    func audioRecorder(_ audioPlayer: VodaAudioRecorder, statusErrorOccured status: AudioRecordStatus) {
-        print("error occured")
-    }
-    
-    func audioRecorder(_ audioPlayer: VodaAudioRecorder, currentTime: TimeInterval) {
+    func audioRecorder(_ audioPlayer: VodaAudioRecorder, didUpdateCurrentTime currentTime: TimeInterval) {
         recordTime.text = currentTime.stringFromTimeInterval()
         recordedDuration = currentTime
     }

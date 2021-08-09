@@ -16,12 +16,12 @@ class PlaySoundViewController: UIViewController {
     @IBOutlet weak var progressBar: UIView!
     @IBOutlet weak var progressBarWidth: NSLayoutConstraint!
     @IBOutlet weak var seekingPointView: UIView!
-    private var audioPlayer: VodaAudioPlayer?
+    private var audioPlayer = VodaAudioPlayer.shared
     private var pitch: Float?
     private var isPlaying = false
     private var sendAudioUrl: URL?
     private var status: AudioPlayerStatus {
-        audioPlayer?.status ?? .idle
+        audioPlayer.status 
     }
     
     var recordedAudioUrl: URL?
@@ -30,10 +30,9 @@ class PlaySoundViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        audioPlayer = VodaAudioPlayer.shared
-        audioPlayer?.delegate = self
+        audioPlayer.delegate = self
         
-        audioPlayer?.pitch = 0
+        audioPlayer.pitch = 0
         
         guard let duration = playDuration else {
             return
@@ -74,8 +73,8 @@ class PlaySoundViewController: UIViewController {
         progressBarWidth.constant = point.x
         
         let seekingRate = Double(progressBarWidth.constant / progressView.frame.size.width)
-        let seekToTime = (audioPlayer?.duration ?? 0) * seekingRate
-        audioPlayer?.seek(to: seekToTime)
+        let seekToTime = (audioPlayer.duration ?? 0) * seekingRate
+        audioPlayer.seek(to: seekToTime)
     }
     
     @objc private func handlePanGesture(sender: UIPanGestureRecognizer) {
@@ -89,61 +88,61 @@ class PlaySoundViewController: UIViewController {
         }
         
         let seekingRate = Double(progressBarWidth.constant / progressView.frame.size.width)
-        let seekToTime = (audioPlayer?.duration ?? 0) * seekingRate
-        audioPlayer?.seek(to: seekToTime)
+        let seekToTime = (audioPlayer.duration ?? 0) * seekingRate
+        audioPlayer.seek(to: seekToTime)
     }
     
     @IBAction func playSound(_ sender: Any) {
         if isPlaying {
-            audioPlayer?.pause()
+            audioPlayer.pause()
             isPlaying = false
         } else {
             if status == .paused {
-                audioPlayer?.resume()
+                audioPlayer.resume()
             } else {
                 guard let recordedUrl = recordedAudioUrl else {
                     return
                 }
-                audioPlayer?.play(with: recordedUrl)
+                audioPlayer.play(with: recordedUrl)
             }
             isPlaying = true
         }
     }
     
     @IBAction func skipBackward(_ sender: Any) {
-        audioPlayer?.skipBackward(seconds: -5)
+        audioPlayer.skipBackward(seconds: 5)
     }
     
     @IBAction func skipForward(_ sender: Any) {
-        audioPlayer?.skipForward(seconds: 5)
+        audioPlayer.skipForward(seconds: 5)
     }
     
     @IBAction func setHighPitch(_ sender: Any) {
-        audioPlayer?.stop()
-        audioPlayer?.pitchEnabled = true
-        audioPlayer?.pitch = 1000
+        audioPlayer.stop()
+        audioPlayer.pitchEnabled = true
+        audioPlayer.pitch = 1000
         progressBarWidth.constant = 0
     }
     
     @IBAction func setRowPitch(_ sender: Any) {
-        audioPlayer?.stop()
-        audioPlayer?.pitchEnabled = true
-        audioPlayer?.pitch = -800
+        audioPlayer.stop()
+        audioPlayer.pitchEnabled = true
+        audioPlayer.pitch = -800
         progressBarWidth.constant = 0
     }
     
     @IBAction func setNoPitch(_ sender: Any) {
-        audioPlayer?.stop()
-        audioPlayer?.pitchEnabled = false
+        audioPlayer.stop()
+        audioPlayer.pitchEnabled = false
         progressBarWidth.constant = 0
     }
     
     @IBAction func sendAudioData(_ sender: Any) {
-        if audioPlayer?.pitch != 0 {
+        if audioPlayer.pitchEnabled {
             guard let recordedUrl = recordedAudioUrl else {
                 return
             }
-            sendAudioUrl = audioPlayer?.render(with: recordedUrl)
+            sendAudioUrl = audioPlayer.render(with: recordedUrl)
         } else {
             sendAudioUrl = recordedAudioUrl
         }
@@ -151,6 +150,7 @@ class PlaySoundViewController: UIViewController {
         guard let url = sendAudioUrl else {
             return
         }
+        print("AVAudioEngine offline rendering completed")
         print("sendAudioUrl: \(url)")
         
         //FIXME: 추후 서버로 보낼 오디오 데이터
@@ -160,9 +160,9 @@ class PlaySoundViewController: UIViewController {
     }
 }
 
-// Mark: AudioPlayable
+// MARK: AudioPlayable
 extension PlaySoundViewController: AudioPlayable {
-    func audioPlayer(_ audioPlayer: VodaAudioPlayer, statusChanged status: AudioPlayerStatus) {
+    func audioPlayer(_ audioPlayer: VodaAudioPlayer, didChangedStatus status: AudioPlayerStatus) {
         print("play status: \(status)")
         guard let duration = playDuration else {
             return
@@ -176,12 +176,8 @@ extension PlaySoundViewController: AudioPlayable {
         
         changeStatusButtonImage(status)
     }
-    
-    func audioPlayer(_ audioPlayer: VodaAudioPlayer, statusErrorOccured status: AudioPlayerStatus) {
-        print("error occured")
-    }
-    
-    func audioPlayer(_ audioPlayer: VodaAudioPlayer, currentTime: TimeInterval) {
+
+    func audioPlayer(_ audioPlayer: VodaAudioPlayer, didUpdateCurrentTime currentTime: TimeInterval) {
         currentPlayingTime.text = currentTime.stringFromTimeInterval()
         
         guard let duration = playDuration else {
