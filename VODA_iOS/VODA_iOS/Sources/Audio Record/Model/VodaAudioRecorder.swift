@@ -7,7 +7,7 @@
 
 import Foundation
 import AVFoundation
-//FIXME: enum 파일 분리
+
 enum AudioRecordStatus {
     case idle
     case prepared
@@ -26,15 +26,16 @@ protocol AudioRecordable: AnyObject {
 class VodaAudioRecorder: NSObject {
     private var audioRecorder: AVAudioRecorder?
     private var recordTimer: Timer?
+   
+    public weak var delegate: AudioRecordable?
+    public static let shared = VodaAudioRecorder()
+    public let audioSession = AVAudioSession.sharedInstance()
+    
     public var currentTime: TimeInterval? {
         audioRecorder?.currentTime
     }
-    //FIXME: 변수 public, extension
-    weak var delegate: AudioRecordable?
-    static let shared = VodaAudioRecorder()
-    let audioSession = AVAudioSession.sharedInstance()
     
-    var status: AudioRecordStatus = .idle {
+    public var status: AudioRecordStatus = .idle {
         didSet {
             delegate?.audioRecorder(self, statusChanged: status)
         }
