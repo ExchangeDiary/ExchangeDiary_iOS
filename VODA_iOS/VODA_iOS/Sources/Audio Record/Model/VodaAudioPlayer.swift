@@ -18,20 +18,20 @@ enum AudioPlayerStatus: String {
 }
 
 enum AudioPlayerError: Error {
-    case AudioFileError
-    case AudioEngineError
-    case AudioManualRenderingModeError
-    case AudioPlayerError
+    case audioFileError
+    case audioEngineError
+    case audioManualRenderingModeError
+    case audioPlayerError
     
     var message: String {
         switch self {
-        case .AudioFileError:
+        case .audioFileError:
             return "Audio File Error"
-        case .AudioEngineError:
+        case .audioEngineError:
             return "Audio Engine Error"
-        case .AudioManualRenderingModeError:
+        case .audioManualRenderingModeError:
             return "Audio Manual Rendering Mode Error"
-        case .AudioPlayerError:
+        case .audioPlayerError:
             return "Audio Player Error"
         }
     }
@@ -102,8 +102,8 @@ private extension VodaAudioPlayer {
         audioEngine.attach(timePitchNode)
         
         let nodes: [AVAudioNode] = [audioPlayerNode, timePitchNode, audioEngine.mainMixerNode]
-        for x in 0..<nodes.count - 1 {
-            audioEngine.connect(nodes[x], to: nodes[x+1], format: format)
+        for count in 0..<nodes.count - 1 {
+            audioEngine.connect(nodes[count], to: nodes[count + 1], format: format)
         }
         
         audioEngine.mainMixerNode.installTap(onBus: 0, bufferSize: 4410, format: audioEngine.mainMixerNode.outputFormat(forBus: 0)) { [weak self] buffer, time in
@@ -142,7 +142,7 @@ private extension VodaAudioPlayer {
         do {
             try audioEngine.start()
         } catch {
-            print(AudioPlayerError.AudioEngineError.message)
+            print(AudioPlayerError.audioEngineError.message)
             return
         }
         audioPlayerNode.play()
@@ -171,7 +171,7 @@ private extension VodaAudioPlayer {
             }
             try audioEngine.enableManualRenderingMode(.offline, format: format, maximumFrameCount: maxNumberOfFrames)
         } catch {
-            print(AudioPlayerError.AudioManualRenderingModeError.message)
+            print(AudioPlayerError.audioManualRenderingModeError.message)
             return
         }
     }
@@ -185,7 +185,7 @@ private extension VodaAudioPlayer {
                 let outputURL = URL(fileURLWithPath: documentsPath + "/mixLoopProcessed.mp4")
                 outputFile = try AVAudioFile(forWriting: outputURL, settings: sourceFile.fileFormat.settings)
             } catch {
-                print(AudioPlayerError.AudioFileError.message)
+                print(AudioPlayerError.audioFileError.message)
             }
             
             let buffer: AVAudioPCMBuffer = AVAudioPCMBuffer(pcmFormat: audioEngine.manualRenderingFormat, frameCapacity: audioEngine.manualRenderingMaximumFrameCount)!
@@ -206,10 +206,10 @@ private extension VodaAudioPlayer {
                         break
                         
                     case .error:
-                        print(AudioPlayerError.AudioManualRenderingModeError.message)
+                        print(AudioPlayerError.audioManualRenderingModeError.message)
                     }
                 } catch {
-                    fatalError("\(AudioPlayerError.AudioManualRenderingModeError.message), \(error)")
+                    fatalError("\(AudioPlayerError.audioManualRenderingModeError.message), \(error)")
                 }
             }
             audioPlayerNode.stop()

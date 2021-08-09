@@ -1,36 +1,103 @@
 PODS:
-  - Alamofire (4.9.1)
-  - Kingfisher (5.15.8):
-    - Kingfisher/Core (= 5.15.8)
-  - Kingfisher/Core (5.15.8)
-  - Moya (13.0.1):
-    - Moya/Core (= 13.0.1)
-  - Moya/Core (13.0.1):
-    - Alamofire (~> 4.1)
-    - Result (~> 4.1)
-  - Result (4.1.0)
+  - Alamofire (5.4.3)
+  - AppAuth (1.4.0):
+    - AppAuth/Core (= 1.4.0)
+    - AppAuth/ExternalUserAgent (= 1.4.0)
+  - AppAuth/Core (1.4.0)
+  - AppAuth/ExternalUserAgent (1.4.0)
+  - GoogleSignIn (6.0.1):
+    - AppAuth (~> 1.4)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GTMAppAuth (1.2.2):
+    - AppAuth/Core (~> 1.4)
+    - GTMSessionFetcher/Core (~> 1.5)
+  - GTMSessionFetcher/Core (1.6.1)
+  - KakaoSDK (2.5.6):
+    - KakaoSDKAuth (= 2.5.6)
+    - KakaoSDKCommon (= 2.5.6)
+    - KakaoSDKLink (= 2.5.6)
+    - KakaoSDKNavi (= 2.5.6)
+    - KakaoSDKStory (= 2.5.6)
+    - KakaoSDKTalk (= 2.5.6)
+    - KakaoSDKTemplate (= 2.5.6)
+    - KakaoSDKUser (= 2.5.6)
+  - KakaoSDKAuth (2.5.6):
+    - KakaoSDKCommon (= 2.5.6)
+  - KakaoSDKCommon (2.5.6):
+    - KakaoSDKCommon/Common (= 2.5.6)
+    - KakaoSDKCommon/Network (= 2.5.6)
+  - KakaoSDKCommon/Common (2.5.6)
+  - KakaoSDKCommon/Network (2.5.6):
+    - Alamofire (~> 5.1)
+    - KakaoSDKCommon/Common (= 2.5.6)
+  - KakaoSDKLink (2.5.6):
+    - KakaoSDKCommon (= 2.5.6)
+    - KakaoSDKTemplate (= 2.5.6)
+  - KakaoSDKNavi (2.5.6):
+    - KakaoSDKCommon/Common (= 2.5.6)
+  - KakaoSDKStory (2.5.6):
+    - KakaoSDKUser (= 2.5.6)
+  - KakaoSDKTalk (2.5.6):
+    - KakaoSDKTemplate (= 2.5.6)
+    - KakaoSDKUser (= 2.5.6)
+  - KakaoSDKTemplate (2.5.6):
+    - KakaoSDKCommon/Common (= 2.5.6)
+  - KakaoSDKUser (2.5.6):
+    - KakaoSDKAuth (= 2.5.6)
+  - Kingfisher (6.3.0)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
   - SwiftLint (0.43.1)
 
 DEPENDENCIES:
-  - Kingfisher (~> 5.0)
-  - Moya (~> 13.0.0)
+  - GoogleSignIn
+  - KakaoSDK
+  - Kingfisher
+  - Moya
   - SwiftLint
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AppAuth
+    - GoogleSignIn
+    - GTMAppAuth
+    - GTMSessionFetcher
+    - KakaoSDK
+    - KakaoSDKAuth
+    - KakaoSDKCommon
+    - KakaoSDKLink
+    - KakaoSDKNavi
+    - KakaoSDKStory
+    - KakaoSDKTalk
+    - KakaoSDKTemplate
+    - KakaoSDKUser
     - Kingfisher
     - Moya
-    - Result
     - SwiftLint
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
-  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
-  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
+  GoogleSignIn: 1b0c4ec33a6fe282f4fa35d8ac64263230ddaf36
+  GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
+  GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
+  KakaoSDK: cf7977079b8b2925ee366ebe29aae51921e648ce
+  KakaoSDKAuth: 1e1fa737e78eed3f301ab5c164526781a37a42f9
+  KakaoSDKCommon: cdf340a8f671eef75f4ca012003cb350af3c4b6d
+  KakaoSDKLink: 59336155a065da278ba30dc656506295dc682979
+  KakaoSDKNavi: 8f74b7faad26e632c556bdf0584a30a3948f2c70
+  KakaoSDKStory: 5f32ad8525fa8b209ef91578f4be9c2c45a07f51
+  KakaoSDKTalk: 68c72269e9095afb9582f324b94f99dd6284e361
+  KakaoSDKTemplate: 0370e640abd33d0acb3d7bbe4ef3c02dc42a4576
+  KakaoSDKUser: f488aa4699b3fd3a836ab5c7e25e2cb4cea190c1
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 9a6a5d509f864df5707b9da694ff81f0072e5366
+PODFILE CHECKSUM: d82c37a1567d50e73038d52f63f2f499ec72de6a
 
 COCOAPODS: 1.10.1
