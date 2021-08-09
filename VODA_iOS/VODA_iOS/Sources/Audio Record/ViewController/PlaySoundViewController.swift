@@ -34,17 +34,65 @@ class PlaySoundViewController: UIViewController {
         audioPlayer = AudioPlayManager.shared
         audioPlayer?.delegate = self
         
-        guard let recordedUrl = recordedAudioUrl else {
-            return
-        }
-        audioPlayer?.setUpAudio(audioUrl: recordedUrl)
+        audioPlayer?.pitch = 0
         
         guard let duration = playDuration else {
             return
         }
         
-        remainingPlayingTime.text = "-\(duration)"
-        progressView.progress = 0
+        totalDuration.text = duration.stringFromTimeInterval()
+        remainingPlayingTime.text = "-\(duration.stringFromTimeInterval())"
+        
+        progressBarWidth.constant = 0
+        addGestureRecognizer()
+        
+        seekingPointView.layer.borderColor = UIColor.blue.cgColor
+        seekingPointView.layer.borderWidth = 3
+    }
+    
+    private func changeStatusButtonImage(_ playStatus: AudioPlayerStatus) {
+        switch playStatus {
+        case .idle, .prepared, .paused, .stopped:
+            playStatusButton.setImage(UIImage(named: "resume"), for: .normal)
+        case .playing:
+            playStatusButton.setImage(UIImage(named: "pause"), for: .normal)
+        default:
+            break
+        }
+    }
+    
+    private func addGestureRecognizer() {
+        //FIXME: 기기에서 세세히 확인하기
+        progressView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture)))
+        progressBar.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture)))
+        seekingPointView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture)))
+        
+        progressView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapGesture)))
+        progressBar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapGesture)))
+    }
+    
+    @objc private func handleTapGesture(sender: UITapGestureRecognizer) {
+        let point = sender.location(in: progressView)
+        progressBarWidth.constant = point.x
+        
+        let seekingRate = Double(progressBarWidth.constant / progressView.frame.size.width)
+        let seekToTime = (audioPlayer?.duration ?? 0) * seekingRate
+        audioPlayer?.seek(to: seekToTime)
+    }
+    
+    @objc private func handlePanGesture(sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: self.view)
+        
+        progressBarWidth.constant += translation.x
+        sender.setTranslation(.zero, in: self.view)
+        
+        if progressBarWidth.constant > progressView.frame.size.width {
+            progressBarWidth.constant = progressView.frame.size.width
+        }
+        
+        let seekingRate = Double(progressBarWidth.constant / progressView.frame.size.width)
+        let seekToTime = (audioPlayer?.duration ?? 0) * seekingRate
+        audioPlayer?.seek(to: seekToTime)
     }
     
     @IBAction func playSound(_ sender: Any) {
@@ -52,41 +100,52 @@ class PlaySoundViewController: UIViewController {
             audioPlayer?.pause()
             isPlaying = false
         } else {
-            audioPlayer?.play(pitch: pitch)
+            if status == .paused {
+                audioPlayer?.resume()
+            } else {
+                guard let recordedUrl = recordedAudioUrl else {
+                    return
+                }
+                audioPlayer?.play(with: recordedUrl)
+            }
             isPlaying = true
         }
     }
     
     @IBAction func skipBackward(_ sender: Any) {
-        audioPlayer?.skipBackward(pitch: pitch, seconds: -5.0)
+        audioPlayer?.skipBackward(seconds: -5)
     }
     
     @IBAction func skipForward(_ sender: Any) {
-        audioPlayer?.skipForward(pitch: pitch, seconds: 5.0)
+        audioPlayer?.skipForward(seconds: 5)
     }
     
     @IBAction func setHighPitch(_ sender: Any) {
-        pitch = 1000
         audioPlayer?.stop()
+        audioPlayer?.pitchEnabled = true
+        audioPlayer?.pitch = 1000
         progressBarWidth.constant = 0
     }
     
     @IBAction func setRowPitch(_ sender: Any) {
-        pitch = -800
         audioPlayer?.stop()
+        audioPlayer?.pitchEnabled = true
+        audioPlayer?.pitch = -800
         progressBarWidth.constant = 0
     }
     
     @IBAction func setNoPitch(_ sender: Any) {
-        pitch = nil
         audioPlayer?.stop()
+        audioPlayer?.pitchEnabled = false
         progressBarWidth.constant = 0
     }
     
     @IBAction func sendAudioData(_ sender: Any) {
-        if let pitchValue = pitch {
-            audioPlayer?.playWithAudioEffect(pitch: pitchValue, playOrRender: "render")
-            sendAudioUrl = audioPlayer?.offlineManualRendering()
+        if audioPlayer?.pitch != 0 {
+            guard let recordedUrl = recordedAudioUrl else {
+                return
+            }
+            sendAudioUrl = audioPlayer?.render(with: recordedUrl)
         } else {
             sendAudioUrl = recordedAudioUrl
         }
@@ -113,7 +172,7 @@ extension PlaySoundViewController: AudioPlayable {
         
         if status == .stopped {
             isPlaying = false
-            currentPlayingTime.text = duration
+            currentPlayingTime.text = duration.stringFromTimeInterval()
             remainingPlayingTime.text = "-00:00"
         }
         
@@ -123,16 +182,15 @@ extension PlaySoundViewController: AudioPlayable {
     func audioPlayer(_ audioPlayer: AudioPlayManager, statusErrorOccured status: AudioPlayerStatus) {
         print("error occured")
     }
-   
-    func audioPlayer(_ audioPlayer: AudioPlayManager, currentTime: String) {
-        currentPlayingTime.text = currentTime
-    }
     
-    func audioPlayer(_ audioPlayer: AudioPlayManager, remainingTime: String) {
+    func audioPlayer(_ audioPlayer: AudioPlayManager, currentTime: TimeInterval) {
+        currentPlayingTime.text = currentTime.stringFromTimeInterval()
+        
+        guard let duration = playDuration else {
+            return
+        }
+        let remainingTime = (duration - currentTime).stringFromTimeInterval()
         remainingPlayingTime.text = "-\(remainingTime)"
-    }
-    
-    func audioPlayer(_ audioPlayer: AudioPlayManager, progressValue: Float) {
-        progressBarWidth.constant = CGFloat(progressValue) * progressView.frame.size.width
+        progressBarWidth.constant = CGFloat((currentTime / duration)) * progressView.frame.size.width
     }
 }
