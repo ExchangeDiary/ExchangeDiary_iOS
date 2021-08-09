@@ -17,7 +17,7 @@ class PlaySoundViewController: UIViewController {
     @IBOutlet weak var progressBarWidth: NSLayoutConstraint!
     @IBOutlet weak var seekingPointView: UIView!
     @IBOutlet weak var 버릴progressView: UIProgressView!
-    private var audioPlayer: AudioPlayManager?
+    private var audioPlayer: VodaAudioPlayer?
     private var pitch: Float?
     private var isPlaying = false
     private var sendAudioUrl: URL?
@@ -31,7 +31,7 @@ class PlaySoundViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        audioPlayer = AudioPlayManager.shared
+        audioPlayer = VodaAudioPlayer.shared
         audioPlayer?.delegate = self
         
         audioPlayer?.pitch = 0
@@ -164,7 +164,7 @@ class PlaySoundViewController: UIViewController {
 
 // Mark: AudioPlayable
 extension PlaySoundViewController: AudioPlayable {
-    func audioPlayer(_ audioPlayer: AudioPlayManager, statusChanged status: AudioPlayerStatus) {
+    func audioPlayer(_ audioPlayer: VodaAudioPlayer, statusChanged status: AudioPlayerStatus) {
         print("play status: \(status)")
         guard let duration = playDuration else {
             return
@@ -179,11 +179,11 @@ extension PlaySoundViewController: AudioPlayable {
         changeStatusButtonImage(status)
     }
     
-    func audioPlayer(_ audioPlayer: AudioPlayManager, statusErrorOccured status: AudioPlayerStatus) {
+    func audioPlayer(_ audioPlayer: VodaAudioPlayer, statusErrorOccured status: AudioPlayerStatus) {
         print("error occured")
     }
     
-    func audioPlayer(_ audioPlayer: AudioPlayManager, currentTime: TimeInterval) {
+    func audioPlayer(_ audioPlayer: VodaAudioPlayer, currentTime: TimeInterval) {
         currentPlayingTime.text = currentTime.stringFromTimeInterval()
         
         guard let duration = playDuration else {

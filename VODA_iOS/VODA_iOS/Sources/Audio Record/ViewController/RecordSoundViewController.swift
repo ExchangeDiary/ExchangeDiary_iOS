@@ -13,7 +13,7 @@ class RecordSoundViewController: UIViewController {
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordGuideText: UILabel!
-    private var audioRecorder: AudioRecordManager?
+    private var audioRecorder: VodaAudioRecorder?
     private var recordStatus: AudioRecordStatus?
     private var recordedAudioUrl: URL?
     var recordedDuration: TimeInterval?
@@ -30,7 +30,7 @@ class RecordSoundViewController: UIViewController {
         super.viewDidLoad()
         setupRecordButtonUI(.idle)
         
-        audioRecorder = AudioRecordManager.shared
+        audioRecorder = VodaAudioRecorder.shared
         audioRecorder?.delegate = self
     }
     
@@ -68,7 +68,7 @@ class RecordSoundViewController: UIViewController {
 
 // Mark: AudioRecordable
 extension RecordSoundViewController: AudioRecordable {
-    func audioRecorder(_ audioPlayer: AudioRecordManager, didFinishedWithUrl url: URL?) {
+    func audioRecorder(_ audioPlayer: VodaAudioRecorder, didFinishedWithUrl url: URL?) {
         guard let recordedUrl = url else {
             return
         }
@@ -78,16 +78,16 @@ extension RecordSoundViewController: AudioRecordable {
         performSegue(withIdentifier: SegueIdentifier.stopRecording, sender: self)
     }
     
-    func audioRecorder(_ audioPlayer: AudioRecordManager, statusChanged status: AudioRecordStatus) {
+    func audioRecorder(_ audioPlayer: VodaAudioRecorder, statusChanged status: AudioRecordStatus) {
         print("recordStatus: \(status)")
         setupRecordButtonUI(status)
     }
     
-    func audioRecorder(_ audioPlayer: AudioRecordManager, statusErrorOccured status: AudioRecordStatus) {
+    func audioRecorder(_ audioPlayer: VodaAudioRecorder, statusErrorOccured status: AudioRecordStatus) {
         print("error occured")
     }
     
-    func audioRecorder(_ audioPlayer: AudioRecordManager, currentTime: TimeInterval) {
+    func audioRecorder(_ audioPlayer: VodaAudioRecorder, currentTime: TimeInterval) {
         recordTime.text = currentTime.stringFromTimeInterval()
         recordedDuration = currentTime
     }

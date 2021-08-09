@@ -1,5 +1,5 @@
 //
-//  AudioRecordManager.swift
+//  VodaAudioRecorder.swift
 //  VODA_iOS
 //
 //  Created by 전소영 on 2021/07/23.
@@ -17,13 +17,13 @@ enum AudioRecordStatus {
 }
 
 protocol AudioRecordable: AnyObject {
-    func audioRecorder(_ audioPlayer: AudioRecordManager, statusChanged status: AudioRecordStatus)
-    func audioRecorder(_ audioPlayer: AudioRecordManager, statusErrorOccured status: AudioRecordStatus)
-    func audioRecorder(_ audioPlayer: AudioRecordManager, didFinishedWithUrl url: URL?)
-    func audioRecorder(_ audioPlayer: AudioRecordManager, currentTime: TimeInterval)
+    func audioRecorder(_ audioPlayer: VodaAudioRecorder, statusChanged status: AudioRecordStatus)
+    func audioRecorder(_ audioPlayer: VodaAudioRecorder, statusErrorOccured status: AudioRecordStatus)
+    func audioRecorder(_ audioPlayer: VodaAudioRecorder, didFinishedWithUrl url: URL?)
+    func audioRecorder(_ audioPlayer: VodaAudioRecorder, currentTime: TimeInterval)
 }
 
-class AudioRecordManager: NSObject {
+class VodaAudioRecorder: NSObject {
     private var audioRecorder: AVAudioRecorder?
     private var recordTimer: Timer?
     public var currentTime: TimeInterval? {
@@ -31,7 +31,7 @@ class AudioRecordManager: NSObject {
     }
     //FIXME: 변수 public, extension
     weak var delegate: AudioRecordable?
-    static let shared = AudioRecordManager()
+    static let shared = VodaAudioRecorder()
     let audioSession = AVAudioSession.sharedInstance()
     
     var status: AudioRecordStatus = .idle {
@@ -103,7 +103,7 @@ class AudioRecordManager: NSObject {
 }
 
 // MARK: AVAudioRecorderDelegate
-extension AudioRecordManager: AVAudioRecorderDelegate {
+extension VodaAudioRecorder: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
             delegate?.audioRecorder(self, didFinishedWithUrl: audioRecorder?.url)

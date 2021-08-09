@@ -1,5 +1,5 @@
 //
-//  AudioPlayManager.swift
+//  VodaAudioPlayer.swift
 //  VODA_iOS
 //
 //  Created by 전소영 on 2021/07/25.
@@ -38,12 +38,12 @@ enum AudioPlayerError: Error {
 }
 
 protocol AudioPlayable: AnyObject {
-    func audioPlayer(_ audioPlayer: AudioPlayManager, statusChanged status: AudioPlayerStatus)
-    func audioPlayer(_ audioPlayer: AudioPlayManager, statusErrorOccured status: AudioPlayerStatus)
-    func audioPlayer(_ audioPlayer: AudioPlayManager, currentTime: TimeInterval)
+    func audioPlayer(_ audioPlayer: VodaAudioPlayer, statusChanged status: AudioPlayerStatus)
+    func audioPlayer(_ audioPlayer: VodaAudioPlayer, statusErrorOccured status: AudioPlayerStatus)
+    func audioPlayer(_ audioPlayer: VodaAudioPlayer, currentTime: TimeInterval)
 }
 
-class AudioPlayManager: NSObject {
+class VodaAudioPlayer: NSObject {
     private var sourceFile: AVAudioFile?
     private var format: AVAudioFormat?
     private let audioEngine = AVAudioEngine()
@@ -54,7 +54,7 @@ class AudioPlayManager: NSObject {
     private var totalAudioFrameLength: AVAudioFramePosition = 0
     
     public weak var delegate: AudioPlayable?
-    public static let shared = AudioPlayManager()
+    public static let shared = VodaAudioPlayer()
     
     public var status: AudioPlayerStatus = .idle {
         didSet {
@@ -96,7 +96,7 @@ class AudioPlayManager: NSObject {
 }
 
 //MARK: private
-private extension AudioPlayManager {
+private extension VodaAudioPlayer {
     func setupEngine() {
         audioEngine.attach(audioPlayerNode)
         audioEngine.attach(timePitchNode)
@@ -224,7 +224,7 @@ private extension AudioPlayManager {
 }
 
 //MARK: public
-extension AudioPlayManager {
+extension VodaAudioPlayer {
     public func play(with url: URL) {
         prepareAudioFile(with: url)
         scheduleFile()
