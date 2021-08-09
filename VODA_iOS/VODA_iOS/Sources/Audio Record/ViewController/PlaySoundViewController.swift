@@ -16,7 +16,6 @@ class PlaySoundViewController: UIViewController {
     @IBOutlet weak var progressBar: UIView!
     @IBOutlet weak var progressBarWidth: NSLayoutConstraint!
     @IBOutlet weak var seekingPointView: UIView!
-    @IBOutlet weak var 버릴progressView: UIProgressView!
     private var audioPlayer: VodaAudioPlayer?
     private var pitch: Float?
     private var isPlaying = false
@@ -62,7 +61,6 @@ class PlaySoundViewController: UIViewController {
     }
     
     private func addGestureRecognizer() {
-        //FIXME: 기기에서 세세히 확인하기
         progressView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture)))
         progressBar.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture)))
         seekingPointView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture)))

@@ -277,7 +277,6 @@
                         <outlet property="remainingPlayingTime" destination="QXD-C1-1I9" id="2cx-p6-cKR"/>
                         <outlet property="seekingPointView" destination="7fH-7m-dL9" id="gWV-kL-iDp"/>
                         <outlet property="totalDuration" destination="zjE-Og-oVR" id="dmA-lg-D1s"/>
-                        <outlet property="버릴progressView" destination="izO-eN-Uge" id="EED-Bb-rjT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYl-xG-0hX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

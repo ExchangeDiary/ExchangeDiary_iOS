@@ -152,15 +152,6 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		9B6C8B4126AA98C400D089D3 /* Audio */ = {
-			isa = PBXGroup;
-			children = (
-				9B6C8B3F26AA963200D089D3 /* VodaAudioRecorder.swift */,
-				9B6C8B4626AC829800D089D3 /* VodaAudioPlayer.swift */,
-			);
-			path = Audio;
-			sourceTree = "<group>";
-		};
 		9B904DC026A95CDD004F5B99 /* Audio Record */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +159,6 @@
 				9B904DC226A95D0B004F5B99 /* Model */,
 				9B904DC326A95D10004F5B99 /* View */,
 				9B904DC426A95D14004F5B99 /* ViewController */,
-				9B6C8B4126AA98C400D089D3 /* Audio */,
 			);
 			path = "Audio Record";
 			sourceTree = "<group>";
@@ -184,6 +174,8 @@
 		9B904DC226A95D0B004F5B99 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9B6C8B3F26AA963200D089D3 /* VodaAudioRecorder.swift */,
+				9B6C8B4626AC829800D089D3 /* VodaAudioPlayer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

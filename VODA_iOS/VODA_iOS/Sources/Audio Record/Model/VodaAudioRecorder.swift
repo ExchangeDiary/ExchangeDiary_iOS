@@ -7,7 +7,7 @@
 
 import Foundation
 import AVFoundation
-//FIXME: enum 파일 분리, class명 변경
+//FIXME: enum 파일 분리
 enum AudioRecordStatus {
     case idle
     case prepared
