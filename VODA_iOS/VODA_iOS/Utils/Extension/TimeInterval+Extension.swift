@@ -16,11 +16,4 @@ extension TimeInterval {
         
         return String(format: "%0.2d:%0.2d", seconds, milliseconds)
     }
-    
-    func calculateRemaingTime(from totalDuration: TimeInterval) -> TimeInterval {
-        let currentTime = self
-        let remainingTime = floor(totalDuration * 100 - currentTime * 100) / 100
-        
-        return remainingTime
-    }
 }
