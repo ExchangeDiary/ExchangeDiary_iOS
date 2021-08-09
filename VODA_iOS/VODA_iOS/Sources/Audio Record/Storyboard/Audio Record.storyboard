@@ -270,12 +270,12 @@
                     <navigationItem key="navigationItem" id="Q40-Z3-9pt"/>
                     <connections>
                         <outlet property="currentPlayingTime" destination="chr-cN-6Ub" id="Tcs-Q5-6PQ"/>
+                        <outlet property="playStatusButton" destination="4sn-cr-5o8" id="kId-8m-gCI"/>
                         <outlet property="progressBar" destination="xQa-l8-VP5" id="bTi-h2-8b1"/>
                         <outlet property="progressBarWidth" destination="q1Z-6J-Gyo" id="r2j-7e-sJ7"/>
                         <outlet property="progressView" destination="vkR-hb-yUJ" id="gVS-2u-4js"/>
                         <outlet property="remainingPlayingTime" destination="QXD-C1-1I9" id="2cx-p6-cKR"/>
                         <outlet property="seekingPointView" destination="7fH-7m-dL9" id="gWV-kL-iDp"/>
-                        <outlet property="statusButton" destination="4sn-cr-5o8" id="kId-8m-gCI"/>
                         <outlet property="totalDuration" destination="zjE-Og-oVR" id="dmA-lg-D1s"/>
                         <outlet property="버릴progressView" destination="izO-eN-Uge" id="EED-Bb-rjT"/>
                     </connections>

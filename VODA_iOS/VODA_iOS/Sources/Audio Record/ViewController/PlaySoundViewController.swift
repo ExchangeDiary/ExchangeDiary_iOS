@@ -8,7 +8,7 @@
 import UIKit
 
 class PlaySoundViewController: UIViewController {
-    @IBOutlet weak var statusButton: UIButton!
+    @IBOutlet weak var playStatusButton: UIButton!
     @IBOutlet weak var totalDuration: UILabel!
     @IBOutlet weak var currentPlayingTime: UILabel!
     @IBOutlet weak var remainingPlayingTime: UILabel!
