@@ -7,7 +7,7 @@
 
 import Foundation
 import AVFoundation
-
+//FIXME: enum 파일 분리, class명 변경
 enum AudioRecordStatus {
     case idle
     case prepared
@@ -20,13 +20,16 @@ protocol AudioRecordable: AnyObject {
     func audioRecorder(_ audioPlayer: AudioRecordManager, statusChanged status: AudioRecordStatus)
     func audioRecorder(_ audioPlayer: AudioRecordManager, statusErrorOccured status: AudioRecordStatus)
     func audioRecorder(_ audioPlayer: AudioRecordManager, didFinishedWithUrl url: URL?)
-    func audioRecorder(_ audioPlayer: AudioRecordManager, currentTime: String)
+    func audioRecorder(_ audioPlayer: AudioRecordManager, currentTime: TimeInterval)
 }
 
 class AudioRecordManager: NSObject {
     private var audioRecorder: AVAudioRecorder?
     private var recordTimer: Timer?
-    
+    public var currentTime: TimeInterval? {
+        audioRecorder?.currentTime
+    }
+    //FIXME: 변수 public, extension
     weak var delegate: AudioRecordable?
     static let shared = AudioRecordManager()
     let audioSession = AVAudioSession.sharedInstance()
@@ -39,8 +42,8 @@ class AudioRecordManager: NSObject {
     
     private override init() { }
     
-    func record() {
-        guard let directoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first as? String else {
+    public func record() {
+        guard let directoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
             return
         }
         print(directoryPath)
@@ -76,33 +79,25 @@ class AudioRecordManager: NSObject {
         }
     }
     
-    @objc func stop() {
+    public func stop() {
         status = .stopped
         
         recordTimer?.invalidate()
         audioRecorder?.stop()
         
-        do {
-            try? audioSession.setActive(false)
-        } catch {
-            print(error)
+        try? audioSession.setActive(false)
+    }
+    
+    @objc private func getCurrentTime() {
+        if let currentTime = currentTime {
+            if currentTime >= 30.0 {
+                stop()
+            }
+            delegate?.audioRecorder(self, currentTime: currentTime)
         }
     }
     
-    @objc func getCurrentTime() {
-        guard let audioRecorder = audioRecorder else {
-            return
-        }
-        let currentTime = audioRecorder.currentTime
-        
-        if currentTime >= 30.0 {
-            stop()
-        }
-        
-        delegate?.audioRecorder(self, currentTime: currentTime.stringFromTimeInterval())
-    }
-    
-    func addTimer() {
+    private func addTimer() {
         recordTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(getCurrentTime), userInfo: nil, repeats: true)
     }
 }

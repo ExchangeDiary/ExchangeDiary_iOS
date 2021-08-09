@@ -13,20 +13,22 @@ class RecordSoundViewController: UIViewController {
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordGuideText: UILabel!
-    private var recordedAudioUrl: URL?
     private var audioRecorder: AudioRecordManager?
     private var recordStatus: AudioRecordStatus?
+    private var recordedAudioUrl: URL?
+    var recordedDuration: TimeInterval?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.stopRecording {
             let playSoundViewController = segue.destination as? PlaySoundViewController
             playSoundViewController?.recordedAudioUrl = recordedAudioUrl
+            playSoundViewController?.playDuration = recordedDuration
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpRecordButtonUI(.idle)
+        setupRecordButtonUI(.idle)
         
         audioRecorder = AudioRecordManager.shared
         audioRecorder?.delegate = self
@@ -37,7 +39,7 @@ class RecordSoundViewController: UIViewController {
         recordTime.text = "00 : 00"
     }
     
-    private func setUpRecordButtonUI(_ recordStatus: AudioRecordStatus) {
+    private func setupRecordButtonUI(_ recordStatus: AudioRecordStatus) {
         switch recordStatus {
         case .idle, .prepared:
             stopButton.isHidden = true
@@ -59,6 +61,7 @@ class RecordSoundViewController: UIViewController {
     }
     
     @IBAction func stopRecording(_ sender: Any) {
+        recordedDuration = audioRecorder?.currentTime
         audioRecorder?.stop()
     }
 }
@@ -77,14 +80,15 @@ extension RecordSoundViewController: AudioRecordable {
     
     func audioRecorder(_ audioPlayer: AudioRecordManager, statusChanged status: AudioRecordStatus) {
         print("recordStatus: \(status)")
-        setUpRecordButtonUI(status)
+        setupRecordButtonUI(status)
     }
     
     func audioRecorder(_ audioPlayer: AudioRecordManager, statusErrorOccured status: AudioRecordStatus) {
         print("error occured")
     }
     
-    func audioRecorder(_ audioPlayer: AudioRecordManager, currentTime: String) {
-        recordTime.text = currentTime
+    func audioRecorder(_ audioPlayer: AudioRecordManager, currentTime: TimeInterval) {
+        recordTime.text = currentTime.stringFromTimeInterval()
+        recordedDuration = currentTime
     }
 }

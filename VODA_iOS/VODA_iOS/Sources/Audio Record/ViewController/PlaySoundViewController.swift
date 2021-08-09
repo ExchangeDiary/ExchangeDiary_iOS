@@ -19,13 +19,14 @@ class PlaySoundViewController: UIViewController {
     @IBOutlet weak var 버릴progressView: UIProgressView!
     private var audioPlayer: AudioPlayManager?
     private var pitch: Float?
-    private var sendAudioUrl: URL?
-    private var playStatus: AudioPlayerStatus?
     private var isPlaying = false
-    private var playDuration: String? {
-        audioPlayer?.getAudioPlayerDuration().stringFromTimeInterval()
+    private var sendAudioUrl: URL?
+    private var status: AudioPlayerStatus {
+        audioPlayer?.status ?? .idle
     }
+    
     var recordedAudioUrl: URL?
+    var playDuration: TimeInterval?
     
     override func viewDidLoad() {
         super.viewDidLoad()
