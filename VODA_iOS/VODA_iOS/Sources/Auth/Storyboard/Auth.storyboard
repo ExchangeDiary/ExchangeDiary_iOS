@@ -120,7 +120,7 @@
                     <connections>
                         <outlet property="appleLoginButton" destination="5kf-VI-SwO" id="SmJ-Vg-c1o"/>
                         <outlet property="googleLoginButton" destination="3iy-70-KEp" id="Cdc-jk-nLd"/>
-                        <outlet property="kakoLoginButton" destination="nyE-7O-Zih" id="bNE-4E-yvr"/>
+                        <outlet property="kakaoLoginButton" destination="nyE-7O-Zih" id="Azu-XV-DJ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

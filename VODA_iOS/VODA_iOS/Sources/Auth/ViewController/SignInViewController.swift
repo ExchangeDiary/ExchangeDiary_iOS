@@ -12,7 +12,7 @@ import GoogleSignIn
 class SignInViewController: UIViewController {
     
     @IBOutlet weak var googleLoginButton: UIButton!
-    @IBOutlet weak var kakoLoginButton: UIButton!
+    @IBOutlet weak var kakaoLoginButton: UIButton!
     @IBOutlet weak var appleLoginButton: UIButton!
     
     let appleLoginManager = AppleLoginManager()
@@ -37,10 +37,10 @@ class SignInViewController: UIViewController {
         
         appleRequest.requestedScopes = [.fullName, .email]
         
-        let controller = ASAuthorizationController(authorizationRequests: [appleRequest])
+        let authorizationController = ASAuthorizationController(authorizationRequests: [appleRequest])
         
-        controller.delegate = appleLoginManager
-        controller.presentationContextProvider = appleLoginManager
-        controller.performRequests()
+        authorizationController.delegate = appleLoginManager
+        authorizationController.presentationContextProvider = appleLoginManager
+        authorizationController.performRequests()
     }
 }
