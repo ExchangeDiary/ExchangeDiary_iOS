@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "KakaoTalk_Photo_2021-07-31-00-31-00 002.png",
+      "filename" : "slice11.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "slice11@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "slice11@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -17,5 +19,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
   }
 }

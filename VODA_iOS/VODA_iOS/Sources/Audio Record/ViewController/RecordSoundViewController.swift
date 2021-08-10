@@ -31,11 +31,16 @@ class RecordSoundViewController: UIViewController {
         setupRecordButtonUI(.idle)
        
         audioRecorder.delegate = self
+        
+        self.setNavigationBarTransparency()
+        self.setBackButton(color: .black)
+        
+        (rootViewController as? MainViewController)?.setTabBarHidden(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        recordTime.text = "00 : 00"
+        recordTime.text = "00:00"
     }
     
     private func setupRecordButtonUI(_ recordStatus: AudioRecordStatus) {

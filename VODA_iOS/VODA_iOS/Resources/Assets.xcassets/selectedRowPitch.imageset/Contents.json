@@ -1,18 +1,18 @@
 {
   "images" : [
     {
-      "filename" : "slice28.png",
+      "scale" : "1x",
       "idiom" : "universal",
-      "scale" : "1x"
+      "filename" : "slice26.png"
     },
     {
       "scale" : "2x",
-      "filename" : "slice28@2x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "slice26@2x.png"
     },
     {
       "scale" : "3x",
-      "filename" : "slice28@3x.png",
+      "filename" : "slice26@3x.png",
       "idiom" : "universal"
     }
   ],
