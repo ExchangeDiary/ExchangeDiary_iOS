@@ -261,6 +261,7 @@ extension VodaAudioPlayer {
             return
         }
         
+        let wasPlaying = audioPlayerNode.isPlaying
         audioPlayerNode.stop()
         
         let seekToTime = min(max(0, time), duration)
@@ -277,8 +278,7 @@ extension VodaAudioPlayer {
             frameCount: frameCount,
             at: nil
         )
-        
-        let wasPlaying = audioPlayerNode.isPlaying
+
         if wasPlaying {
             audioPlayerNode.play()
         }
