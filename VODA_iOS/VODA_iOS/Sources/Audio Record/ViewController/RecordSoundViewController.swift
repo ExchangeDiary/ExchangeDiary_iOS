@@ -9,6 +9,7 @@ import UIKit
 import AVFoundation
 
 class RecordSoundViewController: UIViewController {
+    @IBOutlet weak var voiceRecordTitle: UILabel!
     @IBOutlet weak var recordTime: UILabel!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
@@ -36,6 +37,8 @@ class RecordSoundViewController: UIViewController {
         self.setBackButton(color: .black)
         
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
+        
+        voiceRecordTitle.text = "Untitle\(getCurrentDate())"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +61,17 @@ class RecordSoundViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    private func getCurrentDate() -> String {
+        let nowDate = Date()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyMMdd"
+        
+        let currentDate = dateFormatter.string(from: nowDate)
+        
+        return currentDate
     }
     
     @IBAction func recordAudio(_ sender: Any) {
