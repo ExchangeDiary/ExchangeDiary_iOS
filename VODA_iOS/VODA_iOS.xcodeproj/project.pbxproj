@@ -8,11 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		120B28B126BAD5550058A568 /* AppleLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B28B026BAD5550058A568 /* AppleLoginManager.swift */; };
-		1279628226B8EC840027EB8C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1279628126B8EC840027EB8C /* UIView+Extension.swift */; };
-		1279628426B8EC8F0027EB8C /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1279628326B8EC8F0027EB8C /* UIImageView+Extension.swift */; };
-		1279628626B8EC960027EB8C /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1279628526B8EC960027EB8C /* UILabel+Extension.swift */; };
-		1279628826B8EC9E0027EB8C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1279628726B8EC9E0027EB8C /* UIViewController+Extension.swift */; };
-		1279628A26B8ECAA0027EB8C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1279628926B8ECAA0027EB8C /* UIColor+Extension.swift */; };
 		1279629426B93C9C0027EB8C /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1279629326B93C9C0027EB8C /* Auth.storyboard */; };
 		1279629726B93D080027EB8C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1279629626B93D080027EB8C /* SignInViewController.swift */; };
 		129FCEA026BC222B000E20BE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 129FCE9E26BC222B000E20BE /* Info.plist */; };
@@ -23,14 +18,29 @@
 		9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */; };
 		9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46C2699E3CC00FA072C /* MainViewController.swift */; };
 		9B2BF4722699E3CF00FA072C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BF4712699E3CF00FA072C /* Assets.xcassets */; };
+		9B60617326C184AF008C84DC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B60617226C184AF008C84DC /* Home.storyboard */; };
+		9B60617926C184C2008C84DC /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60617626C184C2008C84DC /* TimeInterval+Extension.swift */; };
+		9B60617A26C184C2008C84DC /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60617826C184C2008C84DC /* SegueIdentifier.swift */; };
+		9B60618026C1886D008C84DC /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60617B26C1886D008C84DC /* UIImageView+Extension.swift */; };
+		9B60618126C1886D008C84DC /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60617C26C1886D008C84DC /* UIColor+Extension.swift */; };
+		9B60618226C1886D008C84DC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60617D26C1886D008C84DC /* UIView+Extension.swift */; };
+		9B60618326C1886D008C84DC /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60617E26C1886D008C84DC /* UIViewController+Extension.swift */; };
+		9B60618426C1886D008C84DC /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60617F26C1886D008C84DC /* UILabel+Extension.swift */; };
+		9B6061D526C394CD008C84DC /* AudioRecordStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6061D426C394CD008C84DC /* AudioRecordStatus.swift */; };
+		9B6061D726C39504008C84DC /* AudioPlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6061D626C39504008C84DC /* AudioPlayerStatus.swift */; };
+		9B6061D926C39523008C84DC /* AudioPlayerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6061D826C39523008C84DC /* AudioPlayerError.swift */; };
+		9B6C8B4026AA963200D089D3 /* VodaAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B3F26AA963200D089D3 /* VodaAudioRecorder.swift */; };
+		9B6C8B4726AC829800D089D3 /* VodaAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B4626AC829800D089D3 /* VodaAudioPlayer.swift */; };
 		9B6C8B4A26B3E58B00D089D3 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CBFAC7F26A44D0600924F64 /* .swiftlint.yml */; };
 		9B6C8B4C26B3EE9C00D089D3 /* MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B4B26B3EE9C00D089D3 /* MainTab.swift */; };
-		9B6C8B5726B3EFE900D089D3 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6C8B5626B3EFE900D089D3 /* Home.storyboard */; };
 		9B6C8B5926B3EFFF00D089D3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B5826B3EFFF00D089D3 /* HomeViewController.swift */; };
 		9B6C8B5B26B3F01A00D089D3 /* Push.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6C8B5A26B3F01A00D089D3 /* Push.storyboard */; };
 		9B6C8B5D26B3F02600D089D3 /* PushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B5C26B3F02600D089D3 /* PushViewController.swift */; };
 		9B6C8B5F26B3F03700D089D3 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6C8B5E26B3F03700D089D3 /* MyPage.storyboard */; };
 		9B6C8B6126B3F04500D089D3 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B6026B3F04500D089D3 /* MyPageViewController.swift */; };
+		9B904DC626A95DF8004F5B99 /* RecordSoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904DC526A95DF8004F5B99 /* RecordSoundViewController.swift */; };
+		9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904DC726A95E14004F5B99 /* PlaySoundViewController.swift */; };
+		9B904DCA26A95E82004F5B99 /* AudioRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */; };
 		9BE0A875269A2080005314C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */; };
 		9BE0A886269A2A4E005314C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A885269A2A4E005314C0 /* Main.storyboard */; };
 		D62B1705EB94FBB77F6FF5CF /* Pods_VODA_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE202DC320DB2B380F3FF7CC /* Pods_VODA_iOS.framework */; };
@@ -39,11 +49,6 @@
 /* Begin PBXFileReference section */
 		120B28AF26BA93250058A568 /* VODA_iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VODA_iOS.entitlements; sourceTree = "<group>"; };
 		120B28B026BAD5550058A568 /* AppleLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginManager.swift; sourceTree = "<group>"; };
-		1279628126B8EC840027EB8C /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extension.swift"; path = "Extension/UIView+Extension.swift"; sourceTree = SOURCE_ROOT; };
-		1279628326B8EC8F0027EB8C /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+Extension.swift"; path = "Extension/UIImageView+Extension.swift"; sourceTree = SOURCE_ROOT; };
-		1279628526B8EC960027EB8C /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UILabel+Extension.swift"; path = "Extension/UILabel+Extension.swift"; sourceTree = SOURCE_ROOT; };
-		1279628726B8EC9E0027EB8C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extension.swift"; path = "Extension/UIViewController+Extension.swift"; sourceTree = SOURCE_ROOT; };
-		1279628926B8ECAA0027EB8C /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "Extension/UIColor+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		1279629326B93C9C0027EB8C /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		1279629626B93D080027EB8C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		129FCE9F26BC222B000E20BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Info.plist; sourceTree = "<group>"; };
@@ -57,13 +62,28 @@
 		9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
 		9B2BF46C2699E3CC00FA072C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9B2BF4712699E3CF00FA072C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9B60617226C184AF008C84DC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		9B60617626C184C2008C84DC /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
+		9B60617826C184C2008C84DC /* SegueIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
+		9B60617B26C1886D008C84DC /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		9B60617C26C1886D008C84DC /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		9B60617D26C1886D008C84DC /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		9B60617E26C1886D008C84DC /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		9B60617F26C1886D008C84DC /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		9B6061D426C394CD008C84DC /* AudioRecordStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordStatus.swift; sourceTree = "<group>"; };
+		9B6061D626C39504008C84DC /* AudioPlayerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerStatus.swift; sourceTree = "<group>"; };
+		9B6061D826C39523008C84DC /* AudioPlayerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerError.swift; sourceTree = "<group>"; };
+		9B6C8B3F26AA963200D089D3 /* VodaAudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VodaAudioRecorder.swift; sourceTree = "<group>"; };
+		9B6C8B4626AC829800D089D3 /* VodaAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VodaAudioPlayer.swift; sourceTree = "<group>"; };
 		9B6C8B4B26B3EE9C00D089D3 /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
-		9B6C8B5626B3EFE900D089D3 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		9B6C8B5826B3EFFF00D089D3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9B6C8B5A26B3F01A00D089D3 /* Push.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Push.storyboard; sourceTree = "<group>"; };
 		9B6C8B5C26B3F02600D089D3 /* PushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushViewController.swift; sourceTree = "<group>"; };
 		9B6C8B5E26B3F03700D089D3 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		9B6C8B6026B3F04500D089D3 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		9B904DC526A95DF8004F5B99 /* RecordSoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundViewController.swift; sourceTree = "<group>"; };
+		9B904DC726A95E14004F5B99 /* PlaySoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundViewController.swift; sourceTree = "<group>"; };
+		9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AudioRecord.storyboard; sourceTree = "<group>"; };
 		9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BE0A885269A2A4E005314C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C4ACB85E518139A990B1D58A /* Pods-VODA_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.debug.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,7 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				120B28AF26BA93250058A568 /* VODA_iOS.entitlements */,
-				9BE0A862269A1B51005314C0 /* Utils */,
+				9B60617426C184C2008C84DC /* Utils */,
 				9B2BF47D2699E4BA00FA072C /* Sources */,
 				9B2BF47E2699E4D200FA072C /* Resources */,
 				9B2BF47F2699E4F000FA072C /* SupportingFiles */,
@@ -165,6 +185,7 @@
 				1279629126B93C730027EB8C /* Auth */,
 				9B2BF4852699E97200FA072C /* Main */,
 				9B6C8B4E26B3EF7A00D089D3 /* Home */,
+				9B904DC026A95CDD004F5B99 /* AudioRecord */,
 				9B6C8B4F26B3EF7F00D089D3 /* Push */,
 				9B6C8B4D26B3EF6E00D089D3 /* MyPage */,
 			);
@@ -218,6 +239,44 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		9B60617126C184AF008C84DC /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9B60617226C184AF008C84DC /* Home.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9B60617426C184C2008C84DC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9B60617526C184C2008C84DC /* Extension */,
+				9B60617726C184C2008C84DC /* Network */,
+				9B60617826C184C2008C84DC /* SegueIdentifier.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9B60617526C184C2008C84DC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9B60617C26C1886D008C84DC /* UIColor+Extension.swift */,
+				9B60617B26C1886D008C84DC /* UIImageView+Extension.swift */,
+				9B60617F26C1886D008C84DC /* UILabel+Extension.swift */,
+				9B60617D26C1886D008C84DC /* UIView+Extension.swift */,
+				9B60617E26C1886D008C84DC /* UIViewController+Extension.swift */,
+				9B60617626C184C2008C84DC /* TimeInterval+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		9B60617726C184C2008C84DC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		9B6C8B4D26B3EF6E00D089D3 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,7 +289,7 @@
 		9B6C8B4E26B3EF7A00D089D3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				9B6C8B5026B3EFA500D089D3 /* Storyboard */,
+				9B60617126C184AF008C84DC /* Storyboard */,
 				9B6C8B5326B3EFBD00D089D3 /* ViewController */,
 			);
 			path = Home;
@@ -243,14 +302,6 @@
 				9B6C8B5426B3EFC500D089D3 /* ViewController */,
 			);
 			path = Push;
-			sourceTree = "<group>";
-		};
-		9B6C8B5026B3EFA500D089D3 /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				9B6C8B5626B3EFE900D089D3 /* Home.storyboard */,
-			);
-			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		9B6C8B5126B3EFAF00D089D3 /* Storyboard */ = {
@@ -293,32 +344,43 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		9BE0A862269A1B51005314C0 /* Utils */ = {
+		9B904DC026A95CDD004F5B99 /* AudioRecord */ = {
 			isa = PBXGroup;
 			children = (
-				9BE0A864269A1B6B005314C0 /* Extension */,
-				9BE0A863269A1B61005314C0 /* Network */,
+				9B904DC126A95CFE004F5B99 /* Storyboard */,
+				9B904DC226A95D0B004F5B99 /* Model */,
+				9B904DC426A95D14004F5B99 /* ViewController */,
 			);
-			path = Utils;
+			path = AudioRecord;
 			sourceTree = "<group>";
 		};
-		9BE0A863269A1B61005314C0 /* Network */ = {
+		9B904DC126A95CFE004F5B99 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */,
 			);
-			path = Network;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		9BE0A864269A1B6B005314C0 /* Extension */ = {
+		9B904DC226A95D0B004F5B99 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1279628126B8EC840027EB8C /* UIView+Extension.swift */,
-				1279628326B8EC8F0027EB8C /* UIImageView+Extension.swift */,
-				1279628726B8EC9E0027EB8C /* UIViewController+Extension.swift */,
-				1279628526B8EC960027EB8C /* UILabel+Extension.swift */,
-				1279628926B8ECAA0027EB8C /* UIColor+Extension.swift */,
+				9B6061D426C394CD008C84DC /* AudioRecordStatus.swift */,
+				9B6061D626C39504008C84DC /* AudioPlayerStatus.swift */,
+				9B6061D826C39523008C84DC /* AudioPlayerError.swift */,
+				9B6C8B3F26AA963200D089D3 /* VodaAudioRecorder.swift */,
+				9B6C8B4626AC829800D089D3 /* VodaAudioPlayer.swift */,
 			);
-			path = Extension;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9B904DC426A95D14004F5B99 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9B904DC526A95DF8004F5B99 /* RecordSoundViewController.swift */,
+				9B904DC726A95E14004F5B99 /* PlaySoundViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		9BE0A865269A1B8C005314C0 /* Fonts */ = {
@@ -397,15 +459,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1279629426B93C9C0027EB8C /* Auth.storyboard in Resources */,
+				9B60617326C184AF008C84DC /* Home.storyboard in Resources */,
 				9B6C8B5B26B3F01A00D089D3 /* Push.storyboard in Resources */,
 				9B6C8B4A26B3E58B00D089D3 /* .swiftlint.yml in Resources */,
-				9B6C8B5726B3EFE900D089D3 /* Home.storyboard in Resources */,
 				9BE0A886269A2A4E005314C0 /* Main.storyboard in Resources */,
 				9B6C8B5F26B3F03700D089D3 /* MyPage.storyboard in Resources */,
 				9BE0A875269A2080005314C0 /* LaunchScreen.storyboard in Resources */,
 				12BFEBB426BC258500E70DD7 /* credentials.plist in Resources */,
 				129FCEA026BC222B000E20BE /* Info.plist in Resources */,
 				9B2BF4722699E3CF00FA072C /* Assets.xcassets in Resources */,
+				9B904DCA26A95E82004F5B99 /* AudioRecord.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,22 +539,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B60618426C1886D008C84DC /* UILabel+Extension.swift in Sources */,
 				9B6C8B5926B3EFFF00D089D3 /* HomeViewController.swift in Sources */,
-				1279628826B8EC9E0027EB8C /* UIViewController+Extension.swift in Sources */,
+				9B6061D526C394CD008C84DC /* AudioRecordStatus.swift in Sources */,
+				9B60618126C1886D008C84DC /* UIColor+Extension.swift in Sources */,
 				12DFB9E326BE85A7009C23D1 /* SocialLoginManager.swift in Sources */,
 				9B6C8B4C26B3EE9C00D089D3 /* MainTab.swift in Sources */,
-				1279628A26B8ECAA0027EB8C /* UIColor+Extension.swift in Sources */,
-				1279628626B8EC960027EB8C /* UILabel+Extension.swift in Sources */,
+				9B60617926C184C2008C84DC /* TimeInterval+Extension.swift in Sources */,
 				1279629726B93D080027EB8C /* SignInViewController.swift in Sources */,
 				120B28B126BAD5550058A568 /* AppleLoginManager.swift in Sources */,
-				1279628226B8EC840027EB8C /* UIView+Extension.swift in Sources */,
-				1279628426B8EC8F0027EB8C /* UIImageView+Extension.swift in Sources */,
 				9B6C8B6126B3F04500D089D3 /* MyPageViewController.swift in Sources */,
 				12DFB9E126BE7AA9009C23D1 /* SocialLoginType.swift in Sources */,
 				9B6C8B5D26B3F02600D089D3 /* PushViewController.swift in Sources */,
 				9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */,
+				9B6C8B4726AC829800D089D3 /* VodaAudioPlayer.swift in Sources */,
+				9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */,
+				9B60618026C1886D008C84DC /* UIImageView+Extension.swift in Sources */,
+				9B904DC626A95DF8004F5B99 /* RecordSoundViewController.swift in Sources */,
+				9B6061D926C39523008C84DC /* AudioPlayerError.swift in Sources */,
+				9B6C8B4026AA963200D089D3 /* VodaAudioRecorder.swift in Sources */,
 				9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */,
 				9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */,
+				9B60618326C1886D008C84DC /* UIViewController+Extension.swift in Sources */,
+				9B6061D726C39504008C84DC /* AudioPlayerStatus.swift in Sources */,
+				9B60618226C1886D008C84DC /* UIView+Extension.swift in Sources */,
+				9B60617A26C184C2008C84DC /* SegueIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,8 +706,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = VODA_iOS/VODA_iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
-				INFOPLIST_FILE = VODA_iOS/SupportingFiles/Base.lproj/info.plist;
+				DEVELOPMENT_TEAM = 577SG3C42S;
+				INFOPLIST_FILE = VODA_iOS/SupportingFiles/Base.lproj/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -656,8 +728,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = VODA_iOS/VODA_iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
-				INFOPLIST_FILE = VODA_iOS/SupportingFiles/Base.lproj/info.plist;
+				DEVELOPMENT_TEAM = 577SG3C42S;
+				INFOPLIST_FILE = VODA_iOS/SupportingFiles/Base.lproj/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
