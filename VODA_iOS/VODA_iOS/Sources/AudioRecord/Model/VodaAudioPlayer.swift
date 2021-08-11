@@ -280,6 +280,10 @@ extension VodaAudioPlayer {
         )
 
         if wasPlaying {
+            if !audioEngine.isRunning {
+                try? audioEngine.start()
+            }
+            
             audioPlayerNode.play()
         }
     }
