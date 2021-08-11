@@ -41,9 +41,8 @@ class PlaySoundViewController: UIViewController {
         
         progressBarWidth.constant = 0
         addGestureRecognizer()
-        
-        seekingPointView.layer.borderColor = UIColor.blue.cgColor
-        seekingPointView.layer.borderWidth = 3
+       
+        seekingPointView.addBorder(color: UIColor.CustomColor.vodaMainBlue, widhth: 3)
     }
     
     private func changeStatusButtonImage(_ playStatus: AudioPlayerStatus) {
