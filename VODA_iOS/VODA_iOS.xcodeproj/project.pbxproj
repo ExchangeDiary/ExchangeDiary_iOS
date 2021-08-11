@@ -26,6 +26,9 @@
 		9B60618226C1886D008C84DC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60617D26C1886D008C84DC /* UIView+Extension.swift */; };
 		9B60618326C1886D008C84DC /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60617E26C1886D008C84DC /* UIViewController+Extension.swift */; };
 		9B60618426C1886D008C84DC /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60617F26C1886D008C84DC /* UILabel+Extension.swift */; };
+		9B6061D526C394CD008C84DC /* AudioRecordStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6061D426C394CD008C84DC /* AudioRecordStatus.swift */; };
+		9B6061D726C39504008C84DC /* AudioPlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6061D626C39504008C84DC /* AudioPlayerStatus.swift */; };
+		9B6061D926C39523008C84DC /* AudioPlayerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6061D826C39523008C84DC /* AudioPlayerError.swift */; };
 		9B6C8B4026AA963200D089D3 /* VodaAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B3F26AA963200D089D3 /* VodaAudioRecorder.swift */; };
 		9B6C8B4726AC829800D089D3 /* VodaAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B4626AC829800D089D3 /* VodaAudioPlayer.swift */; };
 		9B6C8B4A26B3E58B00D089D3 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CBFAC7F26A44D0600924F64 /* .swiftlint.yml */; };
@@ -37,7 +40,7 @@
 		9B6C8B6126B3F04500D089D3 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B6026B3F04500D089D3 /* MyPageViewController.swift */; };
 		9B904DC626A95DF8004F5B99 /* RecordSoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904DC526A95DF8004F5B99 /* RecordSoundViewController.swift */; };
 		9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904DC726A95E14004F5B99 /* PlaySoundViewController.swift */; };
-		9B904DCA26A95E82004F5B99 /* Audio Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B904DC926A95E82004F5B99 /* Audio Record.storyboard */; };
+		9B904DCA26A95E82004F5B99 /* AudioRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */; };
 		9BE0A875269A2080005314C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */; };
 		9BE0A886269A2A4E005314C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A885269A2A4E005314C0 /* Main.storyboard */; };
 		D62B1705EB94FBB77F6FF5CF /* Pods_VODA_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE202DC320DB2B380F3FF7CC /* Pods_VODA_iOS.framework */; };
@@ -67,6 +70,9 @@
 		9B60617D26C1886D008C84DC /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		9B60617E26C1886D008C84DC /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		9B60617F26C1886D008C84DC /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		9B6061D426C394CD008C84DC /* AudioRecordStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordStatus.swift; sourceTree = "<group>"; };
+		9B6061D626C39504008C84DC /* AudioPlayerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerStatus.swift; sourceTree = "<group>"; };
+		9B6061D826C39523008C84DC /* AudioPlayerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerError.swift; sourceTree = "<group>"; };
 		9B6C8B3F26AA963200D089D3 /* VodaAudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VodaAudioRecorder.swift; sourceTree = "<group>"; };
 		9B6C8B4626AC829800D089D3 /* VodaAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VodaAudioPlayer.swift; sourceTree = "<group>"; };
 		9B6C8B4B26B3EE9C00D089D3 /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
@@ -77,7 +83,7 @@
 		9B6C8B6026B3F04500D089D3 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		9B904DC526A95DF8004F5B99 /* RecordSoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundViewController.swift; sourceTree = "<group>"; };
 		9B904DC726A95E14004F5B99 /* PlaySoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundViewController.swift; sourceTree = "<group>"; };
-		9B904DC926A95E82004F5B99 /* Audio Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Audio Record.storyboard"; sourceTree = "<group>"; };
+		9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AudioRecord.storyboard; sourceTree = "<group>"; };
 		9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BE0A885269A2A4E005314C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C4ACB85E518139A990B1D58A /* Pods-VODA_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.debug.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,10 +182,10 @@
 		9B2BF47D2699E4BA00FA072C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				9B904DC026A95CDD004F5B99 /* Audio Record */,
 				1279629126B93C730027EB8C /* Auth */,
 				9B2BF4852699E97200FA072C /* Main */,
 				9B6C8B4E26B3EF7A00D089D3 /* Home */,
+				9B904DC026A95CDD004F5B99 /* AudioRecord */,
 				9B6C8B4F26B3EF7F00D089D3 /* Push */,
 				9B6C8B4D26B3EF6E00D089D3 /* MyPage */,
 			);
@@ -338,20 +344,20 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		9B904DC026A95CDD004F5B99 /* Audio Record */ = {
+		9B904DC026A95CDD004F5B99 /* AudioRecord */ = {
 			isa = PBXGroup;
 			children = (
 				9B904DC126A95CFE004F5B99 /* Storyboard */,
 				9B904DC226A95D0B004F5B99 /* Model */,
 				9B904DC426A95D14004F5B99 /* ViewController */,
 			);
-			path = "Audio Record";
+			path = AudioRecord;
 			sourceTree = "<group>";
 		};
 		9B904DC126A95CFE004F5B99 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				9B904DC926A95E82004F5B99 /* Audio Record.storyboard */,
+				9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -359,6 +365,9 @@
 		9B904DC226A95D0B004F5B99 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9B6061D426C394CD008C84DC /* AudioRecordStatus.swift */,
+				9B6061D626C39504008C84DC /* AudioPlayerStatus.swift */,
+				9B6061D826C39523008C84DC /* AudioPlayerError.swift */,
 				9B6C8B3F26AA963200D089D3 /* VodaAudioRecorder.swift */,
 				9B6C8B4626AC829800D089D3 /* VodaAudioPlayer.swift */,
 			);
@@ -459,7 +468,7 @@
 				12BFEBB426BC258500E70DD7 /* credentials.plist in Resources */,
 				129FCEA026BC222B000E20BE /* Info.plist in Resources */,
 				9B2BF4722699E3CF00FA072C /* Assets.xcassets in Resources */,
-				9B904DCA26A95E82004F5B99 /* Audio Record.storyboard in Resources */,
+				9B904DCA26A95E82004F5B99 /* AudioRecord.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +541,7 @@
 			files = (
 				9B60618426C1886D008C84DC /* UILabel+Extension.swift in Sources */,
 				9B6C8B5926B3EFFF00D089D3 /* HomeViewController.swift in Sources */,
+				9B6061D526C394CD008C84DC /* AudioRecordStatus.swift in Sources */,
 				9B60618126C1886D008C84DC /* UIColor+Extension.swift in Sources */,
 				12DFB9E326BE85A7009C23D1 /* SocialLoginManager.swift in Sources */,
 				9B6C8B4C26B3EE9C00D089D3 /* MainTab.swift in Sources */,
@@ -546,10 +556,12 @@
 				9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */,
 				9B60618026C1886D008C84DC /* UIImageView+Extension.swift in Sources */,
 				9B904DC626A95DF8004F5B99 /* RecordSoundViewController.swift in Sources */,
+				9B6061D926C39523008C84DC /* AudioPlayerError.swift in Sources */,
 				9B6C8B4026AA963200D089D3 /* VodaAudioRecorder.swift in Sources */,
 				9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */,
 				9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */,
 				9B60618326C1886D008C84DC /* UIViewController+Extension.swift in Sources */,
+				9B6061D726C39504008C84DC /* AudioPlayerStatus.swift in Sources */,
 				9B60618226C1886D008C84DC /* UIView+Extension.swift in Sources */,
 				9B60617A26C184C2008C84DC /* SegueIdentifier.swift in Sources */,
 			);

@@ -31,9 +31,7 @@ class PlaySoundViewController: UIViewController {
         super.viewDidLoad()
         
         audioPlayer.delegate = self
-        
-        audioPlayer.pitch = 0
-        
+    
         guard let duration = playDuration else {
             return
         }
@@ -73,7 +71,7 @@ class PlaySoundViewController: UIViewController {
         progressBarWidth.constant = point.x
         
         let seekingRate = Double(progressBarWidth.constant / progressView.frame.size.width)
-        let seekToTime = (audioPlayer.duration ?? 0) * seekingRate
+        let seekToTime = audioPlayer.duration * seekingRate
         audioPlayer.seek(to: seekToTime)
     }
     
@@ -88,7 +86,7 @@ class PlaySoundViewController: UIViewController {
         }
         
         let seekingRate = Double(progressBarWidth.constant / progressView.frame.size.width)
-        let seekToTime = (audioPlayer.duration ?? 0) * seekingRate
+        let seekToTime = audioPlayer.duration * seekingRate
         audioPlayer.seek(to: seekToTime)
     }
     
@@ -134,6 +132,7 @@ class PlaySoundViewController: UIViewController {
     @IBAction func setNoPitch(_ sender: Any) {
         audioPlayer.stop()
         audioPlayer.pitchEnabled = false
+        audioPlayer.pitch = 0
         progressBarWidth.constant = 0
     }
     

@@ -8,14 +8,6 @@
 import Foundation
 import AVFoundation
 
-public enum AudioRecordStatus {
-    case idle
-    case prepared
-    case recording
-    case stopped
-    case errorOccured
-}
-
 public protocol AudioRecordable: AnyObject {
     func audioRecorder(_ audioPlayer: VodaAudioRecorder, didChangedStatus status: AudioRecordStatus)
     func audioRecorder(_ audioPlayer: VodaAudioRecorder, didFinishedWithUrl url: URL?)
