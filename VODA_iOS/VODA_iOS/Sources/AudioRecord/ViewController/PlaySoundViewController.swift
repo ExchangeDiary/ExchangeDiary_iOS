@@ -42,6 +42,9 @@ class PlaySoundViewController: UIViewController {
         progressBarWidth.constant = 0
         addGestureRecognizer()
        
+        self.setNavigationBarTransparency()
+        self.setBackButton(color: .black)
+        
         seekingPointView.addBorder(color: UIColor.CustomColor.vodaMainBlue, widhth: 3)
     }
     
