@@ -8,6 +8,7 @@
 import UIKit
 
 class PlaySoundViewController: UIViewController {
+    @IBOutlet weak var audioTitle: UITextField!
     @IBOutlet weak var playStatusButton: UIButton!
     @IBOutlet weak var totalDuration: UILabel!
     @IBOutlet weak var currentPlayingTime: UILabel!
@@ -26,6 +27,7 @@ class PlaySoundViewController: UIViewController {
     
     var recordedAudioUrl: URL?
     var playDuration: TimeInterval?
+    var recordingTitle: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,8 @@ class PlaySoundViewController: UIViewController {
         
         totalDuration.text = duration.stringFromTimeInterval()
         remainingPlayingTime.text = "-\(duration.stringFromTimeInterval())"
+        
+        audioTitle.text = recordingTitle
         
         progressBarWidth.constant = 0
         addGestureRecognizer()

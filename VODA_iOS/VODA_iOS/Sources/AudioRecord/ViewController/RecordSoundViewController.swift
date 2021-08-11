@@ -24,6 +24,7 @@ class RecordSoundViewController: UIViewController {
             let playSoundViewController = segue.destination as? PlaySoundViewController
             playSoundViewController?.recordedAudioUrl = recordedAudioUrl
             playSoundViewController?.playDuration = recordedDuration
+            playSoundViewController?.recordingTitle = "Untitle\(getCurrentDate())"
         }
     }
     
