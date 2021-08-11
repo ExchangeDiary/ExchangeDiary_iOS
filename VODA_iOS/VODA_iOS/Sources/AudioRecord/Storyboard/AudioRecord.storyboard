@@ -275,6 +275,16 @@
                                 <color key="textColor" red="0.70588235294117641" green="0.70588235294117641" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7c-A3-qnc">
+                                <rect key="frame" x="237.66666666666666" y="228" width="24.666666666666657" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="R7c-A3-qnc" secondAttribute="height" multiplier="1:1" id="5eC-Ha-6ve"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="pencil" catalog="system"/>
+                                <connections>
+                                    <action selector="modifyAudioTitle:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="lvF-Ot-8cQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S5c-f0-gb9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -282,10 +292,12 @@
                             <constraint firstItem="Lig-7R-lt9" firstAttribute="centerX" secondItem="S5c-f0-gb9" secondAttribute="centerX" id="0ff-Zx-3z2"/>
                             <constraint firstItem="wS6-7H-WHM" firstAttribute="width" secondItem="g7c-BD-md9" secondAttribute="width" multiplier="0.8746" id="4NA-Cj-JSx"/>
                             <constraint firstItem="zjE-Og-oVR" firstAttribute="centerX" secondItem="S5c-f0-gb9" secondAttribute="centerX" id="8K8-7T-N2u"/>
+                            <constraint firstItem="R7c-A3-qnc" firstAttribute="top" secondItem="Lig-7R-lt9" secondAttribute="top" id="9o3-eV-tCl"/>
                             <constraint firstItem="wS6-7H-WHM" firstAttribute="top" secondItem="wlC-ay-0AO" secondAttribute="bottom" constant="32" id="AVD-kO-AsA"/>
                             <constraint firstItem="S5c-f0-gb9" firstAttribute="bottom" secondItem="wS6-7H-WHM" secondAttribute="bottom" constant="10" id="EoH-qF-du0"/>
                             <constraint firstItem="LeV-6u-BrP" firstAttribute="width" secondItem="g7c-BD-md9" secondAttribute="width" multiplier="0.82933" id="OQB-TV-aC4"/>
                             <constraint firstItem="BSc-pW-jQt" firstAttribute="centerX" secondItem="S5c-f0-gb9" secondAttribute="centerX" id="Qu2-s4-8ME"/>
+                            <constraint firstItem="R7c-A3-qnc" firstAttribute="leading" secondItem="Lig-7R-lt9" secondAttribute="trailing" constant="4" id="SM3-rj-dqE"/>
                             <constraint firstItem="EEg-oF-BJB" firstAttribute="top" secondItem="zjE-Og-oVR" secondAttribute="bottom" constant="24" id="WnG-8X-ALU"/>
                             <constraint firstItem="LeV-6u-BrP" firstAttribute="centerX" secondItem="S5c-f0-gb9" secondAttribute="centerX" id="YLN-ii-D1f"/>
                             <constraint firstItem="BSc-pW-jQt" firstAttribute="top" secondItem="LeV-6u-BrP" secondAttribute="bottom" constant="3" id="cGs-uF-BZg"/>
@@ -297,12 +309,14 @@
                             <constraint firstItem="yX6-gx-Xy0" firstAttribute="centerX" secondItem="S5c-f0-gb9" secondAttribute="centerX" id="nA2-5S-Iii"/>
                             <constraint firstItem="wS6-7H-WHM" firstAttribute="centerX" secondItem="S5c-f0-gb9" secondAttribute="centerX" id="q8M-pO-GxQ"/>
                             <constraint firstItem="BSc-pW-jQt" firstAttribute="width" secondItem="LeV-6u-BrP" secondAttribute="width" id="qAx-vo-g19"/>
+                            <constraint firstItem="R7c-A3-qnc" firstAttribute="width" secondItem="g7c-BD-md9" secondAttribute="width" multiplier="0.064" id="sdH-aJ-ekf"/>
                             <constraint firstItem="wlC-ay-0AO" firstAttribute="leading" secondItem="wS6-7H-WHM" secondAttribute="leading" id="xEU-ff-Ziz"/>
                             <constraint firstItem="zjE-Og-oVR" firstAttribute="top" secondItem="Lig-7R-lt9" secondAttribute="bottom" constant="4" id="xY0-T9-9rs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Q40-Z3-9pt"/>
                     <connections>
+                        <outlet property="audioTitle" destination="Lig-7R-lt9" id="FSk-dE-fvR"/>
                         <outlet property="currentPlayingTime" destination="chr-cN-6Ub" id="Tcs-Q5-6PQ"/>
                         <outlet property="playStatusButton" destination="4sn-cr-5o8" id="kId-8m-gCI"/>
                         <outlet property="progressBar" destination="xQa-l8-VP5" id="bTi-h2-8b1"/>
@@ -339,6 +353,7 @@
     <resources>
         <image name="highPitch" width="88" height="88"/>
         <image name="noPitch" width="88" height="88"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="record" width="100" height="100"/>
         <image name="resume" width="44" height="44"/>
         <image name="rowPitch" width="88" height="88"/>

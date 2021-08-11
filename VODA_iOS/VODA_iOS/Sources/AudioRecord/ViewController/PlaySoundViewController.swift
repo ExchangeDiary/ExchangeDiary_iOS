@@ -42,7 +42,7 @@ class PlaySoundViewController: UIViewController {
         remainingPlayingTime.text = "-\(duration.stringFromTimeInterval())"
         
         audioTitle.text = recordingTitle
-        
+
         progressBarWidth.constant = 0
         addGestureRecognizer()
        
@@ -50,6 +50,10 @@ class PlaySoundViewController: UIViewController {
         self.setBackButton(color: .black)
         
         seekingPointView.addBorder(color: UIColor.CustomColor.vodaMainBlue, widhth: 3)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+          self.view.endEditing(true)
     }
     
     private func changeStatusButtonImage(_ playStatus: AudioPlayerStatus) {
@@ -94,6 +98,10 @@ class PlaySoundViewController: UIViewController {
         let seekingRate = Double(progressBarWidth.constant / progressView.frame.size.width)
         let seekToTime = audioPlayer.duration * seekingRate
         audioPlayer.seek(to: seekToTime)
+    }
+    
+    @IBAction func modifyAudioTitle(_ sender: Any) {
+        audioTitle.becomeFirstResponder()
     }
     
     @IBAction func playSound(_ sender: Any) {
