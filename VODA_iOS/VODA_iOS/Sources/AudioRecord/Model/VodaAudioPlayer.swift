@@ -8,35 +8,6 @@
 import Foundation
 import AVFoundation
 
-public enum AudioPlayerStatus: String {
-    case idle
-    case prepared
-    case playing
-    case paused
-    case stopped
-    case errorOccured
-}
-
-public enum AudioPlayerError: Error {
-    case audioFileError
-    case audioEngineError
-    case audioManualRenderingModeError
-    case audioPlayerError
-    
-    var message: String {
-        switch self {
-        case .audioFileError:
-            return "Audio File Error"
-        case .audioEngineError:
-            return "Audio Engine Error"
-        case .audioManualRenderingModeError:
-            return "Audio Manual Rendering Mode Error"
-        case .audioPlayerError:
-            return "Audio Player Error"
-        }
-    }
-}
-
 public protocol AudioPlayable: AnyObject {
     func audioPlayer(_ audioPlayer: VodaAudioPlayer, didChangedStatus status: AudioPlayerStatus)
     func audioPlayer(_ audioPlayer: VodaAudioPlayer, didUpdateCurrentTime currentTime: TimeInterval)

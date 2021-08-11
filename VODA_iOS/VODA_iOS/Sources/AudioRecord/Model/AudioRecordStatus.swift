@@ -1,0 +1,16 @@
+//
+//  AudioRecordStatus.swift
+//  VODA_iOS
+//
+//  Created by 전소영 on 2021/08/11.
+//
+
+import Foundation
+
+public enum AudioRecordStatus {
+    case idle
+    case prepared
+    case recording
+    case stopped
+    case errorOccured
+}
