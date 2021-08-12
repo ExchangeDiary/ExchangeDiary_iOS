@@ -7,10 +7,15 @@
 
 import UIKit
 
-@IBDesignable
+protocol ButtonClickEventDetectable: AnyObject {
+    func detectClickEvent()
+}
+
 class CustomStepButton: UIButton {
     @IBOutlet weak var title: UIButton!
     @IBOutlet var backgroundView: UIView!
+    
+    weak var delegate: ButtonClickEventDetectable?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,5 +34,8 @@ class CustomStepButton: UIButton {
         }
         
         self.addSubview(view)
+    }
+    @IBAction func clickButton(_ sender: UIButton) {
+        delegate?.detectClickEvent()
     }
 }

@@ -17,8 +17,10 @@ class PlaySoundViewController: UIViewController {
     @IBOutlet weak var progressBar: UIView!
     @IBOutlet weak var progressBarWidth: NSLayoutConstraint!
     @IBOutlet weak var seekingPointView: UIView!
+    private var customStepButton = CustomStepButton(frame: CGRect(x: 0, y: 0, width: 61, height: 39))
     private var audioPlayer = VodaAudioPlayer.shared
     private var pitch: Float?
+    private var isReadyToSend = false
     private var isPlaying = false
     private var sendAudioUrl: URL?
     private var status: AudioPlayerStatus {
@@ -42,7 +44,8 @@ class PlaySoundViewController: UIViewController {
         self.setNavigationBarTransparency()
         self.setBackButton(color: .black)
    
-        let completeButton = UIBarButtonItem(customView: CustomStepButton(frame: CGRect(x: 0, y: 0, width: 61, height: 39)))
+        customStepButton.delegate = self
+        let completeButton = UIBarButtonItem(customView: customStepButton)
         navigationItem.rightBarButtonItem = completeButton
     }
     
@@ -143,6 +146,8 @@ class PlaySoundViewController: UIViewController {
         audioPlayer.stop()
         audioPlayer.pitchEnabled = true
         audioPlayer.pitch = 1000
+        customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaMainBlue
+        isReadyToSend = true
         progressBarWidth.constant = 0
     }
     
@@ -150,6 +155,8 @@ class PlaySoundViewController: UIViewController {
         audioPlayer.stop()
         audioPlayer.pitchEnabled = true
         audioPlayer.pitch = -800
+        customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaMainBlue
+        isReadyToSend = true
         progressBarWidth.constant = 0
     }
     
@@ -157,29 +164,13 @@ class PlaySoundViewController: UIViewController {
         audioPlayer.stop()
         audioPlayer.pitchEnabled = false
         audioPlayer.pitch = 0
+        customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaMainBlue
+        isReadyToSend = true
         progressBarWidth.constant = 0
     }
     
     @IBAction func sendAudioData(_ sender: Any) {
-        if audioPlayer.pitchEnabled {
-            guard let recordedUrl = recordedAudioUrl else {
-                return
-            }
-            sendAudioUrl = audioPlayer.render(with: recordedUrl)
-        } else {
-            sendAudioUrl = recordedAudioUrl
-        }
-        
-        guard let url = sendAudioUrl else {
-            return
-        }
-        print("AVAudioEngine offline rendering completed")
-        print("sendAudioUrl: \(url)")
-        
-        //FIXME: 추후 서버로 보낼 오디오 데이터
-        guard let data = try? Data(contentsOf: url) else {
-            return
-        }
+       
     }
 }
 
@@ -209,5 +200,33 @@ extension PlaySoundViewController: AudioPlayable {
         let remainingTime = (duration - currentTime).stringFromTimeInterval()
         remainingPlayingTime.text = "-\(remainingTime)"
         progressBarWidth.constant = CGFloat((currentTime / duration)) * progressView.frame.size.width
+    }
+}
+
+// MARK: ButtonClickEventDetectable
+extension PlaySoundViewController: ButtonClickEventDetectable {
+    func detectClickEvent() {
+        //TODO: 서버로 데이터 전송 추가, 화면 dismiss
+        if isReadyToSend {
+            if audioPlayer.pitchEnabled {
+                guard let recordedUrl = recordedAudioUrl else {
+                    return
+                }
+                sendAudioUrl = audioPlayer.render(with: recordedUrl)
+            } else {
+                sendAudioUrl = recordedAudioUrl
+            }
+            
+            guard let url = sendAudioUrl else {
+                return
+            }
+            print("AVAudioEngine offline rendering completed")
+            print("sendAudioUrl: \(url)")
+            
+            //TODO: 추후 서버로 보낼 오디오 데이터
+            guard let audioData = try? Data(contentsOf: url) else {
+                return
+            }
+        }
     }
 }
