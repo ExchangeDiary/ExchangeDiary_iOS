@@ -236,7 +236,7 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="slice21"/>
                                         <connections>
-                                            <action selector="setHighPitch:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="yFQ-nK-29g"/>
+                                            <action selector="setRowPitch:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="rU3-H0-Dhk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXT-Rm-N57">
@@ -246,7 +246,7 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="slice23"/>
                                         <connections>
-                                            <action selector="setRowPitch:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="0X2-Wc-h61"/>
+                                            <action selector="setHighPitch:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="HXY-Oh-U7C"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATR-pd-K6t">
