@@ -36,7 +36,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="n9f-Vy-DQE" secondAttribute="height" multiplier="1:1" id="q7Y-KL-08T"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="record"/>
+                                <state key="normal" title="Button" image="voice"/>
                                 <connections>
                                     <action selector="recordAudio:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PHy-Ko-E9f"/>
                                 </connections>
@@ -120,7 +120,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record" translatesAutoresizingMaskIntoConstraints="NO" id="EEg-oF-BJB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voice" translatesAutoresizingMaskIntoConstraints="NO" id="EEg-oF-BJB">
                                 <rect key="frame" x="157" y="229.5" width="100" height="100"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LeV-6u-BrP" userLabel="ProgressView">
@@ -234,7 +234,8 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="SZr-QR-hXe" secondAttribute="height" multiplier="1:1" id="oQM-h5-rc4"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="slice21"/>
+                                        <state key="normal" title="Button" image="thick"/>
+                                        <state key="selected" image="thickHover"/>
                                         <connections>
                                             <action selector="setRowPitch:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="rU3-H0-Dhk"/>
                                         </connections>
@@ -244,7 +245,8 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="IXT-Rm-N57" secondAttribute="height" multiplier="1:1" id="wOh-j0-INe"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="slice23"/>
+                                        <state key="normal" title="Button" image="thin"/>
+                                        <state key="selected" image="thinHover"/>
                                         <connections>
                                             <action selector="setHighPitch:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="HXY-Oh-U7C"/>
                                         </connections>
@@ -254,7 +256,8 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ATR-pd-K6t" secondAttribute="height" multiplier="1:1" id="4CW-Vq-ZVP"/>
                                         </constraints>
-                                        <state key="normal" title="효과없음" image="noPitch"/>
+                                        <state key="normal" title="효과없음" image="noEffect"/>
+                                        <state key="selected" image="noEffectHover"/>
                                         <connections>
                                             <action selector="setNoPitch:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="YyM-Do-LIa"/>
                                         </connections>
@@ -310,11 +313,14 @@
                     <connections>
                         <outlet property="audioTitle" destination="Lig-7R-lt9" id="FSk-dE-fvR"/>
                         <outlet property="currentPlayingTime" destination="chr-cN-6Ub" id="Tcs-Q5-6PQ"/>
+                        <outlet property="highPitchButton" destination="IXT-Rm-N57" id="d9j-aw-xU6"/>
+                        <outlet property="noPitchButton" destination="ATR-pd-K6t" id="qzD-qO-pHq"/>
                         <outlet property="playStatusButton" destination="4sn-cr-5o8" id="kId-8m-gCI"/>
                         <outlet property="progressBar" destination="xQa-l8-VP5" id="bTi-h2-8b1"/>
                         <outlet property="progressBarWidth" destination="q1Z-6J-Gyo" id="r2j-7e-sJ7"/>
                         <outlet property="progressView" destination="vkR-hb-yUJ" id="gVS-2u-4js"/>
                         <outlet property="remainingPlayingTime" destination="QXD-C1-1I9" id="2cx-p6-cKR"/>
+                        <outlet property="rowPitchButton" destination="SZr-QR-hXe" id="IBT-fe-jUH"/>
                         <outlet property="seekingPointView" destination="7fH-7m-dL9" id="gWV-kL-iDp"/>
                         <outlet property="totalDuration" destination="zjE-Og-oVR" id="dmA-lg-D1s"/>
                     </connections>
@@ -326,15 +332,18 @@
     </scenes>
     <resources>
         <image name="edit" width="24" height="24"/>
-        <image name="noPitch" width="88" height="88"/>
-        <image name="record" width="100" height="100"/>
+        <image name="noEffect" width="88" height="88"/>
+        <image name="noEffectHover" width="88" height="88"/>
         <image name="resume" width="44" height="44"/>
         <image name="skipBack" width="32" height="32"/>
         <image name="skipForward" width="32" height="32"/>
-        <image name="slice21" width="88" height="88"/>
-        <image name="slice23" width="88" height="88"/>
         <image name="stop" width="100" height="100"/>
-        <image name="voiceCat" width="180" height="180"/>
+        <image name="thick" width="88" height="88"/>
+        <image name="thickHover" width="88" height="88"/>
+        <image name="thin" width="88" height="86"/>
+        <image name="thinHover" width="88" height="88"/>
+        <image name="voice" width="100" height="100"/>
+        <image name="voiceCat" width="184" height="187"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

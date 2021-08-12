@@ -2,16 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "slice78.png",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "noEffectHover.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "slice78@2x.png",
+      "filename" : "noEffectHover@2x.png",
       "scale" : "2x"
     },
     {
-      "filename" : "slice78@3x.png",
+      "filename" : "noEffectHover@3x.png",
       "scale" : "3x",
       "idiom" : "universal"
     }

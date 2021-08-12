@@ -17,6 +17,9 @@ class PlaySoundViewController: UIViewController {
     @IBOutlet weak var progressBar: UIView!
     @IBOutlet weak var progressBarWidth: NSLayoutConstraint!
     @IBOutlet weak var seekingPointView: UIView!
+    @IBOutlet weak var rowPitchButton: UIButton!
+    @IBOutlet weak var highPitchButton: UIButton!
+    @IBOutlet weak var noPitchButton: UIButton!
     private var customStepButton = CustomStepButton(frame: CGRect(x: 0, y: 0, width: 61, height: 39))
     private var audioPlayer = VodaAudioPlayer.shared
     private var pitch: Float?
@@ -142,30 +145,63 @@ class PlaySoundViewController: UIViewController {
         audioPlayer.skipForward(seconds: 5)
     }
     
-    @IBAction func setHighPitch(_ sender: Any) {
+    @IBAction func setHighPitch(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+
+        if sender.isSelected {
+            customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaMainBlue
+            isReadyToSend = true
+            
+            rowPitchButton.isSelected = false
+            noPitchButton.isSelected = false
+        } else {
+            customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaGray4
+            isReadyToSend = false
+        }
+        
         audioPlayer.stop()
         audioPlayer.pitchEnabled = true
         audioPlayer.pitch = 1000
-        customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaMainBlue
-        isReadyToSend = true
         progressBarWidth.constant = 0
     }
     
-    @IBAction func setRowPitch(_ sender: Any) {
+    @IBAction func setRowPitch(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected {
+            customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaMainBlue
+            isReadyToSend = true
+            
+            highPitchButton.isSelected = false
+            noPitchButton.isSelected = false
+        } else {
+            customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaGray4
+            isReadyToSend = false
+        }
+        
         audioPlayer.stop()
         audioPlayer.pitchEnabled = true
         audioPlayer.pitch = -800
-        customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaMainBlue
-        isReadyToSend = true
         progressBarWidth.constant = 0
     }
     
-    @IBAction func setNoPitch(_ sender: Any) {
+    @IBAction func setNoPitch(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected {
+            customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaMainBlue
+            isReadyToSend = true
+            
+            highPitchButton.isSelected = false
+            rowPitchButton.isSelected = false
+        } else {
+            customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaGray4
+            isReadyToSend = false
+        }
+        
         audioPlayer.stop()
         audioPlayer.pitchEnabled = false
         audioPlayer.pitch = 0
-        customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaMainBlue
-        isReadyToSend = true
         progressBarWidth.constant = 0
     }
     
