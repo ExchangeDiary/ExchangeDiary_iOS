@@ -33,7 +33,20 @@ class PlaySoundViewController: UIViewController {
         super.viewDidLoad()
         
         audioPlayer.delegate = self
+        
+        setupNavigationBarUI()
+        setupAudioPlayUI()
+    }
     
+    private func setupNavigationBarUI() {
+        self.setNavigationBarTransparency()
+        self.setBackButton(color: .black)
+   
+        let completeButton = UIBarButtonItem(customView: CustomStepButton(frame: CGRect(x: 0, y: 0, width: 61, height: 39)))
+        navigationItem.rightBarButtonItem = completeButton
+    }
+    
+    private func setupAudioPlayUI() {
         guard let duration = playDuration else {
             return
         }
@@ -42,18 +55,15 @@ class PlaySoundViewController: UIViewController {
         remainingPlayingTime.text = "-\(duration.stringFromTimeInterval())"
         
         audioTitle.text = recordingTitle
-
+        
         progressBarWidth.constant = 0
         addGestureRecognizer()
-       
-        self.setNavigationBarTransparency()
-        self.setBackButton(color: .black)
         
         seekingPointView.addBorder(color: UIColor.CustomColor.vodaMainBlue, widhth: 3)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-          self.view.endEditing(true)
+        self.view.endEditing(true)
     }
     
     private func changeStatusButtonImage(_ playStatus: AudioPlayerStatus) {
