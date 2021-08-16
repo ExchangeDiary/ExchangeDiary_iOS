@@ -9,8 +9,8 @@ import UIKit
 
 class WritePeroidPopUpViewController: UIViewController {
     @IBOutlet weak var writePeriodPickerView: UIPickerView!
-    let periodList = ["1일", "2일", "3일", "4일", "5일", "6일", "7일"]
-    var selectedRow = 0
+    private let periodList = ["1일", "2일", "3일", "4일", "5일", "6일", "7일"]
+    private var selectedRow = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +23,7 @@ class WritePeroidPopUpViewController: UIViewController {
         writePeriodPickerView.subviews[1].isHidden = true
     }
     
-    @IBAction
-    func selectWritePeriod(_ sender: Any) {
+    @IBAction func selectWritePeriod(_ sender: Any) {
         //TODO: 선택된 작성 주기 전달하기
 //        periodList[selectedRow]
     }
