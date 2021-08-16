@@ -29,12 +29,12 @@ class PhotoPopUpViewController: UIViewController {
         photoAlbumStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openPhotoAlbum)))
     }
     
-    @objc func openCamera() {
+    @objc private func openCamera() {
         imagePickerController.sourceType = .camera
         present(imagePickerController, animated: true, completion: nil)
     }
     
-    @objc func openPhotoAlbum() {
+    @objc private func openPhotoAlbum() {
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)
     }
@@ -42,11 +42,12 @@ class PhotoPopUpViewController: UIViewController {
 
 // MARK: UIImagePickerControllerDelegate, UINavigationControllerDelegate
 extension PhotoPopUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        //TODO: 선택된 사진 넘기기
         guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
+        
         self.dismiss(animated: true, completion: nil)
-        //TODO: 선택된 사진 넘기기
     }
 }
