@@ -251,6 +251,9 @@
                                                         <integer key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="selectWritePeriod:" destination="maO-bP-Xwr" eventType="touchUpInside" id="A3g-K0-eZu"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -296,6 +299,9 @@
                             <constraint firstItem="C6t-aR-Xk5" firstAttribute="bottom" secondItem="5YY-PO-UTg" secondAttribute="bottom" id="ucK-Or-UoI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="writePeriodPickerView" destination="mr9-V8-Jnq" id="qaX-ou-eCr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VXa-X5-JxY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
