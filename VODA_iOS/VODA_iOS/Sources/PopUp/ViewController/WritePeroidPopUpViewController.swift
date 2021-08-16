@@ -26,6 +26,11 @@ class WritePeroidPopUpViewController: UIViewController {
     @IBAction func selectWritePeriod(_ sender: Any) {
         //TODO: 선택된 작성 주기 전달하기
 //        periodList[selectedRow]
+        self.dismiss(animated: false, completion: nil)
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
     }
 }
 
