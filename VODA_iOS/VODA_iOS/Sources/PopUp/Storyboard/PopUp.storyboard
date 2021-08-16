@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -13,32 +13,30 @@
             <objects>
                 <viewController storyboardIdentifier="ButtonPopUpViewController" id="Y6W-OH-hqX" customClass="ButtonPopUpViewController" customModule="VODA_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RIk-TV-AzL">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MC9-uJ-DfN" userLabel="PopUpView">
-                                <rect key="frame" x="33.333333333333343" y="333.33333333333331" width="323.33333333333326" height="187.33333333333331"/>
+                                <rect key="frame" x="32" y="321" width="311" height="180"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gc-Ts-zJS">
-                                        <rect key="frame" x="5.3333333333333428" y="40" width="312.66666666666663" height="43.333333333333343"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="4gc-Ts-zJS" secondAttribute="height" multiplier="375:52" id="VNa-ZE-glS"/>
-                                        </constraints>
-                                        <string key="text">교환 일기 작성이 완료되었어요!
-지금 바로 확인해보세요:)</string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gc-Ts-zJS">
+                                        <rect key="frame" x="45.000000000000014" y="40" width="221.33333333333337" height="65"/>
+                                        <string key="text">페이지를 벗어나면 
+작성한 내용은 저장되지 않아요.
+그래도 나가시겠어요?</string>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="OMa-xi-FEM">
-                                        <rect key="frame" x="41.999999999999986" y="121.33333333333337" width="239.33333333333331" height="50"/>
+                                        <rect key="frame" x="40" y="116" width="231" height="48"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9J-ty-KPc">
-                                                <rect key="frame" x="0.0" y="0.0" width="108" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="104" height="48"/>
                                                 <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="취소">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,9 +46,12 @@
                                                         <integer key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="cancel:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="wRu-tF-E1S"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z43-5F-8pz">
-                                                <rect key="frame" x="131" y="0.0" width="108.33333333333331" height="50"/>
+                                                <rect key="frame" x="127" y="0.0" width="104" height="48"/>
                                                 <color key="backgroundColor" name="vodaMainBlue"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
                                                 <state key="normal" title="확인">
@@ -61,6 +62,9 @@
                                                         <integer key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="confirm:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="O8D-Ji-aTY"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -116,15 +120,16 @@
             <objects>
                 <viewController storyboardIdentifier="PhotoPopUpViewController" id="OT4-Tj-fzu" customClass="PhotoPopUpViewController" customModule="VODA_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Up8-Rn-mpp">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CM3-hd-e1E">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            <imageView clipsSubviews="YES" alpha="0.40000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CM3-hd-e1E">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIN-yV-Zod" userLabel="PopUpView">
-                                <rect key="frame" x="33.333333333333343" y="333.33333333333331" width="323.33333333333326" height="187.33333333333331"/>
+                                <rect key="frame" x="32" y="321" width="311" height="180"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -133,20 +138,20 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="htY-IR-T3o">
-                                <rect key="frame" x="63.666666666666657" y="356.66666666666669" width="262.66666666666674" height="140.66666666666669"/>
+                                <rect key="frame" x="61" y="342.66666666666669" width="253" height="136.66666666666669"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jdb-w9-79K">
-                                        <rect key="frame" x="0.0" y="0.0" width="262.66666666666669" height="46"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="253" height="44"/>
                                         <subviews>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9q-DT-Q4n">
-                                                <rect key="frame" x="0.0" y="0.0" width="45.666666666666664" height="46"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="d9q-DT-Q4n" secondAttribute="height" multiplier="1:1" id="XNn-pv-65d"/>
                                                 </constraints>
                                                 <state key="normal" image="camera"/>
                                             </button>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrU-B0-17N">
-                                                <rect key="frame" x="61.666666666666657" y="0.0" width="200.99999999999997" height="46"/>
+                                                <rect key="frame" x="60" y="0.0" width="193" height="44"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="18"/>
                                                 <state key="normal" title="사진 촬영">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -155,24 +160,24 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bh5-J3-TDt">
-                                        <rect key="frame" x="0.0" y="70" width="262.66666666666669" height="1"/>
+                                        <rect key="frame" x="0.0" y="68" width="253" height="1"/>
                                         <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="lX3-l4-FFa"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="g6h-qE-0p3">
-                                        <rect key="frame" x="0.0" y="95" width="262.66666666666669" height="45.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="93" width="253" height="43.666666666666657"/>
                                         <subviews>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMu-x1-I2W">
-                                                <rect key="frame" x="0.0" y="0.0" width="45.666666666666664" height="45.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="44" height="43.666666666666664"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="lMu-x1-I2W" secondAttribute="height" multiplier="1:1" id="CjO-f4-rz6"/>
                                                 </constraints>
                                                 <state key="normal" image="image"/>
                                             </button>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgt-Ld-ZoJ">
-                                                <rect key="frame" x="61.666666666666657" y="0.0" width="200.99999999999997" height="45.666666666666664"/>
+                                                <rect key="frame" x="60" y="0.0" width="193" height="43.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="18"/>
                                                 <state key="normal" title="갤러리에서 가져오기">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -205,6 +210,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundView" destination="CM3-hd-e1E" id="Ve7-b6-axo"/>
                         <outlet property="cameraStackView" destination="jdb-w9-79K" id="wqV-Xr-ygy"/>
                         <outlet property="photoAlbumStackView" destination="g6h-qE-0p3" id="PVH-oP-fOX"/>
                     </connections>
@@ -218,21 +224,21 @@
             <objects>
                 <viewController storyboardIdentifier="WritePeroidPopUpViewController" id="maO-bP-Xwr" customClass="WritePeroidPopUpViewController" customModule="VODA_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5YY-PO-UTg">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C6t-aR-Xk5">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCY-fC-iN3" userLabel="PopUpView">
-                                <rect key="frame" x="33.333333333333343" y="314.66666666666669" width="323.33333333333326" height="224.66666666666669"/>
+                                <rect key="frame" x="32" y="303" width="311" height="216"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="yHF-0e-rqV">
-                                        <rect key="frame" x="41.999999999999986" y="158.66666666666663" width="239.33333333333331" height="50"/>
+                                        <rect key="frame" x="40" y="152" width="231" height="48"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="437-y1-FBa">
-                                                <rect key="frame" x="0.0" y="0.0" width="108" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="104" height="48"/>
                                                 <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="취소">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -242,9 +248,12 @@
                                                         <integer key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="cancel:" destination="maO-bP-Xwr" eventType="touchUpInside" id="0Kt-40-yuU"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glF-Fh-sRv">
-                                                <rect key="frame" x="131" y="0.0" width="108.33333333333331" height="50"/>
+                                                <rect key="frame" x="127" y="0.0" width="104" height="48"/>
                                                 <color key="backgroundColor" name="vodaMainBlue"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
                                                 <state key="normal" title="확인">
@@ -281,7 +290,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mr9-V8-Jnq">
-                                <rect key="frame" x="67" y="347" width="256" height="108"/>
+                                <rect key="frame" x="64" y="335" width="247" height="104"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mr9-V8-Jnq" secondAttribute="height" multiplier="247:104" id="2aF-b0-9yw"/>
                                 </constraints>

@@ -8,6 +8,7 @@
 import UIKit
 
 class PhotoPopUpViewController: UIViewController {
+    @IBOutlet weak var backgroundView: UIImageView!
     @IBOutlet weak var cameraStackView: UIStackView!
     @IBOutlet weak var photoAlbumStackView: UIStackView!
     private let imagePickerController = UIImagePickerController()
@@ -27,6 +28,7 @@ class PhotoPopUpViewController: UIViewController {
     private func addTapGesture() {
         cameraStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openCamera)))
         photoAlbumStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openPhotoAlbum)))
+        backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancel)))
     }
     
     @objc private func openCamera() {
@@ -37,6 +39,10 @@ class PhotoPopUpViewController: UIViewController {
     @objc private func openPhotoAlbum() {
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    @objc private func cancel() {
+        self.dismiss(animated: false, completion: nil)
     }
 }
 
