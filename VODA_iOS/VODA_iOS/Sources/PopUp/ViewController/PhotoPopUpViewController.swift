@@ -8,22 +8,45 @@
 import UIKit
 
 class PhotoPopUpViewController: UIViewController {
-
+    @IBOutlet weak var cameraStackView: UIStackView!
+    @IBOutlet weak var photoAlbumStackView: UIStackView!
+    private let imagePickerController = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setupImagePicker()
+        addTapGesture()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupImagePicker() {
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
     }
-    */
+    
+    private func addTapGesture() {
+        cameraStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openCamera)))
+        photoAlbumStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openPhotoAlbum)))
+    }
+    
+    @objc func openCamera() {
+        imagePickerController.sourceType = .camera
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    @objc func openPhotoAlbum() {
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true, completion: nil)
+    }
+}
 
+// MARK: UIImagePickerControllerDelegate, UINavigationControllerDelegate
+extension PhotoPopUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            return
+        }
+        self.dismiss(animated: true, completion: nil)
+        //TODO: 선택된 사진 넘기기
+    }
 }

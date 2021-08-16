@@ -138,14 +138,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jdb-w9-79K">
                                         <rect key="frame" x="0.0" y="0.0" width="262.66666666666669" height="46"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9q-DT-Q4n">
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9q-DT-Q4n">
                                                 <rect key="frame" x="0.0" y="0.0" width="45.666666666666664" height="46"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="d9q-DT-Q4n" secondAttribute="height" multiplier="1:1" id="XNn-pv-65d"/>
                                                 </constraints>
                                                 <state key="normal" image="camera"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrU-B0-17N">
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrU-B0-17N">
                                                 <rect key="frame" x="61.666666666666657" y="0.0" width="200.99999999999997" height="46"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="18"/>
                                                 <state key="normal" title="사진 촬영">
@@ -164,14 +164,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="g6h-qE-0p3">
                                         <rect key="frame" x="0.0" y="95" width="262.66666666666669" height="45.666666666666657"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMu-x1-I2W">
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMu-x1-I2W">
                                                 <rect key="frame" x="0.0" y="0.0" width="45.666666666666664" height="45.666666666666664"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="lMu-x1-I2W" secondAttribute="height" multiplier="1:1" id="CjO-f4-rz6"/>
                                                 </constraints>
                                                 <state key="normal" image="image"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgt-Ld-ZoJ">
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgt-Ld-ZoJ">
                                                 <rect key="frame" x="61.666666666666657" y="0.0" width="200.99999999999997" height="45.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="18"/>
                                                 <state key="normal" title="갤러리에서 가져오기">
@@ -204,6 +204,10 @@
                             <constraint firstItem="d9q-DT-Q4n" firstAttribute="width" secondItem="eIN-yV-Zod" secondAttribute="width" multiplier="0.1414" id="xz5-P6-0Gf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraStackView" destination="jdb-w9-79K" id="wqV-Xr-ygy"/>
+                        <outlet property="photoAlbumStackView" destination="g6h-qE-0p3" id="PVH-oP-fOX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tfe-iw-cwT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -277,7 +281,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mr9-V8-Jnq">
-                                <rect key="frame" x="66.666666666666657" y="346.66666666666669" width="256.66666666666674" height="108.33333333333331"/>
+                                <rect key="frame" x="67" y="347" width="256" height="108"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mr9-V8-Jnq" secondAttribute="height" multiplier="247:104" id="2aF-b0-9yw"/>
                                 </constraints>
