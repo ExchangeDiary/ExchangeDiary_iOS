@@ -12,6 +12,7 @@ extension UIColor {
         static let vodaYellow = #colorLiteral(red: 1, green: 0.7725490196, blue: 0.1921568627, alpha: 1)
         static let vodaMainBlue = #colorLiteral(red: 0.2509803922, green: 0.5058823529, blue: 1, alpha: 1)
         static let vodaSubBlue = #colorLiteral(red: 0.6862745098, green: 0.7921568627, blue: 1, alpha: 1)
+        static let vodaGray3 = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
         static let vodaGray4 = #colorLiteral(red: 0.8784313725, green: 0.8784313725, blue: 0.8784313725, alpha: 1)
     }
 }

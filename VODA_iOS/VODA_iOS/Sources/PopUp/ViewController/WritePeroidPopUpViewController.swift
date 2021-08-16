@@ -19,7 +19,12 @@ class WritePeroidPopUpViewController: UIViewController {
         writePeriodPickerView.dataSource = self
     }
     
-    @IBAction func selectWritePeriod(_ sender: Any) {
+    override func viewDidLayoutSubviews() {
+        writePeriodPickerView.subviews[1].isHidden = true
+    }
+    
+    @IBAction
+    func selectWritePeriod(_ sender: Any) {
         //TODO: 선택된 작성 주기 전달하기
 //        periodList[selectedRow]
     }
@@ -30,6 +35,24 @@ extension WritePeroidPopUpViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedRow = row
         print("selectedRow: \(selectedRow)")
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 40
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label = UILabel()
+        label.textAlignment = .center
+        
+        label.layer.borderColor = UIColor.CustomColor.vodaGray3.cgColor
+        label.layer.borderWidth = 1
+        
+        //TODO: 추후 font명 따라 변경해야 함
+        label.font = UIFont(name: "SFProDisplay-Semibold", size: 20)
+        label.text = periodList[row]
+        
+        return label
     }
 }
 
