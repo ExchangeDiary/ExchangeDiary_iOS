@@ -12,7 +12,7 @@ class ButtonPopUpViewController: UIViewController {
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
-    var popUpType: PopUpType?
+    var popUpType: ButtonPopUpType?
     var completionHandler: (() -> Void)?
     
     override func viewDidLoad() {

@@ -31,7 +31,7 @@
 		9B6061D926C39523008C84DC /* AudioPlayerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6061D826C39523008C84DC /* AudioPlayerError.swift */; };
 		9B6BD2D626C57842007619BE /* ButtonPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BD2D526C57841007619BE /* ButtonPopUpViewController.swift */; };
 		9B6BD2D826C57863007619BE /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6BD2D726C57863007619BE /* PopUp.storyboard */; };
-		9B6BD2DA26C64914007619BE /* PopUpType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BD2D926C64913007619BE /* PopUpType.swift */; };
+		9B6BD2DA26C64914007619BE /* ButtonPopUpType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BD2D926C64913007619BE /* ButtonPopUpType.swift */; };
 		9B6BD2DF26C66420007619BE /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BD2DE26C66420007619BE /* DeviceInfo.swift */; };
 		9B6BD2E126C839ED007619BE /* PhotoPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BD2E026C839ED007619BE /* PhotoPopUpViewController.swift */; };
 		9B6BD2E326C83A3E007619BE /* WritePeriodPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BD2E226C83A3E007619BE /* WritePeriodPopUpViewController.swift */; };
@@ -83,7 +83,7 @@
 		9B6061D826C39523008C84DC /* AudioPlayerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerError.swift; sourceTree = "<group>"; };
 		9B6BD2D526C57841007619BE /* ButtonPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPopUpViewController.swift; sourceTree = "<group>"; };
 		9B6BD2D726C57863007619BE /* PopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
-		9B6BD2D926C64913007619BE /* PopUpType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpType.swift; sourceTree = "<group>"; };
+		9B6BD2D926C64913007619BE /* ButtonPopUpType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPopUpType.swift; sourceTree = "<group>"; };
 		9B6BD2DE26C66420007619BE /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		9B6BD2E026C839ED007619BE /* PhotoPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopUpViewController.swift; sourceTree = "<group>"; };
 		9B6BD2E226C83A3E007619BE /* WritePeriodPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePeriodPopUpViewController.swift; sourceTree = "<group>"; };
@@ -326,7 +326,7 @@
 		9B6BD2DD26C6493A007619BE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9B6BD2D926C64913007619BE /* PopUpType.swift */,
+				9B6BD2D926C64913007619BE /* ButtonPopUpType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -628,7 +628,7 @@
 				9B6061D926C39523008C84DC /* AudioPlayerError.swift in Sources */,
 				9B6C8B4026AA963200D089D3 /* VodaAudioRecorder.swift in Sources */,
 				9B6BD2DF26C66420007619BE /* DeviceInfo.swift in Sources */,
-				9B6BD2DA26C64914007619BE /* PopUpType.swift in Sources */,
+				9B6BD2DA26C64914007619BE /* ButtonPopUpType.swift in Sources */,
 				9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */,
 				9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */,
 				9B60618326C1886D008C84DC /* UIViewController+Extension.swift in Sources */,
