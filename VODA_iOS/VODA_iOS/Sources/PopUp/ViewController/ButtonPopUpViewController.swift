@@ -37,6 +37,8 @@ class ButtonPopUpViewController: UIViewController {
         } else {
             cancelButton.isHidden = false
         }
+        
+        confirmButton.setTitle(popUpType.confirmButtonTitle, for: .normal)
     }
     
     @IBAction func cancel(_ sender: Any) {

@@ -41,6 +41,17 @@ enum ButtonPopUpType {
         }
     }
     
+    var confirmButtonTitle: String {
+        switch self {
+        case .completeWriteStory:
+            return "바로가기"
+        case .serverError:
+            return "돌아가기"
+        default:
+            return "확인"
+        }
+    }
+    
     var labelTopConstraint: Float? {
         let popUpViewHeight = Float(DeviceInfo.screenHeight * 0.2216)
         
