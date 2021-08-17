@@ -20,7 +20,6 @@ class PlaySoundViewController: UIViewController {
     @IBOutlet weak var rowPitchButton: UIButton!
     @IBOutlet weak var highPitchButton: UIButton!
     @IBOutlet weak var noPitchButton: UIButton!
-    private var customStepButton = CustomStepButton(frame: CGRect(x: 0, y: 0, width: 61, height: 39))
     private var audioPlayer = VodaAudioPlayer.shared
     private var pitch: Float?
     private var isReadyToSend = false
@@ -34,6 +33,17 @@ class PlaySoundViewController: UIViewController {
     var playDuration: TimeInterval?
     var recordingTitle: String?
     
+    private let rightBarButton: UIButton = {
+        let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: 64, height: 40))
+        
+        rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
+        rightBarButton.setTitle("완료", for: .normal)
+        rightBarButton.titleLabel?.font = UIFont(name: "Apple SD Gothic Neo", size: 14)
+        rightBarButton.layer.cornerRadius = 8
+        
+        return rightBarButton
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,10 +56,10 @@ class PlaySoundViewController: UIViewController {
     private func setupNavigationBarUI() {
         self.setNavigationBarTransparency()
         self.setBackButton(color: .black)
-   
-        customStepButton.delegate = self
-        let completeButton = UIBarButtonItem(customView: customStepButton)
-        navigationItem.rightBarButtonItem = completeButton
+        
+        let rightBarButtonItem = UIBarButtonItem(customView: rightBarButton)
+        rightBarButton.addTarget(self, action: #selector(sendAudioData(_:)), for: .touchUpInside)
+        self.navigationItem.setRightBarButtonItems([rightBarButtonItem], animated: false)
     }
     
     private func setupAudioPlayUI() {
@@ -149,13 +159,13 @@ class PlaySoundViewController: UIViewController {
         sender.isSelected = !sender.isSelected
 
         if sender.isSelected {
-            customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaMainBlue
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
             isReadyToSend = true
             
             rowPitchButton.isSelected = false
             noPitchButton.isSelected = false
         } else {
-            customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaGray4
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
             isReadyToSend = false
         }
         
@@ -169,13 +179,13 @@ class PlaySoundViewController: UIViewController {
         sender.isSelected = !sender.isSelected
         
         if sender.isSelected {
-            customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaMainBlue
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
             isReadyToSend = true
             
             highPitchButton.isSelected = false
             noPitchButton.isSelected = false
         } else {
-            customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaGray4
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
             isReadyToSend = false
         }
         
@@ -189,13 +199,13 @@ class PlaySoundViewController: UIViewController {
         sender.isSelected = !sender.isSelected
         
         if sender.isSelected {
-            customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaMainBlue
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
             isReadyToSend = true
             
             highPitchButton.isSelected = false
             rowPitchButton.isSelected = false
         } else {
-            customStepButton.backgroundView.backgroundColor = UIColor.CustomColor.vodaGray4
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
             isReadyToSend = false
         }
         
@@ -205,8 +215,28 @@ class PlaySoundViewController: UIViewController {
         progressBarWidth.constant = 0
     }
     
-    @IBAction func sendAudioData(_ sender: Any) {
-       
+    @objc func sendAudioData(_ sender: UIButton) {
+        if isReadyToSend {
+            if audioPlayer.pitchEnabled {
+                guard let recordedUrl = recordedAudioUrl else {
+                    return
+                }
+                sendAudioUrl = audioPlayer.render(with: recordedUrl)
+            } else {
+                sendAudioUrl = recordedAudioUrl
+            }
+            
+            guard let url = sendAudioUrl else {
+                return
+            }
+            print("AVAudioEngine offline rendering completed")
+            print("sendAudioUrl: \(url)")
+            
+            //TODO: 추후 서버로 보낼 오디오 데이터
+            guard let audioData = try? Data(contentsOf: url) else {
+                return
+            }
+        }
     }
 }
 
@@ -236,33 +266,5 @@ extension PlaySoundViewController: AudioPlayable {
         let remainingTime = (duration - currentTime).stringFromTimeInterval()
         remainingPlayingTime.text = "-\(remainingTime)"
         progressBarWidth.constant = CGFloat((currentTime / duration)) * progressView.frame.size.width
-    }
-}
-
-// MARK: ButtonClickEventDetectable
-extension PlaySoundViewController: ButtonClickEventDetectable {
-    func detectClickEvent() {
-        //TODO: 서버로 데이터 전송 추가, 화면 dismiss
-        if isReadyToSend {
-            if audioPlayer.pitchEnabled {
-                guard let recordedUrl = recordedAudioUrl else {
-                    return
-                }
-                sendAudioUrl = audioPlayer.render(with: recordedUrl)
-            } else {
-                sendAudioUrl = recordedAudioUrl
-            }
-            
-            guard let url = sendAudioUrl else {
-                return
-            }
-            print("AVAudioEngine offline rendering completed")
-            print("sendAudioUrl: \(url)")
-            
-            //TODO: 추후 서버로 보낼 오디오 데이터
-            guard let audioData = try? Data(contentsOf: url) else {
-                return
-            }
-        }
     }
 }
