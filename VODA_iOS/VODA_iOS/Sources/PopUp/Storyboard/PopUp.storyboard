@@ -219,10 +219,10 @@
             </objects>
             <point key="canvasLocation" x="851" y="28"/>
         </scene>
-        <!--Write Peroid Pop Up View Controller-->
+        <!--Write Period Pop Up View Controller-->
         <scene sceneID="vZD-AQ-SaS">
             <objects>
-                <viewController storyboardIdentifier="WritePeroidPopUpViewController" id="maO-bP-Xwr" customClass="WritePeroidPopUpViewController" customModule="VODA_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WritePeriodPopUpViewController" id="maO-bP-Xwr" customClass="WritePeriodPopUpViewController" customModule="VODA_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5YY-PO-UTg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
