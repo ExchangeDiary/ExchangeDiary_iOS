@@ -69,4 +69,30 @@ extension UIViewController {
     @objc func pop() {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    func showPopUpViewController(with type: PopUpType, completionHandler: (() -> Void)? = nil) {
+        let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
+        switch type {
+        case .addPhoto:
+            guard let photoPopUpViewController = storyboard.instantiateViewController(withIdentifier: "PhotoPopUpViewController") as? PhotoPopUpViewController else {
+                return
+            }
+            photoPopUpViewController.modalPresentationStyle = .overCurrentContext
+            self.present(photoPopUpViewController, animated: false, completion: nil)
+        case .writePeriod:
+            guard let writePeriodPopUpViewController = storyboard.instantiateViewController(withIdentifier: "WritePeriodPopUpViewController") as? WritePeriodPopUpViewController else {
+                return
+            }
+            writePeriodPopUpViewController.modalPresentationStyle = .overCurrentContext
+            self.present(writePeriodPopUpViewController, animated: false, completion: nil)
+        default:
+            guard let buttonPopUpViewController = storyboard.instantiateViewController(withIdentifier: "ButtonPopUpViewController") as? ButtonPopUpViewController else {
+                return
+            }
+            buttonPopUpViewController.popUpType = type
+            buttonPopUpViewController.completionHandler = completionHandler
+            buttonPopUpViewController.modalPresentationStyle = .overCurrentContext
+            self.present(buttonPopUpViewController, animated: false, completion: nil)
+        }
+    }
 }
