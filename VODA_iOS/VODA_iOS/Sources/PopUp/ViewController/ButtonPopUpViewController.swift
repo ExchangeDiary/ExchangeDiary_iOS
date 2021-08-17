@@ -47,6 +47,5 @@ class ButtonPopUpViewController: UIViewController {
     
     @IBAction func confirm(_ sender: Any) {
         self.dismiss(animated: false, completion: completionHandler)
-        completionHandler?()
     }
 }
