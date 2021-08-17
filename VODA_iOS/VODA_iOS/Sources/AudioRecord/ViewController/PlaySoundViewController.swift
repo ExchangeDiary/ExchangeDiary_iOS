@@ -34,7 +34,8 @@ class PlaySoundViewController: UIViewController {
     var recordingTitle: String?
     
     private let rightBarButton: UIButton = {
-        let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: 64, height: 40))
+        //TODO: Multiplier 적용
+        let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: 61, height: 40))
         
         rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
         rightBarButton.setTitle("완료", for: .normal)

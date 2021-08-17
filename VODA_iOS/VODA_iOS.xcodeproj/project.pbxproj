@@ -38,8 +38,6 @@
 		9B6C8B5D26B3F02600D089D3 /* PushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B5C26B3F02600D089D3 /* PushViewController.swift */; };
 		9B6C8B5F26B3F03700D089D3 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6C8B5E26B3F03700D089D3 /* MyPage.storyboard */; };
 		9B6C8B6126B3F04500D089D3 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B6026B3F04500D089D3 /* MyPageViewController.swift */; };
-		9B81507826C443CA00971BAE /* CustomStepButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B81507726C443CA00971BAE /* CustomStepButton.swift */; };
-		9B81507A26C443E000971BAE /* CustomStepButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B81507926C443E000971BAE /* CustomStepButton.xib */; };
 		9B904DC626A95DF8004F5B99 /* RecordSoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904DC526A95DF8004F5B99 /* RecordSoundViewController.swift */; };
 		9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904DC726A95E14004F5B99 /* PlaySoundViewController.swift */; };
 		9B904DCA26A95E82004F5B99 /* AudioRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */; };
@@ -83,8 +81,6 @@
 		9B6C8B5C26B3F02600D089D3 /* PushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushViewController.swift; sourceTree = "<group>"; };
 		9B6C8B5E26B3F03700D089D3 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		9B6C8B6026B3F04500D089D3 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
-		9B81507726C443CA00971BAE /* CustomStepButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepButton.swift; sourceTree = "<group>"; };
-		9B81507926C443E000971BAE /* CustomStepButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomStepButton.xib; sourceTree = "<group>"; };
 		9B904DC526A95DF8004F5B99 /* RecordSoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundViewController.swift; sourceTree = "<group>"; };
 		9B904DC726A95E14004F5B99 /* PlaySoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundViewController.swift; sourceTree = "<group>"; };
 		9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AudioRecord.storyboard; sourceTree = "<group>"; };
@@ -348,22 +344,11 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		9B81507626C4420C00971BAE /* View */ = {
-			isa = PBXGroup;
-			children = (
-				9B81507726C443CA00971BAE /* CustomStepButton.swift */,
-				9B81507926C443E000971BAE /* CustomStepButton.xib */,
-			);
-			name = View;
-			path = VODA_iOS/Sources/AudioRecord/View;
-			sourceTree = SOURCE_ROOT;
-		};
 		9B904DC026A95CDD004F5B99 /* AudioRecord */ = {
 			isa = PBXGroup;
 			children = (
 				9B904DC126A95CFE004F5B99 /* Storyboard */,
 				9B904DC226A95D0B004F5B99 /* Model */,
-				9B81507626C4420C00971BAE /* View */,
 				9B904DC426A95D14004F5B99 /* ViewController */,
 			);
 			path = AudioRecord;
@@ -477,7 +462,6 @@
 				9B60617326C184AF008C84DC /* Home.storyboard in Resources */,
 				9B6C8B5B26B3F01A00D089D3 /* Push.storyboard in Resources */,
 				9B6C8B4A26B3E58B00D089D3 /* .swiftlint.yml in Resources */,
-				9B81507A26C443E000971BAE /* CustomStepButton.xib in Resources */,
 				9BE0A886269A2A4E005314C0 /* Main.storyboard in Resources */,
 				9B6C8B5F26B3F03700D089D3 /* MyPage.storyboard in Resources */,
 				9BE0A875269A2080005314C0 /* LaunchScreen.storyboard in Resources */,
@@ -579,7 +563,6 @@
 				9B60618326C1886D008C84DC /* UIViewController+Extension.swift in Sources */,
 				9B6061D726C39504008C84DC /* AudioPlayerStatus.swift in Sources */,
 				9B60618226C1886D008C84DC /* UIView+Extension.swift in Sources */,
-				9B81507826C443CA00971BAE /* CustomStepButton.swift in Sources */,
 				9B60617A26C184C2008C84DC /* SegueIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
