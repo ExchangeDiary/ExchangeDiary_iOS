@@ -51,15 +51,18 @@ class WriteStoryViewController: UIViewController {
 // MARK: UITextViewDelegate
 extension WriteStoryViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        if contentTextViewHeight.constant >= textViewHeight {
+        let isReachedTextViewHeight = contentTextViewHeight.constant >= textViewHeight
+
+        if isReachedTextViewHeight {
             let sizeToFitIn = CGSize(width: contentTextView.bounds.size.width, height: CGFloat(MAXFLOAT))
             let newSize = contentTextView.sizeThatFits(sizeToFitIn)
             contentTextViewHeight.constant = newSize.height
             
-            if contentTextViewHeight.constant < textViewHeight {
+            let isNotReachedTextViewHeight = contentTextViewHeight.constant < textViewHeight
+            if isNotReachedTextViewHeight {
                 contentTextViewHeight.constant = textViewHeight
             }
-            
+           
             if contentTextViewHeight.constant > textViewHeight, contentTextViewHeight.constant > contentTextView.contentSize.height {
                 totalViewHeight.constant += newSize.height - contentTextView.contentSize.height
             }
