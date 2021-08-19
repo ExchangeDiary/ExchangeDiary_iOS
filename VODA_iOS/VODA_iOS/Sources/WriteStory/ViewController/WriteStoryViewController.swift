@@ -8,6 +8,8 @@
 import UIKit
 
 class WriteStoryViewController: UIViewController {
+    @IBOutlet weak var contentTextView: UITextView!
+    @IBOutlet weak var contentTextViewHeight: NSLayoutConstraint!
     
     private let rightBarButton: UIButton = {
         let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth * 0.16266, height: DeviceInfo.screenHeight * 0.04802))
@@ -25,6 +27,10 @@ class WriteStoryViewController: UIViewController {
         setupNavigationBarUI()
         //FIXME: 추후 삭제
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
+    
+        contentTextView.delegate = self
+        contentTextView.contentSize.height = 265
+//        contentTextView.sizeToFit()
     }
     
     private func setupNavigationBarUI() {
@@ -37,4 +43,22 @@ class WriteStoryViewController: UIViewController {
         self.navigationItem.setRightBarButtonItems([rightBarButtonItem], animated: false)
     }
 
+}
+
+extension WriteStoryViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        if contentTextViewHeight.constant < 265 {
+            print("contentTextViewHeight.constant1: \(contentTextViewHeight.constant)")
+            contentTextViewHeight.constant = 265
+        } else {
+            print("contentTextViewHeight.constant2: \(contentTextViewHeight.constant)")
+            let sizeToFitIn = CGSize(width: contentTextView.bounds.size.width, height: CGFloat(MAXFLOAT))
+            let newSize = contentTextView.sizeThatFits(sizeToFitIn)
+            contentTextViewHeight.constant = newSize.height
+            if contentTextViewHeight.constant < 265 {
+                contentTextViewHeight.constant = 265
+            }
+            print("contentTextViewHeight.constant3: \(contentTextViewHeight.constant)")
+        }
+    }
 }
