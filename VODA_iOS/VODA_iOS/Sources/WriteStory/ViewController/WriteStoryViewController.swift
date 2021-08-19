@@ -10,6 +10,7 @@ import UIKit
 class WriteStoryViewController: UIViewController {
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var contentTextViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var totalViewHeight: NSLayoutConstraint!
     private var textViewHeight: CGFloat = 0
     
     private let rightBarButton: UIButton = {
@@ -29,7 +30,7 @@ class WriteStoryViewController: UIViewController {
         
         textViewHeight = DeviceInfo.screenHeight * 0.32881
         contentTextViewHeight.constant = textViewHeight
-        
+
         setupNavigationBarUI()
         
         //FIXME: 추후 삭제
@@ -50,15 +51,17 @@ class WriteStoryViewController: UIViewController {
 // MARK: UITextViewDelegate
 extension WriteStoryViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        if contentTextViewHeight.constant < textViewHeight {
-            contentTextViewHeight.constant = textViewHeight
-        } else {
+        if contentTextViewHeight.constant >= textViewHeight {
             let sizeToFitIn = CGSize(width: contentTextView.bounds.size.width, height: CGFloat(MAXFLOAT))
             let newSize = contentTextView.sizeThatFits(sizeToFitIn)
             contentTextViewHeight.constant = newSize.height
             
             if contentTextViewHeight.constant < textViewHeight {
                 contentTextViewHeight.constant = textViewHeight
+            }
+            
+            if contentTextViewHeight.constant > textViewHeight, contentTextViewHeight.constant > contentTextView.contentSize.height {
+                totalViewHeight.constant += newSize.height - contentTextView.contentSize.height
             }
         }
     }

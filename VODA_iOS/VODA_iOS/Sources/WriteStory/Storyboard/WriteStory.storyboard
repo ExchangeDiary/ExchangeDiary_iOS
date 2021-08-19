@@ -117,7 +117,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="38" height="38"/>
                                                                 <state key="normal" image="voiceAdd"/>
                                                             </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="음성녹음 추가하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rib-QN-UHK">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="음성으로 기록하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rib-QN-UHK">
                                                                 <rect key="frame" x="54.000000000000007" y="0.0" width="100.66666666666669" height="38"/>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
                                                                 <color key="textColor" red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -197,6 +197,12 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="글 내용" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCq-7f-GuD">
+                                                <rect key="frame" x="23.999999999999996" y="733.66666666666663" width="51.666666666666657" height="21.666666666666629"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -213,9 +219,11 @@
                                             <constraint firstItem="sVR-s6-uhj" firstAttribute="leading" secondItem="Rl0-3e-Sfc" secondAttribute="leading" id="PNg-KH-npr"/>
                                             <constraint firstItem="elf-NQ-yPW" firstAttribute="top" secondItem="rd1-vj-FQA" secondAttribute="bottom" constant="8" id="QYP-Rh-hsk"/>
                                             <constraint firstItem="77L-Lu-Xp0" firstAttribute="top" secondItem="0hk-5Y-D47" secondAttribute="bottom" constant="8" id="Wra-md-HCu"/>
+                                            <constraint firstItem="QCq-7f-GuD" firstAttribute="leading" secondItem="rd1-vj-FQA" secondAttribute="leading" id="YkX-oa-Dx4"/>
                                             <constraint firstItem="Io2-ye-mWg" firstAttribute="width" secondItem="faH-5M-LLw" secondAttribute="width" multiplier="0.872" id="aDW-Ed-fbW"/>
                                             <constraint firstItem="7ui-bF-ESa" firstAttribute="top" secondItem="faH-5M-LLw" secondAttribute="top" constant="32" id="cfM-tn-mae"/>
                                             <constraint firstItem="Nzq-Ph-luC" firstAttribute="width" secondItem="faH-5M-LLw" secondAttribute="width" multiplier="0.872" id="d2L-O1-kWk"/>
+                                            <constraint firstItem="QCq-7f-GuD" firstAttribute="top" secondItem="elf-NQ-yPW" secondAttribute="bottom" constant="24" id="ibk-en-sea"/>
                                             <constraint firstItem="Io2-ye-mWg" firstAttribute="centerX" secondItem="faH-5M-LLw" secondAttribute="centerX" id="jeW-yH-prF"/>
                                             <constraint firstItem="rd1-vj-FQA" firstAttribute="leading" secondItem="heQ-ok-ETk" secondAttribute="leading" id="mtz-9h-9Nv"/>
                                             <constraint firstItem="heQ-ok-ETk" firstAttribute="top" secondItem="Nzq-Ph-luC" secondAttribute="bottom" constant="24" id="qaL-zI-xYo"/>
@@ -254,6 +262,7 @@
                     <connections>
                         <outlet property="contentTextView" destination="rcc-ea-3NC" id="1Ss-3I-hGi"/>
                         <outlet property="contentTextViewHeight" destination="iiK-Go-c4i" id="vjZ-S8-ELV"/>
+                        <outlet property="totalViewHeight" destination="GFd-8C-fbJ" id="xgD-wO-wZ6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
