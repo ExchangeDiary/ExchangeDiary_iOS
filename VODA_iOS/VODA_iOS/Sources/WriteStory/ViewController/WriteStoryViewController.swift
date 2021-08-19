@@ -10,6 +10,7 @@ import UIKit
 class WriteStoryViewController: UIViewController {
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var contentTextViewHeight: NSLayoutConstraint!
+    private var textViewHeight: CGFloat = 0
     
     private let rightBarButton: UIButton = {
         let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth * 0.16266, height: DeviceInfo.screenHeight * 0.04802))
@@ -24,13 +25,15 @@ class WriteStoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        contentTextView.delegate = self
+        
+        textViewHeight = DeviceInfo.screenHeight * 0.32881
+        contentTextViewHeight.constant = textViewHeight
+        
         setupNavigationBarUI()
+        
         //FIXME: 추후 삭제
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
-    
-        contentTextView.delegate = self
-        contentTextView.contentSize.height = 265
-//        contentTextView.sizeToFit()
     }
     
     private func setupNavigationBarUI() {
@@ -39,26 +42,24 @@ class WriteStoryViewController: UIViewController {
         
         let rightBarButtonItem = UIBarButtonItem(customView: rightBarButton)
         //FIXME: popup 닫히는 함수 연결하기
-//        rightBarButton.addTarget(self, action: #selector(), for: .touchUpInside)
+        //        rightBarButton.addTarget(self, action: #selector(), for: .touchUpInside)
         self.navigationItem.setRightBarButtonItems([rightBarButtonItem], animated: false)
     }
-
 }
 
+// MARK: UITextViewDelegate
 extension WriteStoryViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        if contentTextViewHeight.constant < 265 {
-            print("contentTextViewHeight.constant1: \(contentTextViewHeight.constant)")
-            contentTextViewHeight.constant = 265
+        if contentTextViewHeight.constant < textViewHeight {
+            contentTextViewHeight.constant = textViewHeight
         } else {
-            print("contentTextViewHeight.constant2: \(contentTextViewHeight.constant)")
             let sizeToFitIn = CGSize(width: contentTextView.bounds.size.width, height: CGFloat(MAXFLOAT))
             let newSize = contentTextView.sizeThatFits(sizeToFitIn)
             contentTextViewHeight.constant = newSize.height
-            if contentTextViewHeight.constant < 265 {
-                contentTextViewHeight.constant = 265
+            
+            if contentTextViewHeight.constant < textViewHeight {
+                contentTextViewHeight.constant = textViewHeight
             }
-            print("contentTextViewHeight.constant3: \(contentTextViewHeight.constant)")
         }
     }
 }
