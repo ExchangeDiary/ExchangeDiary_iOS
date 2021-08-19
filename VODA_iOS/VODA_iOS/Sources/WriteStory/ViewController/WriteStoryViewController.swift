@@ -13,6 +13,7 @@ class WriteStoryViewController: UIViewController {
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var contentTextViewHeight: NSLayoutConstraint!
     @IBOutlet weak var totalViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var contentTextViewCharacterCount: UILabel!
     private var textViewHeight: CGFloat = 0
     
     private let rightBarButton: UIButton = {
@@ -53,6 +54,8 @@ class WriteStoryViewController: UIViewController {
 // MARK: UITextViewDelegate
 extension WriteStoryViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
+        contentTextViewCharacterCount.text = "\(textView.text.count)/5000자"
+        
         let isReachedTextViewHeight = contentTextViewHeight.constant >= textViewHeight
         
         if isReachedTextViewHeight {
