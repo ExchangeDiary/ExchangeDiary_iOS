@@ -8,6 +8,8 @@
 import UIKit
 
 class WriteStoryViewController: UIViewController {
+    @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var contentTextViewHeight: NSLayoutConstraint!
     @IBOutlet weak var totalViewHeight: NSLayoutConstraint!
@@ -30,7 +32,7 @@ class WriteStoryViewController: UIViewController {
         
         textViewHeight = DeviceInfo.screenHeight * 0.32881
         contentTextViewHeight.constant = textViewHeight
-
+        
         setupNavigationBarUI()
         
         //FIXME: 추후 삭제
@@ -52,7 +54,7 @@ class WriteStoryViewController: UIViewController {
 extension WriteStoryViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         let isReachedTextViewHeight = contentTextViewHeight.constant >= textViewHeight
-
+        
         if isReachedTextViewHeight {
             let sizeToFitIn = CGSize(width: contentTextView.bounds.size.width, height: CGFloat(MAXFLOAT))
             let newSize = contentTextView.sizeThatFits(sizeToFitIn)
@@ -62,10 +64,19 @@ extension WriteStoryViewController: UITextViewDelegate {
             if isNotReachedTextViewHeight {
                 contentTextViewHeight.constant = textViewHeight
             }
-           
+            
             if contentTextViewHeight.constant > textViewHeight, contentTextViewHeight.constant > contentTextView.contentSize.height {
                 totalViewHeight.constant += newSize.height - contentTextView.contentSize.height
             }
         }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let contentTextView = contentTextView.text ?? ""
+        guard let stringRange = Range(range, in: contentTextView) else {
+            return false
+        }
+        let limitedContentTextView = contentTextView.replacingCharacters(in: stringRange, with: text)
+        return limitedContentTextView.count <= 5000
     }
 }

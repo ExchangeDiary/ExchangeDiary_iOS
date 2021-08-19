@@ -197,8 +197,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="글 내용" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCq-7f-GuD">
-                                                <rect key="frame" x="23.999999999999996" y="733.66666666666663" width="51.666666666666657" height="21.666666666666629"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진 첨부하기" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCq-7f-GuD">
+                                                <rect key="frame" x="23.999999999999993" y="733.66666666666663" width="98.333333333333314" height="21.666666666666629"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -262,6 +262,8 @@
                     <connections>
                         <outlet property="contentTextView" destination="rcc-ea-3NC" id="1Ss-3I-hGi"/>
                         <outlet property="contentTextViewHeight" destination="iiK-Go-c4i" id="vjZ-S8-ELV"/>
+                        <outlet property="locationTextField" destination="fFe-AP-eoI" id="dlc-14-dni"/>
+                        <outlet property="titleTextField" destination="tKV-j9-WmK" id="AgV-tF-Wde"/>
                         <outlet property="totalViewHeight" destination="GFd-8C-fbJ" id="xgD-wO-wZ6"/>
                     </connections>
                 </viewController>
