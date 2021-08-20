@@ -264,7 +264,7 @@
                         <outlet property="contentTextViewCharacterCount" destination="vR2-YM-hkf" id="qrF-Bd-aS0"/>
                         <outlet property="contentTextViewHeight" destination="iiK-Go-c4i" id="vjZ-S8-ELV"/>
                         <outlet property="locationTextField" destination="fFe-AP-eoI" id="dlc-14-dni"/>
-                        <outlet property="titleTextField" destination="tKV-j9-WmK" id="AgV-tF-Wde"/>
+                        <outlet property="titleTextField" destination="tKV-j9-WmK" id="zQX-gK-doR"/>
                         <outlet property="totalViewHeight" destination="GFd-8C-fbJ" id="xgD-wO-wZ6"/>
                     </connections>
                 </viewController>

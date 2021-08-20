@@ -29,9 +29,12 @@ class WriteStoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         locationTextField.delegate = self
+        titleTextField.delegate = self
         contentTextView.delegate = self
-        setPlaceHolder()
+        
+        setContentTextViewPlaceHolder()
         
         textViewHeight = DeviceInfo.screenHeight * 0.32881
         contentTextViewHeight.constant = textViewHeight
@@ -55,20 +58,27 @@ class WriteStoryViewController: UIViewController {
 
 // MARK: UITextFieldDelegate
 extension WriteStoryViewController: UITextFieldDelegate {
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        //        guard let text = locationTextField.text else {
-        //            return true
-        //        }
-        //        let newLength = text.count + string.count - range.length
-        //        return newLength <= 5
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        var maxLength: Int = 0
         
-//        let locationTextField = locationTextField.text ?? ""
-//        guard let stringRange = Range(range, in: locationTextField) else { return false }
-//
-//        let updatedText = locationTextField.replacingCharacters(in: stringRange, with: string)
-//
-//        return updatedText.count <= 5
-//    }
+        if textField == titleTextField {
+            maxLength = 15
+        } else if textField == locationTextField {
+            maxLength = 25
+        }
+        
+        guard let currentText = textField.text else {
+            return false
+        }
+        
+        guard let textRange = Range(range, in: currentText) else {
+            return false
+        }
+        
+        let limitedText = currentText.replacingCharacters(in: textRange, with: string)
+        
+        return limitedText.count <= maxLength
+    }
 }
 
 // MARK: UITextViewDelegate
@@ -102,7 +112,7 @@ extension WriteStoryViewController: UITextViewDelegate {
         return limitedContentTextView.count <= 5000
     }
     
-    private func setPlaceHolder() {
+    private func setContentTextViewPlaceHolder() {
         contentTextView.text = "내용을 적어주세요"
         contentTextView.textColor = UIColor.CustomColor.vodaGray6
         contentTextView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 14)
@@ -117,7 +127,7 @@ extension WriteStoryViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if contentTextView.text.isEmpty {
-            setPlaceHolder()
+            setContentTextViewPlaceHolder()
             contentTextViewCharacterCount.text = "0/5000자"
         }
     }
