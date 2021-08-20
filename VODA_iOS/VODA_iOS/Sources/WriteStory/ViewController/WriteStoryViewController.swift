@@ -29,7 +29,9 @@ class WriteStoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationTextField.delegate = self
         contentTextView.delegate = self
+        setPlaceHolder()
         
         textViewHeight = DeviceInfo.screenHeight * 0.32881
         contentTextViewHeight.constant = textViewHeight
@@ -51,13 +53,30 @@ class WriteStoryViewController: UIViewController {
     }
 }
 
+// MARK: UITextFieldDelegate
+extension WriteStoryViewController: UITextFieldDelegate {
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        //        guard let text = locationTextField.text else {
+        //            return true
+        //        }
+        //        let newLength = text.count + string.count - range.length
+        //        return newLength <= 5
+        
+//        let locationTextField = locationTextField.text ?? ""
+//        guard let stringRange = Range(range, in: locationTextField) else { return false }
+//
+//        let updatedText = locationTextField.replacingCharacters(in: stringRange, with: string)
+//
+//        return updatedText.count <= 5
+//    }
+}
+
 // MARK: UITextViewDelegate
 extension WriteStoryViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         contentTextViewCharacterCount.text = "\(textView.text.count)/5000자"
         
         let isReachedTextViewHeight = contentTextViewHeight.constant >= textViewHeight
-        
         if isReachedTextViewHeight {
             let sizeToFitIn = CGSize(width: contentTextView.bounds.size.width, height: CGFloat(MAXFLOAT))
             let newSize = contentTextView.sizeThatFits(sizeToFitIn)
@@ -81,5 +100,25 @@ extension WriteStoryViewController: UITextViewDelegate {
         }
         let limitedContentTextView = contentTextView.replacingCharacters(in: stringRange, with: text)
         return limitedContentTextView.count <= 5000
+    }
+    
+    private func setPlaceHolder() {
+        contentTextView.text = "내용을 적어주세요"
+        contentTextView.textColor = UIColor.CustomColor.vodaGray6
+        contentTextView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 14)
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if !contentTextView.text.isEmpty {
+            contentTextView.text = nil
+            contentTextView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if contentTextView.text.isEmpty {
+            setPlaceHolder()
+            contentTextViewCharacterCount.text = "0/5000자"
+        }
     }
 }
