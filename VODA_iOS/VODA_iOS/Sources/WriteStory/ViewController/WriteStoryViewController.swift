@@ -60,8 +60,7 @@ class WriteStoryViewController: UIViewController {
         self.setBackButton(color: .black)
         
         let rightBarButtonItem = UIBarButtonItem(customView: rightBarButton)
-        //FIXME: popup 닫히는 함수 연결하기
-        //        rightBarButton.addTarget(self, action: #selector(), for: .touchUpInside)
+        rightBarButton.addTarget(self, action: #selector(passStoryData(_:)), for: .touchUpInside)
         self.navigationItem.setRightBarButtonItems([rightBarButtonItem], animated: false)
     }
     
@@ -82,6 +81,13 @@ class WriteStoryViewController: UIViewController {
         yellowCatTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
     }
     
+    @objc private func passStoryData(_ sender: UIButton) {
+        if recordTitle.textColor != .black, contentTextViewCharacterCount.text == "0/5000자" {
+            showButtonPopUp(with: .checkStoryContentNil)
+        }
+        // TODO: 전달
+    }
+    
     @IBAction func addRecord(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "AudioRecord", bundle: nil)
         guard let recordSoundViewController = storyboard.instantiateViewController(identifier: "RecordSoundViewController") as? RecordSoundViewController else {
@@ -89,6 +95,8 @@ class WriteStoryViewController: UIViewController {
         }
         
         recordSoundViewController.completionHandler = { [weak self] data in
+            self?.rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
+            
             guard let audioTitle = data.audioTitle else {
                 return
             }
@@ -181,6 +189,9 @@ extension WriteStoryViewController: UITextFieldDelegate {
 // MARK: UITextViewDelegate
 extension WriteStoryViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
+        if !textView.text.isEmpty {
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
+        }
         contentTextViewCharacterCount.text = "\(textView.text.count)/5000자"
         
         let isReachedTextViewHeight = contentTextViewHeight.constant >= textViewHeight
@@ -226,6 +237,7 @@ extension WriteStoryViewController: UITextViewDelegate {
         if contentTextView.text.isEmpty {
             setContentTextViewPlaceHolder()
             contentTextViewCharacterCount.text = "0/5000자"
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
         }
     }
 }
