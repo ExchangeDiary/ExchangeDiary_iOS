@@ -11,6 +11,8 @@ class WriteStoryViewController: UIViewController {
     @IBOutlet weak var currentDate: UILabel!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var recordTitle: UILabel!
+    @IBOutlet weak var addRecordButton: UIButton!
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var contentTextViewHeight: NSLayoutConstraint!
     @IBOutlet weak var totalViewHeight: NSLayoutConstraint!
@@ -80,8 +82,45 @@ class WriteStoryViewController: UIViewController {
         yellowCatTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
     }
     
+    @IBAction func addRecord(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "AudioRecord", bundle: nil)
+        guard let recordSoundViewController = storyboard.instantiateViewController(identifier: "RecordSoundViewController") as? RecordSoundViewController else {
+            return
+        }
+        
+        recordSoundViewController.completionHandler = { [weak self] data in
+            guard let audioTitle = data.audioTitle else {
+                return
+            }
+            self?.recordTitle.text = "\(audioTitle).mp3"
+            self?.recordTitle.textColor = .black
+            
+            guard let pitch = data.pitch else {
+                return
+            }
+            
+            switch pitch {
+            case 0:
+                self?.addRecordButton.setImage(UIImage(named: "noEffectHover"), for: .normal)
+            case -800:
+                self?.addRecordButton.setImage(UIImage(named: "thickHover"), for: .normal)
+            case 1000:
+                self?.addRecordButton.setImage(UIImage(named: "thinHover"), for: .normal)
+            default:
+                break
+            }
+            
+            //TODO: 전달
+            guard let audioUrl = data.audioUrl else {
+                return
+            }
+        }
+        
+        self.navigationController?.pushViewController(recordSoundViewController, animated: false)
+    }
+    
     @IBAction func addStoryPhoto(_ sender: UITapGestureRecognizer) {
-        showAddPhotoPopUp(completionHandler: { [weak self] (image) in
+        showAddPhotoPopUp(completionHandler: { [weak self] image in
             self?.storyPhoto.image = image
         })
     }

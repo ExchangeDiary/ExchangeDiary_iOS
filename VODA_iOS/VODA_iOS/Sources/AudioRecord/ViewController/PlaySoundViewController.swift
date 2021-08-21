@@ -22,9 +22,9 @@ class PlaySoundViewController: UIViewController {
     @IBOutlet weak var noPitchButton: UIButton!
     private var audioPlayer = VodaAudioPlayer.shared
     private var pitch: Float?
-    private var isReadyToSend = false
+    private var isReadyToPass = false
     private var isPlaying = false
-    private var sendAudioUrl: URL?
+    private var passAudioUrl: URL?
     private var status: AudioPlayerStatus {
         audioPlayer.status 
     }
@@ -32,6 +32,7 @@ class PlaySoundViewController: UIViewController {
     var recordedAudioUrl: URL?
     var playDuration: TimeInterval?
     var recordingTitle: String?
+    var completionHandler: ((PassingAudioData) -> Void)?
     
     private let rightBarButton: UIButton = {
         let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth * 0.16266, height: DeviceInfo.screenHeight * 0.04802))
@@ -58,7 +59,7 @@ class PlaySoundViewController: UIViewController {
         self.setBackButton(color: .black)
         
         let rightBarButtonItem = UIBarButtonItem(customView: rightBarButton)
-        rightBarButton.addTarget(self, action: #selector(sendAudioData(_:)), for: .touchUpInside)
+        rightBarButton.addTarget(self, action: #selector(passAudioData(_:)), for: .touchUpInside)
         self.navigationItem.setRightBarButtonItems([rightBarButtonItem], animated: false)
     }
     
@@ -160,13 +161,13 @@ class PlaySoundViewController: UIViewController {
 
         if sender.isSelected {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
-            isReadyToSend = true
+            isReadyToPass = true
             
             rowPitchButton.isSelected = false
             noPitchButton.isSelected = false
         } else {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
-            isReadyToSend = false
+            isReadyToPass = false
         }
         
         audioPlayer.stop()
@@ -180,13 +181,13 @@ class PlaySoundViewController: UIViewController {
         
         if sender.isSelected {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
-            isReadyToSend = true
+            isReadyToPass = true
             
             highPitchButton.isSelected = false
             noPitchButton.isSelected = false
         } else {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
-            isReadyToSend = false
+            isReadyToPass = false
         }
         
         audioPlayer.stop()
@@ -200,13 +201,13 @@ class PlaySoundViewController: UIViewController {
         
         if sender.isSelected {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
-            isReadyToSend = true
+            isReadyToPass = true
             
             highPitchButton.isSelected = false
             rowPitchButton.isSelected = false
         } else {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
-            isReadyToSend = false
+            isReadyToPass = false
         }
         
         audioPlayer.stop()
@@ -215,26 +216,26 @@ class PlaySoundViewController: UIViewController {
         progressBarWidth.constant = 0
     }
     
-    @objc func sendAudioData(_ sender: UIButton) {
-        if isReadyToSend {
+    @objc func passAudioData(_ sender: UIButton) {
+        if isReadyToPass {
             if audioPlayer.pitchEnabled {
                 guard let recordedUrl = recordedAudioUrl else {
                     return
                 }
-                sendAudioUrl = audioPlayer.render(with: recordedUrl)
+                passAudioUrl = audioPlayer.render(with: recordedUrl)
             } else {
-                sendAudioUrl = recordedAudioUrl
+                passAudioUrl = recordedAudioUrl
             }
             
-            guard let url = sendAudioUrl else {
+            guard let url = passAudioUrl else {
                 return
             }
             print("AVAudioEngine offline rendering completed")
-            print("sendAudioUrl: \(url)")
-            
-            //TODO: 추후 서버로 보낼 오디오 데이터
-            guard let audioData = try? Data(contentsOf: url) else {
-                return
+            print("passAudioUrl: \(url)")
+                    
+            if let writeStoryViewController = navigationController?.viewControllers[1] {
+                completionHandler?(PassingAudioData(audioTitle: audioTitle.text ?? "", pitch: audioPlayer.pitch, audioUrl: url))
+                self.navigationController?.popToViewController(writeStoryViewController, animated: false)
             }
         }
     }

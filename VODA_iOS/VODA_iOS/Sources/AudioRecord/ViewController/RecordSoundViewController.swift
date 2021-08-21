@@ -18,6 +18,7 @@ class RecordSoundViewController: UIViewController {
     private var recordStatus: AudioRecordStatus?
     private var recordedAudioUrl: URL?
     var recordedDuration: TimeInterval?
+    var completionHandler: ((PassingAudioData) -> Void)?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.stopRecording {
@@ -25,6 +26,7 @@ class RecordSoundViewController: UIViewController {
             playSoundViewController?.recordedAudioUrl = recordedAudioUrl
             playSoundViewController?.playDuration = recordedDuration
             playSoundViewController?.recordingTitle = "Untitle\(getCurrentDate())"
+            playSoundViewController?.completionHandler = completionHandler
         }
     }
     
