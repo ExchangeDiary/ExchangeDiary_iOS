@@ -8,6 +8,7 @@
 import UIKit
 
 class WriteStoryViewController: UIViewController {
+    @IBOutlet weak var currentDate: UILabel!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
@@ -36,11 +37,11 @@ class WriteStoryViewController: UIViewController {
         super.viewDidLoad()
         
         scrollView.delegate = self
-        
         locationTextField.delegate = self
         titleTextField.delegate = self
         contentTextView.delegate = self
         
+        currentDate.text = getCurrentDate()
         setContentTextViewPlaceHolder()
         
         textViewHeight = DeviceInfo.screenHeight * 0.32881
@@ -60,6 +61,17 @@ class WriteStoryViewController: UIViewController {
         //FIXME: popup 닫히는 함수 연결하기
         //        rightBarButton.addTarget(self, action: #selector(), for: .touchUpInside)
         self.navigationItem.setRightBarButtonItems([rightBarButtonItem], animated: false)
+    }
+    
+    private func getCurrentDate() -> String {
+        let nowDate = Date()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        
+        let currentDate = dateFormatter.string(from: nowDate)
+        
+        return currentDate
     }
     
     private func addTempleteButtonShadow() {
