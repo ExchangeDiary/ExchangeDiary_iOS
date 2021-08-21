@@ -49,6 +49,7 @@ class PlaySoundViewController: UIViewController {
         super.viewDidLoad()
         
         audioPlayer.delegate = self
+        audioTitle.delegate = self
         
         setupNavigationBarUI()
         setupAudioPlayUI()
@@ -267,5 +268,23 @@ extension PlaySoundViewController: AudioPlayable {
         let remainingTime = (duration - currentTime).stringFromTimeInterval()
         remainingPlayingTime.text = "-\(remainingTime)"
         progressBarWidth.constant = CGFloat((currentTime / duration)) * progressView.frame.size.width
+    }
+}
+
+
+// MARK: UITextFieldDelegate
+extension PlaySoundViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let currentText = audioTitle.text else {
+            return false
+        }
+        
+        guard let textRange = Range(range, in: currentText) else {
+            return false
+        }
+        
+        let limitedText = currentText.replacingCharacters(in: textRange, with: string)
+        
+        return limitedText.count <= 15
     }
 }
