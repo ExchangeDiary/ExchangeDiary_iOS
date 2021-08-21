@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "scale" : "1x",
       "idiom" : "universal",
-      "filename" : "yellowCat.png"
+      "filename" : "yellowCat.png",
+      "scale" : "1x"
     },
     {
-      "filename" : "yellowCat@2x.png",
       "scale" : "2x",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "yellowCat@2x.png"
     },
     {
-      "filename" : "yellowCat@3x.png",
       "scale" : "3x",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "yellowCat@3x.png"
     }
   ],
   "info" : {

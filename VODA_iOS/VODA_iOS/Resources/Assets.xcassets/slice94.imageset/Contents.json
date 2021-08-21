@@ -1,19 +1,19 @@
 {
   "images" : [
     {
+      "scale" : "1x",
       "idiom" : "universal",
-      "filename" : "pinkCat.png",
-      "scale" : "1x"
+      "filename" : "slice94.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "pinkCat@2x.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "slice94@2x.png"
     },
     {
       "scale" : "3x",
-      "idiom" : "universal",
-      "filename" : "pinkCat@3x.png"
+      "filename" : "slice94@3x.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {

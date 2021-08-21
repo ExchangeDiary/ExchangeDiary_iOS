@@ -251,22 +251,65 @@
                                                     <outletCollection property="gestureRecognizers" destination="8Yy-Yk-jDV" appends="YES" id="Zej-6e-ocY"/>
                                                 </connections>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원하는 템플릿을 선택하세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pba-5I-q6p">
+                                                <rect key="frame" x="25" y="1099.3333333333333" width="196.33333333333334" height="21.666666666666742"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="faj-BF-ZBI">
+                                                <rect key="frame" x="25" y="1137" width="458" height="110"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tR7-cN-w8l">
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="110"/>
+                                                        <state key="normal" image="noSelcet"/>
+                                                        <state key="selected" image="slice94"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="selectNoSeletTemplete:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="FBd-0Z-MiR"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04U-tU-sHj">
+                                                        <rect key="frame" x="154" y="0.0" width="150" height="110"/>
+                                                        <state key="normal" image="pinkCat"/>
+                                                        <state key="selected" image="slice95"/>
+                                                        <connections>
+                                                            <action selector="selectPinkCatTemplete:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="T2h-Ii-Krh"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qx-wg-YOP">
+                                                        <rect key="frame" x="320" y="0.0" width="138" height="110"/>
+                                                        <state key="normal" image="yellowCat"/>
+                                                        <state key="selected" image="slice96"/>
+                                                        <connections>
+                                                            <action selector="selectYellowCatTemplete:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="oCx-TF-eUi"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="Nzq-Ph-luC" firstAttribute="top" secondItem="77L-Lu-Xp0" secondAttribute="bottom" constant="24" id="3F3-n6-Ouj"/>
                                             <constraint firstItem="sVR-s6-uhj" firstAttribute="top" secondItem="7ui-bF-ESa" secondAttribute="bottom" constant="16" id="5Nn-Hc-EP8"/>
                                             <constraint firstItem="Rl0-3e-Sfc" firstAttribute="top" secondItem="sVR-s6-uhj" secondAttribute="bottom" constant="8" id="8lv-Db-162"/>
+                                            <constraint firstItem="Pba-5I-q6p" firstAttribute="top" secondItem="Uc0-gz-Y8N" secondAttribute="bottom" constant="24" id="BJQ-uA-5ru"/>
                                             <constraint firstItem="7ui-bF-ESa" firstAttribute="leading" secondItem="sVR-s6-uhj" secondAttribute="leading" id="DtJ-IF-czM"/>
                                             <constraint firstItem="Nzq-Ph-luC" firstAttribute="centerX" secondItem="faH-5M-LLw" secondAttribute="centerX" id="FeY-WG-BWy"/>
                                             <constraint firstItem="Io2-ye-mWg" firstAttribute="top" secondItem="heQ-ok-ETk" secondAttribute="bottom" constant="8" id="HgH-xJ-ioc"/>
                                             <constraint firstItem="elf-NQ-yPW" firstAttribute="width" secondItem="faH-5M-LLw" secondAttribute="width" multiplier="0.872" id="Icm-h9-lky"/>
                                             <constraint firstItem="0hk-5Y-D47" firstAttribute="leading" secondItem="sVR-s6-uhj" secondAttribute="leading" id="J4Z-JA-SIB"/>
+                                            <constraint firstItem="Pba-5I-q6p" firstAttribute="leading" secondItem="QCq-7f-GuD" secondAttribute="leading" id="JgR-uv-5ao"/>
                                             <constraint firstItem="Uc0-gz-Y8N" firstAttribute="top" secondItem="QCq-7f-GuD" secondAttribute="bottom" constant="8" id="LSZ-9E-lV7"/>
                                             <constraint firstItem="rd1-vj-FQA" firstAttribute="top" secondItem="Io2-ye-mWg" secondAttribute="bottom" constant="24" id="Lhr-3T-tRg"/>
                                             <constraint firstItem="77L-Lu-Xp0" firstAttribute="width" secondItem="faH-5M-LLw" secondAttribute="width" multiplier="0.872" id="OiC-Gd-K5d"/>
                                             <constraint firstItem="sVR-s6-uhj" firstAttribute="leading" secondItem="Rl0-3e-Sfc" secondAttribute="leading" id="PNg-KH-npr"/>
                                             <constraint firstItem="elf-NQ-yPW" firstAttribute="top" secondItem="rd1-vj-FQA" secondAttribute="bottom" constant="8" id="QYP-Rh-hsk"/>
+                                            <constraint firstItem="faj-BF-ZBI" firstAttribute="leading" secondItem="Uc0-gz-Y8N" secondAttribute="leading" id="Ujz-5g-VMP"/>
                                             <constraint firstItem="77L-Lu-Xp0" firstAttribute="top" secondItem="0hk-5Y-D47" secondAttribute="bottom" constant="8" id="Wra-md-HCu"/>
                                             <constraint firstItem="QCq-7f-GuD" firstAttribute="leading" secondItem="rd1-vj-FQA" secondAttribute="leading" id="YkX-oa-Dx4"/>
                                             <constraint firstItem="Io2-ye-mWg" firstAttribute="width" secondItem="faH-5M-LLw" secondAttribute="width" multiplier="0.872" id="aDW-Ed-fbW"/>
@@ -275,6 +318,7 @@
                                             <constraint firstItem="Uc0-gz-Y8N" firstAttribute="width" secondItem="faH-5M-LLw" secondAttribute="width" multiplier="0.872" id="fqU-Mw-voC"/>
                                             <constraint firstItem="QCq-7f-GuD" firstAttribute="top" secondItem="elf-NQ-yPW" secondAttribute="bottom" constant="24" id="ibk-en-sea"/>
                                             <constraint firstItem="Io2-ye-mWg" firstAttribute="centerX" secondItem="faH-5M-LLw" secondAttribute="centerX" id="jeW-yH-prF"/>
+                                            <constraint firstItem="faj-BF-ZBI" firstAttribute="top" secondItem="Pba-5I-q6p" secondAttribute="bottom" constant="16" id="mLF-vE-ygO"/>
                                             <constraint firstItem="rd1-vj-FQA" firstAttribute="leading" secondItem="heQ-ok-ETk" secondAttribute="leading" id="mtz-9h-9Nv"/>
                                             <constraint firstItem="Uc0-gz-Y8N" firstAttribute="centerX" secondItem="faH-5M-LLw" secondAttribute="centerX" id="pNW-n6-PqQ"/>
                                             <constraint firstItem="heQ-ok-ETk" firstAttribute="top" secondItem="Nzq-Ph-luC" secondAttribute="bottom" constant="24" id="qaL-zI-xYo"/>
@@ -315,9 +359,12 @@
                         <outlet property="contentTextViewCharacterCount" destination="vR2-YM-hkf" id="qrF-Bd-aS0"/>
                         <outlet property="contentTextViewHeight" destination="iiK-Go-c4i" id="vjZ-S8-ELV"/>
                         <outlet property="locationTextField" destination="fFe-AP-eoI" id="dlc-14-dni"/>
+                        <outlet property="noSelectTempleteButton" destination="tR7-cN-w8l" id="paB-4F-inS"/>
+                        <outlet property="pinkCatTempleteButton" destination="04U-tU-sHj" id="bkd-Z5-I1d"/>
                         <outlet property="storyPhoto" destination="cc4-u1-Sp5" id="ha8-g4-shv"/>
                         <outlet property="titleTextField" destination="tKV-j9-WmK" id="zQX-gK-doR"/>
                         <outlet property="totalViewHeight" destination="GFd-8C-fbJ" id="xgD-wO-wZ6"/>
+                        <outlet property="yellowCatTempleteButton" destination="5qx-wg-YOP" id="ufe-H6-G5M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -331,8 +378,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="noSelcet" width="138" height="110"/>
+        <image name="pinkCat" width="150" height="110"/>
         <image name="slice2" width="32" height="32"/>
+        <image name="slice94" width="138" height="110"/>
+        <image name="slice95" width="150" height="110"/>
+        <image name="slice96" width="138" height="110"/>
         <image name="voiceAdd" width="38" height="38"/>
+        <image name="yellowCat" width="138" height="110"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

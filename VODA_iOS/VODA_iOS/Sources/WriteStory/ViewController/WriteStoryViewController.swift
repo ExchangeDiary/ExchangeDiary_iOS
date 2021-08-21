@@ -15,6 +15,9 @@ class WriteStoryViewController: UIViewController {
     @IBOutlet weak var totalViewHeight: NSLayoutConstraint!
     @IBOutlet weak var contentTextViewCharacterCount: UILabel!
     @IBOutlet weak var storyPhoto: UIImageView!
+    @IBOutlet weak var noSelectTempleteButton: UIButton!
+    @IBOutlet weak var pinkCatTempleteButton: UIButton!
+    @IBOutlet weak var yellowCatTempleteButton: UIButton!
     private var textViewHeight: CGFloat = 0
     
     private let rightBarButton: UIButton = {
@@ -41,7 +44,7 @@ class WriteStoryViewController: UIViewController {
         contentTextViewHeight.constant = textViewHeight
         
         setupNavigationBarUI()
-        
+        addTempleteButtonShadow()
         //FIXME: 추후 삭제
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
     }
@@ -56,10 +59,28 @@ class WriteStoryViewController: UIViewController {
         self.navigationItem.setRightBarButtonItems([rightBarButtonItem], animated: false)
     }
     
+    private func addTempleteButtonShadow() {
+        noSelectTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
+        pinkCatTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
+        yellowCatTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
+    }
+    
     @IBAction func addStoryPhoto(_ sender: UITapGestureRecognizer) {
         showAddPhotoPopUp(completionHandler: { [weak self] (image) in
             self?.storyPhoto.image = image
         })
+    }
+    
+    @IBAction func selectNoSeletTemplete(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+    }
+    
+    @IBAction func selectPinkCatTemplete(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+    }
+    
+    @IBAction func selectYellowCatTemplete(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
     }
 }
 
