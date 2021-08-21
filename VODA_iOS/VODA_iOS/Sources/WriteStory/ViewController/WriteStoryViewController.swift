@@ -57,7 +57,14 @@ class WriteStoryViewController: UIViewController {
     
     private func setupNavigationBarUI() {
         self.setNavigationBarTransparency()
-        self.setBackButton(color: .black)
+        
+        let backButton = UIBarButtonItem(image: UIImage(named: "icBack"),
+                style: .plain,
+                target: self,
+                action: #selector(notSaveStory))
+        navigationItem.leftBarButtonItem = backButton
+        navigationItem.leftBarButtonItem?.tintColor = .black
+        navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
         
         let rightBarButtonItem = UIBarButtonItem(customView: rightBarButton)
         rightBarButton.addTarget(self, action: #selector(passStoryData(_:)), for: .touchUpInside)
@@ -79,6 +86,13 @@ class WriteStoryViewController: UIViewController {
         noSelectTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
         pinkCatTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
         yellowCatTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
+    }
+    
+    @objc func notSaveStory() {
+        showButtonPopUp(with: .noSaveStory, completionHandler: {
+            self.dismiss(animated: false, completion: nil)
+            self.navigationController?.popViewController(animated: false)
+        })
     }
     
     @objc private func passStoryData(_ sender: UIButton) {
