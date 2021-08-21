@@ -18,6 +18,7 @@ class WriteStoryViewController: UIViewController {
     @IBOutlet weak var noSelectTempleteButton: UIButton!
     @IBOutlet weak var pinkCatTempleteButton: UIButton!
     @IBOutlet weak var yellowCatTempleteButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     private var textViewHeight: CGFloat = 0
     
     private let rightBarButton: UIButton = {
@@ -33,6 +34,8 @@ class WriteStoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scrollView.delegate = self
         
         locationTextField.delegate = self
         titleTextField.delegate = self
@@ -173,5 +176,12 @@ extension WriteStoryViewController: UITextViewDelegate {
             setContentTextViewPlaceHolder()
             contentTextViewCharacterCount.text = "0/5000자"
         }
+    }
+}
+
+// MARK: UIScrollViewDelegate
+extension WriteStoryViewController: UIScrollViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.view.endEditing(true)
     }
 }

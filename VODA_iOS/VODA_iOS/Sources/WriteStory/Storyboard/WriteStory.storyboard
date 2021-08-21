@@ -385,6 +385,7 @@
                         <outlet property="locationTextField" destination="fFe-AP-eoI" id="dlc-14-dni"/>
                         <outlet property="noSelectTempleteButton" destination="tR7-cN-w8l" id="paB-4F-inS"/>
                         <outlet property="pinkCatTempleteButton" destination="04U-tU-sHj" id="bkd-Z5-I1d"/>
+                        <outlet property="scrollView" destination="hD1-Ts-KP3" id="Nme-NU-e3O"/>
                         <outlet property="storyPhoto" destination="cc4-u1-Sp5" id="ha8-g4-shv"/>
                         <outlet property="titleTextField" destination="tKV-j9-WmK" id="zQX-gK-doR"/>
                         <outlet property="totalViewHeight" destination="GFd-8C-fbJ" id="xgD-wO-wZ6"/>
