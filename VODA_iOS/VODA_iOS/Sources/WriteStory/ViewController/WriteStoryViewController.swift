@@ -73,14 +73,29 @@ class WriteStoryViewController: UIViewController {
     
     @IBAction func selectNoSeletTemplete(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected {
+            pinkCatTempleteButton.isSelected = false
+            yellowCatTempleteButton.isSelected = false
+        }
     }
     
     @IBAction func selectPinkCatTemplete(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected {
+            noSelectTempleteButton.isSelected = false
+            yellowCatTempleteButton.isSelected = false
+        }
     }
     
     @IBAction func selectYellowCatTemplete(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected {
+            noSelectTempleteButton.isSelected = false
+            pinkCatTempleteButton.isSelected = false
+        }
     }
 }
 
