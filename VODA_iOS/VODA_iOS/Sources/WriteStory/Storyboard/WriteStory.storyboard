@@ -411,15 +411,30 @@
             </objects>
             <point key="canvasLocation" x="56.799999999999997" y="162.5615763546798"/>
         </scene>
-        <!--RecordSoundViewController-->
-        <scene sceneID="VUS-dy-B3C">
+        <!--Story Detail View Controller-->
+        <scene sceneID="6nY-YE-nda">
             <objects>
-                <viewControllerPlaceholder storyboardName="AudioRecord" referencedIdentifier="RecordSoundViewController" id="MR6-hh-Heg" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="z93-Kk-8Mp"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cfx-Ly-ica" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="StoryDetailViewController" id="r33-FJ-Dld" customClass="StoryDetailViewController" customModule="VODA_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GC1-Nq-a9D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2021년 07월 18일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBi-Fz-MjE">
+                                <rect key="frame" x="22" y="114" width="172.33333333333334" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ppd-rd-1dZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tdE-Mg-Eba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="691" y="121"/>
+            <point key="canvasLocation" x="831" y="163"/>
         </scene>
     </scenes>
     <resources>
