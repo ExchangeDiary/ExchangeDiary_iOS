@@ -14,6 +14,7 @@ class WriteStoryViewController: UIViewController {
     @IBOutlet weak var contentTextViewHeight: NSLayoutConstraint!
     @IBOutlet weak var totalViewHeight: NSLayoutConstraint!
     @IBOutlet weak var contentTextViewCharacterCount: UILabel!
+    @IBOutlet weak var storyPhoto: UIImageView!
     private var textViewHeight: CGFloat = 0
     
     private let rightBarButton: UIButton = {
@@ -53,6 +54,12 @@ class WriteStoryViewController: UIViewController {
         //FIXME: popup 닫히는 함수 연결하기
         //        rightBarButton.addTarget(self, action: #selector(), for: .touchUpInside)
         self.navigationItem.setRightBarButtonItems([rightBarButtonItem], animated: false)
+    }
+    
+    @IBAction func addStoryPhoto(_ sender: UITapGestureRecognizer) {
+        showAddPhotoPopUp(completionHandler: { [weak self] (image) in
+            self?.storyPhoto.image = image
+        })
     }
 }
 

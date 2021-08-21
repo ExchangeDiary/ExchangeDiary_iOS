@@ -81,12 +81,13 @@ extension UIViewController {
         self.present(buttonPopUpViewController, animated: false, completion: nil)
     }
     
-    func showAddPhotoPopUp() {
+    func showAddPhotoPopUp(completionHandler: ((UIImage) -> Void)? = nil) {
         let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
         guard let photoPopUpViewController = storyboard.instantiateViewController(withIdentifier: "PhotoPopUpViewController") as? PhotoPopUpViewController else {
             return
         }
         photoPopUpViewController.modalPresentationStyle = .overCurrentContext
+        photoPopUpViewController.completionHandler = completionHandler
         self.present(photoPopUpViewController, animated: false, completion: nil)
     }
     
