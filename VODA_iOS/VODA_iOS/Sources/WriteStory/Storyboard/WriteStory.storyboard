@@ -116,6 +116,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7j-2V-PIP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="38" height="38"/>
                                                                 <state key="normal" image="voiceAdd"/>
+                                                                <connections>
+                                                                    <segue destination="MR6-hh-Heg" kind="show" id="tPn-at-5PS"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="음성으로 기록하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rib-QN-UHK">
                                                                 <rect key="frame" x="54.000000000000007" y="0.0" width="100.66666666666669" height="38"/>
@@ -401,6 +404,16 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="56.799999999999997" y="162.5615763546798"/>
+        </scene>
+        <!--RecordSoundViewController-->
+        <scene sceneID="VUS-dy-B3C">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AudioRecord" referencedIdentifier="RecordSoundViewController" id="MR6-hh-Heg" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="z93-Kk-8Mp"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cfx-Ly-ica" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="691" y="121"/>
         </scene>
     </scenes>
     <resources>
