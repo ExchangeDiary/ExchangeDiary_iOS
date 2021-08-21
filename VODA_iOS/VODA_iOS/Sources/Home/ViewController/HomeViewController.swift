@@ -8,21 +8,21 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    var windowHeight = UIScreen.main.bounds.size.height
+    var windowWidth = UIScreen.main.bounds.size.width
 
+    @IBOutlet weak var joinedDiaryCollectionView: UICollectionView!
+    @IBOutlet weak var createNewDiaryButton: UIBarButtonItem!
+    var participants = [UIImageView]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.navigationController?.setNavigationBarTransparency()
+        self.createNewDiaryButton.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
-    */
-
 }
