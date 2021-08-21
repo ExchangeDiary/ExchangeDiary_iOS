@@ -50,6 +50,20 @@
 	<true/>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>음성 녹음을 위해 사용자의 마이크에 접근합니다</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Volte.otf</string>
+		<string>Volte Bold Italic.otf</string>
+		<string>Volte Bold.otf</string>
+		<string>Volte Light Italic.otf</string>
+		<string>Volte Light.otf</string>
+		<string>Volte Medium Italic.otf</string>
+		<string>Volte Medium.otf</string>
+		<string>Volte Regular Italic.otf</string>
+		<string>Volte Semibold Italic.otf</string>
+		<string>Volte Semibold.otf</string>
+		<string>Volte Bold Italic.otf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

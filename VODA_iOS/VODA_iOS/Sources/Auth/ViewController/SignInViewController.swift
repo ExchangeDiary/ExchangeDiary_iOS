@@ -11,6 +11,10 @@ import GoogleSignIn
 
 class SignInViewController: UIViewController {
     
+    @IBOutlet weak var googleLoginView: UIView!
+    @IBOutlet weak var kakaoLoginView: UIView!
+    @IBOutlet weak var appleLoginView: UIView!
+    
     @IBOutlet weak var googleLoginButton: UIButton!
     @IBOutlet weak var kakaoLoginButton: UIButton!
     @IBOutlet weak var appleLoginButton: UIButton!
@@ -20,6 +24,14 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        self.googleLoginView.makeCircleView()
+        self.kakaoLoginView.makeCircleView()
+        self.appleLoginView.makeCircleView()
     }
     
     @IBAction func googleLoginTouchUpInsideAction(_ sender: Any) {
