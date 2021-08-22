@@ -241,7 +241,7 @@ extension WriteStoryViewController: UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if !contentTextView.text.isEmpty {
+        if contentTextView.text == "내용을 적어주세요" {
             contentTextView.text = nil
             contentTextView.textColor = UIColor.black
         }
