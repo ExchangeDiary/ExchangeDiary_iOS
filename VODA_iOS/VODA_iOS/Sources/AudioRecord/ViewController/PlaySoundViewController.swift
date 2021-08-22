@@ -34,8 +34,7 @@ class PlaySoundViewController: UIViewController {
     var recordingTitle: String?
     
     private let rightBarButton: UIButton = {
-        //TODO: Multiplier 적용
-        let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: 61, height: 40))
+        let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth * 0.16266, height: DeviceInfo.screenHeight * 0.04802))
         
         rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
         rightBarButton.setTitle("완료", for: .normal)
@@ -76,7 +75,7 @@ class PlaySoundViewController: UIViewController {
         progressBarWidth.constant = 0
         addGestureRecognizer()
         
-        seekingPointView.addBorder(color: UIColor.CustomColor.vodaMainBlue, widhth: 3)
+        seekingPointView.addBorder(color: UIColor.CustomColor.vodaMainBlue, width: 3)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

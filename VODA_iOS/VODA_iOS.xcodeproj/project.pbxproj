@@ -29,6 +29,12 @@
 		9B6061D526C394CD008C84DC /* AudioRecordStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6061D426C394CD008C84DC /* AudioRecordStatus.swift */; };
 		9B6061D726C39504008C84DC /* AudioPlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6061D626C39504008C84DC /* AudioPlayerStatus.swift */; };
 		9B6061D926C39523008C84DC /* AudioPlayerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6061D826C39523008C84DC /* AudioPlayerError.swift */; };
+		9B6BD2D626C57842007619BE /* ButtonPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BD2D526C57841007619BE /* ButtonPopUpViewController.swift */; };
+		9B6BD2D826C57863007619BE /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6BD2D726C57863007619BE /* PopUp.storyboard */; };
+		9B6BD2DA26C64914007619BE /* ButtonPopUpType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BD2D926C64913007619BE /* ButtonPopUpType.swift */; };
+		9B6BD2DF26C66420007619BE /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BD2DE26C66420007619BE /* DeviceInfo.swift */; };
+		9B6BD2E126C839ED007619BE /* PhotoPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BD2E026C839ED007619BE /* PhotoPopUpViewController.swift */; };
+		9B6BD2E326C83A3E007619BE /* WritePeriodPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BD2E226C83A3E007619BE /* WritePeriodPopUpViewController.swift */; };
 		9B6C8B4026AA963200D089D3 /* VodaAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B3F26AA963200D089D3 /* VodaAudioRecorder.swift */; };
 		9B6C8B4726AC829800D089D3 /* VodaAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B4626AC829800D089D3 /* VodaAudioPlayer.swift */; };
 		9B6C8B4A26B3E58B00D089D3 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CBFAC7F26A44D0600924F64 /* .swiftlint.yml */; };
@@ -73,6 +79,12 @@
 		9B6061D426C394CD008C84DC /* AudioRecordStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordStatus.swift; sourceTree = "<group>"; };
 		9B6061D626C39504008C84DC /* AudioPlayerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerStatus.swift; sourceTree = "<group>"; };
 		9B6061D826C39523008C84DC /* AudioPlayerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerError.swift; sourceTree = "<group>"; };
+		9B6BD2D526C57841007619BE /* ButtonPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPopUpViewController.swift; sourceTree = "<group>"; };
+		9B6BD2D726C57863007619BE /* PopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
+		9B6BD2D926C64913007619BE /* ButtonPopUpType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPopUpType.swift; sourceTree = "<group>"; };
+		9B6BD2DE26C66420007619BE /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		9B6BD2E026C839ED007619BE /* PhotoPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopUpViewController.swift; sourceTree = "<group>"; };
+		9B6BD2E226C83A3E007619BE /* WritePeriodPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePeriodPopUpViewController.swift; sourceTree = "<group>"; };
 		9B6C8B3F26AA963200D089D3 /* VodaAudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VodaAudioRecorder.swift; sourceTree = "<group>"; };
 		9B6C8B4626AC829800D089D3 /* VodaAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VodaAudioPlayer.swift; sourceTree = "<group>"; };
 		9B6C8B4B26B3EE9C00D089D3 /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
@@ -188,6 +200,7 @@
 				9B904DC026A95CDD004F5B99 /* AudioRecord */,
 				9B6C8B4F26B3EF7F00D089D3 /* Push */,
 				9B6C8B4D26B3EF6E00D089D3 /* MyPage */,
+				9B6BD2D426C577AF007619BE /* PopUp */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -253,6 +266,7 @@
 				9B60617526C184C2008C84DC /* Extension */,
 				9B60617726C184C2008C84DC /* Network */,
 				9B60617826C184C2008C84DC /* SegueIdentifier.swift */,
+				9B6BD2DE26C66420007619BE /* DeviceInfo.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -275,6 +289,42 @@
 			children = (
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		9B6BD2D426C577AF007619BE /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				9B6BD2DB26C6491D007619BE /* Storyboard */,
+				9B6BD2DD26C6493A007619BE /* Model */,
+				9B6BD2DC26C6492D007619BE /* ViewController */,
+			);
+			path = PopUp;
+			sourceTree = "<group>";
+		};
+		9B6BD2DB26C6491D007619BE /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9B6BD2D726C57863007619BE /* PopUp.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9B6BD2DC26C6492D007619BE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9B6BD2D526C57841007619BE /* ButtonPopUpViewController.swift */,
+				9B6BD2E026C839ED007619BE /* PhotoPopUpViewController.swift */,
+				9B6BD2E226C83A3E007619BE /* WritePeriodPopUpViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9B6BD2DD26C6493A007619BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B6BD2D926C64913007619BE /* ButtonPopUpType.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9B6C8B4D26B3EF6E00D089D3 /* MyPage */ = {
@@ -464,6 +514,7 @@
 				9B6C8B4A26B3E58B00D089D3 /* .swiftlint.yml in Resources */,
 				9BE0A886269A2A4E005314C0 /* Main.storyboard in Resources */,
 				9B6C8B5F26B3F03700D089D3 /* MyPage.storyboard in Resources */,
+				9B6BD2D826C57863007619BE /* PopUp.storyboard in Resources */,
 				9BE0A875269A2080005314C0 /* LaunchScreen.storyboard in Resources */,
 				12BFEBB426BC258500E70DD7 /* credentials.plist in Resources */,
 				129FCEA026BC222B000E20BE /* Info.plist in Resources */,
@@ -552,17 +603,22 @@
 				12DFB9E126BE7AA9009C23D1 /* SocialLoginType.swift in Sources */,
 				9B6C8B5D26B3F02600D089D3 /* PushViewController.swift in Sources */,
 				9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */,
+				9B6BD2E326C83A3E007619BE /* WritePeriodPopUpViewController.swift in Sources */,
 				9B6C8B4726AC829800D089D3 /* VodaAudioPlayer.swift in Sources */,
 				9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */,
 				9B60618026C1886D008C84DC /* UIImageView+Extension.swift in Sources */,
+				9B6BD2D626C57842007619BE /* ButtonPopUpViewController.swift in Sources */,
 				9B904DC626A95DF8004F5B99 /* RecordSoundViewController.swift in Sources */,
 				9B6061D926C39523008C84DC /* AudioPlayerError.swift in Sources */,
 				9B6C8B4026AA963200D089D3 /* VodaAudioRecorder.swift in Sources */,
+				9B6BD2DF26C66420007619BE /* DeviceInfo.swift in Sources */,
+				9B6BD2DA26C64914007619BE /* ButtonPopUpType.swift in Sources */,
 				9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */,
 				9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */,
 				9B60618326C1886D008C84DC /* UIViewController+Extension.swift in Sources */,
 				9B6061D726C39504008C84DC /* AudioPlayerStatus.swift in Sources */,
 				9B60618226C1886D008C84DC /* UIView+Extension.swift in Sources */,
+				9B6BD2E126C839ED007619BE /* PhotoPopUpViewController.swift in Sources */,
 				9B60617A26C184C2008C84DC /* SegueIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
