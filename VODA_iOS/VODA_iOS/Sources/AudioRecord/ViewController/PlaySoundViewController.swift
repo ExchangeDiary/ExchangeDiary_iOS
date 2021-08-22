@@ -8,11 +8,11 @@
 import UIKit
 
 class PlaySoundViewController: UIViewController {
-    @IBOutlet weak var audioTitle: UITextField!
+    @IBOutlet weak var audioTitleTextField: UITextField!
     @IBOutlet weak var playStatusButton: UIButton!
-    @IBOutlet weak var totalDuration: UILabel!
-    @IBOutlet weak var currentPlayingTime: UILabel!
-    @IBOutlet weak var remainingPlayingTime: UILabel!
+    @IBOutlet weak var totalDurationLabel: UILabel!
+    @IBOutlet weak var currentPlayingTimeLabel: UILabel!
+    @IBOutlet weak var remainingPlayingTimeLabel: UILabel!
     @IBOutlet weak var progressView: UIView!
     @IBOutlet weak var progressBar: UIView!
     @IBOutlet weak var progressBarWidth: NSLayoutConstraint!
@@ -51,11 +51,11 @@ class PlaySoundViewController: UIViewController {
         audioPlayer.delegate = self
         audioTitle.delegate = self
         
-        setupNavigationBarUI()
-        setupAudioPlayUI()
+        setUpNavigationBarUI()
+        setUpAudioPlayUI()
     }
     
-    private func setupNavigationBarUI() {
+    private func setUpNavigationBarUI() {
         self.setNavigationBarTransparency()
         self.setBackButton(color: .black)
         
@@ -64,20 +64,20 @@ class PlaySoundViewController: UIViewController {
         self.navigationItem.setRightBarButtonItems([rightBarButtonItem], animated: false)
     }
     
-    private func setupAudioPlayUI() {
+    private func setUpAudioPlayUI() {
         guard let duration = playDuration else {
             return
         }
         
-        totalDuration.text = duration.stringFromTimeInterval()
-        remainingPlayingTime.text = "-\(duration.stringFromTimeInterval())"
+        totalDurationLabel.text = duration.stringFromTimeInterval()
+        remainingPlayingTimeLabel.text = "-\(duration.stringFromTimeInterval())"
         
-        audioTitle.text = recordingTitle
+        audioTitleTextField.text = recordingTitle
         
         progressBarWidth.constant = 0
         addGestureRecognizer()
         
-        seekingPointView.addBorder(color: UIColor.CustomColor.vodaMainBlue, widhth: 3)
+        seekingPointView.addBorder(color: UIColor.CustomColor.vodaMainBlue, width: 3)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -129,7 +129,7 @@ class PlaySoundViewController: UIViewController {
     }
     
     @IBAction func modifyAudioTitle(_ sender: Any) {
-        audioTitle.becomeFirstResponder()
+        audioTitleTextField.becomeFirstResponder()
     }
     
     @IBAction func playSound(_ sender: Any) {
@@ -252,21 +252,21 @@ extension PlaySoundViewController: AudioPlayable {
         
         if status == .stopped {
             isPlaying = false
-            currentPlayingTime.text = duration.stringFromTimeInterval()
-            remainingPlayingTime.text = "-00:00"
+            currentPlayingTimeLabel.text = duration.stringFromTimeInterval()
+            remainingPlayingTimeLabel.text = "-00:00"
         }
         
         changeStatusButtonImage(status)
     }
 
     func audioPlayer(_ audioPlayer: VodaAudioPlayer, didUpdateCurrentTime currentTime: TimeInterval) {
-        currentPlayingTime.text = currentTime.stringFromTimeInterval()
+        currentPlayingTimeLabel.text = currentTime.stringFromTimeInterval()
         
         guard let duration = playDuration else {
             return
         }
         let remainingTime = (duration - currentTime).stringFromTimeInterval()
-        remainingPlayingTime.text = "-\(remainingTime)"
+        remainingPlayingTimeLabel.text = "-\(remainingTime)"
         progressBarWidth.constant = CGFloat((currentTime / duration)) * progressView.frame.size.width
     }
 }

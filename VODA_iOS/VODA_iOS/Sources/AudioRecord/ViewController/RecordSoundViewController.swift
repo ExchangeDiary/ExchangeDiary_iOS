@@ -9,11 +9,11 @@ import UIKit
 import AVFoundation
 
 class RecordSoundViewController: UIViewController {
-    @IBOutlet weak var voiceRecordTitle: UILabel!
-    @IBOutlet weak var recordTime: UILabel!
+    @IBOutlet weak var voiceRecordTitleLabel: UILabel!
+    @IBOutlet weak var recordTimeLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
-    @IBOutlet weak var recordGuideText: UILabel!
+    @IBOutlet weak var recordGuideTextLabel: UILabel!
     private var audioRecorder = VodaAudioRecorder.shared
     private var recordStatus: AudioRecordStatus?
     private var recordedAudioUrl: URL?
@@ -32,7 +32,7 @@ class RecordSoundViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupRecordButtonUI(.idle)
+        setUpRecordButtonUI(.idle)
        
         audioRecorder.delegate = self
         
@@ -41,26 +41,26 @@ class RecordSoundViewController: UIViewController {
         
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
         
-        voiceRecordTitle.text = "Untitle\(getCurrentDate())"
+        voiceRecordTitleLabel.text = "Untitle\(getCurrentDate())"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        recordTime.text = "00:00"
+        recordTimeLabel.text = "00:00"
     }
     
-    private func setupRecordButtonUI(_ recordStatus: AudioRecordStatus) {
+    private func setUpRecordButtonUI(_ recordStatus: AudioRecordStatus) {
         switch recordStatus {
         case .idle, .prepared:
             stopButton.isHidden = true
         case .recording:
             recordButton.isHidden = true
-            recordGuideText.isHidden = true
+            recordGuideTextLabel.isHidden = true
             stopButton.isHidden = false
         case .stopped:
             stopButton.isHidden = true
             recordButton.isHidden = false
-            recordGuideText.isHidden = false
+            recordGuideTextLabel.isHidden = false
         default:
             break
         }
@@ -101,11 +101,11 @@ extension RecordSoundViewController: AudioRecordable {
     
     func audioRecorder(_ audioPlayer: VodaAudioRecorder, didChangedStatus status: AudioRecordStatus) {
         print("recordStatus: \(status)")
-        setupRecordButtonUI(status)
+        setUpRecordButtonUI(status)
     }
     
     func audioRecorder(_ audioPlayer: VodaAudioRecorder, didUpdateCurrentTime currentTime: TimeInterval) {
-        recordTime.text = currentTime.stringFromTimeInterval()
+        recordTimeLabel.text = currentTime.stringFromTimeInterval()
         recordedDuration = currentTime
     }
 }
