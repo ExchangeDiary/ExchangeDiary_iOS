@@ -159,26 +159,32 @@ class PlaySoundViewController: UIViewController {
     
     @IBAction func setHighPitch(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-
-        if sender.isSelected {
-            rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
-            isReadyToPass = true
-            
-            rowPitchButton.isSelected = false
-            noPitchButton.isSelected = false
-        } else {
-            rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
-            isReadyToPass = false
-        }
         
         audioPlayer.stop()
         audioPlayer.pitchEnabled = true
         audioPlayer.pitch = 1000
         progressBarWidth.constant = 0
+        
+        if sender.isSelected {
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
+            isReadyToPass = true
+            
+            rowPitchButton.isSelected = false
+            noPitchButton.isSelected = false
+        } else {
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
+            audioPlayer.pitchEnabled = false
+            isReadyToPass = false
+        }
     }
     
     @IBAction func setRowPitch(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        
+        audioPlayer.stop()
+        audioPlayer.pitchEnabled = true
+        audioPlayer.pitch = -800
+        progressBarWidth.constant = 0
         
         if sender.isSelected {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
@@ -188,17 +194,18 @@ class PlaySoundViewController: UIViewController {
             noPitchButton.isSelected = false
         } else {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
+            audioPlayer.pitchEnabled = false
             isReadyToPass = false
         }
-        
-        audioPlayer.stop()
-        audioPlayer.pitchEnabled = true
-        audioPlayer.pitch = -800
-        progressBarWidth.constant = 0
     }
     
     @IBAction func setNoPitch(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        
+        audioPlayer.stop()
+        audioPlayer.pitchEnabled = false
+        audioPlayer.pitch = 0
+        progressBarWidth.constant = 0
         
         if sender.isSelected {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
@@ -208,13 +215,9 @@ class PlaySoundViewController: UIViewController {
             rowPitchButton.isSelected = false
         } else {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
+            audioPlayer.pitchEnabled = false
             isReadyToPass = false
         }
-        
-        audioPlayer.stop()
-        audioPlayer.pitchEnabled = false
-        audioPlayer.pitch = 0
-        progressBarWidth.constant = 0
     }
     
     @objc func passAudioData(_ sender: UIButton) {
