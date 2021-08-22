@@ -75,7 +75,7 @@ class PlaySoundViewController: UIViewController {
         progressBarWidth.constant = 0
         addGestureRecognizer()
         
-        seekingPointView.addBorder(color: UIColor.CustomColor.vodaMainBlue, widhth: 3)
+        seekingPointView.addBorder(color: UIColor.CustomColor.vodaMainBlue, width: 3)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
