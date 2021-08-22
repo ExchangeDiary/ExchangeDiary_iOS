@@ -211,10 +211,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uc0-gz-Y8N">
-                                                <rect key="frame" x="24" y="763.33333333333337" width="327" height="295.00000000000011"/>
+                                                <rect key="frame" x="24" y="763.33333333333337" width="327" height="327.00000000000011"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="x0z-Df-gYd">
-                                                        <rect key="frame" x="125" y="113" width="77" height="69"/>
+                                                        <rect key="frame" x="125" y="129" width="77" height="69"/>
                                                         <subviews>
                                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPB-XE-bC9">
                                                                 <rect key="frame" x="0.0" y="0.0" width="77" height="32"/>
@@ -232,7 +232,7 @@
                                                         <gestureRecognizers/>
                                                     </stackView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cc4-u1-Sp5">
-                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="295"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="327"/>
                                                         <gestureRecognizers/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -246,7 +246,7 @@
                                                 <constraints>
                                                     <constraint firstItem="cc4-u1-Sp5" firstAttribute="width" secondItem="Uc0-gz-Y8N" secondAttribute="width" id="49B-js-m9m"/>
                                                     <constraint firstItem="x0z-Df-gYd" firstAttribute="centerY" secondItem="Uc0-gz-Y8N" secondAttribute="centerY" id="58c-go-W6S"/>
-                                                    <constraint firstAttribute="width" secondItem="Uc0-gz-Y8N" secondAttribute="height" multiplier="327:295" id="NjB-oV-qyX"/>
+                                                    <constraint firstAttribute="width" secondItem="Uc0-gz-Y8N" secondAttribute="height" multiplier="1:1" id="NjB-oV-qyX"/>
                                                     <constraint firstItem="x0z-Df-gYd" firstAttribute="centerX" secondItem="Uc0-gz-Y8N" secondAttribute="centerX" id="Pa6-sH-67L"/>
                                                     <constraint firstItem="cc4-u1-Sp5" firstAttribute="centerY" secondItem="Uc0-gz-Y8N" secondAttribute="centerY" id="USz-R2-nUW"/>
                                                     <constraint firstItem="cc4-u1-Sp5" firstAttribute="height" secondItem="Uc0-gz-Y8N" secondAttribute="height" id="Uuc-Lw-ee7"/>
@@ -262,13 +262,13 @@
                                                 </connections>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원하는 템플릿을 선택하세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pba-5I-q6p">
-                                                <rect key="frame" x="24" y="1082.3333333333333" width="196.33333333333334" height="21.666666666666742"/>
+                                                <rect key="frame" x="24" y="1114.3333333333333" width="196.33333333333334" height="21.666666666666742"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zn6-Zu-xTC">
-                                                <rect key="frame" x="24" y="1120" width="351" height="115.66666666666674"/>
+                                                <rect key="frame" x="24" y="1152" width="351" height="115.66666666666674"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="faj-BF-ZBI">
                                                         <rect key="frame" x="0.0" y="2" width="458" height="110"/>
