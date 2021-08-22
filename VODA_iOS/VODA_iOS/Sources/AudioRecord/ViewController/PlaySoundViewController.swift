@@ -49,7 +49,7 @@ class PlaySoundViewController: UIViewController {
         super.viewDidLoad()
         
         audioPlayer.delegate = self
-        audioTitle.delegate = self
+        audioTitleTextField.delegate = self
         
         setUpNavigationBarUI()
         setUpAudioPlayUI()
@@ -235,7 +235,7 @@ class PlaySoundViewController: UIViewController {
             print("passAudioUrl: \(url)")
                     
             if let writeStoryViewController = navigationController?.viewControllers[1] {
-                completionHandler?(PassingAudioData(audioTitle: audioTitle.text ?? "", pitch: audioPlayer.pitch, audioUrl: url))
+                completionHandler?(PassingAudioData(audioTitle: audioTitleTextField.text ?? "", pitch: audioPlayer.pitch, audioUrl: url))
                 self.navigationController?.popToViewController(writeStoryViewController, animated: false)
             }
         }
@@ -275,7 +275,7 @@ extension PlaySoundViewController: AudioPlayable {
 // MARK: UITextFieldDelegate
 extension PlaySoundViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let currentText = audioTitle.text else {
+        guard let currentText = audioTitleTextField.text else {
             return false
         }
         
