@@ -27,6 +27,11 @@ extension UIView {
         self.layer.masksToBounds = false
     }
     
+    func addBorder(color: UIColor, widhth: CGFloat) {
+        self.layer.borderColor = color.cgColor
+        self.layer.borderWidth = widhth
+    }
+    
     func makeTopSectionRound(_ radius: CGFloat = 10) {
         self.clipsToBounds = true
         self.layer.cornerRadius = radius

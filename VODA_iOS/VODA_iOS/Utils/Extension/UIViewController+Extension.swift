@@ -8,6 +8,12 @@
 import UIKit
 
 extension UIViewController {
+    var rootViewController: UIViewController? {
+        return UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController
+    }
+}
+
+extension UIViewController {
     func eraseNavigationUnderbar() {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = false
