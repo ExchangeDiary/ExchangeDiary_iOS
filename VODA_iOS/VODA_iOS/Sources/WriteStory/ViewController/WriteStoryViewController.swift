@@ -221,6 +221,8 @@ extension WriteStoryViewController: UITextViewDelegate {
             
             if contentTextViewHeight.constant > textViewHeight, contentTextViewHeight.constant > contentTextView.contentSize.height {
                 totalViewHeight.constant += newSize.height - contentTextView.contentSize.height
+            } else {
+                totalViewHeight.constant -= contentTextView.contentSize.height - contentTextViewHeight.constant
             }
         }
     }
