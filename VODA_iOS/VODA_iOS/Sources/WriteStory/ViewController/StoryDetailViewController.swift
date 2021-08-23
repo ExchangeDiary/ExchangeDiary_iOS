@@ -64,7 +64,11 @@ class StoryDetailViewController: UIViewController {
         storyTitleLabel.text = storyData?.storyTitle
         storyLocationLabel.text = storyData?.storyLocation
         //TODO: 서버 연결 후 분기 처리 userImage, nickName
-        storyTextView.text = storyData?.storyContentsText
+        if storyData?.storyContentsText == "내용을 적어주세요" {
+            storyTextView.text = ""
+        } else {
+            storyTextView.text = storyData?.storyContentsText            
+        }
         storyPhotoImageView.image = storyData?.storyPhotoImage
         
         switch storyData?.storyAudioPitch {
