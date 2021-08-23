@@ -8,16 +8,16 @@
 import UIKit
 
 class WriteStoryViewController: UIViewController {
-    @IBOutlet weak var currentDate: UILabel!
+    @IBOutlet weak var currentDateLabel: UILabel!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var recordTitle: UILabel!
+    @IBOutlet weak var recordTitleLabel: UILabel!
     @IBOutlet weak var addRecordButton: UIButton!
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var contentTextViewHeight: NSLayoutConstraint!
     @IBOutlet weak var totalViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var contentTextViewCharacterCount: UILabel!
-    @IBOutlet weak var storyPhoto: UIImageView!
+    @IBOutlet weak var contentTextViewCharacterCountLabel: UILabel!
+    @IBOutlet weak var storyPhotoImageView: UIImageView!
     @IBOutlet weak var noSelectTempleteButton: UIButton!
     @IBOutlet weak var pinkCatTempleteButton: UIButton!
     @IBOutlet weak var yellowCatTempleteButton: UIButton!
@@ -43,19 +43,19 @@ class WriteStoryViewController: UIViewController {
         titleTextField.delegate = self
         contentTextView.delegate = self
         
-        currentDate.text = getCurrentDate()
+        currentDateLabel.text = getCurrentDate()
         setContentTextViewPlaceHolder()
         
         textViewHeight = DeviceInfo.screenHeight * 0.32881
         contentTextViewHeight.constant = textViewHeight
         
-        setupNavigationBarUI()
+        setUpNavigationBarUI()
         addTempleteButtonShadow()
         //FIXME: 추후 삭제
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
     }
     
-    private func setupNavigationBarUI() {
+    private func setUpNavigationBarUI() {
         self.setNavigationBarTransparency()
         
         let backButton = UIBarButtonItem(image: UIImage(named: "icBack"),
@@ -96,10 +96,15 @@ class WriteStoryViewController: UIViewController {
     }
     
     @objc private func passStoryData(_ sender: UIButton) {
-        if recordTitle.textColor != .black, contentTextViewCharacterCount.text == "0/5000자" {
+        if recordTitleLabel.textColor != .black, contentTextViewCharacterCountLabel.text == "0/5000자" {
             showButtonPopUp(with: .checkStoryContentNil)
         }
-        // TODO: 전달
+        // TODO: 전달(title, location, text, photo, url, pitch, voice title)
+        guard let storyDetailViewController = self.storyboard?.instantiateViewController(identifier: "StoryDetailViewController") as? StoryDetailViewController else {
+            return
+        }
+        
+        self.navigationController?.pushViewController(storyDetailViewController, animated: false)
     }
     
     @IBAction func addRecord(_ sender: UIButton) {
@@ -114,8 +119,8 @@ class WriteStoryViewController: UIViewController {
             guard let audioTitle = data.audioTitle else {
                 return
             }
-            self?.recordTitle.text = "\(audioTitle).mp3"
-            self?.recordTitle.textColor = .black
+            self?.recordTitleLabel.text = "\(audioTitle).mp3"
+            self?.recordTitleLabel.textColor = .black
             
             guard let pitch = data.pitch else {
                 return
@@ -143,7 +148,7 @@ class WriteStoryViewController: UIViewController {
     
     @IBAction func addStoryPhoto(_ sender: UITapGestureRecognizer) {
         showAddPhotoPopUp(completionHandler: { [weak self] image in
-            self?.storyPhoto.image = image
+            self?.storyPhotoImageView.image = image
         })
     }
     
@@ -206,7 +211,7 @@ extension WriteStoryViewController: UITextViewDelegate {
         if !textView.text.isEmpty {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
         }
-        contentTextViewCharacterCount.text = "\(textView.text.count)/5000자"
+        contentTextViewCharacterCountLabel.text = "\(textView.text.count)/5000자"
         
         let isReachedTextViewHeight = contentTextViewHeight.constant >= textViewHeight
         if isReachedTextViewHeight {
@@ -252,7 +257,7 @@ extension WriteStoryViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if contentTextView.text.isEmpty {
             setContentTextViewPlaceHolder()
-            contentTextViewCharacterCount.text = "0/5000자"
+            contentTextViewCharacterCountLabel.text = "0/5000자"
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
         }
     }
