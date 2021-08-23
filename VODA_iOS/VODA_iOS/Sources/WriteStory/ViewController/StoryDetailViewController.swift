@@ -8,8 +8,9 @@
 import UIKit
 
 class StoryDetailViewController: UIViewController {
-    @IBOutlet weak var voiceSoundShortView: UIView!
-    @IBOutlet weak var voiceSoundLongView: UIView!
+    @IBOutlet weak var storyTextView: UITextView!
+    @IBOutlet weak var storyPhotoImageView: UIImageView!
+    @IBOutlet weak var audioMiniPlayerView: UIView!
     var storyData: StoryData?
 
     private let rightBarButton: UIButton = {
@@ -27,7 +28,7 @@ class StoryDetailViewController: UIViewController {
         super.viewDidLoad()
         
         setUpNavigationBarUI()
-        addVoiceSoundViewShadow()
+        setUpAudioPlayUI()
     }
     
     private func setUpNavigationBarUI() {
@@ -40,17 +41,7 @@ class StoryDetailViewController: UIViewController {
         self.navigationItem.setRightBarButtonItems([rightBarButtonItem], animated: false)
     }
     
-    private func addVoiceSoundViewShadow() {
-        voiceSoundShortView.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
-        voiceSoundLongView.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
-    }
-    
-    //TODO: 전체 길이가 넘으면 스크롤 되는 뷰에 그만큼 더해주기
-    @IBAction func voiceSoundLongViewShow(_ sender: Any) {
-        voiceSoundLongView.isHidden = false
-    }
-    
-    @IBAction func voiceSoundLongViewHidden(_ sender: Any) {
-        voiceSoundLongView.isHidden = true
+    private func setUpAudioPlayUI() {
+        audioMiniPlayerView.addShadow(width: 0, height: -3, radius: 3, opacity: 0.1)
     }
 }
