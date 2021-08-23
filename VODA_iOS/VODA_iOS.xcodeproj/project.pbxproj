@@ -53,6 +53,7 @@
 		9B904DCA26A95E82004F5B99 /* AudioRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */; };
 		9BE0A875269A2080005314C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */; };
 		9BE0A886269A2A4E005314C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A885269A2A4E005314C0 /* Main.storyboard */; };
+		9BEB68C726D37CBE00A7F786 /* StoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB68C626D37CBE00A7F786 /* StoryData.swift */; };
 		D62B1705EB94FBB77F6FF5CF /* Pods_VODA_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE202DC320DB2B380F3FF7CC /* Pods_VODA_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,7 @@
 		9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AudioRecord.storyboard; sourceTree = "<group>"; };
 		9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BE0A885269A2A4E005314C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9BEB68C626D37CBE00A7F786 /* StoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryData.swift; sourceTree = "<group>"; };
 		C4ACB85E518139A990B1D58A /* Pods-VODA_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.debug.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		EE202DC320DB2B380F3FF7CC /* Pods_VODA_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VODA_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -340,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				9B6BD2E526CD031A007619BE /* Storyboard */,
+				9BEB68C526D37C9400A7F786 /* Model */,
 				9B6BD2E626CD0325007619BE /* ViewController */,
 			);
 			path = WriteStory;
@@ -474,6 +477,14 @@
 			children = (
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9BEB68C526D37C9400A7F786 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9BEB68C626D37CBE00A7F786 /* StoryData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A9128262FA506F3E1424ABFB /* Frameworks */ = {
@@ -656,6 +667,7 @@
 				9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */,
 				9B60618326C1886D008C84DC /* UIViewController+Extension.swift in Sources */,
 				9B6061D726C39504008C84DC /* AudioPlayerStatus.swift in Sources */,
+				9BEB68C726D37CBE00A7F786 /* StoryData.swift in Sources */,
 				9B60618226C1886D008C84DC /* UIView+Extension.swift in Sources */,
 				9B6BD2E126C839ED007619BE /* PhotoPopUpViewController.swift in Sources */,
 				9B6BD2EA26CD0B52007619BE /* WriteStoryViewController.swift in Sources */,

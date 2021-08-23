@@ -10,6 +10,7 @@ import UIKit
 class StoryDetailViewController: UIViewController {
     @IBOutlet weak var voiceSoundShortView: UIView!
     @IBOutlet weak var voiceSoundLongView: UIView!
+    var storyData: StoryData?
 
     private let rightBarButton: UIButton = {
         let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth * 0.16266, height: DeviceInfo.screenHeight * 0.04802))

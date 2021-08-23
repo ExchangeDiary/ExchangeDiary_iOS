@@ -23,6 +23,8 @@ class WriteStoryViewController: UIViewController {
     @IBOutlet weak var yellowCatTempleteButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     private var textViewHeight: CGFloat = 0
+    private var audioPitch: Float = 0
+    private var audioUrl: String?
     
     private let rightBarButton: UIButton = {
         let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth * 0.16266, height: DeviceInfo.screenHeight * 0.04802))
@@ -99,10 +101,15 @@ class WriteStoryViewController: UIViewController {
         if recordTitleLabel.textColor != .black, contentTextViewCharacterCountLabel.text == "0/5000자" {
             showButtonPopUp(with: .checkStoryContentNil)
         }
-        // TODO: 전달(title, location, text, photo, url, pitch, voice title,templete)
+        
         guard let storyDetailViewController = self.storyboard?.instantiateViewController(identifier: "StoryDetailViewController") as? StoryDetailViewController else {
             return
         }
+        
+        // FIXME: storyTemplete 서버 형식이랑 통일하기
+        let storyData = StoryData(storyWriteDate: currentDateLabel.text ?? "", storyTitle: titleTextField.text ?? "", storyLocation: locationTextField.text ?? "", storyContentsText: contentTextView.text, storyAudioTitle: recordTitleLabel.text, storyAudioPitch: audioPitch, storyAudioUrl: audioUrl, storyPhotoImage: storyPhotoImageView.image, storyPhotoUrl: nil, storyTemplete: nil)
+        
+        storyDetailViewController.storyData = storyData
         
         self.navigationController?.pushViewController(storyDetailViewController, animated: false)
     }
@@ -126,6 +133,8 @@ class WriteStoryViewController: UIViewController {
                 return
             }
             
+            self?.audioPitch = pitch
+            
             switch pitch {
             case 0:
                 self?.addRecordButton.setImage(UIImage(named: "noEffectHover"), for: .normal)
@@ -136,11 +145,12 @@ class WriteStoryViewController: UIViewController {
             default:
                 break
             }
-            
-            //TODO: 전달
-            guard let audioUrl = data.audioUrl else {
+
+            guard let audioDataUrl = data.audioUrl else {
                 return
             }
+            
+            self?.audioUrl = "\(audioDataUrl)"
         }
         
         self.navigationController?.pushViewController(recordSoundViewController, animated: false)
