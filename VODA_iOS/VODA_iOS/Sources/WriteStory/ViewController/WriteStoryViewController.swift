@@ -99,7 +99,7 @@ class WriteStoryViewController: UIViewController {
         if recordTitleLabel.textColor != .black, contentTextViewCharacterCountLabel.text == "0/5000자" {
             showButtonPopUp(with: .checkStoryContentNil)
         }
-        // TODO: 전달(title, location, text, photo, url, pitch, voice title)
+        // TODO: 전달(title, location, text, photo, url, pitch, voice title,templete)
         guard let storyDetailViewController = self.storyboard?.instantiateViewController(identifier: "StoryDetailViewController") as? StoryDetailViewController else {
             return
         }
