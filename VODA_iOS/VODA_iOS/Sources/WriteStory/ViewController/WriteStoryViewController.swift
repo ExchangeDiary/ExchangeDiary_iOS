@@ -11,7 +11,7 @@ class WriteStoryViewController: UIViewController {
     @IBOutlet weak var currentDateLabel: UILabel!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var recordTitleLabel: UILabel!
+    @IBOutlet weak var audioTitleLabel: UILabel!
     @IBOutlet weak var addRecordButton: UIButton!
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var contentTextViewHeight: NSLayoutConstraint!
@@ -23,6 +23,7 @@ class WriteStoryViewController: UIViewController {
     @IBOutlet weak var yellowCatTempleteButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     private var textViewHeight: CGFloat = 0
+    private var audioTitle: String?
     private var audioPitch: Float = 0
     private var audioUrl: String?
     
@@ -73,12 +74,15 @@ class WriteStoryViewController: UIViewController {
         self.navigationItem.setRightBarButtonItems([rightBarButtonItem], animated: false)
     }
     
-    private func getCurrentDate() -> String {
+    private func getCurrentDate(dateUseCase: String? = nil) -> String {
         let nowDate = Date()
-        
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
         
+        if dateUseCase == "record" {
+            dateFormatter.dateFormat = "yyMMdd"
+        } else {
+            dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        }
         let currentDate = dateFormatter.string(from: nowDate)
         
         return currentDate
@@ -98,7 +102,7 @@ class WriteStoryViewController: UIViewController {
     }
     
     @objc private func passStoryData(_ sender: UIButton) {
-        if recordTitleLabel.textColor != .black, contentTextViewCharacterCountLabel.text == "0/5000자" {
+        if audioTitleLabel.textColor != .black, contentTextViewCharacterCountLabel.text == "0/5000자" {
             showButtonPopUp(with: .checkStoryContentNil)
         }
         
@@ -106,8 +110,13 @@ class WriteStoryViewController: UIViewController {
             return
         }
         
+        
+        if audioTitleLabel.text == "음성으로 기록하기" {
+            audioTitle = "Untitle\(getCurrentDate(dateUseCase: "record"))"
+        }
+        
         // FIXME: storyTemplete 서버 형식이랑 통일하기
-        let storyData = StoryData(storyWriteDate: currentDateLabel.text ?? "", storyTitle: titleTextField.text ?? "", storyLocation: locationTextField.text ?? "", storyContentsText: contentTextView.text, storyAudioTitle: recordTitleLabel.text, storyAudioPitch: audioPitch, storyAudioUrl: audioUrl, storyPhotoImage: storyPhotoImageView.image, storyPhotoUrl: nil, storyTemplete: nil)
+        let storyData = StoryData(storyWriteDate: currentDateLabel.text ?? "", storyTitle: titleTextField.text ?? "", storyLocation: locationTextField.text ?? "", storyContentsText: contentTextView.text, storyAudioTitle: audioTitle, storyAudioPitch: audioPitch, storyAudioUrl: audioUrl, storyPhotoImage: storyPhotoImageView.image, storyPhotoUrl: nil, storyTemplete: nil)
         
         storyDetailViewController.storyData = storyData
         
@@ -126,8 +135,9 @@ class WriteStoryViewController: UIViewController {
             guard let audioTitle = data.audioTitle else {
                 return
             }
-            self?.recordTitleLabel.text = "\(audioTitle).mp3"
-            self?.recordTitleLabel.textColor = .black
+            self?.audioTitleLabel.text = "\(audioTitle).mp3"
+            self?.audioTitleLabel.textColor = .black
+            self?.audioTitle = audioTitle
             
             guard let pitch = data.pitch else {
                 return

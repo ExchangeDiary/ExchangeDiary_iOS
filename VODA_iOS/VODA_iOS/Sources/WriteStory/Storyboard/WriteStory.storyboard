@@ -387,6 +387,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="addRecordButton" destination="R7j-2V-PIP" id="6WQ-gx-8vf"/>
+                        <outlet property="audioTitleLabel" destination="rib-QN-UHK" id="4N2-vc-Nnp"/>
                         <outlet property="contentTextView" destination="rcc-ea-3NC" id="1Ss-3I-hGi"/>
                         <outlet property="contentTextViewCharacterCountLabel" destination="vR2-YM-hkf" id="qrF-Bd-aS0"/>
                         <outlet property="contentTextViewHeight" destination="iiK-Go-c4i" id="vjZ-S8-ELV"/>
@@ -394,7 +395,6 @@
                         <outlet property="locationTextField" destination="fFe-AP-eoI" id="dlc-14-dni"/>
                         <outlet property="noSelectTempleteButton" destination="tR7-cN-w8l" id="paB-4F-inS"/>
                         <outlet property="pinkCatTempleteButton" destination="04U-tU-sHj" id="bkd-Z5-I1d"/>
-                        <outlet property="recordTitleLabel" destination="rib-QN-UHK" id="4N2-vc-Nnp"/>
                         <outlet property="scrollView" destination="hD1-Ts-KP3" id="Nme-NU-e3O"/>
                         <outlet property="storyPhotoImageView" destination="cc4-u1-Sp5" id="ha8-g4-shv"/>
                         <outlet property="titleTextField" destination="tKV-j9-WmK" id="zQX-gK-doR"/>
