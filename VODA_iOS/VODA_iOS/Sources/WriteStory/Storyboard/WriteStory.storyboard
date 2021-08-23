@@ -219,7 +219,7 @@
                                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPB-XE-bC9">
                                                                 <rect key="frame" x="0.0" y="0.0" width="77" height="32"/>
                                                                 <gestureRecognizers/>
-                                                                <state key="normal" image="slice2"/>
+                                                                <state key="normal" image="plus"/>
                                                             </button>
                                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yk-Yq-ilz">
                                                                 <rect key="frame" x="0.0" y="40" width="77" height="29"/>
@@ -539,7 +539,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LVV-qP-mcn">
                                                 <rect key="frame" x="0.0" y="21.333333333333371" width="190" height="14.666666666666664"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xll-7m-OxT">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xll-7m-OxT">
                                                         <rect key="frame" x="0.0" y="0.0" width="190" height="14.666666666666666"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
                                                         <color key="textColor" red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
@@ -549,24 +549,28 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume" translatesAutoresizingMaskIntoConstraints="NO" id="XGb-d1-D99">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KgT-qs-V15">
                                         <rect key="frame" x="294.33333333333331" y="21.666666666666629" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="XGb-d1-D99" secondAttribute="height" multiplier="1:1" id="9K4-Eq-UMe"/>
+                                            <constraint firstAttribute="width" secondItem="KgT-qs-V15" secondAttribute="height" multiplier="1:1" id="knx-M5-gpp"/>
                                         </constraints>
-                                    </imageView>
+                                        <state key="normal" image="resume"/>
+                                        <connections>
+                                            <action selector="playSound:" destination="r33-FJ-Dld" eventType="touchUpInside" id="tEq-4L-xy1"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="v7g-OR-BWt" firstAttribute="leading" secondItem="XGb-d1-D99" secondAttribute="leading" multiplier="23.33/294.33" id="Dt7-mC-NEq"/>
-                                    <constraint firstItem="XGb-d1-D99" firstAttribute="width" secondItem="AQl-ZB-49M" secondAttribute="width" multiplier="40/375" id="Eqg-LG-fXP"/>
                                     <constraint firstAttribute="width" secondItem="AQl-ZB-49M" secondAttribute="height" multiplier="375:83" id="EyA-x7-h8Y"/>
                                     <constraint firstItem="MrO-1z-rwX" firstAttribute="centerY" secondItem="v7g-OR-BWt" secondAttribute="centerY" id="M5a-L9-1UW"/>
                                     <constraint firstItem="v7g-OR-BWt" firstAttribute="width" secondItem="AQl-ZB-49M" secondAttribute="width" multiplier="44/375" id="Sc7-sD-DYi"/>
+                                    <constraint firstItem="v7g-OR-BWt" firstAttribute="leading" secondItem="KgT-qs-V15" secondAttribute="leading" multiplier="23.33/294.33" id="VbG-9x-2Nd"/>
                                     <constraint firstItem="v7g-OR-BWt" firstAttribute="leading" secondItem="MrO-1z-rwX" secondAttribute="leading" multiplier="23.33/75.33" id="ZBX-xw-hAn"/>
                                     <constraint firstItem="MrO-1z-rwX" firstAttribute="leading" secondItem="v7g-OR-BWt" secondAttribute="trailing" constant="8" id="fAo-oU-aBi"/>
-                                    <constraint firstItem="XGb-d1-D99" firstAttribute="centerY" secondItem="v7g-OR-BWt" secondAttribute="centerY" id="meY-X3-LdM"/>
                                     <constraint firstItem="v7g-OR-BWt" firstAttribute="centerY" secondItem="AQl-ZB-49M" secondAttribute="centerY" id="mqd-it-tk8"/>
+                                    <constraint firstItem="KgT-qs-V15" firstAttribute="width" secondItem="AQl-ZB-49M" secondAttribute="width" multiplier="40/375" id="tFc-2H-d1B"/>
+                                    <constraint firstItem="KgT-qs-V15" firstAttribute="centerY" secondItem="v7g-OR-BWt" secondAttribute="centerY" id="wdp-oC-qlG"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -586,9 +590,18 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="audioMiniPlayerView" destination="AQl-ZB-49M" id="hQK-sx-hHI"/>
+                        <outlet property="miniAudioPlayerPitchImageView" destination="v7g-OR-BWt" id="E1R-e9-F9A"/>
+                        <outlet property="miniAudioPlayerPlayButton" destination="KgT-qs-V15" id="86c-gY-una"/>
+                        <outlet property="miniAudioPlayerPlayingTimeLabel" destination="xll-7m-OxT" id="SPu-Y9-859"/>
+                        <outlet property="miniAudioPlayerTitleLabel" destination="blA-oV-ajA" id="TAt-MT-zWw"/>
+                        <outlet property="miniAudioPlayerView" destination="AQl-ZB-49M" id="hQK-sx-hHI"/>
+                        <outlet property="storyLocationLabel" destination="iyq-gV-wh0" id="DqD-td-Bc5"/>
                         <outlet property="storyPhotoImageView" destination="SFy-74-vez" id="m99-zQ-TSJ"/>
                         <outlet property="storyTextView" destination="8BK-Gc-yZf" id="0A4-fQ-0fS"/>
+                        <outlet property="storyTitleLabel" destination="sVr-jG-7Y5" id="nOi-jV-U37"/>
+                        <outlet property="storyUserNickNameLabel" destination="n9q-d7-wQ6" id="lTc-E9-Vqb"/>
+                        <outlet property="storyUserProfileImageView" destination="Dc1-fg-HLw" id="TZ3-3l-8mq"/>
+                        <outlet property="storyWriteDateLabel" destination="Ik5-7h-tfM" id="5rg-4R-Y5b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdE-Mg-Eba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -599,11 +612,11 @@
     <resources>
         <image name="noSelcet" width="138" height="110"/>
         <image name="pinkCat" width="150" height="110"/>
+        <image name="plus" width="32" height="32"/>
         <image name="resume" width="44" height="44"/>
         <image name="selectedNoSelected" width="138" height="110"/>
         <image name="selectedPinkCat" width="150" height="110"/>
         <image name="selectedYellowCat" width="138" height="110"/>
-        <image name="slice2" width="32" height="32"/>
         <image name="voiceAdd" width="38" height="38"/>
         <image name="yellowCat" width="138" height="110"/>
         <systemColor name="labelColor">

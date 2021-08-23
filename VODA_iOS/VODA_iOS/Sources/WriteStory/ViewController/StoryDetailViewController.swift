@@ -8,9 +8,24 @@
 import UIKit
 
 class StoryDetailViewController: UIViewController {
+    @IBOutlet weak var storyWriteDateLabel: UILabel!
+    @IBOutlet weak var storyTitleLabel: UILabel!
+    @IBOutlet weak var storyLocationLabel: UILabel!
+    @IBOutlet weak var storyUserProfileImageView: UIImageView!
+    @IBOutlet weak var storyUserNickNameLabel: UILabel!
     @IBOutlet weak var storyTextView: UITextView!
     @IBOutlet weak var storyPhotoImageView: UIImageView!
-    @IBOutlet weak var audioMiniPlayerView: UIView!
+    @IBOutlet weak var miniAudioPlayerView: UIView!
+    @IBOutlet weak var miniAudioPlayerPitchImageView: UIImageView!
+    @IBOutlet weak var miniAudioPlayerTitleLabel: UILabel!
+    @IBOutlet weak var miniAudioPlayerPlayingTimeLabel: UILabel!
+    @IBOutlet weak var miniAudioPlayerPlayButton: UIButton!
+    
+    private var audioPlayer = VodaAudioPlayer.shared
+    private var isPlaying = false
+    private var status: AudioPlayerStatus {
+        audioPlayer.status
+    }
     var storyData: StoryData?
 
     private let rightBarButton: UIButton = {
@@ -27,8 +42,11 @@ class StoryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        audioPlayer.delegate = self
+        
         setUpNavigationBarUI()
-        setUpAudioPlayUI()
+        setUpStoryDataUI()
+        miniAudioPlayerView.addShadow(width: 0, height: -3, radius: 3, opacity: 0.1)
     }
     
     private func setUpNavigationBarUI() {
@@ -41,7 +59,65 @@ class StoryDetailViewController: UIViewController {
         self.navigationItem.setRightBarButtonItems([rightBarButtonItem], animated: false)
     }
     
-    private func setUpAudioPlayUI() {
-        audioMiniPlayerView.addShadow(width: 0, height: -3, radius: 3, opacity: 0.1)
+    private func setUpStoryDataUI() {
+        storyWriteDateLabel.text = storyData?.storyWriteDate
+        storyTitleLabel.text = storyData?.storyTitle
+        storyLocationLabel.text = storyData?.storyLocation
+        //TODO: 서버 연결 후 분기 처리 userImage, nickName
+        storyTextView.text = storyData?.storyContentsText
+        storyPhotoImageView.image = storyData?.storyPhotoImage
+        
+        switch storyData?.storyAudioPitch {
+        case -800:
+            miniAudioPlayerPitchImageView.image = UIImage(named: "thickHover")
+        case 1000:
+            miniAudioPlayerPitchImageView.image = UIImage(named: "thinHover")
+        default:
+            miniAudioPlayerPitchImageView.image = UIImage(named: "noEffectHover")
+        }
+        
+        miniAudioPlayerTitleLabel.text = storyData?.storyAudioTitle
+    }
+    
+    private func changeAudioPlayStatusButtonImage(_ playStatus: AudioPlayerStatus) {
+        switch playStatus {
+        case .idle, .prepared, .paused, .stopped:
+            miniAudioPlayerPlayButton.setImage(UIImage(named: "resume"), for: .normal)
+        case .playing:
+            miniAudioPlayerPlayButton.setImage(UIImage(named: "pause"), for: .normal)
+        default:
+            break
+        }
+    }
+    
+    @IBAction func playSound(_ sender: UIButton) {
+        if isPlaying {
+            audioPlayer.pause()
+            isPlaying = false
+        } else {
+            if status == .paused {
+                audioPlayer.resume()
+            } else {
+                guard let audioUrl = URL(string: storyData?.storyAudioUrl ?? "") else {
+                    return
+                }
+                audioPlayer.play(with: audioUrl)
+            }
+            isPlaying = true
+        }
+    }
+}
+
+// MARK: AudioPlayable
+extension StoryDetailViewController: AudioPlayable {
+    func audioPlayer(_ audioPlayer: VodaAudioPlayer, didChangedStatus status: AudioPlayerStatus) {
+        if status == .stopped {
+            isPlaying = false
+        }
+        changeAudioPlayStatusButtonImage(status)
+    }
+    
+    func audioPlayer(_ audioPlayer: VodaAudioPlayer, didUpdateCurrentTime currentTime: TimeInterval) {
+        miniAudioPlayerPlayingTimeLabel.text = currentTime.stringFromTimeInterval()
     }
 }
