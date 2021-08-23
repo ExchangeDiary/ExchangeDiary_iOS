@@ -32,7 +32,7 @@ class PlaySoundViewController: UIViewController {
     var recordedAudioUrl: URL?
     var playDuration: TimeInterval?
     var recordingTitle: String?
-    var completionHandler: ((PassingAudioData) -> Void)?
+    var completionHandler: ((AudioData) -> Void)?
     
     private let rightBarButton: UIButton = {
         let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth * 0.16266, height: DeviceInfo.screenHeight * 0.04802))
@@ -238,7 +238,7 @@ class PlaySoundViewController: UIViewController {
             print("passAudioUrl: \(url)")
                     
             if let writeStoryViewController = navigationController?.viewControllers[1] {
-                completionHandler?(PassingAudioData(audioTitle: audioTitleTextField.text ?? "", pitch: audioPlayer.pitch, audioUrl: url))
+                completionHandler?(AudioData(audioTitle: audioTitleTextField.text ?? "", pitch: audioPlayer.pitch, audioUrl: url))
                 self.navigationController?.popToViewController(writeStoryViewController, animated: false)
             }
         }

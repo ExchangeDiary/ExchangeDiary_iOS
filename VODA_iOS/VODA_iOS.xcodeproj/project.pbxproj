@@ -18,7 +18,7 @@
 		9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */; };
 		9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46C2699E3CC00FA072C /* MainViewController.swift */; };
 		9B2BF4722699E3CF00FA072C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BF4712699E3CF00FA072C /* Assets.xcassets */; };
-		9B44A97E26D166830078B561 /* PassingAudioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A97D26D166820078B561 /* PassingAudioData.swift */; };
+		9B44A97E26D166830078B561 /* AudioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A97D26D166820078B561 /* AudioData.swift */; };
 		9B44A98026D177DD0078B561 /* StoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A97F26D177DC0078B561 /* StoryDetailViewController.swift */; };
 		9B60617326C184AF008C84DC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B60617226C184AF008C84DC /* Home.storyboard */; };
 		9B60617926C184C2008C84DC /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60617626C184C2008C84DC /* TimeInterval+Extension.swift */; };
@@ -72,7 +72,7 @@
 		9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
 		9B2BF46C2699E3CC00FA072C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9B2BF4712699E3CF00FA072C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9B44A97D26D166820078B561 /* PassingAudioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassingAudioData.swift; sourceTree = "<group>"; };
+		9B44A97D26D166820078B561 /* AudioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioData.swift; sourceTree = "<group>"; };
 		9B44A97F26D177DC0078B561 /* StoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailViewController.swift; sourceTree = "<group>"; };
 		9B60617226C184AF008C84DC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		9B60617626C184C2008C84DC /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
@@ -455,7 +455,7 @@
 				9B6061D826C39523008C84DC /* AudioPlayerError.swift */,
 				9B6C8B3F26AA963200D089D3 /* VodaAudioRecorder.swift */,
 				9B6C8B4626AC829800D089D3 /* VodaAudioPlayer.swift */,
-				9B44A97D26D166820078B561 /* PassingAudioData.swift */,
+				9B44A97D26D166820078B561 /* AudioData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -645,7 +645,7 @@
 				9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */,
 				9B60618026C1886D008C84DC /* UIImageView+Extension.swift in Sources */,
 				9B6BD2D626C57842007619BE /* ButtonPopUpViewController.swift in Sources */,
-				9B44A97E26D166830078B561 /* PassingAudioData.swift in Sources */,
+				9B44A97E26D166830078B561 /* AudioData.swift in Sources */,
 				9B904DC626A95DF8004F5B99 /* RecordSoundViewController.swift in Sources */,
 				9B6061D926C39523008C84DC /* AudioPlayerError.swift in Sources */,
 				9B6C8B4026AA963200D089D3 /* VodaAudioRecorder.swift in Sources */,
