@@ -106,21 +106,22 @@ class WriteStoryViewController: UIViewController {
             showButtonPopUp(with: .checkStoryContentNil)
         }
         
-        guard let storyDetailViewController = self.storyboard?.instantiateViewController(identifier: "StoryDetailViewController") as? StoryDetailViewController else {
-            return
+        if rightBarButton.backgroundColor == UIColor.CustomColor.vodaMainBlue {
+            guard let storyDetailViewController = self.storyboard?.instantiateViewController(identifier: "StoryDetailViewController") as? StoryDetailViewController else {
+                return
+            }
+            
+            if audioTitleLabel.text == "음성으로 기록하기" {
+                audioTitle = "Untitle\(getCurrentDate(dateUseCase: "record"))"
+            }
+            
+            // FIXME: storyTemplete 서버 형식이랑 통일하기
+            let storyData = StoryData(storyWriteDate: currentDateLabel.text ?? "", storyTitle: titleTextField.text ?? "", storyLocation: locationTextField.text ?? "", storyContentsText: contentTextView.text, storyAudioTitle: audioTitle, storyAudioPitch: audioPitch, storyAudioUrl: audioUrl, storyPhotoImage: storyPhotoImageView.image, storyPhotoUrl: nil, storyTemplete: nil)
+            
+            storyDetailViewController.storyData = storyData
+            
+            self.navigationController?.pushViewController(storyDetailViewController, animated: false)
         }
-        
-        
-        if audioTitleLabel.text == "음성으로 기록하기" {
-            audioTitle = "Untitle\(getCurrentDate(dateUseCase: "record"))"
-        }
-        
-        // FIXME: storyTemplete 서버 형식이랑 통일하기
-        let storyData = StoryData(storyWriteDate: currentDateLabel.text ?? "", storyTitle: titleTextField.text ?? "", storyLocation: locationTextField.text ?? "", storyContentsText: contentTextView.text, storyAudioTitle: audioTitle, storyAudioPitch: audioPitch, storyAudioUrl: audioUrl, storyPhotoImage: storyPhotoImageView.image, storyPhotoUrl: nil, storyTemplete: nil)
-        
-        storyDetailViewController.storyData = storyData
-        
-        self.navigationController?.pushViewController(storyDetailViewController, animated: false)
     }
     
     @IBAction func addRecord(_ sender: UIButton) {
@@ -130,7 +131,17 @@ class WriteStoryViewController: UIViewController {
         }
         
         recordSoundViewController.completionHandler = { [weak self] data in
-            self?.rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
+            guard let locationText = self?.locationTextField.text else {
+                return
+            }
+            
+            guard let titleText = self?.titleTextField.text else {
+                return
+            }
+            
+            if !locationText.isEmpty, !titleText.isEmpty {
+                self?.rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
+            }
             
             guard let audioTitle = data.audioTitle else {
                 return
@@ -223,12 +234,40 @@ extension WriteStoryViewController: UITextFieldDelegate {
         
         return limitedText.count <= maxLength
     }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let locationText = locationTextField.text else {
+            return
+        }
+        
+        guard let titleText = titleTextField.text else {
+            return
+        }
+        
+        if !locationText.isEmpty, !titleText.isEmpty {
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
+        } else {
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+    }
 }
 
 // MARK: UITextViewDelegate
 extension WriteStoryViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        if !textView.text.isEmpty {
+        guard let locationText = locationTextField.text else {
+            return
+        }
+        
+        guard let titleText = titleTextField.text else {
+            return
+        }
+        
+        if !textView.text.isEmpty, !locationText.isEmpty, !titleText.isEmpty {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
         }
         contentTextViewCharacterCountLabel.text = "\(textView.text.count)/5000자"
