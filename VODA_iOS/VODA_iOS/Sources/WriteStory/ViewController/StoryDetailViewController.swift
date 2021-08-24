@@ -175,3 +175,11 @@ extension StoryDetailViewController: AudioPlayable {
         miniAudioPlayerPlayingTimeLabel.text = currentTime.stringFromTimeInterval()
     }
 }
+
+// MARK: UIGestureRecognizerDelegate
+extension StoryDetailViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        let isControllTapped = touch.view is UIControl
+        return !isControllTapped
+    }
+}
