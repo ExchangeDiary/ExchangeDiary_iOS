@@ -29,7 +29,7 @@ class StoryDetailViewController: UIViewController {
         audioPlayer.status
     }
     var storyData: StoryData?
-
+    
     private let rightBarButton: UIButton = {
         let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth * 0.16266, height: DeviceInfo.screenHeight * 0.04802))
         
@@ -57,7 +57,7 @@ class StoryDetailViewController: UIViewController {
         
         let rightBarButtonItem = UIBarButtonItem(customView: rightBarButton)
         //TODO: 서버에 보내기
-//        rightBarButton.addTarget(self, action: #selector(), for: .touchUpInside)
+        //        rightBarButton.addTarget(self, action: #selector(), for: .touchUpInside)
         self.navigationItem.setRightBarButtonItems([rightBarButtonItem], animated: false)
     }
     
@@ -66,21 +66,36 @@ class StoryDetailViewController: UIViewController {
         storyTitleLabel.text = storyData?.storyTitle
         storyLocationLabel.text = storyData?.storyLocation
         //TODO: 서버 연결 후 분기 처리 userImage, nickName
+        
         storyTextView.isEditable = false
         
-        if storyData?.storyContentsText == "내용을 적어주세요" {
-            storyTextView.text = ""
-        } else {
-            storyTextView.text = storyData?.storyContentsText
-            storyTextViewHeight.constant = storyTextView.intrinsicContentSize.height
-            print("storyTextViewHeight.constant: \(storyTextViewHeight.constant)")
-            
-            print("totalViewHeight.constant 1 :\(totalViewHeight.constant)")
-//            totalViewHeight.constant += storyTextView.intrinsicContentSize.height
-            print("totalViewHeight.constant 1 :\(totalViewHeight.constant)")
+        guard let storyContentsText = storyData?.storyContentsText else {
+            return
         }
         
         storyPhotoImageView.image = storyData?.storyPhotoImage
+        
+        if storyContentsText == "내용을 적어주세요" || storyContentsText.isEmpty {
+            storyTextView.text = ""
+            if storyData?.storyPhotoImage == nil {
+                storyPhotoImageView.image = UIImage(named: "noStoryText")
+            } else {
+                storyPhotoImageView.topAnchor.constraint(equalToSystemSpacingBelow: storyTextView.topAnchor, multiplier: 0).isActive = true
+            }
+        } else {
+            storyTextView.text = storyData?.storyContentsText
+            storyTextViewHeight.constant = storyTextView.intrinsicContentSize.height
+            
+            let isOverTotalViewHeight = totalViewHeight.constant < totalViewHeight.constant + storyTextView.intrinsicContentSize.height
+            
+            if isOverTotalViewHeight {
+                totalViewHeight.constant += ((totalViewHeight.constant + storyTextView.intrinsicContentSize.height) - totalViewHeight.constant)
+                
+                if storyData?.storyPhotoImage == nil {
+                    totalViewHeight.constant -= storyPhotoImageView.bounds.height
+                }
+            }
+        }
         
         switch storyData?.storyAudioPitch {
         case -800:
