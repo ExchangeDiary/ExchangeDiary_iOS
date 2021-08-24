@@ -467,18 +467,18 @@
                                                     <constraint firstAttribute="height" constant="1" id="6Ob-Oy-XQ1"/>
                                                 </constraints>
                                             </view>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8BK-Gc-yZf">
-                                                <rect key="frame" x="32" y="165.66666666666666" width="311" height="54"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8BK-Gc-yZf">
+                                                <rect key="frame" x="32" y="165.66666666666666" width="311" height="0.0"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="54" id="ki5-KX-trk"/>
+                                                    <constraint firstAttribute="height" id="ki5-KX-trk"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SFy-74-vez">
-                                                <rect key="frame" x="32" y="240.33333333333331" width="311" height="310.99999999999994"/>
+                                                <rect key="frame" x="32" y="187.66666666666669" width="311" height="311"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="SFy-74-vez" secondAttribute="height" multiplier="1:1" id="D1U-eT-xgd"/>
                                                 </constraints>
@@ -490,7 +490,6 @@
                                             <constraint firstItem="iyq-gV-wh0" firstAttribute="top" secondItem="sVr-jG-7Y5" secondAttribute="top" multiplier="84/50" id="0t0-Er-d2t"/>
                                             <constraint firstItem="8BK-Gc-yZf" firstAttribute="centerX" secondItem="Chu-EV-Fkd" secondAttribute="centerX" id="10s-9S-bia"/>
                                             <constraint firstItem="8BK-Gc-yZf" firstAttribute="top" secondItem="bIV-5k-3bf" secondAttribute="top" multiplier="189/166" id="2um-JG-Pj4"/>
-                                            <constraint firstItem="8BK-Gc-yZf" firstAttribute="top" secondItem="SFy-74-vez" secondAttribute="top" multiplier="165.67/240.33" id="7C4-6e-ADE"/>
                                             <constraint firstItem="Ik5-7h-tfM" firstAttribute="top" secondItem="Chu-EV-Fkd" secondAttribute="bottom" multiplier="16/812" id="8mB-jd-G4J"/>
                                             <constraint firstItem="sVr-jG-7Y5" firstAttribute="top" secondItem="Ik5-7h-tfM" secondAttribute="top" multiplier="50/16" id="Dhs-Ak-dtn"/>
                                             <constraint firstItem="bIV-5k-3bf" firstAttribute="width" secondItem="Chu-EV-Fkd" secondAttribute="width" multiplier="343/375" id="Gyu-nq-qNQ"/>
@@ -505,6 +504,7 @@
                                             <constraint firstItem="bIV-5k-3bf" firstAttribute="centerX" secondItem="Chu-EV-Fkd" secondAttribute="centerX" id="eu3-s6-rfc"/>
                                             <constraint firstItem="8BK-Gc-yZf" firstAttribute="width" secondItem="Chu-EV-Fkd" secondAttribute="width" multiplier="311/375" id="i9t-PU-Zw6"/>
                                             <constraint firstItem="8Ty-k6-dpa" firstAttribute="leading" secondItem="Chu-EV-Fkd" secondAttribute="trailingMargin" multiplier="289/375" id="lrG-p1-CcU"/>
+                                            <constraint firstItem="8BK-Gc-yZf" firstAttribute="bottom" secondItem="SFy-74-vez" secondAttribute="top" multiplier="225.67/255.67" id="xK9-U8-8I9"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -598,10 +598,12 @@
                         <outlet property="storyLocationLabel" destination="iyq-gV-wh0" id="DqD-td-Bc5"/>
                         <outlet property="storyPhotoImageView" destination="SFy-74-vez" id="m99-zQ-TSJ"/>
                         <outlet property="storyTextView" destination="8BK-Gc-yZf" id="0A4-fQ-0fS"/>
+                        <outlet property="storyTextViewHeight" destination="ki5-KX-trk" id="hko-Ug-070"/>
                         <outlet property="storyTitleLabel" destination="sVr-jG-7Y5" id="nOi-jV-U37"/>
                         <outlet property="storyUserNickNameLabel" destination="n9q-d7-wQ6" id="lTc-E9-Vqb"/>
                         <outlet property="storyUserProfileImageView" destination="Dc1-fg-HLw" id="TZ3-3l-8mq"/>
                         <outlet property="storyWriteDateLabel" destination="Ik5-7h-tfM" id="5rg-4R-Y5b"/>
+                        <outlet property="totalViewHeight" destination="fxw-pw-abV" id="1EC-hh-GEu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdE-Mg-Eba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

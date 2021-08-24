@@ -8,12 +8,14 @@
 import UIKit
 
 class StoryDetailViewController: UIViewController {
+    @IBOutlet weak var totalViewHeight: NSLayoutConstraint!
     @IBOutlet weak var storyWriteDateLabel: UILabel!
     @IBOutlet weak var storyTitleLabel: UILabel!
     @IBOutlet weak var storyLocationLabel: UILabel!
     @IBOutlet weak var storyUserProfileImageView: UIImageView!
     @IBOutlet weak var storyUserNickNameLabel: UILabel!
     @IBOutlet weak var storyTextView: UITextView!
+    @IBOutlet weak var storyTextViewHeight: NSLayoutConstraint!
     @IBOutlet weak var storyPhotoImageView: UIImageView!
     @IBOutlet weak var miniAudioPlayerView: UIView!
     @IBOutlet weak var miniAudioPlayerPitchImageView: UIImageView!
@@ -64,11 +66,20 @@ class StoryDetailViewController: UIViewController {
         storyTitleLabel.text = storyData?.storyTitle
         storyLocationLabel.text = storyData?.storyLocation
         //TODO: 서버 연결 후 분기 처리 userImage, nickName
+        storyTextView.isEditable = false
+        
         if storyData?.storyContentsText == "내용을 적어주세요" {
             storyTextView.text = ""
         } else {
-            storyTextView.text = storyData?.storyContentsText            
+            storyTextView.text = storyData?.storyContentsText
+            storyTextViewHeight.constant = storyTextView.intrinsicContentSize.height
+            print("storyTextViewHeight.constant: \(storyTextViewHeight.constant)")
+            
+            print("totalViewHeight.constant 1 :\(totalViewHeight.constant)")
+//            totalViewHeight.constant += storyTextView.intrinsicContentSize.height
+            print("totalViewHeight.constant 1 :\(totalViewHeight.constant)")
         }
+        
         storyPhotoImageView.image = storyData?.storyPhotoImage
         
         switch storyData?.storyAudioPitch {
