@@ -119,6 +119,7 @@ class WriteStoryViewController: UIViewController {
             let storyData = StoryData(storyWriteDate: currentDateLabel.text ?? "", storyTitle: titleTextField.text ?? "", storyLocation: locationTextField.text ?? "", storyContentsText: contentTextView.text, storyAudioTitle: audioTitle, storyAudioPitch: audioPitch, storyAudioUrl: audioUrl, storyPhotoImage: storyPhotoImageView.image, storyPhotoUrl: nil, storyTemplete: nil)
             
             storyDetailViewController.storyData = storyData
+            storyDetailViewController.pageCase = "storyPreview"
             
             self.navigationController?.pushViewController(storyDetailViewController, animated: false)
         }

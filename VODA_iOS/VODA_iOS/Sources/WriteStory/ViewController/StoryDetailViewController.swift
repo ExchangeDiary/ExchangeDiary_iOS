@@ -29,6 +29,7 @@ class StoryDetailViewController: UIViewController {
         audioPlayer.status
     }
     var storyData: StoryData?
+    var pageCase: String?
     
     private let rightBarButton: UIButton = {
         let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth * 0.16266, height: DeviceInfo.screenHeight * 0.04802))
@@ -49,6 +50,10 @@ class StoryDetailViewController: UIViewController {
         setUpNavigationBarUI()
         setUpStoryDataUI()
         miniAudioPlayerView.addShadow(width: 0, height: -3, radius: 3, opacity: 0.1)
+        
+        if pageCase == "storyDetail" {
+            rightBarButton.isHidden = true
+        }
     }
     
     private func setUpNavigationBarUI() {
@@ -65,7 +70,7 @@ class StoryDetailViewController: UIViewController {
         storyWriteDateLabel.text = storyData?.storyWriteDate
         storyTitleLabel.text = storyData?.storyTitle
         storyLocationLabel.text = storyData?.storyLocation
-        //TODO: 서버 연결 후 분기 처리 userImage, nickName
+        //TODO: 서버 연결 후 pageCase에 따라 분기 처리 userImage, nickName
         
         storyTextView.isEditable = false
         
