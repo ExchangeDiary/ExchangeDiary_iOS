@@ -33,6 +33,7 @@ class PlaySoundViewController: UIViewController {
     var playDuration: TimeInterval?
     var recordingTitle: String?
     var completionHandler: ((AudioData) -> Void)?
+    var pageCase: String?
     
     private let rightBarButton: UIButton = {
         let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth * 0.16266, height: DeviceInfo.screenHeight * 0.04802))

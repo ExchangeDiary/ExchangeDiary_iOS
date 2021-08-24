@@ -49,7 +49,7 @@ class StoryDetailViewController: UIViewController {
         
         setUpNavigationBarUI()
         setUpStoryDataUI()
-        miniAudioPlayerView.addShadow(width: 0, height: -3, radius: 3, opacity: 0.1)
+        setUpAudioUI()
         
         if pageCase == "storyDetail" {
             rightBarButton.isHidden = true
@@ -116,6 +116,21 @@ class StoryDetailViewController: UIViewController {
         }
         
         miniAudioPlayerTitleLabel.text = storyData?.storyAudioTitle
+    }
+    
+    private func setUpAudioUI() {
+        miniAudioPlayerView.addShadow(width: 0, height: -3, radius: 3, opacity: 0.1)
+        miniAudioPlayerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(moveToPlaySoundViewController)))
+    }
+    
+    @objc private func moveToPlaySoundViewController() {
+        let storyboard = UIStoryboard(name: "AudioRecord", bundle: nil)
+        guard let playSoundViewController = storyboard.instantiateViewController(identifier: "PlaySoundViewController") as? PlaySoundViewController else {
+            return
+        }
+        
+        playSoundViewController.pageCase = "storyPreview"
+        self.navigationController?.pushViewController(playSoundViewController, animated: false)
     }
     
     private func changeAudioPlayStatusButtonImage(_ playStatus: AudioPlayerStatus) {
