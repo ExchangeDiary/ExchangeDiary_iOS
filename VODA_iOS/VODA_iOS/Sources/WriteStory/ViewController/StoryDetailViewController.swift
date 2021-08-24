@@ -97,6 +97,10 @@ class StoryDetailViewController: UIViewController {
             }
         }
         
+        if storyData?.storyAudioUrl == nil {
+            miniAudioPlayerView.isHidden = true
+        }
+        
         switch storyData?.storyAudioPitch {
         case -800:
             miniAudioPlayerPitchImageView.image = UIImage(named: "thickHover")
