@@ -314,14 +314,17 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="audioEffectGuideLabel" destination="wlC-ay-0AO" id="ZOm-Nk-9bl"/>
                         <outlet property="audioTitleTextField" destination="Lig-7R-lt9" id="FSk-dE-fvR"/>
                         <outlet property="currentPlayingTimeLabel" destination="chr-cN-6Ub" id="Tcs-Q5-6PQ"/>
+                        <outlet property="editButton" destination="R7c-A3-qnc" id="rmi-dD-tNS"/>
                         <outlet property="highPitchButton" destination="IXT-Rm-N57" id="d9j-aw-xU6"/>
                         <outlet property="noPitchButton" destination="ATR-pd-K6t" id="qzD-qO-pHq"/>
                         <outlet property="playStatusButton" destination="4sn-cr-5o8" id="kId-8m-gCI"/>
                         <outlet property="progressBar" destination="xQa-l8-VP5" id="bTi-h2-8b1"/>
                         <outlet property="progressBarWidth" destination="q1Z-6J-Gyo" id="r2j-7e-sJ7"/>
                         <outlet property="progressView" destination="vkR-hb-yUJ" id="gVS-2u-4js"/>
+                        <outlet property="recordImageView" destination="EEg-oF-BJB" id="Wyh-tQ-sV3"/>
                         <outlet property="remainingPlayingTimeLabel" destination="QXD-C1-1I9" id="2cx-p6-cKR"/>
                         <outlet property="rowPitchButton" destination="SZr-QR-hXe" id="IBT-fe-jUH"/>
                         <outlet property="seekingPointView" destination="7fH-7m-dL9" id="gWV-kL-iDp"/>

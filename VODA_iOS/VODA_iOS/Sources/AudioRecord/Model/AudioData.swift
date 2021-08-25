@@ -10,5 +10,5 @@ import Foundation
 struct AudioData {
     let audioTitle: String?
     let pitch: Float?
-    let audioUrl: URL?
+    let audioUrl: String?
 }

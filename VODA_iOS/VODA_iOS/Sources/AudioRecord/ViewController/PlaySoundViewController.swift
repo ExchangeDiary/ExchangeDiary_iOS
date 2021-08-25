@@ -9,14 +9,17 @@ import UIKit
 
 class PlaySoundViewController: UIViewController {
     @IBOutlet weak var audioTitleTextField: UITextField!
-    @IBOutlet weak var playStatusButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var totalDurationLabel: UILabel!
+    @IBOutlet weak var recordImageView: UIImageView!
     @IBOutlet weak var currentPlayingTimeLabel: UILabel!
     @IBOutlet weak var remainingPlayingTimeLabel: UILabel!
     @IBOutlet weak var progressView: UIView!
     @IBOutlet weak var progressBar: UIView!
     @IBOutlet weak var progressBarWidth: NSLayoutConstraint!
     @IBOutlet weak var seekingPointView: UIView!
+    @IBOutlet weak var playStatusButton: UIButton!
+    @IBOutlet weak var audioEffectGuideLabel: UILabel!
     @IBOutlet weak var rowPitchButton: UIButton!
     @IBOutlet weak var highPitchButton: UIButton!
     @IBOutlet weak var noPitchButton: UIButton!
@@ -34,6 +37,7 @@ class PlaySoundViewController: UIViewController {
     var recordingTitle: String?
     var completionHandler: ((AudioData) -> Void)?
     var pageCase: String?
+    var audioData: AudioData?
     
     private let rightBarButton: UIButton = {
         let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth * 0.16266, height: DeviceInfo.screenHeight * 0.04802))
@@ -66,19 +70,41 @@ class PlaySoundViewController: UIViewController {
     }
     
     private func setUpAudioPlayUI() {
+        if pageCase == "storyPreview" {
+            editButton.isHidden = true
+            audioEffectGuideLabel.isHidden = true
+            rowPitchButton.isHidden = true
+            highPitchButton.isHidden = true
+            noPitchButton.isHidden = true
+            rightBarButton.isHidden = true
+            
+            switch audioData?.pitch {
+            case -800:
+                recordImageView.image = UIImage(named: "thickHover")
+            case 1000:
+                recordImageView.image = UIImage(named: "thinHover")
+            default:
+                recordImageView.image = UIImage(named: "noEffectHover")
+            }
+            
+            audioTitleTextField.text = audioData?.audioTitle
+            
+            playDuration = audioPlayer.duration
+        } else {
+            audioTitleTextField.text = recordingTitle
+        }
+        
+        progressBarWidth.constant = 0
+        addGestureRecognizer()
+        
+        seekingPointView.addBorder(color: UIColor.CustomColor.vodaMainBlue, width: 3)
+        
         guard let duration = playDuration else {
             return
         }
         
         totalDurationLabel.text = duration.stringFromTimeInterval()
         remainingPlayingTimeLabel.text = "-\(duration.stringFromTimeInterval())"
-        
-        audioTitleTextField.text = recordingTitle
-        
-        progressBarWidth.constant = 0
-        addGestureRecognizer()
-        
-        seekingPointView.addBorder(color: UIColor.CustomColor.vodaMainBlue, width: 3)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -141,10 +167,24 @@ class PlaySoundViewController: UIViewController {
             if status == .paused {
                 audioPlayer.resume()
             } else {
-                guard let recordedUrl = recordedAudioUrl else {
-                    return
+                if pageCase == "storyPreview" {
+                    guard let audioUrl = audioData?.audioUrl else {
+                        return
+                    }
+                    
+                    guard let miniAudioPlayerUrl = URL(string: audioUrl) else {
+                        return
+                    }
+                    
+                    audioPlayer.play(with: miniAudioPlayerUrl)
+                } else {
+                    guard let recordedUrl = recordedAudioUrl else {
+                        return
+                    }
+                    
+                    audioPlayer.play(with: recordedUrl)
                 }
-                audioPlayer.play(with: recordedUrl)
+                
             }
             isPlaying = true
         }
@@ -239,7 +279,7 @@ class PlaySoundViewController: UIViewController {
             print("passAudioUrl: \(url)")
                     
             if let writeStoryViewController = navigationController?.viewControllers[1] {
-                completionHandler?(AudioData(audioTitle: audioTitleTextField.text ?? "", pitch: audioPlayer.pitch, audioUrl: url))
+                completionHandler?(AudioData(audioTitle: audioTitleTextField.text ?? "", pitch: audioPlayer.pitch, audioUrl: url.absoluteString))
                 self.navigationController?.popToViewController(writeStoryViewController, animated: false)
             }
         }

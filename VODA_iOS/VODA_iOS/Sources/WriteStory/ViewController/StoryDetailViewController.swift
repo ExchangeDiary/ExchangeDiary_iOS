@@ -130,6 +130,7 @@ class StoryDetailViewController: UIViewController {
         }
         
         playSoundViewController.pageCase = "storyPreview"
+        playSoundViewController.audioData = AudioData(audioTitle: storyData?.storyAudioTitle, pitch: storyData?.storyAudioPitch, audioUrl: storyData?.storyAudioUrl)
         self.navigationController?.pushViewController(playSoundViewController, animated: false)
     }
     
