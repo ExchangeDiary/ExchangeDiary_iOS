@@ -62,9 +62,9 @@ class WriteStoryViewController: UIViewController {
         self.setNavigationBarTransparency()
         
         let backButton = UIBarButtonItem(image: UIImage(named: "icBack"),
-                style: .plain,
-                target: self,
-                action: #selector(notSaveStory))
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(notSaveStory))
         navigationItem.leftBarButtonItem = backButton
         navigationItem.leftBarButtonItem?.tintColor = .black
         navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
@@ -102,8 +102,24 @@ class WriteStoryViewController: UIViewController {
     }
     
     @objc private func passStoryData(_ sender: UIButton) {
+        guard let locationText = locationTextField.text else {
+            return
+        }
+        
+        guard let titleText = titleTextField.text else {
+            return
+        }
+        
         if audioTitleLabel.textColor != .black, contentTextViewCharacterCountLabel.text == "0/5000자" {
-            showButtonPopUp(with: .checkStoryContentNil)
+            if locationText.isEmpty || titleText.isEmpty {
+                showButtonPopUp(with: .checkStoryLocationTitleNil)
+            } else {
+                showButtonPopUp(with: .checkStoryContentNil)
+            }
+        } else if audioTitleLabel.textColor != .black || contentTextViewCharacterCountLabel.text == "0/5000자" {
+            if locationText.isEmpty || titleText.isEmpty {
+                showButtonPopUp(with: .checkStoryLocationTitleNil)
+            }
         }
         
         if rightBarButton.backgroundColor == UIColor.CustomColor.vodaMainBlue {
@@ -167,7 +183,7 @@ class WriteStoryViewController: UIViewController {
             default:
                 break
             }
-
+            
             guard let audioDataUrl = data.audioUrl else {
                 return
             }
@@ -236,7 +252,7 @@ extension WriteStoryViewController: UITextFieldDelegate {
         return limitedText.count <= maxLength
     }
     
-    func textFieldDidChangeSelection(_ textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         guard let locationText = locationTextField.text else {
             return
         }
@@ -245,15 +261,13 @@ extension WriteStoryViewController: UITextFieldDelegate {
             return
         }
         
-        if !locationText.isEmpty, !titleText.isEmpty {
-            rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
+        if !titleText.isEmpty, !locationText.isEmpty {
+            if contentTextViewCharacterCountLabel.text != "0/5000자" || storyPhotoImageView.image != nil {
+                rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
+            }
         } else {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
         }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
     }
 }
 
@@ -271,6 +285,7 @@ extension WriteStoryViewController: UITextViewDelegate {
         if !textView.text.isEmpty, !locationText.isEmpty, !titleText.isEmpty {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
         }
+        
         contentTextViewCharacterCountLabel.text = "\(textView.text.count)/5000자"
         
         let isReachedTextViewHeight = contentTextViewHeight.constant >= textViewHeight
