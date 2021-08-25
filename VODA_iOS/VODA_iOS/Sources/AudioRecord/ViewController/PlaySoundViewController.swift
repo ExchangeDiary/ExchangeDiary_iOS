@@ -92,6 +92,8 @@ class PlaySoundViewController: UIViewController {
             playDuration = audioPlayer.duration
         } else {
             audioTitleTextField.text = recordingTitle
+            
+            recordImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(reRecord(_:))))
         }
         
         progressBarWidth.constant = 0
@@ -105,6 +107,12 @@ class PlaySoundViewController: UIViewController {
         
         totalDurationLabel.text = duration.stringFromTimeInterval()
         remainingPlayingTimeLabel.text = "-\(duration.stringFromTimeInterval())"
+    }
+    
+    @objc private func reRecord(_ sender: Any) {
+        showButtonPopUp(with: .reRecord, completionHandler: {
+            self.navigationController?.popViewController(animated: false)
+        })
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
