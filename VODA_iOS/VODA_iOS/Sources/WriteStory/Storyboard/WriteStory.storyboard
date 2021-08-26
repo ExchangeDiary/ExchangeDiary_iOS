@@ -432,6 +432,9 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vg5-Vz-0Yx">
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pinkCatTemplete" translatesAutoresizingMaskIntoConstraints="NO" id="ddC-h7-OOf" userLabel="Templete Image View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
+                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Chu-EV-Fkd" userLabel="InnerView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                         <subviews>
@@ -472,7 +475,7 @@
                                             </stackView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8BK-Gc-yZf">
                                                 <rect key="frame" x="32" y="168" width="311" height="0.0"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="ki5-KX-trk"/>
                                                 </constraints>
@@ -494,7 +497,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="8BK-Gc-yZf" firstAttribute="centerX" secondItem="Chu-EV-Fkd" secondAttribute="centerX" id="10s-9S-bia"/>
                                             <constraint firstItem="bIV-5k-3bf" firstAttribute="width" secondItem="Chu-EV-Fkd" secondAttribute="width" multiplier="343/375" id="Gyu-nq-qNQ"/>
@@ -518,9 +521,13 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="ddC-h7-OOf" firstAttribute="centerY" secondItem="vg5-Vz-0Yx" secondAttribute="centerY" id="0zd-mh-IWU"/>
+                                    <constraint firstItem="ddC-h7-OOf" firstAttribute="height" secondItem="vg5-Vz-0Yx" secondAttribute="height" id="BCW-EA-n7o"/>
                                     <constraint firstAttribute="trailing" secondItem="Chu-EV-Fkd" secondAttribute="trailing" id="Ifl-rU-Dvc"/>
                                     <constraint firstAttribute="bottom" secondItem="Chu-EV-Fkd" secondAttribute="bottom" id="YN4-Jo-j6W"/>
+                                    <constraint firstItem="ddC-h7-OOf" firstAttribute="width" secondItem="vg5-Vz-0Yx" secondAttribute="width" id="bZU-7X-cxx"/>
                                     <constraint firstItem="Chu-EV-Fkd" firstAttribute="top" secondItem="vg5-Vz-0Yx" secondAttribute="top" id="h1M-GB-gnd"/>
+                                    <constraint firstItem="ddC-h7-OOf" firstAttribute="centerX" secondItem="vg5-Vz-0Yx" secondAttribute="centerX" id="l5w-AJ-cAZ"/>
                                     <constraint firstItem="Chu-EV-Fkd" firstAttribute="leading" secondItem="vg5-Vz-0Yx" secondAttribute="leading" id="sTZ-oe-RSq"/>
                                     <constraint firstItem="Chu-EV-Fkd" firstAttribute="width" secondItem="vg5-Vz-0Yx" secondAttribute="width" id="zEi-Po-O0t"/>
                                 </constraints>
@@ -612,14 +619,17 @@
                         <outlet property="miniAudioPlayerPlayingTimeLabel" destination="xll-7m-OxT" id="SPu-Y9-859"/>
                         <outlet property="miniAudioPlayerTitleLabel" destination="blA-oV-ajA" id="TAt-MT-zWw"/>
                         <outlet property="miniAudioPlayerView" destination="AQl-ZB-49M" id="hQK-sx-hHI"/>
+                        <outlet property="scrollView" destination="vg5-Vz-0Yx" id="Fd7-If-YSQ"/>
                         <outlet property="storyLocationLabel" destination="iyq-gV-wh0" id="DqD-td-Bc5"/>
                         <outlet property="storyPhotoImageView" destination="SFy-74-vez" id="m99-zQ-TSJ"/>
+                        <outlet property="storyTempleteImageView" destination="ddC-h7-OOf" id="gEB-Mz-YSJ"/>
                         <outlet property="storyTextView" destination="8BK-Gc-yZf" id="0A4-fQ-0fS"/>
                         <outlet property="storyTextViewHeight" destination="ki5-KX-trk" id="hko-Ug-070"/>
                         <outlet property="storyTitleLabel" destination="sVr-jG-7Y5" id="nOi-jV-U37"/>
                         <outlet property="storyUserNickNameLabel" destination="n9q-d7-wQ6" id="lTc-E9-Vqb"/>
                         <outlet property="storyUserProfileImageView" destination="Dc1-fg-HLw" id="TZ3-3l-8mq"/>
                         <outlet property="storyWriteDateLabel" destination="Ik5-7h-tfM" id="5rg-4R-Y5b"/>
+                        <outlet property="totalView" destination="Chu-EV-Fkd" id="fA9-4L-kF2"/>
                         <outlet property="totalViewHeight" destination="fxw-pw-abV" id="1EC-hh-GEu"/>
                     </connections>
                 </viewController>
@@ -631,6 +641,7 @@
     <resources>
         <image name="noSelcet" width="138" height="110"/>
         <image name="pinkCat" width="150" height="110"/>
+        <image name="pinkCatTemplete" width="375" height="812"/>
         <image name="plus" width="32" height="32"/>
         <image name="resume" width="44" height="44"/>
         <image name="selectedNoSelected" width="138" height="110"/>

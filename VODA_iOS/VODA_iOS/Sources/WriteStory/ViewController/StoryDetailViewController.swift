@@ -8,6 +8,9 @@
 import UIKit
 
 class StoryDetailViewController: UIViewController {
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var storyTempleteImageView: UIImageView!
+    @IBOutlet weak var totalView: UIView!
     @IBOutlet weak var totalViewHeight: NSLayoutConstraint!
     @IBOutlet weak var storyWriteDateLabel: UILabel!
     @IBOutlet weak var storyTitleLabel: UILabel!
@@ -90,7 +93,6 @@ class StoryDetailViewController: UIViewController {
         storyTitleLabel.text = storyData?.storyTitle
         storyLocationLabel.text = storyData?.storyLocation
         //TODO: 서버 연결 후 pageCase에 따라 분기 처리 userImage, nickName
-        
         storyTextView.isEditable = false
         
         guard let storyContentsText = storyData?.storyContentsText else {
@@ -111,16 +113,26 @@ class StoryDetailViewController: UIViewController {
             storyTextViewHeight.constant = storyTextView.intrinsicContentSize.height
             
             let isOverTotalViewHeight = totalViewHeight.constant < totalViewHeight.constant + storyTextView.intrinsicContentSize.height
-            
             if isOverTotalViewHeight {
                 totalViewHeight.constant += ((totalViewHeight.constant + storyTextView.intrinsicContentSize.height) - totalViewHeight.constant)
                 
                 if storyData?.storyPhotoImage == nil {
                     totalViewHeight.constant -= storyPhotoImageView.bounds.height
                 }
+                let totalViewMaxY = totalView.bounds.height + totalViewHeight.constant
+                let templeteCount = Int(totalViewMaxY / storyTempleteImageView.bounds.maxY)
+                
+                for count in 0..<templeteCount + 1 {
+                    let templeteImageView = UIImageView(frame: CGRect(x: 0, y: storyTempleteImageView.bounds.maxY * CGFloat(count + 1), width: DeviceInfo.screenWidth, height: storyTempleteImageView.bounds.maxY))
+                    //FIXME: Templete 전달해서 switch문으로 변경
+                    templeteImageView.image = UIImage(named: "pinkCatTemplete")
+                    templeteImageView.contentMode = .scaleAspectFill
+                    scrollView.addSubview(templeteImageView)
+                }
+                scrollView.bringSubviewToFront(totalView)
             }
         }
-        
+
         if storyData?.storyAudioUrl == nil {
             miniAudioPlayerView.isHidden = true
         }
