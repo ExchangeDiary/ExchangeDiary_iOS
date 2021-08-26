@@ -124,8 +124,16 @@ class StoryDetailViewController: UIViewController {
                 
                 for count in 0..<templeteCount + 1 {
                     let templeteImageView = UIImageView(frame: CGRect(x: 0, y: storyTempleteImageView.bounds.maxY * CGFloat(count + 1), width: DeviceInfo.screenWidth, height: storyTempleteImageView.bounds.maxY))
-                    //FIXME: Templete 전달해서 switch문으로 변경
-                    templeteImageView.image = UIImage(named: "pinkCatTemplete")
+                    switch storyData?.storyTemplete {
+                    case 1:
+                        storyTempleteImageView.image = UIImage(named: "pinkCatTemplete")
+                        templeteImageView.image = UIImage(named: "pinkCatTemplete")
+                    case 2:
+                        storyTempleteImageView.image = UIImage(named: "yellowCatTemplete")
+                        templeteImageView.image = UIImage(named: "yellowCatTemplete")
+                    default:
+                        break
+                    }
                     templeteImageView.contentMode = .scaleAspectFill
                     scrollView.addSubview(templeteImageView)
                 }

@@ -26,6 +26,7 @@ class WriteStoryViewController: UIViewController {
     private var audioTitle: String?
     private var audioPitch: Float = 0
     private var audioUrl: String?
+    private var selectedTemplete = 0
     
     private let rightBarButton: UIButton = {
         let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth * 0.16266, height: DeviceInfo.screenHeight * 0.04802))
@@ -54,6 +55,8 @@ class WriteStoryViewController: UIViewController {
         
         setUpNavigationBarUI()
         addTempleteButtonShadow()
+        
+        noSelectTempleteButton.isSelected = true
         //FIXME: 추후 삭제
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
     }
@@ -132,7 +135,7 @@ class WriteStoryViewController: UIViewController {
             }
             
             // FIXME: storyTemplete 서버 형식이랑 통일하기
-            let storyData = StoryData(storyWriteDate: currentDateLabel.text ?? "", storyTitle: titleTextField.text ?? "", storyLocation: locationTextField.text ?? "", storyContentsText: contentTextView.text, storyAudioTitle: audioTitle, storyAudioPitch: audioPitch, storyAudioUrl: audioUrl, storyPhotoImage: storyPhotoImageView.image, storyPhotoUrl: nil, storyTemplete: nil)
+            let storyData = StoryData(storyWriteDate: currentDateLabel.text ?? "", storyTitle: titleTextField.text ?? "", storyLocation: locationTextField.text ?? "", storyContentsText: contentTextView.text, storyAudioTitle: audioTitle, storyAudioPitch: audioPitch, storyAudioUrl: audioUrl, storyPhotoImage: storyPhotoImageView.image, storyPhotoUrl: nil, storyTemplete: selectedTemplete)
             
             storyDetailViewController.storyData = storyData
             storyDetailViewController.pageCase = "storyPreview"
@@ -203,6 +206,8 @@ class WriteStoryViewController: UIViewController {
     @IBAction func selectNoSeletTemplete(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
+        selectedTemplete = 0
+        
         if sender.isSelected {
             pinkCatTempleteButton.isSelected = false
             yellowCatTempleteButton.isSelected = false
@@ -212,6 +217,8 @@ class WriteStoryViewController: UIViewController {
     @IBAction func selectPinkCatTemplete(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
+        selectedTemplete = 1
+        
         if sender.isSelected {
             noSelectTempleteButton.isSelected = false
             yellowCatTempleteButton.isSelected = false
@@ -220,6 +227,8 @@ class WriteStoryViewController: UIViewController {
     
     @IBAction func selectYellowCatTemplete(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        
+        selectedTemplete = 2
         
         if sender.isSelected {
             noSelectTempleteButton.isSelected = false

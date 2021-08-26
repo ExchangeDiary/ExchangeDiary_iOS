@@ -432,7 +432,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vg5-Vz-0Yx">
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pinkCatTemplete" translatesAutoresizingMaskIntoConstraints="NO" id="ddC-h7-OOf" userLabel="Templete Image View">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ddC-h7-OOf" userLabel="Templete Image View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Chu-EV-Fkd" userLabel="InnerView">
@@ -641,7 +641,6 @@
     <resources>
         <image name="noSelcet" width="138" height="110"/>
         <image name="pinkCat" width="150" height="110"/>
-        <image name="pinkCatTemplete" width="375" height="812"/>
         <image name="plus" width="32" height="32"/>
         <image name="resume" width="44" height="44"/>
         <image name="selectedNoSelected" width="138" height="110"/>

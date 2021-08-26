@@ -18,5 +18,5 @@ struct StoryData {
     let storyAudioUrl: String?
     let storyPhotoImage: UIImage?
     let storyPhotoUrl: String?
-    let storyTemplete: String?
+    let storyTemplete: Int?
 }
