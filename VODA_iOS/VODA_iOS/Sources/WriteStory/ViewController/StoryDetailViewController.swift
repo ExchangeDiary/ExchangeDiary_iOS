@@ -21,7 +21,7 @@ class StoryDetailViewController: UIViewController {
     @IBOutlet weak var miniAudioPlayerPitchImageView: UIImageView!
     @IBOutlet weak var miniAudioPlayerTitleLabel: UILabel!
     @IBOutlet weak var miniAudioPlayerPlayingTimeLabel: UILabel!
-    @IBOutlet weak var miniAudioPlayerPlayButton: UIButton!
+    @IBOutlet weak var miniAudioPlayerPlayImageView: UIImageView!
     private var audioPlayer = VodaAudioPlayer.shared
     private var isPlaying = false
     private var miniAudioPlayerCurrentTime: TimeInterval {
@@ -145,9 +145,9 @@ class StoryDetailViewController: UIViewController {
     private func changeAudioPlayStatusButtonImage(_ playStatus: AudioPlayerStatus) {
         switch playStatus {
         case .idle, .prepared, .paused, .stopped:
-            miniAudioPlayerPlayButton.setImage(UIImage(named: "resume"), for: .normal)
+            miniAudioPlayerPlayImageView.image = UIImage(named: "resume")
         case .playing:
-            miniAudioPlayerPlayButton.setImage(UIImage(named: "pause"), for: .normal)
+            miniAudioPlayerPlayImageView.image = UIImage(named: "pause")
         default:
             break
         }

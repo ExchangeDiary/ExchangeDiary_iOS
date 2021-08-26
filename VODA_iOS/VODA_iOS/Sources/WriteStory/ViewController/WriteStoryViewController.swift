@@ -141,7 +141,7 @@ class WriteStoryViewController: UIViewController {
         }
     }
     
-    @IBAction func addRecord(_ sender: UIButton) {
+    @IBAction func addRecord(_ sender: UITapGestureRecognizer) {
         let storyboard = UIStoryboard(name: "AudioRecord", bundle: nil)
         guard let recordSoundViewController = storyboard.instantiateViewController(identifier: "RecordSoundViewController") as? RecordSoundViewController else {
             return
