@@ -22,7 +22,6 @@ class StoryDetailViewController: UIViewController {
     @IBOutlet weak var miniAudioPlayerTitleLabel: UILabel!
     @IBOutlet weak var miniAudioPlayerPlayingTimeLabel: UILabel!
     @IBOutlet weak var miniAudioPlayerPlayButton: UIButton!
-    
     private var audioPlayer = VodaAudioPlayer.shared
     private var isPlaying = false
     private var miniAudioPlayerCurrentTime: TimeInterval {
@@ -143,6 +142,17 @@ class StoryDetailViewController: UIViewController {
         miniAudioPlayerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(moveToPlaySoundViewController)))
     }
     
+    private func changeAudioPlayStatusButtonImage(_ playStatus: AudioPlayerStatus) {
+        switch playStatus {
+        case .idle, .prepared, .paused, .stopped:
+            miniAudioPlayerPlayButton.setImage(UIImage(named: "resume"), for: .normal)
+        case .playing:
+            miniAudioPlayerPlayButton.setImage(UIImage(named: "pause"), for: .normal)
+        default:
+            break
+        }
+    }
+    
     @objc private func moveToPlaySoundViewController() {
         let storyboard = UIStoryboard(name: "AudioRecord", bundle: nil)
         guard let playSoundViewController = storyboard.instantiateViewController(identifier: "PlaySoundViewController") as? PlaySoundViewController else {
@@ -153,17 +163,6 @@ class StoryDetailViewController: UIViewController {
         playSoundViewController.audioData = AudioData(audioTitle: storyData?.storyAudioTitle, pitch: storyData?.storyAudioPitch, audioUrl: storyData?.storyAudioUrl)
         playSoundViewController.storyPreviewSeekingTime = miniAudioPlayerCurrentTime
         self.navigationController?.pushViewController(playSoundViewController, animated: false)
-    }
-    
-    private func changeAudioPlayStatusButtonImage(_ playStatus: AudioPlayerStatus) {
-        switch playStatus {
-        case .idle, .prepared, .paused, .stopped:
-            miniAudioPlayerPlayButton.setImage(UIImage(named: "resume"), for: .normal)
-        case .playing:
-            miniAudioPlayerPlayButton.setImage(UIImage(named: "pause"), for: .normal)
-        default:
-            break
-        }
     }
     
     @IBAction func playSound(_ sender: UIButton) {

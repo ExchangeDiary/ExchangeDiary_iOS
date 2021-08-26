@@ -28,9 +28,8 @@ class PlaySoundViewController: UIViewController {
     private var isReadyToPass = false
     private var isPlaying = false
     private var passAudioUrl: URL?
-    var storyPreviewSeekingTime: TimeInterval?
     private var status: AudioPlayerStatus {
-        audioPlayer.status 
+        audioPlayer.status
     }
     
     var recordedAudioUrl: URL?
@@ -39,6 +38,7 @@ class PlaySoundViewController: UIViewController {
     var completionHandler: ((AudioData) -> Void)?
     var pageCase: String?
     var audioData: AudioData?
+    var storyPreviewSeekingTime: TimeInterval?
     
     private let rightBarButton: UIButton = {
         let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth * 0.16266, height: DeviceInfo.screenHeight * 0.04802))
@@ -65,6 +65,10 @@ class PlaySoundViewController: UIViewController {
         if status == .playing {
             isPlaying = true
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     private func setUpNavigationBarUI() {
@@ -132,16 +136,6 @@ class PlaySoundViewController: UIViewController {
         remainingPlayingTimeLabel.text = "-\(duration.stringFromTimeInterval())"
     }
     
-    @objc private func reRecord(_ sender: Any) {
-        showButtonPopUp(with: .reRecord, completionHandler: {
-            self.navigationController?.popViewController(animated: false)
-        })
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
     private func changeStatusButtonImage(_ playStatus: AudioPlayerStatus) {
         switch playStatus {
         case .idle, .prepared, .paused, .stopped:
@@ -184,6 +178,12 @@ class PlaySoundViewController: UIViewController {
         let seekingRate = Double(progressBarWidth.constant / progressView.frame.size.width)
         let seekToTime = audioPlayer.duration * seekingRate
         audioPlayer.seek(to: seekToTime)
+    }
+    
+    @objc private func reRecord(_ sender: Any) {
+        showButtonPopUp(with: .reRecord, completionHandler: {
+            self.navigationController?.popViewController(animated: false)
+        })
     }
     
     @IBAction func modifyAudioTitle(_ sender: Any) {

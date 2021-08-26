@@ -64,7 +64,7 @@ class WriteStoryViewController: UIViewController {
         let backButton = UIBarButtonItem(image: UIImage(named: "icBack"),
                                          style: .plain,
                                          target: self,
-                                         action: #selector(notSaveStory))
+                                         action: #selector(noSaveStory))
         navigationItem.leftBarButtonItem = backButton
         navigationItem.leftBarButtonItem?.tintColor = .black
         navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
@@ -94,7 +94,7 @@ class WriteStoryViewController: UIViewController {
         yellowCatTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
     }
     
-    @objc func notSaveStory() {
+    @objc func noSaveStory() {
         showButtonPopUp(with: .noSaveStory, completionHandler: {
             self.dismiss(animated: false, completion: nil)
             self.navigationController?.popViewController(animated: false)
@@ -128,7 +128,7 @@ class WriteStoryViewController: UIViewController {
             }
             
             if audioTitleLabel.text == "음성으로 기록하기" {
-                audioTitle = "Untitle\(getCurrentDate(dateUseCase: "record"))"
+                audioTitle = "Untitle_\(getCurrentDate(dateUseCase: "record"))"
             }
             
             // FIXME: storyTemplete 서버 형식이랑 통일하기

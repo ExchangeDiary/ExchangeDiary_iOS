@@ -20,33 +20,50 @@ class RecordSoundViewController: UIViewController {
     var recordedDuration: TimeInterval?
     var completionHandler: ((AudioData) -> Void)?
     
+    private let rightBarButton: UIButton = {
+        let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth * 0.16266, height: DeviceInfo.screenHeight * 0.04802))
+        
+        rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
+        rightBarButton.setTitle("완료", for: .normal)
+        rightBarButton.titleLabel?.font = UIFont(name: "Apple SD Gothic Neo", size: 14)
+        rightBarButton.layer.cornerRadius = 8
+        
+        return rightBarButton
+    }()
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.stopRecording {
             let playSoundViewController = segue.destination as? PlaySoundViewController
             playSoundViewController?.recordedAudioUrl = recordedAudioUrl
             playSoundViewController?.playDuration = recordedDuration
-            playSoundViewController?.recordingTitle = "Untitle\(getCurrentDate())"
+            playSoundViewController?.recordingTitle = "Untitle_\(getCurrentDate())"
             playSoundViewController?.completionHandler = completionHandler
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpNavigationBarUI()
         setUpRecordButtonUI(.idle)
-       
-        audioRecorder.delegate = self
         
-        self.setNavigationBarTransparency()
-        self.setBackButton(color: .black)
+        audioRecorder.delegate = self
         
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
         
-        voiceRecordTitleLabel.text = "Untitle\(getCurrentDate())"
+        voiceRecordTitleLabel.text = "Untitle_\(getCurrentDate())"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         recordTimeLabel.text = "00:00"
+    }
+    
+    private func setUpNavigationBarUI() {
+        self.setNavigationBarTransparency()
+        self.setBackButton(color: .black)
+        
+        let rightBarButtonItem = UIBarButtonItem(customView: rightBarButton)
+        self.navigationItem.setRightBarButtonItems([rightBarButtonItem], animated: false)
     }
     
     private func setUpRecordButtonUI(_ recordStatus: AudioRecordStatus) {
