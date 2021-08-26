@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DiaryCollectionReusableView: UICollectionReusableView, UICollectionViewDelegate, UICollectionViewDataSource {
+class DiaryCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var diaryTagView: UIView!
     @IBOutlet weak var diaryTagLabel: UILabel!
     @IBOutlet weak var diaryTitleLabel: UILabel!
@@ -44,7 +44,9 @@ class DiaryCollectionReusableView: UICollectionReusableView, UICollectionViewDel
         self.sectionView.makeTopSectionRound(16)
         self.sectionView.addShadow(width: 0, height: -4, radius: 8, opacity: 0.05)
     }
-    
+}
+
+extension DiaryCollectionReusableView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
@@ -57,7 +59,7 @@ class DiaryCollectionReusableView: UICollectionReusableView, UICollectionViewDel
     }
 }
 
-extension DiaryCollectionReusableView {
+extension DiaryCollectionReusableView: UICollectionViewDelegate {
     
 }
 

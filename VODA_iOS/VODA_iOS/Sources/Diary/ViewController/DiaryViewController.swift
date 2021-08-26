@@ -11,15 +11,12 @@ class DiaryViewController: UIViewController {
     @IBOutlet weak var diaryCollectionView: UICollectionView!
 
     var status: String = "writing"
-    let participantsDummy: [String] = ["yoonyoung"]
+    let participantsDummy: [String] = ["yoonyoung", "soyoung"]
     var windowHeight = UIScreen.main.bounds.size.height
     var windowWidth = UIScreen.main.bounds.size.width
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // TODO: 탭바 없애기
-
     }
     
     override func viewWillLayoutSubviews() {

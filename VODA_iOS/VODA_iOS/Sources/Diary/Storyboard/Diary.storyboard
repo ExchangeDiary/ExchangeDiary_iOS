@@ -223,49 +223,6 @@
                                         <color key="backgroundColor" name="vodaMainBlue"/>
                                         <size key="customSize" width="144" height="156"/>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" reuseIdentifier="storyNoFriendCollectionViewCell" id="zDO-zK-Fli" customClass="StoryNoFriendCollectionViewCell" customModule="VODA_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="154" y="501" width="144" height="156"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MXg-dB-Vw5">
-                                            <rect key="frame" x="0.0" y="0.0" width="144" height="156"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWf-NS-viP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="144" height="156"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diary_reading_cat" translatesAutoresizingMaskIntoConstraints="NO" id="Wuh-Zv-Xqp">
-                                                            <rect key="frame" x="35" y="20" width="74" height="85"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="Wuh-Zv-Xqp" secondAttribute="height" multiplier="74:85" id="0cK-e5-1L6"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 함께 쓸 친구가 없어요.." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1K-Gw-laH">
-                                                            <rect key="frame" x="32" y="111.66666666666667" width="80" height="29.000000000000014"/>
-                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
-                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstItem="m1K-Gw-laH" firstAttribute="width" secondItem="Wuh-Zv-Xqp" secondAttribute="width" multiplier="1.08108" id="7aA-hA-ciU"/>
-                                                        <constraint firstItem="m1K-Gw-laH" firstAttribute="top" secondItem="Wuh-Zv-Xqp" secondAttribute="bottom" constant="6.5999999999999996" id="7kw-gb-Kd5"/>
-                                                        <constraint firstItem="Wuh-Zv-Xqp" firstAttribute="height" secondItem="QWf-NS-viP" secondAttribute="height" multiplier="0.544872" id="M2t-Uo-DUO"/>
-                                                        <constraint firstItem="Wuh-Zv-Xqp" firstAttribute="top" secondItem="QWf-NS-viP" secondAttribute="top" constant="20" id="PiP-zf-ctV"/>
-                                                        <constraint firstItem="m1K-Gw-laH" firstAttribute="centerX" secondItem="QWf-NS-viP" secondAttribute="centerX" id="b0N-jZ-Y7g"/>
-                                                        <constraint firstItem="Wuh-Zv-Xqp" firstAttribute="centerX" secondItem="QWf-NS-viP" secondAttribute="centerX" id="t6X-Nf-5hM"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="QWf-NS-viP" firstAttribute="top" secondItem="MXg-dB-Vw5" secondAttribute="top" id="iBr-3x-x5V"/>
-                                                <constraint firstAttribute="bottom" secondItem="QWf-NS-viP" secondAttribute="bottom" id="p1v-Gk-sbi"/>
-                                                <constraint firstItem="QWf-NS-viP" firstAttribute="leading" secondItem="MXg-dB-Vw5" secondAttribute="leading" id="sva-cG-6T6"/>
-                                                <constraint firstAttribute="trailing" secondItem="QWf-NS-viP" secondAttribute="trailing" id="zpX-dN-tcL"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="144" height="156"/>
-                                    </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="diaryCollectionReusableView" id="4wy-aY-b2p" customClass="DiaryCollectionReusableView" customModule="VODA_iOS" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="279"/>

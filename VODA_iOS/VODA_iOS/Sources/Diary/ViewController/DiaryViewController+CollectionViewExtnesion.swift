@@ -9,13 +9,15 @@ import Foundation
 import UIKit
 
 private let storyCollectionViewCellIdentifier = "storyCollectionviewCell"
-private let noFriendCollectionViewCellIdentifier = "storyNoFriendCollectionViewCell"
 private let writingTurnCollectionViewCellIdentifier = "storyWritingTurnCollectionViewCell"
 private let readingTurnCollectionViewCellIdentifier = "storyReadingTurnCollectionViewCell"
 private let diaryCollectionViewHeaderIdentifier = "diaryCollectionReusableView"
 
 extension DiaryViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // FIXME: 시연을 위해 첫 번째 셀 선택 시, 무조건 일기 작성 화면으로 넘어간다.
+        // NOTICE: 소영님 여기에 다이어리 작성 화면 넘어가는 코드 작성해주시면 됩니다.
+    }
 }
 
 extension DiaryViewController: UICollectionViewDataSource {
@@ -26,19 +28,15 @@ extension DiaryViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
-            if participantsDummy.count == 1 {
-                if let storyNoFriendCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: noFriendCollectionViewCellIdentifier, for: indexPath) as? StoryNoFriendCollectionViewCell {
-                        return storyNoFriendCollectionViewCell
+            if status == "writing" {
+                if let storyWritingTurnCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: writingTurnCollectionViewCellIdentifier, for: indexPath) as? StoryWritingTurnCollectionViewCell {
+                    storyWritingTurnCollectionViewCell.layoutIfNeeded()
+                        return storyWritingTurnCollectionViewCell
                 }
             } else {
-                if status == "writing" {
-                    if let storyWritingTurnCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: writingTurnCollectionViewCellIdentifier, for: indexPath) as? StoryWritingTurnCollectionViewCell {
-                            return storyWritingTurnCollectionViewCell
-                    }
-                } else {
-                    if let storyReadingTurnCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: readingTurnCollectionViewCellIdentifier, for: indexPath) as? StoryReadingTurnCollectionViewCell {
-                            return storyReadingTurnCollectionViewCell
-                    }
+                if let storyReadingTurnCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: readingTurnCollectionViewCellIdentifier, for: indexPath) as? StoryReadingTurnCollectionViewCell {
+                    storyReadingTurnCollectionViewCell.layoutIfNeeded()
+                        return storyReadingTurnCollectionViewCell
                 }
             }
         } else {
@@ -74,11 +72,11 @@ extension DiaryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return windowHeight / 33.8
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var width: CGFloat = 0
         var height: CGFloat = 0
-        
+
         if indexPath.row == 0 {
             width = windowWidth / 2.6
             height = windowHeight / 5.2
@@ -86,7 +84,7 @@ extension DiaryViewController: UICollectionViewDelegateFlowLayout {
             width = windowWidth / 2.6
             height = windowHeight / 3.83
         }
-            
+    
         return CGSize(width: width, height: height)
     }
 }

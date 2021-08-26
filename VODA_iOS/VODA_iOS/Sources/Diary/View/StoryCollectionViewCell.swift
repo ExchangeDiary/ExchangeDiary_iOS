@@ -32,6 +32,5 @@ class StoryCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         setStyle()
-        
     }
 }
