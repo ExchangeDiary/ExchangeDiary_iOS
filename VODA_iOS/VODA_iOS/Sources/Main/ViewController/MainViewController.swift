@@ -20,7 +20,6 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpTabBarUI()
     }
     
@@ -52,6 +51,7 @@ class MainViewController: UIViewController {
     }
     
     func setTabBarHidden(_ isHidden: Bool) {
+        print("???")
         tabBar.isHidden = isHidden
         shadowView.isHidden = isHidden
     }

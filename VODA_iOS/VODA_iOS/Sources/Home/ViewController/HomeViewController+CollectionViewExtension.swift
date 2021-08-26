@@ -30,7 +30,6 @@ extension HomeViewController: UICollectionViewDataSource {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: joinedDiaryCVHeaderIdentifier, for: indexPath)
-
             return headerView
         default:
             assert(false, "default")
@@ -49,7 +48,6 @@ extension HomeViewController: UICollectionViewDelegate {
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: windowWidth / 17.25, bottom: collectionView.frame.height / 6.4, right: windowWidth / 17.25)
     }

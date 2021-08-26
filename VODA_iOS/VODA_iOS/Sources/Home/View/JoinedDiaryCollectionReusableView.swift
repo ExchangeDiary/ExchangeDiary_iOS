@@ -6,25 +6,31 @@
 //
 
 import UIKit
+protocol HomeViewControllerDelegate: AnyObject {
+    func pushDiaryViewController()
+}
 
-class JoinedDiaryCollectionReusableView: UICollectionReusableView, UICollectionViewDataSource {
+class JoinedDiaryCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var deadLineDiaryCollectionView: UICollectionView!
     @IBOutlet weak var sectionTitleView: UIView!
     
     private let deadLineDiaryCVCellIdentifier = "deadLineDiaryCollectionViewCell"
     var windowHeight = UIScreen.main.bounds.size.height
     var windowWidth = UIScreen.main.bounds.size.width
+    weak var delegate: HomeViewControllerDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         self.sectionTitleView.makeTopSectionRound(16)
         self.sectionTitleView.addShadow(width: 0, height: -4, radius: 8, opacity: 0.05)
         
         self.deadLineDiaryCollectionView.delegate = self
         self.deadLineDiaryCollectionView.dataSource = self
     }
-    
+}
+
+extension JoinedDiaryCollectionReusableView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
@@ -38,7 +44,10 @@ class JoinedDiaryCollectionReusableView: UICollectionReusableView, UICollectionV
 }
 
 extension JoinedDiaryCollectionReusableView: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // ISSUE: collectionView 내의 collectionView에서 didSelectItemAt 함수가 정상적으로 구현되지 않는다.
+//        delegate?.pushDiaryViewController()
+    }
 }
 
 extension JoinedDiaryCollectionReusableView: UICollectionViewDelegateFlowLayout {
