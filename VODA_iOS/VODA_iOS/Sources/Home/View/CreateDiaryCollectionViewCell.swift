@@ -68,7 +68,7 @@ class CreateDiaryCollectionViewCell: UICollectionViewCell {
     }
     
     func initCycleSelectionViewStyle() {
-        self.cycleSelectionView.layer.borderColor = UIColor.CustomColor.gray5.cgColor
+        self.cycleSelectionView.layer.borderColor = UIColor.CustomColor.vodaGray5.cgColor
         self.cycleSelectionArrowImageView.image = UIImage(named: "arrow_down_inactivate")
     }
     
@@ -81,11 +81,11 @@ class CreateDiaryCollectionViewCell: UICollectionViewCell {
         
         self.diaryThemeView.layer.cornerRadius = 8
         self.diaryThemeView.layer.borderWidth = 1
-        self.diaryThemeView.layer.borderColor = UIColor.CustomColor.gray5.cgColor
+        self.diaryThemeView.layer.borderColor = UIColor.CustomColor.vodaGray5.cgColor
         
         self.diaryNameView.layer.cornerRadius = 8
         self.diaryNameView.layer.borderWidth = 1
-        self.diaryNameView.layer.borderColor = UIColor.CustomColor.gray5.cgColor
+        self.diaryNameView.layer.borderColor = UIColor.CustomColor.vodaGray5.cgColor
         
         self.cycleSelectionView.layer.cornerRadius = 8
         self.cycleSelectionView.layer.borderWidth = 1
@@ -100,7 +100,7 @@ class CreateDiaryCollectionViewCell: UICollectionViewCell {
         dropDown.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         dropDown.textColor = #colorLiteral(red: 0.737254902, green: 0.737254902, blue: 0.737254902, alpha: 1)
         dropDown.textFont = UIFont(name: "AppleSDGothicNeo-Regular", size: 14)!
-        dropDown.layer.borderColor = UIColor.CustomColor.gray6.cgColor
+        dropDown.layer.borderColor = UIColor.CustomColor.vodaGray6.cgColor
         dropDown.layer.borderWidth = 1
         dropDown.makeBottomSectionRound(8)
         dropDown.shadowRadius = 0
@@ -126,9 +126,9 @@ extension CreateDiaryCollectionViewCell: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         switch textField {
         case self.diaryThemeTextfield:
-            self.diaryThemeView.layer.borderColor = UIColor.CustomColor.gray5.cgColor
+            self.diaryThemeView.layer.borderColor = UIColor.CustomColor.vodaGray5.cgColor
         case self.diaryNameTextField:
-            self.diaryNameView.layer.borderColor = UIColor.CustomColor.gray5.cgColor
+            self.diaryNameView.layer.borderColor = UIColor.CustomColor.vodaGray5.cgColor
         default:
             break
         }

@@ -33,16 +33,16 @@ extension NewDiaryPopUp: UICollectionViewDataSource {
 
 extension NewDiaryPopUp: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: windowHeight / 5.13, left: windowWidth / 11.3, bottom: windowHeight / 5.13, right: windowWidth / 11.3)
+        return UIEdgeInsets(top: DeviceInfo.screenHeight / 5.13, left: DeviceInfo.screenWidth / 11.3, bottom: DeviceInfo.screenHeight / 5.13, right: DeviceInfo.screenWidth / 11.3)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return windowWidth / 11.3 * 2
+        return DeviceInfo.screenWidth / 11.3 * 2
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = Int(windowWidth / 1.2)
-        let height = Int(windowHeight / 1.63)
+        let width = Int(DeviceInfo.screenWidth / 1.2)
+        let height = Int(DeviceInfo.screenHeight / 1.63)
     
         return CGSize(width: width, height: height)
     }

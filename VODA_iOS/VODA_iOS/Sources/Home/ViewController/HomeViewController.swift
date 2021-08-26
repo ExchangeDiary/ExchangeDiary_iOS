@@ -9,8 +9,6 @@ import UIKit
 import DropDown
 
 class HomeViewController: UIViewController {
-    var windowHeight = UIScreen.main.bounds.size.height
-    var windowWidth = UIScreen.main.bounds.size.width
     private let newDiaryPopUpIdentifier = "newDiaryPopUp"
     
     @IBOutlet weak var joinedDiaryCollectionView: UICollectionView!
@@ -30,7 +28,6 @@ class HomeViewController: UIViewController {
         super.viewWillLayoutSubviews()
         self.navigationController?.setNavigationBarTransparency()
         self.createNewDiaryButton.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-
     }
     
     func pushDiaryViewController() {

@@ -19,8 +19,6 @@ class DiaryCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var participantsCollectionView: UICollectionView!
     @IBOutlet weak var sectionView: UIView!
     
-    var windowHeight = UIScreen.main.bounds.size.height
-    var windowWidth = UIScreen.main.bounds.size.width
     private let participantCollectionViewCellIdentifier = "storyParticipantsCollectionViewCell"
     
     override func awakeFromNib() {
@@ -65,11 +63,11 @@ extension DiaryCollectionReusableView: UICollectionViewDelegate {
 
 extension DiaryCollectionReusableView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: windowWidth / 12.5, bottom: 0, right: windowWidth / 12.5)
+        return UIEdgeInsets(top: 0, left: DeviceInfo.screenWidth / 12.5, bottom: 0, right: DeviceInfo.screenWidth / 12.5)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return windowWidth / 37.5
+        return DeviceInfo.screenWidth / 37.5
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

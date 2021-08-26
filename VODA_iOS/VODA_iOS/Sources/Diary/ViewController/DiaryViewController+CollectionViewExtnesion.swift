@@ -48,7 +48,7 @@ extension DiaryViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: self.windowWidth, height: self.windowHeight / 2.9)
+        return CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenHeight / 2.9)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -66,11 +66,11 @@ extension DiaryViewController: UICollectionViewDataSource {
 
 extension DiaryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: windowWidth / 11.7, bottom: windowHeight / 3.83 / 2, right: windowWidth / 11.7)
+        return UIEdgeInsets(top: 0, left: DeviceInfo.screenWidth / 11.7, bottom: DeviceInfo.screenHeight / 3.83 / 2, right: DeviceInfo.screenWidth / 11.7)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return windowHeight / 33.8
+        return DeviceInfo.screenHeight / 33.8
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -78,11 +78,11 @@ extension DiaryViewController: UICollectionViewDelegateFlowLayout {
         var height: CGFloat = 0
 
         if indexPath.row == 0 {
-            width = windowWidth / 2.6
-            height = windowHeight / 5.2
+            width = DeviceInfo.screenWidth / 2.6
+            height = DeviceInfo.screenHeight / 5.2
         } else {
-            width = windowWidth / 2.6
-            height = windowHeight / 3.83
+            width = DeviceInfo.screenWidth / 2.6
+            height = DeviceInfo.screenHeight / 3.83
         }
     
         return CGSize(width: width, height: height)

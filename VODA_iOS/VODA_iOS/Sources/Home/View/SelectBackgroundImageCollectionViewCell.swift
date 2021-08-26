@@ -10,9 +10,7 @@ import UIKit
 class SelectBackgroundImageCollectionViewCell: UICollectionViewCell {
     
     let backgroundImageCollectionViewCellIdentifier = "backgroundImageCollectionViewCell"
-    var windowHeight = UIScreen.main.bounds.size.height
-    var windowWidth = UIScreen.main.bounds.size.width
-    
+
     @IBOutlet weak var backgroundCollectionView: UICollectionView!
     
     @IBOutlet weak var prevButton: UIButton!

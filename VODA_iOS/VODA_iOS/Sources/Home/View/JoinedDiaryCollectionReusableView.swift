@@ -15,8 +15,6 @@ class JoinedDiaryCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var sectionTitleView: UIView!
     
     private let deadLineDiaryCVCellIdentifier = "deadLineDiaryCollectionViewCell"
-    var windowHeight = UIScreen.main.bounds.size.height
-    var windowWidth = UIScreen.main.bounds.size.width
     weak var delegate: HomeViewControllerDelegate?
     
     override func awakeFromNib() {
@@ -53,11 +51,11 @@ extension JoinedDiaryCollectionReusableView: UICollectionViewDelegate {
 extension JoinedDiaryCollectionReusableView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 5, left: windowWidth / 17.25, bottom: 5, right: windowWidth / 17.25)
+        return UIEdgeInsets(top: 5, left: DeviceInfo.screenWidth / 17.25, bottom: 5, right: DeviceInfo.screenWidth / 17.25)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return windowWidth / 17.25
+        return DeviceInfo.screenWidth / 17.25
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -23,7 +23,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: self.windowWidth, height: self.windowHeight / 2.1)
+        return CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenHeight / 2.1)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -49,7 +49,7 @@ extension HomeViewController: UICollectionViewDelegate {
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: windowWidth / 17.25, bottom: collectionView.frame.height / 6.4, right: windowWidth / 17.25)
+        return UIEdgeInsets(top: 0, left: DeviceInfo.screenWidth / 17.25, bottom: collectionView.frame.height / 6.4, right: DeviceInfo.screenWidth / 17.25)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
