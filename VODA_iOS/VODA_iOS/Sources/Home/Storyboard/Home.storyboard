@@ -221,10 +221,10 @@
                                                                 <color key="backgroundColor" red="1" green="0.18039215689999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             </imageView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f39-qQ-qUK">
-                                                                <rect key="frame" x="8" y="11" width="39.333333333333336" height="23"/>
+                                                                <rect key="frame" x="8" y="11" width="36.333333333333336" height="23"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIE-Xi-QC0">
-                                                                        <rect key="frame" x="8.9999999999999982" y="3.3333333333333339" width="23.333333333333329" height="16.333333333333329"/>
+                                                                        <rect key="frame" x="8.9999999999999982" y="4.6666666666666661" width="20.333333333333329" height="13.999999999999998"/>
                                                                         <fontDescription key="fontDescription" name="Volte-Bold" family="Volte" pointSize="14"/>
                                                                         <color key="textColor" name="vodaMainBlue"/>
                                                                         <nil key="highlightedColor"/>

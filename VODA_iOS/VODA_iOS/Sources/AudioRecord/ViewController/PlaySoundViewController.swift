@@ -8,16 +8,21 @@
 import UIKit
 
 class PlaySoundViewController: UIViewController {
+    @IBOutlet weak var audioTitleTextField: UITextField!
     @IBOutlet weak var playStatusButton: UIButton!
-    @IBOutlet weak var totalDuration: UILabel!
-    @IBOutlet weak var currentPlayingTime: UILabel!
-    @IBOutlet weak var remainingPlayingTime: UILabel!
+    @IBOutlet weak var totalDurationLabel: UILabel!
+    @IBOutlet weak var currentPlayingTimeLabel: UILabel!
+    @IBOutlet weak var remainingPlayingTimeLabel: UILabel!
     @IBOutlet weak var progressView: UIView!
     @IBOutlet weak var progressBar: UIView!
     @IBOutlet weak var progressBarWidth: NSLayoutConstraint!
     @IBOutlet weak var seekingPointView: UIView!
+    @IBOutlet weak var rowPitchButton: UIButton!
+    @IBOutlet weak var highPitchButton: UIButton!
+    @IBOutlet weak var noPitchButton: UIButton!
     private var audioPlayer = VodaAudioPlayer.shared
     private var pitch: Float?
+    private var isReadyToSend = false
     private var isPlaying = false
     private var sendAudioUrl: URL?
     private var status: AudioPlayerStatus {
@@ -26,24 +31,55 @@ class PlaySoundViewController: UIViewController {
     
     var recordedAudioUrl: URL?
     var playDuration: TimeInterval?
+    var recordingTitle: String?
+    
+    private let rightBarButton: UIButton = {
+        let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth * 0.16266, height: DeviceInfo.screenHeight * 0.04802))
+        
+        rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
+        rightBarButton.setTitle("완료", for: .normal)
+        rightBarButton.titleLabel?.font = UIFont(name: "Apple SD Gothic Neo", size: 14)
+        rightBarButton.layer.cornerRadius = 8
+        
+        return rightBarButton
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         audioPlayer.delegate = self
+        
+        setUpNavigationBarUI()
+        setUpAudioPlayUI()
+    }
     
+    private func setUpNavigationBarUI() {
+        self.setNavigationBarTransparency()
+        self.setBackButton(color: .black)
+        
+        let rightBarButtonItem = UIBarButtonItem(customView: rightBarButton)
+        rightBarButton.addTarget(self, action: #selector(sendAudioData(_:)), for: .touchUpInside)
+        self.navigationItem.setRightBarButtonItems([rightBarButtonItem], animated: false)
+    }
+    
+    private func setUpAudioPlayUI() {
         guard let duration = playDuration else {
             return
         }
         
-        totalDuration.text = duration.stringFromTimeInterval()
-        remainingPlayingTime.text = "-\(duration.stringFromTimeInterval())"
+        totalDurationLabel.text = duration.stringFromTimeInterval()
+        remainingPlayingTimeLabel.text = "-\(duration.stringFromTimeInterval())"
+        
+        audioTitleTextField.text = recordingTitle
         
         progressBarWidth.constant = 0
         addGestureRecognizer()
         
-        seekingPointView.layer.borderColor = UIColor.blue.cgColor
-        seekingPointView.layer.borderWidth = 3
+        seekingPointView.addBorder(color: UIColor.CustomColor.vodaMainBlue, width: 3)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     private func changeStatusButtonImage(_ playStatus: AudioPlayerStatus) {
@@ -90,6 +126,10 @@ class PlaySoundViewController: UIViewController {
         audioPlayer.seek(to: seekToTime)
     }
     
+    @IBAction func modifyAudioTitle(_ sender: Any) {
+        audioTitleTextField.becomeFirstResponder()
+    }
+    
     @IBAction func playSound(_ sender: Any) {
         if isPlaying {
             audioPlayer.pause()
@@ -115,46 +155,87 @@ class PlaySoundViewController: UIViewController {
         audioPlayer.skipForward(seconds: 5)
     }
     
-    @IBAction func setHighPitch(_ sender: Any) {
+    @IBAction func setHighPitch(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+
+        if sender.isSelected {
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
+            isReadyToSend = true
+            
+            rowPitchButton.isSelected = false
+            noPitchButton.isSelected = false
+        } else {
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
+            isReadyToSend = false
+        }
+        
         audioPlayer.stop()
         audioPlayer.pitchEnabled = true
         audioPlayer.pitch = 1000
         progressBarWidth.constant = 0
     }
     
-    @IBAction func setRowPitch(_ sender: Any) {
+    @IBAction func setRowPitch(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected {
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
+            isReadyToSend = true
+            
+            highPitchButton.isSelected = false
+            noPitchButton.isSelected = false
+        } else {
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
+            isReadyToSend = false
+        }
+        
         audioPlayer.stop()
         audioPlayer.pitchEnabled = true
         audioPlayer.pitch = -800
         progressBarWidth.constant = 0
     }
     
-    @IBAction func setNoPitch(_ sender: Any) {
+    @IBAction func setNoPitch(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected {
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
+            isReadyToSend = true
+            
+            highPitchButton.isSelected = false
+            rowPitchButton.isSelected = false
+        } else {
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
+            isReadyToSend = false
+        }
+        
         audioPlayer.stop()
         audioPlayer.pitchEnabled = false
         audioPlayer.pitch = 0
         progressBarWidth.constant = 0
     }
     
-    @IBAction func sendAudioData(_ sender: Any) {
-        if audioPlayer.pitchEnabled {
-            guard let recordedUrl = recordedAudioUrl else {
+    @objc func sendAudioData(_ sender: UIButton) {
+        if isReadyToSend {
+            if audioPlayer.pitchEnabled {
+                guard let recordedUrl = recordedAudioUrl else {
+                    return
+                }
+                sendAudioUrl = audioPlayer.render(with: recordedUrl)
+            } else {
+                sendAudioUrl = recordedAudioUrl
+            }
+            
+            guard let url = sendAudioUrl else {
                 return
             }
-            sendAudioUrl = audioPlayer.render(with: recordedUrl)
-        } else {
-            sendAudioUrl = recordedAudioUrl
-        }
-        
-        guard let url = sendAudioUrl else {
-            return
-        }
-        print("AVAudioEngine offline rendering completed")
-        print("sendAudioUrl: \(url)")
-        
-        // FIXME: 추후 서버로 보낼 오디오 데이터
-        guard let data = try? Data(contentsOf: url) else {
-            return
+            print("AVAudioEngine offline rendering completed")
+            print("sendAudioUrl: \(url)")
+            
+            //TODO: 추후 서버로 보낼 오디오 데이터
+            guard let audioData = try? Data(contentsOf: url) else {
+                return
+            }
         }
     }
 }
@@ -169,21 +250,21 @@ extension PlaySoundViewController: AudioPlayable {
         
         if status == .stopped {
             isPlaying = false
-            currentPlayingTime.text = duration.stringFromTimeInterval()
-            remainingPlayingTime.text = "-00:00"
+            currentPlayingTimeLabel.text = duration.stringFromTimeInterval()
+            remainingPlayingTimeLabel.text = "-00:00"
         }
         
         changeStatusButtonImage(status)
     }
 
     func audioPlayer(_ audioPlayer: VodaAudioPlayer, didUpdateCurrentTime currentTime: TimeInterval) {
-        currentPlayingTime.text = currentTime.stringFromTimeInterval()
+        currentPlayingTimeLabel.text = currentTime.stringFromTimeInterval()
         
         guard let duration = playDuration else {
             return
         }
         let remainingTime = (duration - currentTime).stringFromTimeInterval()
-        remainingPlayingTime.text = "-\(remainingTime)"
+        remainingPlayingTimeLabel.text = "-\(remainingTime)"
         progressBarWidth.constant = CGFloat((currentTime / duration)) * progressView.frame.size.width
     }
 }

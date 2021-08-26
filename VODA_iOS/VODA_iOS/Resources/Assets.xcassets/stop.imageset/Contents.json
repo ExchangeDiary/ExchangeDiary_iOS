@@ -1,21 +1,23 @@
 {
   "images" : [
     {
-      "filename" : "stop_100.png",
+      "scale" : "1x",
       "idiom" : "universal",
-      "scale" : "1x"
+      "filename" : "stop.png"
     },
     {
-      "idiom" : "universal",
-      "scale" : "2x"
+      "filename" : "stop@2x.png",
+      "scale" : "2x",
+      "idiom" : "universal"
     },
     {
+      "scale" : "3x",
       "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "stop@3x.png"
     }
   ],
   "info" : {
-    "author" : "xcode",
-    "version" : 1
+    "version" : 1,
+    "author" : "xcode"
   }
 }

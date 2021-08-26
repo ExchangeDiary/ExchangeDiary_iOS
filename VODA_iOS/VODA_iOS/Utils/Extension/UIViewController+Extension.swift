@@ -8,6 +8,12 @@
 import UIKit
 
 extension UIViewController {
+    var rootViewController: UIViewController? {
+        return UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController
+    }
+}
+
+extension UIViewController {
     func eraseNavigationUnderbar() {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = false
@@ -62,5 +68,34 @@ extension UIViewController {
         
     @objc func pop() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func showButtonPopUp(with type: ButtonPopUpType, completionHandler: (() -> Void)? = nil) {
+        let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
+        guard let buttonPopUpViewController = storyboard.instantiateViewController(withIdentifier: "ButtonPopUpViewController") as? ButtonPopUpViewController else {
+            return
+        }
+        buttonPopUpViewController.popUpType = type
+        buttonPopUpViewController.completionHandler = completionHandler
+        buttonPopUpViewController.modalPresentationStyle = .overCurrentContext
+        self.present(buttonPopUpViewController, animated: false, completion: nil)
+    }
+    
+    func showAddPhotoPopUp() {
+        let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
+        guard let photoPopUpViewController = storyboard.instantiateViewController(withIdentifier: "PhotoPopUpViewController") as? PhotoPopUpViewController else {
+            return
+        }
+        photoPopUpViewController.modalPresentationStyle = .overCurrentContext
+        self.present(photoPopUpViewController, animated: false, completion: nil)
+    }
+    
+    func showWritePeriodPopUp() {
+        let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
+        guard let writePeriodPopUpViewController = storyboard.instantiateViewController(withIdentifier: "WritePeriodPopUpViewController") as? WritePeriodPopUpViewController else {
+            return
+        }
+        writePeriodPopUpViewController.modalPresentationStyle = .overCurrentContext
+        self.present(writePeriodPopUpViewController, animated: false, completion: nil)
     }
 }
