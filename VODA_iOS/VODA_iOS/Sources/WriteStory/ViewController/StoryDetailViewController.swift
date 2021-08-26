@@ -25,6 +25,9 @@ class StoryDetailViewController: UIViewController {
     
     private var audioPlayer = VodaAudioPlayer.shared
     private var isPlaying = false
+    private var miniAudioPlayerCurrentTime: TimeInterval {
+        audioPlayer.currentTime
+    }
     private var status: AudioPlayerStatus {
         audioPlayer.status
     }
@@ -53,6 +56,23 @@ class StoryDetailViewController: UIViewController {
         
         if pageCase == "storyDetail" {
             rightBarButton.isHidden = true
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        audioPlayer.delegate = self
+        changeAudioPlayStatusButtonImage(status)
+        
+        if status == .prepared {
+            miniAudioPlayerPlayingTimeLabel.text = "00:00"
+        } else {
+            miniAudioPlayerPlayingTimeLabel.text = miniAudioPlayerCurrentTime.stringFromTimeInterval()
+        }
+        
+        if status == .playing {
+            isPlaying = true
         }
     }
     
@@ -131,6 +151,7 @@ class StoryDetailViewController: UIViewController {
         
         playSoundViewController.pageCase = "storyPreview"
         playSoundViewController.audioData = AudioData(audioTitle: storyData?.storyAudioTitle, pitch: storyData?.storyAudioPitch, audioUrl: storyData?.storyAudioUrl)
+        playSoundViewController.storyPreviewSeekingTime = miniAudioPlayerCurrentTime
         self.navigationController?.pushViewController(playSoundViewController, animated: false)
     }
     
