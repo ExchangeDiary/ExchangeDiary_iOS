@@ -12,11 +12,15 @@ class DiaryViewController: UIViewController {
 
     var status: String = "writing"
     let participantsDummy: [String] = ["yoonyoung", "soyoung"]
-    var windowHeight = UIScreen.main.bounds.size.height
-    var windowWidth = UIScreen.main.bounds.size.width
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        (rootViewController as? MainViewController)?.setTabBarHidden(true)
     }
     
     override func viewWillLayoutSubviews() {

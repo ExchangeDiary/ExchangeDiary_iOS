@@ -9,9 +9,6 @@ import UIKit
 import DropDown
 
 class NewDiaryPopUp: UIViewController {
-    var windowHeight = UIScreen.main.bounds.size.height
-    var windowWidth = UIScreen.main.bounds.size.width
-    
     let createDiaryCollectionViewCellIdentifier = "createDiaryCollectionViewCell"
     let selectBackgroundIamgeCollectionViewCellIdentifier = "selectBackgroundIamgeCollectionViewCell"
     let inputJoinCodeCollectionViewCellIdentifier = "inputJoinCodeCollectionViewCell"
@@ -27,6 +24,14 @@ class NewDiaryPopUp: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        (rootViewController as? MainViewController)?.setTabBarHidden(true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        (rootViewController as? MainViewController)?.setTabBarHidden(false)
     }
     
     @objc func tapCollectionView(_ sender: UITapGestureRecognizer) {
