@@ -262,7 +262,7 @@ extension WriteStoryViewController: UITextFieldDelegate {
         }
         
         if !titleText.isEmpty, !locationText.isEmpty {
-            if contentTextViewCharacterCountLabel.text != "0/5000자" || storyPhotoImageView.image != nil || addRecordButton.currentImage != UIImage(named: "voiceAdd") {
+            if contentTextViewCharacterCountLabel.text != "0/5000자" || audioTitleLabel.text != "음성으로 기록하기" {
                 rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
             }
         } else {
