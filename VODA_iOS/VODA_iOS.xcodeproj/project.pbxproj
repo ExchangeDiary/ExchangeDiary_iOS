@@ -12,7 +12,6 @@
 		12603DCE26C9356D0077F859 /* Diary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12603DCD26C9356D0077F859 /* Diary.storyboard */; };
 		12603DD126C935B30077F859 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12603DD026C935B20077F859 /* DiaryViewController.swift */; };
 		12603DD426C952AF0077F859 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12603DD326C952AF0077F859 /* StoryCollectionViewCell.swift */; };
-		12603DD626C952EC0077F859 /* StoryNoFriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12603DD526C952EC0077F859 /* StoryNoFriendCollectionViewCell.swift */; };
 		12603DD826C9531B0077F859 /* StoryWritingTurnCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12603DD726C9531B0077F859 /* StoryWritingTurnCollectionViewCell.swift */; };
 		12603DDA26C9537A0077F859 /* StoryReadingTurnCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12603DD926C9537A0077F859 /* StoryReadingTurnCollectionViewCell.swift */; };
 		12603DDC26C9552B0077F859 /* DiaryCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12603DDB26C9552B0077F859 /* DiaryCollectionReusableView.swift */; };
@@ -32,11 +31,17 @@
 		1279629426B93C9C0027EB8C /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1279629326B93C9C0027EB8C /* Auth.storyboard */; };
 		1279629726B93D080027EB8C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1279629626B93D080027EB8C /* SignInViewController.swift */; };
 		129FCEA026BC222B000E20BE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 129FCE9E26BC222B000E20BE /* Info.plist */; };
+		12BB18AA26D5185600A9DF2A /* SelectBackgroundImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB18A926D5185600A9DF2A /* SelectBackgroundImageCollectionViewCell.swift */; };
+		12BB18AC26D5187E00A9DF2A /* InputJoinCodeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB18AB26D5187E00A9DF2A /* InputJoinCodeCollectionViewCell.swift */; };
+		12BB18AE26D51CB100A9DF2A /* BackgroundImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB18AD26D51CB100A9DF2A /* BackgroundImageCollectionViewCell.swift */; };
 		12BFEBB426BC258500E70DD7 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12BFEBB326BC258500E70DD7 /* credentials.plist */; };
+		12C3938626D78D1C0056A616 /* NewDiaryPopUp+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3938526D78D1C0056A616 /* NewDiaryPopUp+CollectionViewExtension.swift */; };
 		12DFB9E126BE7AA9009C23D1 /* SocialLoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DFB9E026BE7AA9009C23D1 /* SocialLoginType.swift */; };
 		12DFB9E326BE85A7009C23D1 /* SocialLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DFB9E226BE85A7009C23D1 /* SocialLoginManager.swift */; };
+		4C17688326D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C17688226D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift */; };
 		4CE24ED226D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED126D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift */; };
 		4CE24ED426D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED326D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift */; };
+		4CE24ED826D107C600F1DB62 /* NewDiaryPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED726D107C600F1DB62 /* NewDiaryPopUp.swift */; };
 		9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF4682699E3CC00FA072C /* AppDelegate.swift */; };
 		9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */; };
 		9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46C2699E3CC00FA072C /* MainViewController.swift */; };
@@ -76,7 +81,6 @@
 		12603DCD26C9356D0077F859 /* Diary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Diary.storyboard; sourceTree = "<group>"; };
 		12603DD026C935B20077F859 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		12603DD326C952AF0077F859 /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		12603DD526C952EC0077F859 /* StoryNoFriendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryNoFriendCollectionViewCell.swift; sourceTree = "<group>"; };
 		12603DD726C9531B0077F859 /* StoryWritingTurnCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryWritingTurnCollectionViewCell.swift; sourceTree = "<group>"; };
 		12603DD926C9537A0077F859 /* StoryReadingTurnCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryReadingTurnCollectionViewCell.swift; sourceTree = "<group>"; };
 		12603DDB26C9552B0077F859 /* DiaryCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -96,12 +100,18 @@
 		1279629326B93C9C0027EB8C /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		1279629626B93D080027EB8C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		129FCE9F26BC222B000E20BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Info.plist; sourceTree = "<group>"; };
+		12BB18A926D5185600A9DF2A /* SelectBackgroundImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBackgroundImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		12BB18AB26D5187E00A9DF2A /* InputJoinCodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputJoinCodeCollectionViewCell.swift; sourceTree = "<group>"; };
+		12BB18AD26D51CB100A9DF2A /* BackgroundImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		12BFEBB326BC258500E70DD7 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		12C3938526D78D1C0056A616 /* NewDiaryPopUp+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewDiaryPopUp+CollectionViewExtension.swift"; sourceTree = "<group>"; };
 		12DFB9E026BE7AA9009C23D1 /* SocialLoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginType.swift; sourceTree = "<group>"; };
 		12DFB9E226BE85A7009C23D1 /* SocialLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginManager.swift; sourceTree = "<group>"; };
+		4C17688226D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiaryCollectionViewCell.swift; sourceTree = "<group>"; };
 		4CBFAC7F26A44D0600924F64 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4CE24ED126D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CollectionViewExtension.swift"; sourceTree = "<group>"; };
 		4CE24ED326D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryViewController+CollectionViewExtnesion.swift"; sourceTree = "<group>"; };
+		4CE24ED726D107C600F1DB62 /* NewDiaryPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryPopUp.swift; sourceTree = "<group>"; };
 		835C0E5BB6D174B1D03C169F /* Pods-VODA_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.release.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		9B2BF4652699E3CC00FA072C /* VODA_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VODA_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2BF4682699E3CC00FA072C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
@@ -179,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				12603DD326C952AF0077F859 /* StoryCollectionViewCell.swift */,
-				12603DD526C952EC0077F859 /* StoryNoFriendCollectionViewCell.swift */,
 				12603DD726C9531B0077F859 /* StoryWritingTurnCollectionViewCell.swift */,
 				12603DD926C9537A0077F859 /* StoryReadingTurnCollectionViewCell.swift */,
 				12603DDB26C9552B0077F859 /* DiaryCollectionReusableView.swift */,
@@ -191,9 +200,13 @@
 		126BE6D226C4D2C700756266 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4C17688226D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift */,
 				12603DC926C900DE0077F859 /* JoinedDiaryCollectionReusableView.swift */,
 				126BE6D026C4D2C100756266 /* DeadLineDiaryCollectionViewCell.swift */,
 				126BE6D326C4D2DE00756266 /* JoinedDiaryCollectionViewCell.swift */,
+				12BB18A926D5185600A9DF2A /* SelectBackgroundImageCollectionViewCell.swift */,
+				12BB18AB26D5187E00A9DF2A /* InputJoinCodeCollectionViewCell.swift */,
+				12BB18AD26D51CB100A9DF2A /* BackgroundImageCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -423,6 +436,8 @@
 			children = (
 				9B6C8B5826B3EFFF00D089D3 /* HomeViewController.swift */,
 				4CE24ED126D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift */,
+				4CE24ED726D107C600F1DB62 /* NewDiaryPopUp.swift */,
+				12C3938526D78D1C0056A616 /* NewDiaryPopUp+CollectionViewExtension.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -660,6 +675,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B60618426C1886D008C84DC /* UILabel+Extension.swift in Sources */,
+				4CE24ED826D107C600F1DB62 /* NewDiaryPopUp.swift in Sources */,
 				9B6C8B5926B3EFFF00D089D3 /* HomeViewController.swift in Sources */,
 				126BE6D126C4D2C100756266 /* DeadLineDiaryCollectionViewCell.swift in Sources */,
 				9B6061D526C394CD008C84DC /* AudioRecordStatus.swift in Sources */,
@@ -668,6 +684,7 @@
 				12DFB9E326BE85A7009C23D1 /* SocialLoginManager.swift in Sources */,
 				9B6C8B4C26B3EE9C00D089D3 /* MainTab.swift in Sources */,
 				12603DDA26C9537A0077F859 /* StoryReadingTurnCollectionViewCell.swift in Sources */,
+				12BB18AC26D5187E00A9DF2A /* InputJoinCodeCollectionViewCell.swift in Sources */,
 				9B60617926C184C2008C84DC /* TimeInterval+Extension.swift in Sources */,
 				1279629726B93D080027EB8C /* SignInViewController.swift in Sources */,
 				120B28B126BAD5550058A568 /* AppleLoginManager.swift in Sources */,
@@ -677,7 +694,9 @@
 				12DFB9E126BE7AA9009C23D1 /* SocialLoginType.swift in Sources */,
 				9B6C8B5D26B3F02600D089D3 /* PushViewController.swift in Sources */,
 				9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */,
+				12BB18AE26D51CB100A9DF2A /* BackgroundImageCollectionViewCell.swift in Sources */,
 				9B6C8B4726AC829800D089D3 /* VodaAudioPlayer.swift in Sources */,
+				12C3938626D78D1C0056A616 /* NewDiaryPopUp+CollectionViewExtension.swift in Sources */,
 				9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */,
 				9B60618026C1886D008C84DC /* UIImageView+Extension.swift in Sources */,
 				12603DDC26C9552B0077F859 /* DiaryCollectionReusableView.swift in Sources */,
@@ -691,10 +710,11 @@
 				12603DD826C9531B0077F859 /* StoryWritingTurnCollectionViewCell.swift in Sources */,
 				9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */,
 				9B60618326C1886D008C84DC /* UIViewController+Extension.swift in Sources */,
-				12603DD626C952EC0077F859 /* StoryNoFriendCollectionViewCell.swift in Sources */,
+				12BB18AA26D5185600A9DF2A /* SelectBackgroundImageCollectionViewCell.swift in Sources */,
 				9B6061D726C39504008C84DC /* AudioPlayerStatus.swift in Sources */,
 				9B60618226C1886D008C84DC /* UIView+Extension.swift in Sources */,
 				12603DCA26C900DE0077F859 /* JoinedDiaryCollectionReusableView.swift in Sources */,
+				4C17688326D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift in Sources */,
 				9B60617A26C184C2008C84DC /* SegueIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,6 +12,8 @@ target 'VODA_iOS' do
     pod 'GoogleSignIn'
     pod 'KakaoSDK'
     
+    pod 'DropDown'
+    
   # Pods for VODA_iOS
 
 end

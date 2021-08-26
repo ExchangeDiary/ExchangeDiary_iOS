@@ -5,6 +5,7 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
+  - DropDown (2.3.13)
   - GoogleSignIn (6.0.1):
     - AppAuth (~> 1.4)
     - GTMAppAuth (~> 1.0)
@@ -53,6 +54,7 @@ PODS:
   - SwiftLint (0.43.1)
 
 DEPENDENCIES:
+  - DropDown
   - GoogleSignIn
   - KakaoSDK
   - Kingfisher
@@ -63,6 +65,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - AppAuth
+    - DropDown
     - GoogleSignIn
     - GTMAppAuth
     - GTMSessionFetcher
@@ -82,6 +85,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   GoogleSignIn: 1b0c4ec33a6fe282f4fa35d8ac64263230ddaf36
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
   GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
@@ -98,6 +102,6 @@ SPEC CHECKSUMS:
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: d82c37a1567d50e73038d52f63f2f499ec72de6a
+PODFILE CHECKSUM: 6918ee843a349b907d605afdbdfff2c91183768e
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.9.1
