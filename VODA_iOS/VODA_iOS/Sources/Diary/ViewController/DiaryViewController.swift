@@ -16,6 +16,7 @@ class DiaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setBackButton(color: .black)
         self.setNavigationBarColor(color: UIColor.CustomColor.vodaGray2)
     }
     
