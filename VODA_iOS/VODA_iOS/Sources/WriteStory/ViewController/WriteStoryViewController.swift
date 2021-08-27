@@ -144,7 +144,7 @@ class WriteStoryViewController: UIViewController {
         }
     }
     
-    @IBAction func addRecord(_ sender: UITapGestureRecognizer) {
+    @IBAction func addStoryRecord(_ sender: UITapGestureRecognizer) {
         let storyboard = UIStoryboard(name: "AudioRecord", bundle: nil)
         guard let recordSoundViewController = storyboard.instantiateViewController(identifier: "RecordSoundViewController") as? RecordSoundViewController else {
             return
@@ -197,10 +197,21 @@ class WriteStoryViewController: UIViewController {
         self.navigationController?.pushViewController(recordSoundViewController, animated: false)
     }
     
+    @IBAction func deleteStoryRecord(_ sender: UIButton) {
+        audioUrl = nil
+        addRecordButton.setImage(UIImage(named: "voiceAdd"), for: .normal)
+        audioTitleLabel.text = "음성으로 기록하기"
+        audioTitleLabel.textColor = UIColor.CustomColor.vodaGray6
+    }
+    
     @IBAction func addStoryPhoto(_ sender: UITapGestureRecognizer) {
         showAddPhotoPopUp(completionHandler: { [weak self] image in
             self?.storyPhotoImageView.image = image
         })
+    }
+    
+    @IBAction func deleteStoryPhoto(_ sender: UIButton) {
+        storyPhotoImageView.image = nil
     }
     
     @IBAction func selectNoTemplete(_ sender: UIButton) {
