@@ -67,7 +67,7 @@ class StoryDetailViewController: UIViewController {
         audioPlayer.delegate = self
         changeAudioPlayStatusButtonImage(status)
         
-        if status == .prepared {
+        if status == .prepared || status == .stopped {
             miniAudioPlayerPlayingTimeLabel.text = "00:00"
         } else {
             miniAudioPlayerPlayingTimeLabel.text = miniAudioPlayerCurrentTime.stringFromTimeInterval()

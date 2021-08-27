@@ -75,6 +75,13 @@ class WriteStoryViewController: UIViewController {
         super.viewWillAppear(animated)
         
         audioPlayer.delegate = self
+        audioPlayingTimeLabel.text = "00:00"
+        audioPlayer.stop()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        audioPlayer.stop()
     }
     
     private func setUpNavigationBarUI() {
