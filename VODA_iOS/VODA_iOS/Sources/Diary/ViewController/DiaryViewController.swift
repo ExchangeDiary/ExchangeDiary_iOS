@@ -30,5 +30,4 @@ class DiaryViewController: UIViewController {
     @IBAction func tempBackButtonAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
 }

@@ -10,7 +10,8 @@ import UIKit
 class SelectBackgroundImageCollectionViewCell: UICollectionViewCell {
     
     let backgroundImageCollectionViewCellIdentifier = "backgroundImageCollectionViewCell"
-
+    let dummyImageViewList = ["themeBackground1", "themeBackground2", "themeBackground3"]
+    
     @IBOutlet weak var backgroundCollectionView: UICollectionView!
     
     @IBOutlet weak var prevButton: UIButton!
@@ -47,7 +48,7 @@ class SelectBackgroundImageCollectionViewCell: UICollectionViewCell {
 
 extension SelectBackgroundImageCollectionViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return self.dummyImageViewList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -56,6 +57,7 @@ extension SelectBackgroundImageCollectionViewCell: UICollectionViewDataSource {
                 backgroundImageCollectionViewCell.isSelected = true
             }
             
+            backgroundImageCollectionViewCell.backgroundImageView.image = UIImage(named: self.dummyImageViewList[indexPath.row])
             return backgroundImageCollectionViewCell
         }
         return UICollectionViewCell()

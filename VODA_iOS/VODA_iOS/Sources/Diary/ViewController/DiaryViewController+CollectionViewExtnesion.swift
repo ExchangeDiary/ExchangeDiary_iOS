@@ -12,6 +12,8 @@ private let storyCollectionViewCellIdentifier = "storyCollectionviewCell"
 private let writingTurnCollectionViewCellIdentifier = "storyWritingTurnCollectionViewCell"
 private let readingTurnCollectionViewCellIdentifier = "storyReadingTurnCollectionViewCell"
 private let diaryCollectionViewHeaderIdentifier = "diaryCollectionReusableView"
+let dummyProfileImageList = ["dummy_profile1", "dummy_profile2", "dummy_profile3", "dummy_profile4"]
+let dummyStoryTitleList = ["오늘 삼성전자 주식 뭐냐", "공모주 청약 꿀팁", "주식으로 내 집 마련하기", "오늘 단타치고 치킨 시킨 썰"]
 
 extension DiaryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -31,17 +33,19 @@ extension DiaryViewController: UICollectionViewDataSource {
             if status == "writing" {
                 if let storyWritingTurnCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: writingTurnCollectionViewCellIdentifier, for: indexPath) as? StoryWritingTurnCollectionViewCell {
                     storyWritingTurnCollectionViewCell.layoutIfNeeded()
-                        return storyWritingTurnCollectionViewCell
+                    return storyWritingTurnCollectionViewCell
                 }
             } else {
                 if let storyReadingTurnCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: readingTurnCollectionViewCellIdentifier, for: indexPath) as? StoryReadingTurnCollectionViewCell {
                     storyReadingTurnCollectionViewCell.layoutIfNeeded()
-                        return storyReadingTurnCollectionViewCell
+                    return storyReadingTurnCollectionViewCell
                 }
             }
         } else {
             if let storyCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: storyCollectionViewCellIdentifier, for: indexPath) as? StoryCollectionViewCell {
-                    return storyCollectionViewCell
+                storyCollectionViewCell.titleLabel.text = dummyStoryTitleList[indexPath.row % dummyStoryTitleList.count]
+                storyCollectionViewCell.profileImageView.image = UIImage(named: dummyProfileImageList[indexPath.row % dummyProfileImageList.count])
+                return storyCollectionViewCell
             }
         }
         return UICollectionViewCell()

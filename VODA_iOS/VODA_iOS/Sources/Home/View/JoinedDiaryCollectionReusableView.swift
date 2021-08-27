@@ -15,6 +15,10 @@ class JoinedDiaryCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var sectionTitleView: UIView!
     
     private let deadLineDiaryCVCellIdentifier = "deadLineDiaryCollectionViewCell"
+    let dummydDayList = ["D-day", "D-1", "D-2"]
+    let dummyTitleList = ["주린이는 오늘도 뚠뚠", "나만 고양이 있어 방", "넥스터즈 다이어리 소모임", "일상 공유", "오늘의 맛집", "오늘의 운동"]
+    let dummyImageViewList = ["themeBackground1", "themeBackground2", "themeBackground3"]
+    
     weak var delegate: HomeViewControllerDelegate?
     
     override func awakeFromNib() {
@@ -30,12 +34,16 @@ class JoinedDiaryCollectionReusableView: UICollectionReusableView {
 
 extension JoinedDiaryCollectionReusableView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return dummyTitleList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let deadLineDiaryCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: deadLineDiaryCVCellIdentifier, for: indexPath) as? DeadLineDiaryCollectionViewCell {
-                return deadLineDiaryCollectionViewCell
+            
+            deadLineDiaryCollectionViewCell.dDayLabel.text = self.dummydDayList[indexPath.row % dummydDayList.count]
+            deadLineDiaryCollectionViewCell.diaryTitleLabel.text = dummyTitleList[indexPath.row]
+            deadLineDiaryCollectionViewCell.coverImageView.image = UIImage(named: self.dummyImageViewList[indexPath.row % dummyImageViewList.count])
+            return deadLineDiaryCollectionViewCell
         }
         return UICollectionViewCell()
     }

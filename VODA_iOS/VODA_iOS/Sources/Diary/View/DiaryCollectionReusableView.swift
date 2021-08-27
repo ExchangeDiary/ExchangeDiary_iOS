@@ -20,6 +20,7 @@ class DiaryCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var sectionView: UIView!
     
     private let participantCollectionViewCellIdentifier = "storyParticipantsCollectionViewCell"
+    let dummyProfileImageList = ["dummy_profile1", "dummy_profile2", "dummy_profile3", "dummy_profile4"]
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,7 +52,8 @@ extension DiaryCollectionReusableView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let participantCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: participantCollectionViewCellIdentifier, for: indexPath) as? StoryParticipantsCollectionViewCell {
-                return participantCollectionViewCell
+            participantCollectionViewCell.profileImageView.image = UIImage(named: dummyProfileImageList[indexPath.row % dummyProfileImageList.count])
+            return participantCollectionViewCell
         }
         return UICollectionViewCell()
     }

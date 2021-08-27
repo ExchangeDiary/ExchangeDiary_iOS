@@ -9,15 +9,20 @@ import Foundation
 import UIKit
 private let joinedDiaryCVCellIdentifier = "joinedDiaryCollectionViewCell"
 private let joinedDiaryCVHeaderIdentifier = "joinedDiaryCollectionViewHeader"
-
+let dummyTitleList = ["주린이는 오늘도 뚠뚠", "나만 고양이 있어 방", "넥스터즈 다이어리 소모임", "일상 공유", "오늘의 맛집", "오늘의 운동"]
+let dummyImageViewList = ["themeBackground1", "themeBackground2", "themeBackground3"]
+let dummyhashtagList = ["#떡상 가즈아", "#동물사랑 나랑사랑", "#이직 성공 기원", "#일상 속 행복", "#매일매일 먹방찍기", "#2달 뒤 5kg감량"]
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return dummyTitleList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let joinedCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: joinedDiaryCVCellIdentifier, for: indexPath) as? JoinedDiaryCollectionViewCell {
-                return joinedCollectionViewCell
+            joinedCollectionViewCell.diaryTitleLabel.text = dummyTitleList[indexPath.row]
+            joinedCollectionViewCell.coverImageView.image = UIImage(named: dummyImageViewList[indexPath.row % dummyImageViewList.count])
+            joinedCollectionViewCell.hashTagLabel.text = dummyhashtagList[indexPath.row]
+            return joinedCollectionViewCell
         }
         return UICollectionViewCell()
     }
