@@ -313,7 +313,7 @@ class PlaySoundViewController: UIViewController {
             print("AVAudioEngine offline rendering completed")
             print("passAudioUrl: \(url)")
             
-            if let writeStoryViewController = navigationController?.viewControllers[1] {
+            if let writeStoryViewController = navigationController?.viewControllers[2] {
                 completionHandler?(AudioData(audioTitle: audioTitleTextField.text ?? "", pitch: audioPlayer.pitch, audioUrl: url.absoluteString))
                 self.navigationController?.popToViewController(writeStoryViewController, animated: false)
             }
