@@ -10,6 +10,7 @@ import Foundation
 enum ButtonPopUpType {
     case completeWriteStory
     case checkStoryContentNil
+    case checkStoryLocationTitleNil
     case noSaveStory
     case reRecord
     case networkError
@@ -21,6 +22,8 @@ enum ButtonPopUpType {
             return "교환 일기 작성이 완료되었어요!\n지금 바로 확인해보세요:)"
         case .checkStoryContentNil:
             return "음성 혹은 텍스트 중 하나 이상\n작성해야 일기 등록이 가능해요."
+        case .checkStoryLocationTitleNil:
+            return "장소와 제목을 작성해야\n일기 등록이 가능해요."
         case .noSaveStory:
             return "페이지를 벗어나면\n작성한 내용은 저장되지 않아요.\n그래도 나가시겠어요?"
         case .reRecord:
@@ -34,7 +37,7 @@ enum ButtonPopUpType {
   
     var numberOfButton: Int? {
         switch self {
-        case .completeWriteStory, .checkStoryContentNil, .networkError, .serverError:
+        case .completeWriteStory, .checkStoryContentNil, .checkStoryLocationTitleNil, .networkError, .serverError:
             return 1
         case .noSaveStory, .reRecord:
             return 2
@@ -56,7 +59,7 @@ enum ButtonPopUpType {
         let popUpViewHeight = Float(DeviceInfo.screenHeight * 0.2216)
         
         switch self {
-        case .completeWriteStory, .checkStoryContentNil, .reRecord:
+        case .completeWriteStory, .checkStoryContentNil, .checkStoryLocationTitleNil, .reRecord:
             return popUpViewHeight * 0.2222
         case .noSaveStory, .networkError, .serverError:
             return popUpViewHeight * 0.1444

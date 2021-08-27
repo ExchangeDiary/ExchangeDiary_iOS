@@ -9,29 +9,36 @@ import UIKit
 
 class PlaySoundViewController: UIViewController {
     @IBOutlet weak var audioTitleTextField: UITextField!
-    @IBOutlet weak var playStatusButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var totalDurationLabel: UILabel!
+    @IBOutlet weak var recordImageView: UIImageView!
     @IBOutlet weak var currentPlayingTimeLabel: UILabel!
     @IBOutlet weak var remainingPlayingTimeLabel: UILabel!
     @IBOutlet weak var progressView: UIView!
     @IBOutlet weak var progressBar: UIView!
     @IBOutlet weak var progressBarWidth: NSLayoutConstraint!
     @IBOutlet weak var seekingPointView: UIView!
+    @IBOutlet weak var playStatusButton: UIButton!
+    @IBOutlet weak var audioEffectGuideLabel: UILabel!
     @IBOutlet weak var rowPitchButton: UIButton!
     @IBOutlet weak var highPitchButton: UIButton!
     @IBOutlet weak var noPitchButton: UIButton!
     private var audioPlayer = VodaAudioPlayer.shared
     private var pitch: Float?
-    private var isReadyToSend = false
+    private var isReadyToPass = false
     private var isPlaying = false
-    private var sendAudioUrl: URL?
+    private var passAudioUrl: URL?
     private var status: AudioPlayerStatus {
-        audioPlayer.status 
+        audioPlayer.status
     }
     
     var recordedAudioUrl: URL?
     var playDuration: TimeInterval?
     var recordingTitle: String?
+    var completionHandler: ((AudioData) -> Void)?
+    var pageCase: String?
+    var audioData: AudioData?
+    var storyPreviewSeekingTime: TimeInterval?
     
     private let rightBarButton: UIButton = {
         let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth * 0.16266, height: DeviceInfo.screenHeight * 0.04802))
@@ -48,9 +55,20 @@ class PlaySoundViewController: UIViewController {
         super.viewDidLoad()
         
         audioPlayer.delegate = self
+        audioTitleTextField.delegate = self
         
         setUpNavigationBarUI()
         setUpAudioPlayUI()
+        
+        changeStatusButtonImage(status)
+        
+        if status == .playing {
+            isPlaying = true
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     private func setUpNavigationBarUI() {
@@ -58,28 +76,64 @@ class PlaySoundViewController: UIViewController {
         self.setBackButton(color: .black)
         
         let rightBarButtonItem = UIBarButtonItem(customView: rightBarButton)
-        rightBarButton.addTarget(self, action: #selector(sendAudioData(_:)), for: .touchUpInside)
+        rightBarButton.addTarget(self, action: #selector(passAudioData(_:)), for: .touchUpInside)
         self.navigationItem.setRightBarButtonItems([rightBarButtonItem], animated: false)
     }
     
     private func setUpAudioPlayUI() {
+        if pageCase == "storyPreview" {
+            editButton.isHidden = true
+            audioEffectGuideLabel.isHidden = true
+            rowPitchButton.isHidden = true
+            highPitchButton.isHidden = true
+            noPitchButton.isHidden = true
+            rightBarButton.isHidden = true
+            
+            switch audioData?.pitch {
+            case AudioPitch.row:
+                recordImageView.image = UIImage(named: "thickHover")
+            case AudioPitch.high:
+                recordImageView.image = UIImage(named: "thinHover")
+            default:
+                recordImageView.image = UIImage(named: "noEffectHover")
+            }
+            
+            audioTitleTextField.text = audioData?.audioTitle
+            
+            playDuration = audioPlayer.duration
+            
+            guard let duration = playDuration else {
+                return
+            }
+            
+            guard let seekingTime = storyPreviewSeekingTime else {
+                return
+            }
+            
+            if status == .prepared {
+                currentPlayingTimeLabel.text = "00:00"
+                progressBarWidth.constant = 0
+            } else {
+                currentPlayingTimeLabel.text = seekingTime.stringFromTimeInterval()
+                progressBarWidth.constant = CGFloat((seekingTime / duration)) * progressView.frame.size.width
+            }
+        } else {
+            audioTitleTextField.text = recordingTitle
+            
+            recordImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(reRecord(_:))))
+            
+            progressBarWidth.constant = 0
+        }
+        addGestureRecognizer()
+        
+        seekingPointView.addBorder(color: UIColor.CustomColor.vodaMainBlue, width: 3)
+        
         guard let duration = playDuration else {
             return
         }
         
         totalDurationLabel.text = duration.stringFromTimeInterval()
         remainingPlayingTimeLabel.text = "-\(duration.stringFromTimeInterval())"
-        
-        audioTitleTextField.text = recordingTitle
-        
-        progressBarWidth.constant = 0
-        addGestureRecognizer()
-        
-        seekingPointView.addBorder(color: UIColor.CustomColor.vodaMainBlue, width: 3)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
     }
     
     private func changeStatusButtonImage(_ playStatus: AudioPlayerStatus) {
@@ -126,6 +180,12 @@ class PlaySoundViewController: UIViewController {
         audioPlayer.seek(to: seekToTime)
     }
     
+    @objc private func reRecord(_ sender: Any) {
+        showButtonPopUp(with: .reRecord, completionHandler: {
+            self.navigationController?.popViewController(animated: false)
+        })
+    }
+    
     @IBAction func modifyAudioTitle(_ sender: Any) {
         audioTitleTextField.becomeFirstResponder()
     }
@@ -138,10 +198,28 @@ class PlaySoundViewController: UIViewController {
             if status == .paused {
                 audioPlayer.resume()
             } else {
-                guard let recordedUrl = recordedAudioUrl else {
-                    return
+                if pageCase == "storyPreview" {
+                    if status == .prepared {
+                        audioPlayer.seek(to: 0)
+                    } else {
+                        audioPlayer.seek(to: storyPreviewSeekingTime ?? 0)
+                    }
+                    
+                    guard let audioUrl = audioData?.audioUrl else {
+                        return
+                    }
+                    
+                    guard let playAudioUrl = URL(string: audioUrl) else {
+                        return
+                    }
+                    
+                    audioPlayer.play(with: playAudioUrl)
+                } else {
+                    guard let recordedUrl = recordedAudioUrl else {
+                        return
+                    }
+                    audioPlayer.play(with: recordedUrl)
                 }
-                audioPlayer.play(with: recordedUrl)
             }
             isPlaying = true
         }
@@ -157,84 +235,87 @@ class PlaySoundViewController: UIViewController {
     
     @IBAction func setHighPitch(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-
-        if sender.isSelected {
-            rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
-            isReadyToSend = true
-            
-            rowPitchButton.isSelected = false
-            noPitchButton.isSelected = false
-        } else {
-            rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
-            isReadyToSend = false
-        }
         
         audioPlayer.stop()
         audioPlayer.pitchEnabled = true
         audioPlayer.pitch = 1000
         progressBarWidth.constant = 0
+        
+        if sender.isSelected {
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
+            isReadyToPass = true
+            
+            rowPitchButton.isSelected = false
+            noPitchButton.isSelected = false
+        } else {
+            rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
+            audioPlayer.pitchEnabled = false
+            isReadyToPass = false
+        }
     }
     
     @IBAction func setRowPitch(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
+        audioPlayer.stop()
+        audioPlayer.pitchEnabled = true
+        audioPlayer.pitch = AudioPitch.row
+        progressBarWidth.constant = 0
+        
         if sender.isSelected {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
-            isReadyToSend = true
+            isReadyToPass = true
             
             highPitchButton.isSelected = false
             noPitchButton.isSelected = false
         } else {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
-            isReadyToSend = false
+            audioPlayer.pitchEnabled = false
+            isReadyToPass = false
         }
-        
-        audioPlayer.stop()
-        audioPlayer.pitchEnabled = true
-        audioPlayer.pitch = -800
-        progressBarWidth.constant = 0
     }
     
     @IBAction func setNoPitch(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
+        audioPlayer.stop()
+        audioPlayer.pitchEnabled = false
+        audioPlayer.pitch = 0
+        progressBarWidth.constant = 0
+        
         if sender.isSelected {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
-            isReadyToSend = true
+            isReadyToPass = true
             
             highPitchButton.isSelected = false
             rowPitchButton.isSelected = false
         } else {
             rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
-            isReadyToSend = false
+            audioPlayer.pitchEnabled = false
+            isReadyToPass = false
         }
-        
-        audioPlayer.stop()
-        audioPlayer.pitchEnabled = false
-        audioPlayer.pitch = 0
-        progressBarWidth.constant = 0
     }
     
-    @objc func sendAudioData(_ sender: UIButton) {
-        if isReadyToSend {
+    @objc func passAudioData(_ sender: UIButton) {
+        if isReadyToPass {
             if audioPlayer.pitchEnabled {
                 guard let recordedUrl = recordedAudioUrl else {
                     return
                 }
-                sendAudioUrl = audioPlayer.render(with: recordedUrl)
+                passAudioUrl = audioPlayer.render(with: recordedUrl)
             } else {
-                sendAudioUrl = recordedAudioUrl
+                passAudioUrl = recordedAudioUrl
             }
             
-            guard let url = sendAudioUrl else {
+            guard let url = passAudioUrl else {
                 return
             }
             print("AVAudioEngine offline rendering completed")
-            print("sendAudioUrl: \(url)")
+            print("passAudioUrl: \(url)")
             
-            //TODO: 추후 서버로 보낼 오디오 데이터
-            guard let audioData = try? Data(contentsOf: url) else {
-                return
+            if let writeStoryViewController = navigationController?.viewControllers[2] {
+                completionHandler?(AudioData(audioTitle: audioTitleTextField.text ?? "", pitch: audioPlayer.pitch, audioUrl: url.absoluteString))
+                self.navigationController?.popToViewController(writeStoryViewController, animated: false)
             }
         }
     }
@@ -256,15 +337,34 @@ extension PlaySoundViewController: AudioPlayable {
         
         changeStatusButtonImage(status)
     }
-
+    
     func audioPlayer(_ audioPlayer: VodaAudioPlayer, didUpdateCurrentTime currentTime: TimeInterval) {
         currentPlayingTimeLabel.text = currentTime.stringFromTimeInterval()
+        storyPreviewSeekingTime = currentTime
         
         guard let duration = playDuration else {
             return
         }
+        
         let remainingTime = (duration - currentTime).stringFromTimeInterval()
         remainingPlayingTimeLabel.text = "-\(remainingTime)"
         progressBarWidth.constant = CGFloat((currentTime / duration)) * progressView.frame.size.width
+    }
+}
+
+// MARK: UITextFieldDelegate
+extension PlaySoundViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let currentText = audioTitleTextField.text else {
+            return false
+        }
+        
+        guard let textRange = Range(range, in: currentText) else {
+            return false
+        }
+        
+        let limitedText = currentText.replacingCharacters(in: textRange, with: string)
+        
+        return limitedText.count <= 15
     }
 }

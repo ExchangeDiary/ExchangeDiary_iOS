@@ -42,10 +42,13 @@
 		4CE24ED226D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED126D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift */; };
 		4CE24ED426D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED326D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift */; };
 		4CE24ED826D107C600F1DB62 /* NewDiaryPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED726D107C600F1DB62 /* NewDiaryPopUp.swift */; };
+		9B26C20026D92BAA00ECECF8 /* AudioPitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C1FF26D92BAA00ECECF8 /* AudioPitch.swift */; };
 		9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF4682699E3CC00FA072C /* AppDelegate.swift */; };
 		9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */; };
 		9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46C2699E3CC00FA072C /* MainViewController.swift */; };
 		9B2BF4722699E3CF00FA072C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BF4712699E3CF00FA072C /* Assets.xcassets */; };
+		9B44A97E26D166830078B561 /* AudioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A97D26D166820078B561 /* AudioData.swift */; };
+		9B44A98026D177DD0078B561 /* StoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A97F26D177DC0078B561 /* StoryDetailViewController.swift */; };
 		9B60617326C184AF008C84DC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B60617226C184AF008C84DC /* Home.storyboard */; };
 		9B60617926C184C2008C84DC /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60617626C184C2008C84DC /* TimeInterval+Extension.swift */; };
 		9B60617A26C184C2008C84DC /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60617826C184C2008C84DC /* SegueIdentifier.swift */; };
@@ -63,6 +66,8 @@
 		9B6BD2DF26C66420007619BE /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BD2DE26C66420007619BE /* DeviceInfo.swift */; };
 		9B6BD2E126C839ED007619BE /* PhotoPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BD2E026C839ED007619BE /* PhotoPopUpViewController.swift */; };
 		9B6BD2E326C83A3E007619BE /* WritePeriodPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BD2E226C83A3E007619BE /* WritePeriodPopUpViewController.swift */; };
+		9B6BD2E826CD0353007619BE /* WriteStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6BD2E726CD0353007619BE /* WriteStory.storyboard */; };
+		9B6BD2EA26CD0B52007619BE /* WriteStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BD2E926CD0B52007619BE /* WriteStoryViewController.swift */; };
 		9B6C8B4026AA963200D089D3 /* VodaAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B3F26AA963200D089D3 /* VodaAudioRecorder.swift */; };
 		9B6C8B4726AC829800D089D3 /* VodaAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B4626AC829800D089D3 /* VodaAudioPlayer.swift */; };
 		9B6C8B4A26B3E58B00D089D3 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CBFAC7F26A44D0600924F64 /* .swiftlint.yml */; };
@@ -77,6 +82,7 @@
 		9B904DCA26A95E82004F5B99 /* AudioRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */; };
 		9BE0A875269A2080005314C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */; };
 		9BE0A886269A2A4E005314C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A885269A2A4E005314C0 /* Main.storyboard */; };
+		9BEB68C726D37CBE00A7F786 /* StoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB68C626D37CBE00A7F786 /* StoryData.swift */; };
 		D62B1705EB94FBB77F6FF5CF /* Pods_VODA_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE202DC320DB2B380F3FF7CC /* Pods_VODA_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,11 +125,14 @@
 		4CE24ED326D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryViewController+CollectionViewExtnesion.swift"; sourceTree = "<group>"; };
 		4CE24ED726D107C600F1DB62 /* NewDiaryPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryPopUp.swift; sourceTree = "<group>"; };
 		835C0E5BB6D174B1D03C169F /* Pods-VODA_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.release.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		9B26C1FF26D92BAA00ECECF8 /* AudioPitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPitch.swift; sourceTree = "<group>"; };
 		9B2BF4652699E3CC00FA072C /* VODA_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VODA_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2BF4682699E3CC00FA072C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
 		9B2BF46C2699E3CC00FA072C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9B2BF4712699E3CF00FA072C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9B44A97D26D166820078B561 /* AudioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioData.swift; sourceTree = "<group>"; };
+		9B44A97F26D177DC0078B561 /* StoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailViewController.swift; sourceTree = "<group>"; };
 		9B60617226C184AF008C84DC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		9B60617626C184C2008C84DC /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
 		9B60617826C184C2008C84DC /* SegueIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
@@ -141,6 +150,8 @@
 		9B6BD2DE26C66420007619BE /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		9B6BD2E026C839ED007619BE /* PhotoPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopUpViewController.swift; sourceTree = "<group>"; };
 		9B6BD2E226C83A3E007619BE /* WritePeriodPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePeriodPopUpViewController.swift; sourceTree = "<group>"; };
+		9B6BD2E726CD0353007619BE /* WriteStory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WriteStory.storyboard; sourceTree = "<group>"; };
+		9B6BD2E926CD0B52007619BE /* WriteStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteStoryViewController.swift; sourceTree = "<group>"; };
 		9B6C8B3F26AA963200D089D3 /* VodaAudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VodaAudioRecorder.swift; sourceTree = "<group>"; };
 		9B6C8B4626AC829800D089D3 /* VodaAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VodaAudioPlayer.swift; sourceTree = "<group>"; };
 		9B6C8B4B26B3EE9C00D089D3 /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
@@ -154,6 +165,7 @@
 		9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AudioRecord.storyboard; sourceTree = "<group>"; };
 		9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BE0A885269A2A4E005314C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9BEB68C626D37CBE00A7F786 /* StoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryData.swift; sourceTree = "<group>"; };
 		C4ACB85E518139A990B1D58A /* Pods-VODA_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.debug.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		EE202DC320DB2B380F3FF7CC /* Pods_VODA_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VODA_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -303,10 +315,11 @@
 		9B2BF47D2699E4BA00FA072C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				12603DCB26C935410077F859 /* Diary */,
 				1279629126B93C730027EB8C /* Auth */,
 				9B2BF4852699E97200FA072C /* Main */,
 				9B6C8B4E26B3EF7A00D089D3 /* Home */,
+				12603DCB26C935410077F859 /* Diary */,
+				9B6BD2E426CD02AA007619BE /* WriteStory */,
 				9B904DC026A95CDD004F5B99 /* AudioRecord */,
 				9B6C8B4F26B3EF7F00D089D3 /* Push */,
 				9B6C8B4D26B3EF6E00D089D3 /* MyPage */,
@@ -437,6 +450,33 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		9B6BD2E426CD02AA007619BE /* WriteStory */ = {
+			isa = PBXGroup;
+			children = (
+				9B6BD2E526CD031A007619BE /* Storyboard */,
+				9BEB68C526D37C9400A7F786 /* Model */,
+				9B6BD2E626CD0325007619BE /* ViewController */,
+			);
+			path = WriteStory;
+			sourceTree = "<group>";
+		};
+		9B6BD2E526CD031A007619BE /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9B6BD2E726CD0353007619BE /* WriteStory.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9B6BD2E626CD0325007619BE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9B6BD2E926CD0B52007619BE /* WriteStoryViewController.swift */,
+				9B44A97F26D177DC0078B561 /* StoryDetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		9B6C8B4D26B3EF6E00D089D3 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,11 +569,13 @@
 		9B904DC226A95D0B004F5B99 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9B26C1FF26D92BAA00ECECF8 /* AudioPitch.swift */,
 				9B6061D426C394CD008C84DC /* AudioRecordStatus.swift */,
 				9B6061D626C39504008C84DC /* AudioPlayerStatus.swift */,
 				9B6061D826C39523008C84DC /* AudioPlayerError.swift */,
 				9B6C8B3F26AA963200D089D3 /* VodaAudioRecorder.swift */,
 				9B6C8B4626AC829800D089D3 /* VodaAudioPlayer.swift */,
+				9B44A97D26D166820078B561 /* AudioData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -562,6 +604,14 @@
 				126BE6C026C4CF9000756266 /* Volte.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9BEB68C526D37C9400A7F786 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9BEB68C626D37CBE00A7F786 /* StoryData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A9128262FA506F3E1424ABFB /* Frameworks */ = {
@@ -651,6 +701,7 @@
 				126BE6CC26C4CFB600756266 /* Volte Regular Italic.otf in Resources */,
 				12603DCE26C9356D0077F859 /* Diary.storyboard in Resources */,
 				9B2BF4722699E3CF00FA072C /* Assets.xcassets in Resources */,
+				9B6BD2E826CD0353007619BE /* WriteStory.storyboard in Resources */,
 				9B904DCA26A95E82004F5B99 /* AudioRecord.storyboard in Resources */,
 				126BE6C826C4CFA700756266 /* Volte Light Italic.otf in Resources */,
 				126BE6CA26C4CFAF00756266 /* Volte Medium Italic.otf in Resources */,
@@ -755,22 +806,27 @@
 				126BE6D426C4D2DE00756266 /* JoinedDiaryCollectionViewCell.swift in Sources */,
 				12603DD126C935B30077F859 /* DiaryViewController.swift in Sources */,
 				9B6BD2D626C57842007619BE /* ButtonPopUpViewController.swift in Sources */,
+				9B44A97E26D166830078B561 /* AudioData.swift in Sources */,
 				9B904DC626A95DF8004F5B99 /* RecordSoundViewController.swift in Sources */,
 				4CE24ED426D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift in Sources */,
 				9B6061D926C39523008C84DC /* AudioPlayerError.swift in Sources */,
 				9B6C8B4026AA963200D089D3 /* VodaAudioRecorder.swift in Sources */,
+				9B44A98026D177DD0078B561 /* StoryDetailViewController.swift in Sources */,
 				9B6BD2DF26C66420007619BE /* DeviceInfo.swift in Sources */,
 				9B6BD2DA26C64914007619BE /* ButtonPopUpType.swift in Sources */,
 				9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */,
 				12603DD826C9531B0077F859 /* StoryWritingTurnCollectionViewCell.swift in Sources */,
 				9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */,
+				9B26C20026D92BAA00ECECF8 /* AudioPitch.swift in Sources */,
 				9B60618326C1886D008C84DC /* UIViewController+Extension.swift in Sources */,
 				12BB18AA26D5185600A9DF2A /* SelectBackgroundImageCollectionViewCell.swift in Sources */,
 				9B6061D726C39504008C84DC /* AudioPlayerStatus.swift in Sources */,
+				9BEB68C726D37CBE00A7F786 /* StoryData.swift in Sources */,
 				9B60618226C1886D008C84DC /* UIView+Extension.swift in Sources */,
 				12603DCA26C900DE0077F859 /* JoinedDiaryCollectionReusableView.swift in Sources */,
 				4C17688326D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift in Sources */,
 				9B6BD2E126C839ED007619BE /* PhotoPopUpViewController.swift in Sources */,
+				9B6BD2EA26CD0B52007619BE /* WriteStoryViewController.swift in Sources */,
 				9B60617A26C184C2008C84DC /* SegueIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

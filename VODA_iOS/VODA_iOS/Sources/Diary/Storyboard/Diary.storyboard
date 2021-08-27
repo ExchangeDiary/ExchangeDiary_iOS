@@ -427,8 +427,12 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="invitation2" id="izB-Ir-sBp"/>
-                            <barButtonItem image="adminSetting" id="GvH-ad-h7Q"/>
+                            <barButtonItem title="Item" image="invitation2" id="izB-Ir-sBp">
+                                <color key="tintColor" systemColor="labelColor"/>
+                            </barButtonItem>
+                            <barButtonItem image="adminSetting" id="GvH-ad-h7Q">
+                                <color key="tintColor" systemColor="labelColor"/>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -471,6 +475,9 @@
         <namedColor name="vodaMainBlue">
             <color red="0.25098039215686274" green="0.50588235294117645" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

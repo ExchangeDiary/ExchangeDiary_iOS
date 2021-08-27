@@ -12,6 +12,7 @@ class PhotoPopUpViewController: UIViewController {
     @IBOutlet weak var cameraStackView: UIStackView!
     @IBOutlet weak var photoAlbumStackView: UIStackView!
     private let imagePickerController = UIImagePickerController()
+    var completionHandler: ((UIImage) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +50,12 @@ class PhotoPopUpViewController: UIViewController {
 // MARK: UIImagePickerControllerDelegate, UINavigationControllerDelegate
 extension PhotoPopUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        //TODO: 선택된 사진 넘기기
         guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
+        completionHandler?(selectedImage)
         
-        self.dismiss(animated: true, completion: nil)
+        self.imagePickerController.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
 }

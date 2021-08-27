@@ -16,12 +16,14 @@ class DiaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setBackButton(color: .black)
         self.setNavigationBarColor(color: UIColor.CustomColor.vodaGray2)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        self.setNavigationBarColor(color: UIColor.CustomColor.vodaGray2)
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
     }
     

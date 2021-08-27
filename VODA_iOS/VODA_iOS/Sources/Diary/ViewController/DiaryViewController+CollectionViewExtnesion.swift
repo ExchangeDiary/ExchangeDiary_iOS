@@ -19,6 +19,12 @@ extension DiaryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // FIXME: 시연을 위해 첫 번째 셀 선택 시, 무조건 일기 작성 화면으로 넘어간다.
         // NOTICE: 소영님 여기에 다이어리 작성 화면 넘어가는 코드 작성해주시면 됩니다.
+        let storyboard = UIStoryboard(name: "WriteStory", bundle: nil)
+        guard let writeStoryViewController = storyboard.instantiateViewController(identifier: "WriteStoryViewController") as? WriteStoryViewController else {
+            return
+        }
+        
+        self.navigationController?.pushViewController(writeStoryViewController, animated: false)
     }
 }
 
