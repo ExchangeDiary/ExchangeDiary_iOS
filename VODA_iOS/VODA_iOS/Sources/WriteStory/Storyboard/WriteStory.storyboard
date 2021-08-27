@@ -585,7 +585,7 @@
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SFy-74-vez">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SFy-74-vez">
                                                 <rect key="frame" x="36.666666666666657" y="202.33333333333331" width="354.66666666666674" height="354.99999999999994"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="SFy-74-vez" secondAttribute="height" multiplier="1:1" id="D1U-eT-xgd"/>
