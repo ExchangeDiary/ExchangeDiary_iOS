@@ -17,6 +17,8 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setNavigationBarColor(color: UIColor.CustomColor.vodaGray2)
     }
     
     override func viewWillAppear(_ animated: Bool) {

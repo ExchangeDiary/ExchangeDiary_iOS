@@ -270,7 +270,7 @@
                                         </collectionView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APy-QO-xX4">
                                             <rect key="frame" x="0.0" y="244" width="375" height="35"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ck7-wF-GDh">
                                             <rect key="frame" x="32" y="24" width="315" height="128"/>
@@ -314,6 +314,7 @@
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직_1턴" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahz-nq-Tbv">
                                                                     <rect key="frame" x="10" y="3.6666666666666572" width="40" height="15"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="h3O-cu-o4N"/>
                                                                     </constraints>
@@ -343,7 +344,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="uWz-Kh-pP2" secondAttribute="trailing" constant="10" id="alx-bS-FWG"/>
                                                                 <constraint firstItem="uWz-Kh-pP2" firstAttribute="centerY" secondItem="ie1-jW-NPL" secondAttribute="centerY" id="ghT-hK-4ek"/>
@@ -352,7 +353,7 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="7fL-X9-eCZ" firstAttribute="top" secondItem="25b-BF-EYt" secondAttribute="bottom" constant="8" id="1Nm-7F-pnO"/>
                                                         <constraint firstItem="XYB-ui-0Lp" firstAttribute="top" secondItem="7fL-X9-eCZ" secondAttribute="bottom" constant="8" id="9Yw-eG-zKX"/>
@@ -378,6 +379,7 @@
                                             </constraints>
                                         </stackView>
                                     </subviews>
+                                    <color key="backgroundColor" name="Gray2"/>
                                     <constraints>
                                         <constraint firstItem="ck7-wF-GDh" firstAttribute="top" secondItem="4wy-aY-b2p" secondAttribute="topMargin" constant="16" id="10q-SG-dsE"/>
                                         <constraint firstAttribute="bottom" secondItem="APy-QO-xX4" secondAttribute="bottom" id="A0l-0b-8rO"/>
