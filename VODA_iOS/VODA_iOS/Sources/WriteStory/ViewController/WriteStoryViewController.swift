@@ -32,6 +32,11 @@ class WriteStoryViewController: UIViewController {
     private var audioPitch: Float = 0
     private var audioUrl: String?
     private var selectedTemplete = 0
+    private var audioPlayer = VodaAudioPlayer.shared
+    private var isPlaying = false
+    private var status: AudioPlayerStatus {
+        audioPlayer.status
+    }
     
     private let rightBarButton: UIButton = {
         let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth * 0.16266, height: DeviceInfo.screenHeight * 0.04802))
@@ -51,6 +56,7 @@ class WriteStoryViewController: UIViewController {
         locationTextField.delegate = self
         titleTextField.delegate = self
         contentTextView.delegate = self
+        audioPlayer.delegate = self
         
         currentDateLabel.text = getCurrentDate()
         setContentTextViewPlaceHolder()
@@ -63,6 +69,12 @@ class WriteStoryViewController: UIViewController {
         setStoryAudioUI()
         //FIXME: 추후 삭제
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        audioPlayer.delegate = self
     }
     
     private func setUpNavigationBarUI() {
@@ -108,6 +120,17 @@ class WriteStoryViewController: UIViewController {
         audioPlayingTimeLabel.isHidden = true
         audioPlayButton.isHidden = true
         audioPlayImageVIew.isHidden = true
+    }
+    
+    private func changeAudioPlayStatusButtonImage(_ playStatus: AudioPlayerStatus) {
+        switch playStatus {
+        case .idle, .prepared, .paused, .stopped:
+            audioPlayImageVIew.image = UIImage(named: "resume")
+        case .playing:
+            audioPlayImageVIew.image = UIImage(named: "pause")
+        default:
+            break
+        }
     }
     
     @objc func noSaveStory() {
@@ -235,6 +258,23 @@ class WriteStoryViewController: UIViewController {
         audioPlayingTimeLabel.isHidden = true
         audioPlayButton.isHidden = true
         audioPlayImageVIew.isHidden = true
+    }
+    
+    @IBAction func playSound(_ sender: UIButton) {
+        if isPlaying {
+            audioPlayer.pause()
+            isPlaying = false
+        } else {
+            if status == .paused {
+                audioPlayer.resume()
+            } else {
+                guard let recordedAudioUrl = URL(string: audioUrl ?? "") else {
+                    return
+                }
+                audioPlayer.play(with: recordedAudioUrl)
+            }
+            isPlaying = true
+        }
     }
     
     @IBAction func addStoryPhoto(_ sender: UITapGestureRecognizer) {
@@ -407,5 +447,19 @@ extension WriteStoryViewController: UITextViewDelegate {
 extension WriteStoryViewController: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.view.endEditing(true)
+    }
+}
+
+// MARK: AudioPlayable
+extension WriteStoryViewController: AudioPlayable {
+    func audioPlayer(_ audioPlayer: VodaAudioPlayer, didChangedStatus status: AudioPlayerStatus) {
+        if status == .stopped {
+            isPlaying = false
+        }
+        changeAudioPlayStatusButtonImage(status)
+    }
+    
+    func audioPlayer(_ audioPlayer: VodaAudioPlayer, didUpdateCurrentTime currentTime: TimeInterval) {
+        audioPlayingTimeLabel.text = currentTime.stringFromTimeInterval()
     }
 }

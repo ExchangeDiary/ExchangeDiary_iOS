@@ -179,6 +179,9 @@
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xf4-KW-flo">
                                                         <rect key="frame" x="278" y="0.0" width="49" height="58"/>
+                                                        <connections>
+                                                            <action selector="playSound:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Pay-zS-Q3q"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume" translatesAutoresizingMaskIntoConstraints="NO" id="7YU-vw-zer">
                                                         <rect key="frame" x="281" y="14" width="30" height="30"/>
