@@ -67,8 +67,6 @@ class WriteStoryViewController: UIViewController {
         setUpNavigationBarUI()
         setUpStoryTemplete()
         setStoryAudioUI()
-        //FIXME: 추후 삭제
-        (rootViewController as? MainViewController)?.setTabBarHidden(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,6 +75,8 @@ class WriteStoryViewController: UIViewController {
         audioPlayer.delegate = self
         audioPlayingTimeLabel.text = "00:00"
         audioPlayer.stop()
+        
+        (rootViewController as? MainViewController)?.setTabBarHidden(true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
