@@ -123,9 +123,15 @@ class StoryDetailViewController: UIViewController {
                 }
                 let totalViewMaxY = totalView.bounds.height + totalViewHeight.constant
                 let templeteCount = Int(totalViewMaxY / storyTempleteImageView.bounds.maxY)
+                let templeteMaxSize = 926
                 
                 for count in 0..<templeteCount + 1 {
-                    let templeteImageView = UIImageView(frame: CGRect(x: 0, y: storyTempleteImageView.bounds.maxY * CGFloat(count + 1), width: DeviceInfo.screenWidth, height: storyTempleteImageView.bounds.maxY))
+                    var templeteMaxY = storyTempleteImageView.bounds.maxY * CGFloat(count + 1)
+                    if Int(DeviceInfo.screenHeight) < templeteMaxSize {
+                        templeteMaxY -= (CGFloat(templeteMaxSize) - DeviceInfo.screenHeight)
+                    }
+
+                    let templeteImageView = UIImageView(frame: CGRect(x: 0, y: templeteMaxY, width: DeviceInfo.screenWidth, height: storyTempleteImageView.bounds.maxY))
                     switch storyData?.storyTemplete {
                     case 1:
                         storyTempleteImageView.image = UIImage(named: "pinkCatTemplete")
