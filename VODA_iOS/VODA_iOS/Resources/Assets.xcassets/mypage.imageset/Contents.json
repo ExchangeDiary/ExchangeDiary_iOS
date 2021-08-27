@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "slice11.png",
+      "filename" : "myPage.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "slice11@2x.png",
+      "filename" : "myPage@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "slice11@3x.png",
+      "filename" : "myPage@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -19,8 +19,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "template-rendering-intent" : "original"
   }
 }
