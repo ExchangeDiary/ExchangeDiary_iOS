@@ -39,5 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return false
     }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
 }
 

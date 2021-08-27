@@ -11,7 +11,7 @@ import Kingfisher
 
 extension UIImageView {
     func makeCircleImageView() {
-        self.layer.cornerRadius = self.layer.frame.height / 2
+        self.layer.cornerRadius = self.frame.height / 2
         self.layer.masksToBounds = true
     }
         
