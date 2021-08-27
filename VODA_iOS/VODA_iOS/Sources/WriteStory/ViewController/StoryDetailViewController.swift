@@ -146,9 +146,9 @@ class StoryDetailViewController: UIViewController {
         }
         
         switch storyData?.storyAudioPitch {
-        case -800:
+        case AudioPitch.row:
             miniAudioPlayerPitchImageView.image = UIImage(named: "thickHover")
-        case 1000:
+        case AudioPitch.high:
             miniAudioPlayerPitchImageView.image = UIImage(named: "thinHover")
         default:
             miniAudioPlayerPitchImageView.image = UIImage(named: "noEffectHover")

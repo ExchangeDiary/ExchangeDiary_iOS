@@ -90,9 +90,9 @@ class PlaySoundViewController: UIViewController {
             rightBarButton.isHidden = true
             
             switch audioData?.pitch {
-            case -800:
+            case AudioPitch.row:
                 recordImageView.image = UIImage(named: "thickHover")
-            case 1000:
+            case AudioPitch.high:
                 recordImageView.image = UIImage(named: "thinHover")
             default:
                 recordImageView.image = UIImage(named: "noEffectHover")
@@ -259,7 +259,7 @@ class PlaySoundViewController: UIViewController {
         
         audioPlayer.stop()
         audioPlayer.pitchEnabled = true
-        audioPlayer.pitch = -800
+        audioPlayer.pitch = AudioPitch.row
         progressBarWidth.constant = 0
         
         if sender.isSelected {
