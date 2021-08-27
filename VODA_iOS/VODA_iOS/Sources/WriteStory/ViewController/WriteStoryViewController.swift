@@ -11,8 +11,13 @@ class WriteStoryViewController: UIViewController {
     @IBOutlet weak var currentDateLabel: UILabel!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var audioPlayerView: UIView!
+    @IBOutlet weak var audioTitleLabelPlaceHolder: UILabel!
     @IBOutlet weak var audioTitleLabel: UILabel!
     @IBOutlet weak var addRecordButton: UIButton!
+    @IBOutlet weak var audioPlayingTimeLabel: UILabel!
+    @IBOutlet weak var audioPlayButton: UIButton!
+    @IBOutlet weak var audioPlayImageVIew: UIImageView!
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var contentTextViewHeight: NSLayoutConstraint!
     @IBOutlet weak var totalViewHeight: NSLayoutConstraint!
@@ -54,9 +59,8 @@ class WriteStoryViewController: UIViewController {
         contentTextViewHeight.constant = textViewHeight
         
         setUpNavigationBarUI()
-        addTempleteButtonShadow()
-        
-        noSelectTempleteButton.isSelected = true
+        setUpStoryTemplete()
+        setStoryAudioUI()
         //FIXME: 추후 삭제
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
     }
@@ -91,10 +95,19 @@ class WriteStoryViewController: UIViewController {
         return currentDate
     }
     
-    private func addTempleteButtonShadow() {
+    private func setUpStoryTemplete() {
         noSelectTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
         pinkCatTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
         yellowCatTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
+        
+        noSelectTempleteButton.isSelected = true
+    }
+    
+    private func setStoryAudioUI() {
+        audioTitleLabel.isHidden = true
+        audioPlayingTimeLabel.isHidden = true
+        audioPlayButton.isHidden = true
+        audioPlayImageVIew.isHidden = true
     }
     
     @objc func noSaveStory() {
@@ -151,6 +164,9 @@ class WriteStoryViewController: UIViewController {
         }
         
         recordSoundViewController.completionHandler = { [weak self] data in
+            self?.audioPlayerView.backgroundColor = .white
+            self?.audioPlayerView.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
+            
             guard let locationText = self?.locationTextField.text else {
                 return
             }
@@ -166,9 +182,14 @@ class WriteStoryViewController: UIViewController {
             guard let audioTitle = data.audioTitle else {
                 return
             }
+            self?.audioTitleLabel.isHidden = false
             self?.audioTitleLabel.text = "\(audioTitle).mp3"
             self?.audioTitleLabel.textColor = .black
             self?.audioTitle = audioTitle
+            self?.audioTitleLabelPlaceHolder.isHidden = true
+            self?.audioPlayingTimeLabel.isHidden = false
+            self?.audioPlayButton.isHidden = false
+            self?.audioPlayImageVIew.isHidden = false
             
             guard let pitch = data.pitch else {
                 return
@@ -198,10 +219,16 @@ class WriteStoryViewController: UIViewController {
     }
     
     @IBAction func deleteStoryRecord(_ sender: UIButton) {
+        audioPlayerView.backgroundColor = UIColor.CustomColor.vodaGray2
+        audioPlayerView.addShadow(width: 0, height: 0, radius: 0, opacity: 0)
+        
         audioUrl = nil
         addRecordButton.setImage(UIImage(named: "voiceAdd"), for: .normal)
-        audioTitleLabel.text = "음성으로 기록하기"
-        audioTitleLabel.textColor = UIColor.CustomColor.vodaGray6
+        audioTitleLabelPlaceHolder.isHidden = false
+        audioTitleLabel.isHidden = true
+        audioPlayingTimeLabel.isHidden = true
+        audioPlayButton.isHidden = true
+        audioPlayImageVIew.isHidden = true
     }
     
     @IBAction func addStoryPhoto(_ sender: UITapGestureRecognizer) {
