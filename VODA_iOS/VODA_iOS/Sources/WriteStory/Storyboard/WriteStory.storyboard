@@ -513,7 +513,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8Ty-k6-dpa">
                                                 <rect key="frame" x="283" y="109" width="70.333333333333314" height="30"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dc1-fg-HLw">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userDefaultsImage" translatesAutoresizingMaskIntoConstraints="NO" id="Dc1-fg-HLw">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Dc1-fg-HLw" secondAttribute="height" multiplier="1:1" id="DdY-za-zvC"/>
@@ -700,6 +700,7 @@
         <image name="selectedNoSelected" width="138" height="110"/>
         <image name="selectedPinkCat" width="150" height="110"/>
         <image name="selectedYellowCat" width="138" height="110"/>
+        <image name="userDefaultsImage" width="36" height="36"/>
         <image name="voiceAdd" width="38" height="38"/>
         <image name="yellowCat" width="138" height="110"/>
         <systemColor name="labelColor">
