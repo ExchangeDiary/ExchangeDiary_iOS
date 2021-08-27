@@ -203,7 +203,7 @@ class WriteStoryViewController: UIViewController {
         })
     }
     
-    @IBAction func selectNoSeletTemplete(_ sender: UIButton) {
+    @IBAction func selectNoTemplete(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
         selectedTemplete = 0
