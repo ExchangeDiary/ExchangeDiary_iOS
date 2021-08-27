@@ -1,14 +1,14 @@
 {
   "images" : [
     {
-      "filename" : "themeBackground1.png",
+      "idiom" : "universal",
       "scale" : "1x",
-      "idiom" : "universal"
+      "filename" : "themeBackground1.png"
     },
     {
+      "filename" : "themeBackground1@2x.png",
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "themeBackground1@2x.png"
+      "scale" : "2x"
     },
     {
       "scale" : "3x",

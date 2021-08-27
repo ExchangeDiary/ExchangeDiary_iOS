@@ -36,8 +36,8 @@ class JoinedDiaryCollectionViewCell: UICollectionViewCell {
         self.hashTagView.layer.borderColor = UIColor.CustomColor.vodaMainBlue.cgColor
         
         self.coverImageView.layer.cornerRadius = 8
-        self.hashTagView.makeCircleView()
         
+        self.hashTagView.makeCircleView()
         self.participantImageView1.makeCircleView()
         self.participantImageView2.makeCircleView()
         self.participantImageView3.makeCircleView()

@@ -49,6 +49,13 @@ extension UIViewController {
         navigationBar?.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationBar?.shadowImage = UIImage()
     }
+    
+    func setNavigationBarColor(color: UIColor) {
+        let navigationBar = self.navigationController?.navigationBar
+        navigationBar?.backgroundColor = color
+        navigationBar?.setBackgroundImage(UIImage(), for: .default)
+        navigationBar?.shadowImage = UIImage()
+    }
 
     func showSimpleAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
