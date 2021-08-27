@@ -298,15 +298,7 @@ class PlaySoundViewController: UIViewController {
     
     @objc func passAudioData(_ sender: UIButton) {
         if isReadyToPass {
-            if audioPlayer.pitchEnabled {
-                guard let recordedUrl = recordedAudioUrl else {
-                    return
-                }
-                passAudioUrl = audioPlayer.render(with: recordedUrl)
-            } else {
-                passAudioUrl = recordedAudioUrl
-            }
-            
+            passAudioUrl = recordedAudioUrl
             guard let url = passAudioUrl else {
                 return
             }
