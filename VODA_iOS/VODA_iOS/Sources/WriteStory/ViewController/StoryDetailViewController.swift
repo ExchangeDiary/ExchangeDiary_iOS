@@ -197,6 +197,7 @@ class StoryDetailViewController: UIViewController {
         //FIXME: 최종 연결 후 index 확인하기
         if let diaryController = navigationController?.viewControllers[1] {
             showButtonPopUp(with: .completeWriteStory, completionHandler: {
+                self.audioPlayer.stop()
                 self.navigationController?.popToViewController(diaryController, animated: false)
             })
         }
