@@ -32,6 +32,5 @@ class DeadLineDiaryCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         
         setStyle()
-        
     }
 }

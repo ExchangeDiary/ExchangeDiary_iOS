@@ -15,7 +15,6 @@ class DiaryCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var diaryTurnDescriptionLabel: UILabel!
     @IBOutlet weak var diaryTurnView: UIView!
     @IBOutlet weak var diaryTurnDescriptionView: UIView!
-    
     @IBOutlet weak var participantsCollectionView: UICollectionView!
     @IBOutlet weak var sectionView: UIView!
     

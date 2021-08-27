@@ -12,7 +12,6 @@ class StoryWritingTurnCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         setStyle()
-
     }
     
     func setStyle() {
