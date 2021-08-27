@@ -212,6 +212,10 @@ class WriteStoryViewController: UIViewController {
             pinkCatTempleteButton.isSelected = false
             yellowCatTempleteButton.isSelected = false
         }
+        
+        if !sender.isSelected, !pinkCatTempleteButton.isSelected, !yellowCatTempleteButton.isSelected {
+            sender.isSelected = true
+        }
     }
     
     @IBAction func selectPinkCatTemplete(_ sender: UIButton) {
@@ -223,6 +227,10 @@ class WriteStoryViewController: UIViewController {
             noSelectTempleteButton.isSelected = false
             yellowCatTempleteButton.isSelected = false
         }
+        
+        if !sender.isSelected, !pinkCatTempleteButton.isSelected, !yellowCatTempleteButton.isSelected {
+            sender.isSelected = true
+        }
     }
     
     @IBAction func selectYellowCatTemplete(_ sender: UIButton) {
@@ -233,6 +241,10 @@ class WriteStoryViewController: UIViewController {
         if sender.isSelected {
             noSelectTempleteButton.isSelected = false
             pinkCatTempleteButton.isSelected = false
+        }
+        
+        if !sender.isSelected, !pinkCatTempleteButton.isSelected, !yellowCatTempleteButton.isSelected {
+            sender.isSelected = true
         }
     }
 }
