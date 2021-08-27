@@ -40,6 +40,7 @@ class HomeViewController: UIViewController {
     @IBAction func createNewDiaryTouchUpInsideAction(_ sender: Any) {
         guard let newDiaryPopUp = self.storyboard?.instantiateViewController(identifier: "newDiaryPopUp") else { return }
         newDiaryPopUp.modalPresentationStyle = .overCurrentContext
+        newDiaryPopUp.modalTransitionStyle = .crossDissolve
         self.present(newDiaryPopUp, animated: true, completion: nil)
     }
 }
