@@ -215,7 +215,13 @@ class WriteStoryViewController: UIViewController {
             self?.audioUrl = "\(audioDataUrl)"
         }
         
-        self.navigationController?.pushViewController(recordSoundViewController, animated: false)
+        if audioTitleLabelPlaceHolder.isHidden {
+            showButtonPopUp(with: .reRecord, completionHandler: {
+                self.navigationController?.pushViewController(recordSoundViewController, animated: false)
+            })
+        } else {
+            self.navigationController?.pushViewController(recordSoundViewController, animated: false)
+        }
     }
     
     @IBAction func deleteStoryRecord(_ sender: UIButton) {
