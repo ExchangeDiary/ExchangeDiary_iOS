@@ -59,6 +59,9 @@ class StoryDetailViewController: UIViewController {
         if pageCase == "storyDetail" {
             rightBarButton.isHidden = true
         }
+        
+        //FIXME: 발표 후 삭제
+        storyUserProfileImageView.addShadow(width: 1, height: 1, radius: 2, opacity: 0.2)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,8 +86,7 @@ class StoryDetailViewController: UIViewController {
         self.setBackButton(color: .black)
         
         let rightBarButtonItem = UIBarButtonItem(customView: rightBarButton)
-        //TODO: 서버에 보내기
-        //        rightBarButton.addTarget(self, action: #selector(), for: .touchUpInside)
+        rightBarButton.addTarget(self, action: #selector(sendStoryData(_:)), for: .touchUpInside)
         self.navigationItem.setRightBarButtonItems([rightBarButtonItem], animated: false)
     }
     
@@ -183,6 +185,15 @@ class StoryDetailViewController: UIViewController {
         playSoundViewController.audioData = AudioData(audioTitle: storyData?.storyAudioTitle, pitch: storyData?.storyAudioPitch, audioUrl: storyData?.storyAudioUrl)
         playSoundViewController.storyPreviewSeekingTime = miniAudioPlayerCurrentTime
         self.navigationController?.pushViewController(playSoundViewController, animated: false)
+    }
+    
+    @objc private func sendStoryData(_ sender: UIButton) {
+        //FIXME: 최종 연결 후 index 확인하기
+        if let diaryController = navigationController?.viewControllers[1] {
+            showButtonPopUp(with: .completeWriteStory, completionHandler: {
+                self.navigationController?.popToViewController(diaryController, animated: false)
+            })
+        }
     }
     
     @IBAction func playSound(_ sender: UIButton) {
