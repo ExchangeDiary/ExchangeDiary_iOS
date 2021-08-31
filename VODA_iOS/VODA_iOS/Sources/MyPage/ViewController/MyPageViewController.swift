@@ -8,21 +8,24 @@
 import UIKit
 
 class MyPageViewController: UIViewController {
+    @IBOutlet weak var userProfileImageView: UIImageView!
+    @IBOutlet weak var userProfileEditImageView: UIImageView!
+    @IBOutlet weak var userNickName: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setUpUserInfoUI()
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setUpUserInfoUI() {
+        userProfileImageView.makeCircleImageView()
+        
+        userProfileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(moveToUserInfoSetting)))
+        userProfileEditImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(moveToUserInfoSetting)))
     }
-    */
-
+    
+    @objc private func moveToUserInfoSetting() {
+        //TODO: nickName 변경 페이지로 연결
+    }
 }
