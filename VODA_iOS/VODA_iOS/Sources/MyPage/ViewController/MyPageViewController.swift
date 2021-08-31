@@ -11,10 +11,13 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var userProfileEditImageView: UIImageView!
     @IBOutlet weak var userNickName: UILabel!
-
+    @IBOutlet weak var myPageView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setNavigationBarColor(color: .clear)
+        myPageView.addShadow(width: 0, height: -4, radius: 8, opacity: 0.1)
         setUpUserInfoUI()
     }
     
