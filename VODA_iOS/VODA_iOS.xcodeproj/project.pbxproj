@@ -44,6 +44,9 @@
 		4CE24ED826D107C600F1DB62 /* NewDiaryPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED726D107C600F1DB62 /* NewDiaryPopUp.swift */; };
 		9B26C20026D92BAA00ECECF8 /* AudioPitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C1FF26D92BAA00ECECF8 /* AudioPitch.swift */; };
 		9B26C20226DE2C5300ECECF8 /* PushSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C20126DE2C5200ECECF8 /* PushSettingViewController.swift */; };
+		9B26C20426DE707E00ECECF8 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C20326DE707D00ECECF8 /* NoticeViewController.swift */; };
+		9B26C20626DE7D0300ECECF8 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C20526DE7D0300ECECF8 /* QuestionViewController.swift */; };
+		9B26C20826DE7D5400ECECF8 /* OpenSourceLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C20726DE7D5400ECECF8 /* OpenSourceLicenseViewController.swift */; };
 		9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF4682699E3CC00FA072C /* AppDelegate.swift */; };
 		9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */; };
 		9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46C2699E3CC00FA072C /* MainViewController.swift */; };
@@ -128,6 +131,9 @@
 		835C0E5BB6D174B1D03C169F /* Pods-VODA_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.release.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		9B26C1FF26D92BAA00ECECF8 /* AudioPitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPitch.swift; sourceTree = "<group>"; };
 		9B26C20126DE2C5200ECECF8 /* PushSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushSettingViewController.swift; sourceTree = "<group>"; };
+		9B26C20326DE707D00ECECF8 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		9B26C20526DE7D0300ECECF8 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		9B26C20726DE7D5400ECECF8 /* OpenSourceLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseViewController.swift; sourceTree = "<group>"; };
 		9B2BF4652699E3CC00FA072C /* VODA_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VODA_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2BF4682699E3CC00FA072C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
@@ -547,6 +553,9 @@
 			children = (
 				9B6C8B6026B3F04500D089D3 /* MyPageViewController.swift */,
 				9B26C20126DE2C5200ECECF8 /* PushSettingViewController.swift */,
+				9B26C20326DE707D00ECECF8 /* NoticeViewController.swift */,
+				9B26C20526DE7D0300ECECF8 /* QuestionViewController.swift */,
+				9B26C20726DE7D5400ECECF8 /* OpenSourceLicenseViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -800,6 +809,7 @@
 				12DFB9E126BE7AA9009C23D1 /* SocialLoginType.swift in Sources */,
 				9B6C8B5D26B3F02600D089D3 /* PushViewController.swift in Sources */,
 				9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */,
+				9B26C20626DE7D0300ECECF8 /* QuestionViewController.swift in Sources */,
 				12BB18AE26D51CB100A9DF2A /* BackgroundImageCollectionViewCell.swift in Sources */,
 				9B6BD2E326C83A3E007619BE /* WritePeriodPopUpViewController.swift in Sources */,
 				9B6C8B4726AC829800D089D3 /* VodaAudioPlayer.swift in Sources */,
@@ -813,6 +823,7 @@
 				9B44A97E26D166830078B561 /* AudioData.swift in Sources */,
 				9B904DC626A95DF8004F5B99 /* RecordSoundViewController.swift in Sources */,
 				4CE24ED426D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift in Sources */,
+				9B26C20426DE707E00ECECF8 /* NoticeViewController.swift in Sources */,
 				9B6061D926C39523008C84DC /* AudioPlayerError.swift in Sources */,
 				9B6C8B4026AA963200D089D3 /* VodaAudioRecorder.swift in Sources */,
 				9B44A98026D177DD0078B561 /* StoryDetailViewController.swift in Sources */,
@@ -822,6 +833,7 @@
 				12603DD826C9531B0077F859 /* StoryWritingTurnCollectionViewCell.swift in Sources */,
 				9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */,
 				9B26C20026D92BAA00ECECF8 /* AudioPitch.swift in Sources */,
+				9B26C20826DE7D5400ECECF8 /* OpenSourceLicenseViewController.swift in Sources */,
 				9B60618326C1886D008C84DC /* UIViewController+Extension.swift in Sources */,
 				12BB18AA26D5185600A9DF2A /* SelectBackgroundImageCollectionViewCell.swift in Sources */,
 				9B6061D726C39504008C84DC /* AudioPlayerStatus.swift in Sources */,
