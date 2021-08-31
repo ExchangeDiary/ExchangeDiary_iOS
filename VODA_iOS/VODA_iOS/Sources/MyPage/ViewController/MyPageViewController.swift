@@ -17,18 +17,13 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
         
         self.setNavigationBarColor(color: .clear)
-        myPageView.addShadow(width: 0, height: -4, radius: 8, opacity: 0.1)
-        setUpUserInfoUI()
-    }
-    
-    private func setUpUserInfoUI() {
         userProfileImageView.makeCircleImageView()
-        
-        userProfileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(moveToUserInfoSetting)))
-        userProfileEditImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(moveToUserInfoSetting)))
+        myPageView.addShadow(width: 0, height: -4, radius: 8, opacity: 0.1)
     }
     
-    @objc private func moveToUserInfoSetting() {
-        //TODO: nickName 변경 페이지로 연결
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.setNavigationBarColor(color: .clear)
     }
 }
