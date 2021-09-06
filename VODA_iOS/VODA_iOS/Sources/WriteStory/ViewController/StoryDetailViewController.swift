@@ -27,6 +27,7 @@ class StoryDetailViewController: UIViewController {
     @IBOutlet weak var miniAudioPlayerPlayImageView: UIImageView!
     private var audioPlayer = VodaAudioPlayer.shared
     private var isPlaying = false
+    private var downloadedAudioUrl: URL?
     private var miniAudioPlayerCurrentTime: TimeInterval {
         audioPlayer.currentTime
     }
@@ -54,13 +55,13 @@ class StoryDetailViewController: UIViewController {
         
         setUpNavigationBarUI()
         setUpStoryDataUI()
-        setUpAudioUI()
+        setUpAudioPlayerUI()
         
         if pageCase == "storyDetail" {
             rightBarButton.isHidden = true
+            setUpAudioUrl()
         }
         
-        //FIXME: 발표 후 삭제
         storyUserProfileImageView.addShadow(width: 1, height: 1, radius: 2, opacity: 0.2)
     }
     
@@ -130,7 +131,7 @@ class StoryDetailViewController: UIViewController {
                     if Int(DeviceInfo.screenHeight) < templeteMaxSize {
                         templeteMaxY -= (CGFloat(templeteMaxSize) - DeviceInfo.screenHeight)
                     }
-
+                    
                     let templeteImageView = UIImageView(frame: CGRect(x: 0, y: templeteMaxY, width: DeviceInfo.screenWidth, height: storyTempleteImageView.bounds.maxY))
                     switch storyData?.storyTemplete {
                     case 1:
@@ -148,7 +149,7 @@ class StoryDetailViewController: UIViewController {
                 scrollView.bringSubviewToFront(totalView)
             }
         }
-
+        
         if storyData?.storyAudioUrl == nil {
             miniAudioPlayerView.isHidden = true
         }
@@ -165,9 +166,28 @@ class StoryDetailViewController: UIViewController {
         miniAudioPlayerTitleLabel.text = storyData?.storyAudioTitle
     }
     
-    private func setUpAudioUI() {
+    private func setUpAudioPlayerUI() {
         miniAudioPlayerView.addShadow(width: 0, height: -3, radius: 3, opacity: 0.1)
         miniAudioPlayerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(moveToPlaySoundViewController)))
+    }
+    
+    private func setUpAudioUrl() {
+        //FIXME: 바로 전 화면에서 서버에서 내려온 audioUrl 전달받아서 변경하기
+        if let audioUrl = URL(string: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3") {
+            guard let documentDirectoryUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+                return
+            }
+            
+            let destinationUrl = documentDirectoryUrl.appendingPathComponent(audioUrl.lastPathComponent)
+            print("destinationUrl:\(destinationUrl)")
+            
+            if FileManager.default.fileExists(atPath: destinationUrl.path) {
+                print("The file already exists at path")
+            } else {
+                downloadAudioFile(audioUrl: audioUrl, destinationUrl: destinationUrl)
+            }
+            downloadedAudioUrl = destinationUrl
+        }
     }
     
     private func changeAudioPlayStatusButtonImage(_ playStatus: AudioPlayerStatus) {
@@ -188,7 +208,12 @@ class StoryDetailViewController: UIViewController {
         }
         
         playSoundViewController.pageCase = "storyPreview"
-        playSoundViewController.audioData = AudioData(audioTitle: storyData?.storyAudioTitle, pitch: storyData?.storyAudioPitch, audioUrl: storyData?.storyAudioUrl)
+        
+        if pageCase == "storyPreview" {
+            playSoundViewController.audioData = AudioData(audioTitle: storyData?.storyAudioTitle, pitch: storyData?.storyAudioPitch, audioUrl: storyData?.storyAudioUrl)
+        } else {
+            playSoundViewController.audioData = AudioData(audioTitle: storyData?.storyAudioTitle, pitch: storyData?.storyAudioPitch, audioUrl: downloadedAudioUrl?.absoluteString)
+        }
         playSoundViewController.storyPreviewSeekingTime = miniAudioPlayerCurrentTime
         self.navigationController?.pushViewController(playSoundViewController, animated: false)
     }
@@ -203,6 +228,21 @@ class StoryDetailViewController: UIViewController {
         }
     }
     
+    //FIXME: downloader 분리
+    func downloadAudioFile(audioUrl: URL, destinationUrl: URL) {
+        URLSession.shared.downloadTask(with: audioUrl, completionHandler: { (location, response, error) -> Void in
+            guard let location = location, error == nil else {
+                return
+            }
+            do {
+                try FileManager.default.moveItem(at: location, to: destinationUrl)
+                print("File moved to document folder")
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }).resume()
+    }
+    
     @IBAction func playSound(_ sender: UIButton) {
         if isPlaying {
             audioPlayer.pause()
@@ -211,10 +251,15 @@ class StoryDetailViewController: UIViewController {
             if status == .paused {
                 audioPlayer.resume()
             } else {
-                guard let audioUrl = URL(string: storyData?.storyAudioUrl ?? "") else {
-                    return
+                if pageCase == "storyPreview" {
+                    if let audioUrl = URL(string: storyData?.storyAudioUrl ?? "") {
+                        audioPlayer.play(with: audioUrl)
+                    }
+                } else {
+                    if let playAudioUrl = downloadedAudioUrl {
+                        audioPlayer.play(with: playAudioUrl)
+                    }
                 }
-                audioPlayer.play(with: audioUrl)
             }
             isPlaying = true
         }
