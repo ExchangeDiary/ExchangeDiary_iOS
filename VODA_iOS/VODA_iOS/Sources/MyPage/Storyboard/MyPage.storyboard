@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="32" width="375" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTR-eh-DV0">
-                                        <rect key="frame" x="23.333333333333332" y="21" width="44.666666666666671" height="35"/>
+                                        <rect key="frame" x="23.333333333333332" y="26" width="44.666666666666671" height="30"/>
                                         <fontDescription key="fontDescription" name="Volte-Bold" family="Volte" pointSize="30"/>
                                         <color key="textColor" name="vodaMainBlue"/>
                                         <nil key="highlightedColor"/>
@@ -300,29 +300,41 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="6"/>
                                 <color key="backgroundColor" name="Gray2"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2BR-fO-Vfz">
-                                <rect key="frame" x="306" y="118" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2BR-fO-Vfz">
+                                <rect key="frame" x="306" y="107" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2BR-fO-Vfz" secondAttribute="height" multiplier="1:1" id="7wg-LV-UhU"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="emailLink"/>
                                 <connections>
                                     <action selector="pasteVodaEmail:" destination="ulz-VF-I6Q" eventType="touchUpInside" id="Lcv-ba-o8W"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소 복사" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pr-wG-0z2">
+                                <rect key="frame" x="309" y="154" width="38" height="12"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="10"/>
+                                <color key="textColor" name="Gray6"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vLu-sf-Ul7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="7GP-3D-6Fe" firstAttribute="centerX" secondItem="vLu-sf-Ul7" secondAttribute="centerX" id="B2f-zj-rDD"/>
                             <constraint firstItem="7GP-3D-6Fe" firstAttribute="width" secondItem="7GP-3D-6Fe" secondAttribute="height" multiplier="375:6" id="JfD-5d-c20"/>
+                            <constraint firstItem="2BR-fO-Vfz" firstAttribute="top" secondItem="7GP-3D-6Fe" secondAttribute="bottom" constant="13" id="KcM-rq-Sj3"/>
                             <constraint firstItem="7GP-3D-6Fe" firstAttribute="width" secondItem="XXb-mM-Jma" secondAttribute="width" id="P1b-fO-oSO"/>
                             <constraint firstItem="2BR-fO-Vfz" firstAttribute="leading" secondItem="BCK-CP-S1k" secondAttribute="trailing" constant="196" id="V9U-VI-weI"/>
                             <constraint firstItem="7GP-3D-6Fe" firstAttribute="top" secondItem="vLu-sf-Ul7" secondAttribute="top" id="ZHI-iD-oci"/>
                             <constraint firstItem="rSj-Kb-RvR" firstAttribute="width" secondItem="XXb-mM-Jma" secondAttribute="width" multiplier="0.921778" id="Zy1-iw-bpm"/>
                             <constraint firstItem="io5-Yw-1PJ" firstAttribute="leading" secondItem="BCK-CP-S1k" secondAttribute="leading" id="abc-oR-pL7"/>
+                            <constraint firstItem="0pr-wG-0z2" firstAttribute="top" secondItem="2BR-fO-Vfz" secondAttribute="bottom" constant="3" id="epf-3q-6lD"/>
                             <constraint firstItem="BCK-CP-S1k" firstAttribute="top" secondItem="7GP-3D-6Fe" secondAttribute="bottom" constant="24" id="gOo-yY-cJJ"/>
+                            <constraint firstItem="0pr-wG-0z2" firstAttribute="centerX" secondItem="2BR-fO-Vfz" secondAttribute="centerX" id="knc-F3-wTZ"/>
                             <constraint firstItem="rSj-Kb-RvR" firstAttribute="width" secondItem="rSj-Kb-RvR" secondAttribute="height" multiplier="345:1" id="oEP-3u-3rK"/>
                             <constraint firstItem="rSj-Kb-RvR" firstAttribute="top" secondItem="io5-Yw-1PJ" secondAttribute="bottom" constant="15.5" id="pPm-Jh-7xn"/>
                             <constraint firstItem="BCK-CP-S1k" firstAttribute="leading" secondItem="vLu-sf-Ul7" secondAttribute="trailing" multiplier="24/375" constant="8" symbolic="YES" id="poU-wY-Qvc"/>
-                            <constraint firstItem="2BR-fO-Vfz" firstAttribute="top" secondItem="BCK-CP-S1k" secondAttribute="top" id="scv-Ic-gNw"/>
+                            <constraint firstItem="2BR-fO-Vfz" firstAttribute="width" secondItem="XXb-mM-Jma" secondAttribute="width" multiplier="44/375" id="td7-hc-m2c"/>
                             <constraint firstItem="io5-Yw-1PJ" firstAttribute="top" secondItem="BCK-CP-S1k" secondAttribute="bottom" constant="4" id="v93-k0-zTg"/>
                             <constraint firstItem="rSj-Kb-RvR" firstAttribute="centerX" secondItem="vLu-sf-Ul7" secondAttribute="centerX" id="yFr-l7-Pz6"/>
                         </constraints>
@@ -331,7 +343,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WNX-9v-GdP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2127" y="403"/>
+            <point key="canvasLocation" x="2125.5999999999999" y="402.70935960591135"/>
         </scene>
         <!--오픈 소스 라이선스-->
         <scene sceneID="MN3-jR-fZp">
@@ -549,6 +561,7 @@ DropDown</string>
     <resources>
         <image name="arrowGray" width="24" height="24"/>
         <image name="default_profile_cat" width="140" height="140"/>
+        <image name="emailLink" width="44" height="44"/>
         <image name="profile_edit_pencil" width="32" height="32"/>
         <namedColor name="Gray2">
             <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
