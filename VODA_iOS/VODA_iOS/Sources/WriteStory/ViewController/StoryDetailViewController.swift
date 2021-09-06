@@ -27,6 +27,7 @@ class StoryDetailViewController: UIViewController {
     @IBOutlet weak var miniAudioPlayerPlayImageView: UIImageView!
     private var audioPlayer = VodaAudioPlayer.shared
     private var isPlaying = false
+    private var fileDownloader = FileDownloader.shared
     private var downloadedAudioUrl: URL?
     private var miniAudioPlayerCurrentTime: TimeInterval {
         audioPlayer.currentTime
@@ -184,7 +185,7 @@ class StoryDetailViewController: UIViewController {
             if FileManager.default.fileExists(atPath: destinationUrl.path) {
                 print("The file already exists at path")
             } else {
-                downloadAudioFile(audioUrl: audioUrl, destinationUrl: destinationUrl)
+                fileDownloader.downloadFileFromUrl(from: audioUrl, to: destinationUrl)
             }
             downloadedAudioUrl = destinationUrl
         }
@@ -226,21 +227,6 @@ class StoryDetailViewController: UIViewController {
                 self.navigationController?.popToViewController(diaryController, animated: false)
             })
         }
-    }
-    
-    //FIXME: downloader 분리
-    func downloadAudioFile(audioUrl: URL, destinationUrl: URL) {
-        URLSession.shared.downloadTask(with: audioUrl, completionHandler: { (location, response, error) -> Void in
-            guard let location = location, error == nil else {
-                return
-            }
-            do {
-                try FileManager.default.moveItem(at: location, to: destinationUrl)
-                print("File moved to document folder")
-            } catch let error as NSError {
-                print(error.localizedDescription)
-            }
-        }).resume()
     }
     
     @IBAction func playSound(_ sender: UIButton) {
