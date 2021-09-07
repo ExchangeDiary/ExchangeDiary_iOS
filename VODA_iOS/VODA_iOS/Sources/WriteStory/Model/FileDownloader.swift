@@ -15,7 +15,7 @@ public class FileDownloader: NSObject {
     }
     
     func downloadFileFromUrl(from downloadUrl: URL, to destinationUrl: URL) {
-        URLSession.shared.downloadTask(with: downloadUrl, completionHandler: { [weak self] (location, response, error) in
+        URLSession.shared.downloadTask(with: downloadUrl, completionHandler: { (location, response, error) in
             guard let location = location, error == nil,
                   let httpURLResponse = response as? HTTPURLResponse,
                   httpURLResponse.statusCode == 200 else {
