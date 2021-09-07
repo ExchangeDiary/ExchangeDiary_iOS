@@ -52,16 +52,16 @@ class StoryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if pageCase == "storyDetail" {
+            rightBarButton.isHidden = true
+            setUpAudioUrl()
+        }
+        
         audioPlayer.delegate = self
         
         setUpNavigationBarUI()
         setUpStoryDataUI()
         setUpAudioPlayerUI()
-        
-        if pageCase == "storyDetail" {
-            rightBarButton.isHidden = true
-            setUpAudioUrl()
-        }
         
         storyUserProfileImageView.addShadow(width: 1, height: 1, radius: 2, opacity: 0.2)
     }
