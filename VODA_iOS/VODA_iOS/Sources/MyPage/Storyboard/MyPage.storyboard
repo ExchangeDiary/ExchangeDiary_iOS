@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="32" width="375" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTR-eh-DV0">
-                                        <rect key="frame" x="23.333333333333329" y="21" width="46" height="35"/>
+                                        <rect key="frame" x="23.333333333333332" y="26" width="44.333333333333343" height="30"/>
                                         <fontDescription key="fontDescription" name="Volte-Bold" family="Volte" pointSize="30"/>
                                         <color key="textColor" name="vodaMainBlue"/>
                                         <nil key="highlightedColor"/>
@@ -611,6 +611,10 @@ DropDown</string>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="eg8-r5-FxL" id="swa-8Q-kKw"/>
+                                    <outlet property="delegate" destination="eg8-r5-FxL" id="VEn-ZL-pPI"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SrU-hP-3RL"/>
