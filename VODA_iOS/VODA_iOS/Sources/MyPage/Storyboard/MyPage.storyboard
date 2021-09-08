@@ -206,6 +206,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFL-9r-PD7">
                                         <rect key="frame" x="327" y="403.33333333333337" width="24" height="24"/>
                                         <state key="normal" image="arrowGray"/>
+                                        <connections>
+                                            <action selector="logout:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nXA-7Q-vVI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0k-a2-4eh">
                                         <rect key="frame" x="327" y="452.66666666666663" width="24" height="24"/>

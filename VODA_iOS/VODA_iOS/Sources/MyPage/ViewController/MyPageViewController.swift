@@ -49,4 +49,10 @@ class MyPageViewController: UIViewController {
         
         self.navigationController?.pushViewController(userProfileViewController, animated: false)
     }
+    
+    @IBAction func logout(_ sender: UIButton) {
+        showButtonPopUp(with: .logout, completionHandler: {
+            //TODO: 서버 로그아웃 처리
+        })
+    }
 }
