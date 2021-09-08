@@ -82,7 +82,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="UR1-vg-hFn">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PushCollectionViewCell" id="UR1-vg-hFn" customClass="PushCollectionViewCell" customModule="VODA_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9RR-L3-gWU">
@@ -104,16 +104,9 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="‘눈누난나’ 새글 등록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZ5-Ni-T96">
-                                                            <rect key="frame" x="78" y="36" width="126" height="18"/>
+                                                            <rect key="frame" x="78" y="36" width="126" height="19.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="16"/>
                                                             <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10시간 전" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0T1-NR-mwu">
-                                                            <rect key="frame" x="79" y="62" width="47" height="20"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
-                                                            <color key="textColor" name="Gray6"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AbK-dp-yuc">
@@ -123,8 +116,17 @@
                                                                 <constraint firstAttribute="width" secondItem="AbK-dp-yuc" secondAttribute="height" multiplier="345:1" id="gtW-GO-hou"/>
                                                             </constraints>
                                                         </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10시간 전" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHZ-hu-ZmI">
+                                                            <rect key="frame" x="78" y="63.333333333333343" width="47" height="15"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="47" id="LVA-gb-Vby"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                                            <color key="textColor" name="Gray6"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" | 김넥터" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0e-TM-eWa">
-                                                            <rect key="frame" x="126" y="64.666666666666671" width="41" height="14.666666666666671"/>
+                                                            <rect key="frame" x="125" y="63.666666666666664" width="41" height="14.666666666666664"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
                                                             <color key="textColor" name="Gray6"/>
                                                             <nil key="highlightedColor"/>
@@ -132,20 +134,27 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="bZ5-Ni-T96" firstAttribute="leading" secondItem="MBO-zi-0Om" secondAttribute="leading" id="2Aa-4S-9bY"/>
-                                                        <constraint firstItem="0T1-NR-mwu" firstAttribute="leading" secondItem="bZ5-Ni-T96" secondAttribute="leading" id="2ic-bF-N8L"/>
+                                                        <constraint firstItem="KHZ-hu-ZmI" firstAttribute="top" secondItem="bZ5-Ni-T96" secondAttribute="bottom" constant="8" id="4cB-2K-xAy"/>
                                                         <constraint firstItem="AbK-dp-yuc" firstAttribute="width" secondItem="9RR-L3-gWU" secondAttribute="width" multiplier="345/375" id="4qi-qo-eIa"/>
                                                         <constraint firstItem="MBO-zi-0Om" firstAttribute="leading" secondItem="YCi-1R-s4S" secondAttribute="trailing" constant="16" id="6sb-n8-CoD"/>
                                                         <constraint firstItem="bZ5-Ni-T96" firstAttribute="top" secondItem="MBO-zi-0Om" secondAttribute="bottom" constant="1.0000000000000568" id="CbN-rm-QhE"/>
                                                         <constraint firstItem="YCi-1R-s4S" firstAttribute="top" secondItem="9RR-L3-gWU" secondAttribute="top" constant="16" id="DCs-Jd-xs8"/>
                                                         <constraint firstItem="YCi-1R-s4S" firstAttribute="leading" secondItem="9RR-L3-gWU" secondAttribute="leading" constant="24" id="KRI-kj-a1S"/>
-                                                        <constraint firstItem="0T1-NR-mwu" firstAttribute="top" secondItem="bZ5-Ni-T96" secondAttribute="bottom" constant="8" id="KZc-oW-M98"/>
-                                                        <constraint firstItem="k0e-TM-eWa" firstAttribute="centerY" secondItem="0T1-NR-mwu" secondAttribute="centerY" id="VTc-2N-gsT"/>
-                                                        <constraint firstItem="k0e-TM-eWa" firstAttribute="leading" secondItem="0T1-NR-mwu" secondAttribute="trailing" id="WQa-hQ-erY"/>
+                                                        <constraint firstItem="k0e-TM-eWa" firstAttribute="leading" secondItem="KHZ-hu-ZmI" secondAttribute="trailing" id="V5U-C7-Ggt"/>
+                                                        <constraint firstItem="k0e-TM-eWa" firstAttribute="centerY" secondItem="KHZ-hu-ZmI" secondAttribute="centerY" id="Vx1-2q-c13"/>
                                                         <constraint firstAttribute="bottom" secondItem="AbK-dp-yuc" secondAttribute="bottom" id="jTL-yA-HGb"/>
                                                         <constraint firstItem="AbK-dp-yuc" firstAttribute="centerX" secondItem="9RR-L3-gWU" secondAttribute="centerX" id="t0n-tb-X9m"/>
+                                                        <constraint firstItem="KHZ-hu-ZmI" firstAttribute="leading" secondItem="bZ5-Ni-T96" secondAttribute="leading" id="wg0-cc-FSK"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <size key="customSize" width="375" height="87"/>
+                                                <connections>
+                                                    <outlet property="diaryNameLabel" destination="MBO-zi-0Om" id="HPu-fn-cpY"/>
+                                                    <outlet property="pushDescriptionLabel" destination="bZ5-Ni-T96" id="1SQ-9R-U6I"/>
+                                                    <outlet property="pushTimeLabel" destination="KHZ-hu-ZmI" id="5nN-OQ-VM3"/>
+                                                    <outlet property="pushTypeImageView" destination="YCi-1R-s4S" id="Mw4-p2-NPK"/>
+                                                    <outlet property="writtenUserNameLabel" destination="k0e-TM-eWa" id="VRw-nW-Wkc"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                         <connections>
