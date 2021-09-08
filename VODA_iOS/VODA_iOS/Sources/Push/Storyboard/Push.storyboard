@@ -72,7 +72,7 @@
                                             <constraint firstAttribute="width" secondItem="Tgh-d9-02k" secondAttribute="height" multiplier="375:6" id="pTr-r5-kHm"/>
                                         </constraints>
                                     </view>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hEX-Zo-4Jh">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hEX-Zo-4Jh">
                                         <rect key="frame" x="0.0" y="61.333333333333314" width="375" height="494.99999999999994"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lpp-dE-zZp">
