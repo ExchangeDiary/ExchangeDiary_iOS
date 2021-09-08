@@ -201,6 +201,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="I1c-bV-Ar5"/>
                     <connections>
+                        <outlet property="currentDateLabel" destination="WEx-tH-z5c" id="AFs-fY-6at"/>
                         <outlet property="pushView" destination="0qs-MK-Nsa" id="GEv-FT-5Qq"/>
                     </connections>
                 </viewController>

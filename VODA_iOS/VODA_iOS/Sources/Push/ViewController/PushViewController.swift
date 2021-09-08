@@ -9,12 +9,25 @@ import UIKit
 
 class PushViewController: UIViewController {
     @IBOutlet weak var pushView: UIView!
+    @IBOutlet weak var currentDateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.setNavigationBarColor(color: .clear)
         pushView.addShadow(width: 0, height: -4, radius: 8, opacity: 0.1)
+        currentDateLabel.text = getCurrentDate()
+    }
+    
+    private func getCurrentDate() -> String {
+        let nowDate = Date()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        
+        let currentDate = dateFormatter.string(from: nowDate)
+        
+        return currentDate
     }
 }
 
@@ -27,8 +40,8 @@ extension PushViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PushCollectionViewCell", for: indexPath)
-        let pushCollectionViewCell = cell as? PushCollectionViewCell
         
+        let pushCollectionViewCell = cell as? PushCollectionViewCell
         return cell
     }
 }
