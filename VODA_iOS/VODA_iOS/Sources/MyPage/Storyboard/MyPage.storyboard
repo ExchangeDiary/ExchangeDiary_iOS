@@ -407,8 +407,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="18" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFb-V9-e8f">
-                                <rect key="frame" x="26" y="118.00000000000001" width="90" height="211.33333333333337"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="19" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFb-V9-e8f">
+                                <rect key="frame" x="26" y="117.99999999999999" width="90" height="249.66666666666663"/>
                                 <string key="text">SwiftLint
 
 Kingfisher
@@ -419,7 +419,9 @@ KakaoSDK
 
 GoogleSignIn
 
-DropDown</string>
+DropDown
+
+Lottie</string>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
