@@ -42,6 +42,14 @@
 		4CE24ED226D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED126D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift */; };
 		4CE24ED426D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED326D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift */; };
 		4CE24ED826D107C600F1DB62 /* NewDiaryPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED726D107C600F1DB62 /* NewDiaryPopUp.swift */; };
+		9B03D57E26E7B356005BE354 /* NoticeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03D57D26E7B356005BE354 /* NoticeCollectionViewCell.swift */; };
+		9B26C20026D92BAA00ECECF8 /* AudioPitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C1FF26D92BAA00ECECF8 /* AudioPitch.swift */; };
+		9B26C20226DE2C5300ECECF8 /* PushSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C20126DE2C5200ECECF8 /* PushSettingViewController.swift */; };
+		9B26C20426DE707E00ECECF8 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C20326DE707D00ECECF8 /* NoticeViewController.swift */; };
+		9B26C20626DE7D0300ECECF8 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C20526DE7D0300ECECF8 /* QuestionViewController.swift */; };
+		9B26C20826DE7D5400ECECF8 /* OpenSourceLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C20726DE7D5400ECECF8 /* OpenSourceLicenseViewController.swift */; };
+		9B26C20A26DE98C700ECECF8 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C20926DE98C600ECECF8 /* UserProfileViewController.swift */; };
+		9B26C20C26DF535B00ECECF8 /* UserProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C20B26DF535A00ECECF8 /* UserProfileData.swift */; };
 		9B03D57926E7309E005BE354 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B03D57826E7309E005BE354 /* Loading.storyboard */; };
 		9B03D57B26E730C0005BE354 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03D57A26E730C0005BE354 /* LoadingViewController.swift */; };
 		9B26C20026D92BAA00ECECF8 /* AudioPitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C1FF26D92BAA00ECECF8 /* AudioPitch.swift */; };
@@ -129,6 +137,14 @@
 		4CE24ED326D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryViewController+CollectionViewExtnesion.swift"; sourceTree = "<group>"; };
 		4CE24ED726D107C600F1DB62 /* NewDiaryPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryPopUp.swift; sourceTree = "<group>"; };
 		835C0E5BB6D174B1D03C169F /* Pods-VODA_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.release.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		9B03D57D26E7B356005BE354 /* NoticeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCollectionViewCell.swift; sourceTree = "<group>"; };
+		9B26C1FF26D92BAA00ECECF8 /* AudioPitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPitch.swift; sourceTree = "<group>"; };
+		9B26C20126DE2C5200ECECF8 /* PushSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushSettingViewController.swift; sourceTree = "<group>"; };
+		9B26C20326DE707D00ECECF8 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		9B26C20526DE7D0300ECECF8 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		9B26C20726DE7D5400ECECF8 /* OpenSourceLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseViewController.swift; sourceTree = "<group>"; };
+		9B26C20926DE98C600ECECF8 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		9B26C20B26DF535A00ECECF8 /* UserProfileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileData.swift; sourceTree = "<group>"; };
 		9B03D57826E7309E005BE354 /* Loading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
 		9B03D57A26E730C0005BE354 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		9B26C1FF26D92BAA00ECECF8 /* AudioPitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPitch.swift; sourceTree = "<group>"; };
@@ -265,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				1279629626B93D080027EB8C /* SignInViewController.swift */,
+				9B26C20926DE98C600ECECF8 /* UserProfileViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -275,6 +292,7 @@
 				12DFB9E026BE7AA9009C23D1 /* SocialLoginType.swift */,
 				12DFB9E226BE85A7009C23D1 /* SocialLoginManager.swift */,
 				120B28B026BAD5550058A568 /* AppleLoginManager.swift */,
+				9B26C20B26DF535A00ECECF8 /* UserProfileData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -288,6 +306,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9B03D57C26E7B1D9005BE354 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B03D57D26E7B356005BE354 /* NoticeCollectionViewCell.swift */,
+			);
+			path = View;
+            sourceTree = "<group>";
+        };
 		9B03D57526E73055005BE354 /* Loading */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,6 +542,7 @@
 			isa = PBXGroup;
 			children = (
 				9B6C8B5226B3EFB600D089D3 /* Storyboard */,
+				9B03D57C26E7B1D9005BE354 /* View */,
 				9B6C8B5526B3EFCD00D089D3 /* ViewController */,
 			);
 			path = MyPage;
@@ -579,6 +606,10 @@
 			isa = PBXGroup;
 			children = (
 				9B6C8B6026B3F04500D089D3 /* MyPageViewController.swift */,
+				9B26C20126DE2C5200ECECF8 /* PushSettingViewController.swift */,
+				9B26C20326DE707D00ECECF8 /* NoticeViewController.swift */,
+				9B26C20526DE7D0300ECECF8 /* QuestionViewController.swift */,
+				9B26C20726DE7D5400ECECF8 /* OpenSourceLicenseViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -816,6 +847,7 @@
 			files = (
 				9B60618426C1886D008C84DC /* UILabel+Extension.swift in Sources */,
 				4CE24ED826D107C600F1DB62 /* NewDiaryPopUp.swift in Sources */,
+				9B26C20C26DF535B00ECECF8 /* UserProfileData.swift in Sources */,
 				9B6C8B5926B3EFFF00D089D3 /* HomeViewController.swift in Sources */,
 				126BE6D126C4D2C100756266 /* DeadLineDiaryCollectionViewCell.swift in Sources */,
 				9B6061D526C394CD008C84DC /* AudioRecordStatus.swift in Sources */,
@@ -825,6 +857,7 @@
 				9B6C8B4C26B3EE9C00D089D3 /* MainTab.swift in Sources */,
 				12603DDA26C9537A0077F859 /* StoryReadingTurnCollectionViewCell.swift in Sources */,
 				12BB18AC26D5187E00A9DF2A /* InputJoinCodeCollectionViewCell.swift in Sources */,
+				9B26C20226DE2C5300ECECF8 /* PushSettingViewController.swift in Sources */,
 				9B60617926C184C2008C84DC /* TimeInterval+Extension.swift in Sources */,
 				9B26C20E26E687EF00ECECF8 /* FileDownloader.swift in Sources */,
 				1279629726B93D080027EB8C /* SignInViewController.swift in Sources */,
@@ -835,6 +868,7 @@
 				12DFB9E126BE7AA9009C23D1 /* SocialLoginType.swift in Sources */,
 				9B6C8B5D26B3F02600D089D3 /* PushViewController.swift in Sources */,
 				9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */,
+				9B26C20626DE7D0300ECECF8 /* QuestionViewController.swift in Sources */,
 				12BB18AE26D51CB100A9DF2A /* BackgroundImageCollectionViewCell.swift in Sources */,
 				9B6BD2E326C83A3E007619BE /* WritePeriodPopUpViewController.swift in Sources */,
 				9B6C8B4726AC829800D089D3 /* VodaAudioPlayer.swift in Sources */,
@@ -848,16 +882,20 @@
 				9B44A97E26D166830078B561 /* AudioData.swift in Sources */,
 				9B904DC626A95DF8004F5B99 /* RecordSoundViewController.swift in Sources */,
 				4CE24ED426D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift in Sources */,
+				9B26C20426DE707E00ECECF8 /* NoticeViewController.swift in Sources */,
 				9B6061D926C39523008C84DC /* AudioPlayerError.swift in Sources */,
 				9B6C8B4026AA963200D089D3 /* VodaAudioRecorder.swift in Sources */,
 				9B44A98026D177DD0078B561 /* StoryDetailViewController.swift in Sources */,
 				9B6BD2DF26C66420007619BE /* DeviceInfo.swift in Sources */,
+				9B26C20A26DE98C700ECECF8 /* UserProfileViewController.swift in Sources */,
 				9B6BD2DA26C64914007619BE /* ButtonPopUpType.swift in Sources */,
 				9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */,
 				12603DD826C9531B0077F859 /* StoryWritingTurnCollectionViewCell.swift in Sources */,
 				9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */,
 				9B26C20026D92BAA00ECECF8 /* AudioPitch.swift in Sources */,
+				9B26C20826DE7D5400ECECF8 /* OpenSourceLicenseViewController.swift in Sources */,
 				9B60618326C1886D008C84DC /* UIViewController+Extension.swift in Sources */,
+				9B03D57E26E7B356005BE354 /* NoticeCollectionViewCell.swift in Sources */,
 				12BB18AA26D5185600A9DF2A /* SelectBackgroundImageCollectionViewCell.swift in Sources */,
 				9B6061D726C39504008C84DC /* AudioPlayerStatus.swift in Sources */,
 				9BEB68C726D37CBE00A7F786 /* StoryData.swift in Sources */,

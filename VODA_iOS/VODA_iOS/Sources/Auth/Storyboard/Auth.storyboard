@@ -230,21 +230,21 @@
             </objects>
             <point key="canvasLocation" x="-26.399999999999999" y="118.22660098522168"/>
         </scene>
-        <!--View Controller-->
+        <!--User Profile View Controller-->
         <scene sceneID="h1m-UW-xAe">
             <objects>
-                <viewController id="DF9-qg-JwB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfileViewController" id="DF9-qg-JwB" customClass="UserProfileViewController" customModule="VODA_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HIb-6o-Acc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profile_cat" translatesAutoresizingMaskIntoConstraints="NO" id="iUP-zu-ib6">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profile_cat" translatesAutoresizingMaskIntoConstraints="NO" id="iUP-zu-ib6">
                                 <rect key="frame" x="117.66666666666669" y="100" width="140" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="iUP-zu-ib6" secondAttribute="height" multiplier="1:1" id="xGv-ZS-CTJ"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_edit_pencil" translatesAutoresizingMaskIntoConstraints="NO" id="8IO-0r-LkP">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_edit_pencil" translatesAutoresizingMaskIntoConstraints="NO" id="8IO-0r-LkP">
                                 <rect key="frame" x="225.66666666666666" y="208" width="31.999999999999972" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8IO-0r-LkP" secondAttribute="height" multiplier="1:1" id="Pgj-H1-Gdz"/>
@@ -275,6 +275,9 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snh-Ct-Zbu">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="56"/>
+                                        <connections>
+                                            <action selector="completeUserInfoSetting:" destination="DF9-qg-JwB" eventType="touchUpInside" id="N3o-7r-GmE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="vodaMainBlue"/>
@@ -316,6 +319,11 @@
                             <constraint firstItem="iUP-zu-ib6" firstAttribute="centerX" secondItem="EO9-ba-Ra4" secondAttribute="centerX" id="sRm-ZS-MbL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="userNickNameTextField" destination="WWh-jb-9XH" id="CSH-Ow-ffj"/>
+                        <outlet property="userProfileEditImageView" destination="8IO-0r-LkP" id="pXF-yd-bO7"/>
+                        <outlet property="userProfileImageView" destination="iUP-zu-ib6" id="zel-2O-22b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K52-6j-8yG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

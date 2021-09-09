@@ -15,6 +15,7 @@ enum ButtonPopUpType {
     case reRecord
     case networkError
     case serverError
+    case logout
     
     var message: String {
         switch self {
@@ -32,6 +33,8 @@ enum ButtonPopUpType {
             return "네트워크가 불안정하여 접속이\n원활하지 않습니다.\n잠시 후 다시 시도해 주세요."
         case .serverError:
             return "서버 오류가 발생하였습니다.\n이전 화면으로 돌아가거나\n앱을 다시 실행해 주세요."
+        case .logout:
+            return "정말 로그아웃 하시겠습니까?"
         }
     }
   
@@ -39,7 +42,7 @@ enum ButtonPopUpType {
         switch self {
         case .completeWriteStory, .checkStoryContentNil, .checkStoryLocationTitleNil, .networkError, .serverError:
             return 1
-        case .noSaveStory, .reRecord:
+        case .noSaveStory, .reRecord, .logout:
             return 2
         }
     }
@@ -50,6 +53,8 @@ enum ButtonPopUpType {
             return "바로가기"
         case .serverError:
             return "돌아가기"
+        case .logout:
+            return "로그아웃"
         default:
             return "확인"
         }
@@ -59,6 +64,8 @@ enum ButtonPopUpType {
         let popUpViewHeight = Float(DeviceInfo.screenHeight * 0.2216)
         
         switch self {
+        case .logout:
+            return popUpViewHeight * 0.3055
         case .completeWriteStory, .checkStoryContentNil, .checkStoryLocationTitleNil, .reRecord:
             return popUpViewHeight * 0.2222
         case .noSaveStory, .networkError, .serverError:
