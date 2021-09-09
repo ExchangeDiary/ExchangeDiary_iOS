@@ -26,7 +26,7 @@ class NoticeViewController: UIViewController {
 extension NoticeViewController: UICollectionViewDataSource {
     //FIXME: 현재 테스트만 완료, 서버 연동 필요
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -16,9 +16,6 @@ class MyPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setNavigationBarColor(color: .clear)
-        userProfileImageView.makeCircleImageView()
-        myPageView.addShadow(width: 0, height: -4, radius: 8, opacity: 0.1)
         addTapGesture()
     }
     
@@ -27,6 +24,13 @@ class MyPageViewController: UIViewController {
         
         self.setNavigationBarColor(color: .clear)
         (rootViewController as? MainViewController)?.setTabBarHidden(false)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        userProfileImageView.makeCircleImageView()
+        myPageView.addShadow(width: 0, height: -4, radius: 8, opacity: 0.1)
     }
     
     private func addTapGesture() {
