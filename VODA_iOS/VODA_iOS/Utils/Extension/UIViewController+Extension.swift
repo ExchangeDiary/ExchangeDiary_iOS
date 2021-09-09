@@ -106,4 +106,14 @@ extension UIViewController {
         writePeriodPopUpViewController.modalPresentationStyle = .overCurrentContext
         self.present(writePeriodPopUpViewController, animated: false, completion: nil)
     }
+    
+    func showLoadingView() {
+        let storyboard = UIStoryboard(name: "Loading", bundle: nil)
+        guard let loadingViewController = storyboard.instantiateViewController(identifier: "LoadingViewController") as? LoadingViewController else {
+            return
+        }
+        loadingViewController.modalPresentationStyle = .fullScreen
+        
+        self.navigationController?.present(loadingViewController, animated: false, completion: nil)
+    }
 }
