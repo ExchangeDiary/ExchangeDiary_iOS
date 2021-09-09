@@ -47,6 +47,7 @@ PODS:
   - KakaoSDKUser (2.5.6):
     - KakaoSDKAuth (= 2.5.6)
   - Kingfisher (6.3.0)
+  - lottie-ios (3.2.3)
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
@@ -58,6 +59,7 @@ DEPENDENCIES:
   - GoogleSignIn
   - KakaoSDK
   - Kingfisher
+  - lottie-ios
   - Moya
   - SwiftLint
 
@@ -79,6 +81,7 @@ SPEC REPOS:
     - KakaoSDKTemplate
     - KakaoSDKUser
     - Kingfisher
+    - lottie-ios
     - Moya
     - SwiftLint
 
@@ -99,9 +102,10 @@ SPEC CHECKSUMS:
   KakaoSDKTemplate: 0370e640abd33d0acb3d7bbe4ef3c02dc42a4576
   KakaoSDKUser: f488aa4699b3fd3a836ab5c7e25e2cb4cea190c1
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 6918ee843a349b907d605afdbdfff2c91183768e
+PODFILE CHECKSUM: a871c81062d4ecda7e481e031154a9118468586e
 
 COCOAPODS: 1.10.1

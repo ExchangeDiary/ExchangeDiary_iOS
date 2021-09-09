@@ -43,7 +43,5 @@ class UserProfileViewController: UIViewController {
             }
         }
         navigationController?.popViewController(animated: false)
-        
-        //TODO: 서버 연결 후 완료되면 데이터 userDefaults에 쿠키로 저장
     }
 }

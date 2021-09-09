@@ -156,7 +156,7 @@ class WriteStoryViewController: UIViewController {
             return
         }
         
-        if audioTitleLabel.textColor != .black, contentTextViewCharacterCountLabel.text == "0/5000자" {
+        if audioUrl == nil, contentTextViewCharacterCountLabel.text == "0/5000자" {
             if locationText.isEmpty || titleText.isEmpty {
                 showButtonPopUp(with: .checkStoryLocationTitleNil)
             } else {

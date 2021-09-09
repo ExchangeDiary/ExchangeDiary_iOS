@@ -29,6 +29,10 @@ class WritePeriodPopUpViewController: UIViewController {
         self.dismiss(animated: false, completion: nil)
     }
     
+    @IBAction func tapBackgroundCancel(_ sender: UITapGestureRecognizer) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
     }
