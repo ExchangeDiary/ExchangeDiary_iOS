@@ -55,7 +55,8 @@ extension VodaAudioRecorder {
             return
         }
         print(directoryPath)
-        let recordingName = "recordedVoice.m4a"
+        let recordingName = "\(UUID()).m4a"
+        
         guard let filePath = URL(string: [directoryPath, recordingName].joined(separator: "/")) else {
             return
         }
