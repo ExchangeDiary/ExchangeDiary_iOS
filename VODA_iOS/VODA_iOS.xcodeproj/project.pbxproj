@@ -43,6 +43,7 @@
 		4CE24ED426D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED326D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift */; };
 		4CE24ED826D107C600F1DB62 /* NewDiaryPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED726D107C600F1DB62 /* NewDiaryPopUp.swift */; };
 		9B03D57E26E7B356005BE354 /* NoticeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03D57D26E7B356005BE354 /* NoticeCollectionViewCell.swift */; };
+		9B03D58126E89BF2005BE354 /* PushCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03D58026E89BF2005BE354 /* PushCollectionViewCell.swift */; };
 		9B26C20026D92BAA00ECECF8 /* AudioPitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C1FF26D92BAA00ECECF8 /* AudioPitch.swift */; };
 		9B26C20226DE2C5300ECECF8 /* PushSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C20126DE2C5200ECECF8 /* PushSettingViewController.swift */; };
 		9B26C20426DE707E00ECECF8 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C20326DE707D00ECECF8 /* NoticeViewController.swift */; };
@@ -138,6 +139,7 @@
 		4CE24ED726D107C600F1DB62 /* NewDiaryPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryPopUp.swift; sourceTree = "<group>"; };
 		835C0E5BB6D174B1D03C169F /* Pods-VODA_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.release.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		9B03D57D26E7B356005BE354 /* NoticeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCollectionViewCell.swift; sourceTree = "<group>"; };
+		9B03D58026E89BF2005BE354 /* PushCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushCollectionViewCell.swift; sourceTree = "<group>"; };
 		9B26C1FF26D92BAA00ECECF8 /* AudioPitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPitch.swift; sourceTree = "<group>"; };
 		9B26C20126DE2C5200ECECF8 /* PushSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushSettingViewController.swift; sourceTree = "<group>"; };
 		9B26C20326DE707D00ECECF8 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
@@ -337,6 +339,14 @@
 				9B03D57826E7309E005BE354 /* Loading.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9B03D57F26E89BDD005BE354 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B03D58026E89BF2005BE354 /* PushCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		9B2BF45C2699E3CC00FA072C = {
@@ -562,6 +572,7 @@
 			isa = PBXGroup;
 			children = (
 				9B6C8B5126B3EFAF00D089D3 /* Storyboard */,
+				9B03D57F26E89BDD005BE354 /* View */,
 				9B6C8B5426B3EFC500D089D3 /* ViewController */,
 			);
 			path = Push;
@@ -896,6 +907,7 @@
 				9B26C20826DE7D5400ECECF8 /* OpenSourceLicenseViewController.swift in Sources */,
 				9B60618326C1886D008C84DC /* UIViewController+Extension.swift in Sources */,
 				9B03D57E26E7B356005BE354 /* NoticeCollectionViewCell.swift in Sources */,
+				9B03D58126E89BF2005BE354 /* PushCollectionViewCell.swift in Sources */,
 				12BB18AA26D5185600A9DF2A /* SelectBackgroundImageCollectionViewCell.swift in Sources */,
 				9B6061D726C39504008C84DC /* AudioPlayerStatus.swift in Sources */,
 				9BEB68C726D37CBE00A7F786 /* StoryData.swift in Sources */,
