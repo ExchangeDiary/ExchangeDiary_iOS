@@ -9,6 +9,7 @@ target 'VODA_iOS' do
     pod 'Kingfisher'
     pod 'SwiftLint'
     pod 'lottie-ios'
+    pod 'SoundWave'
     
     pod 'GoogleSignIn'
     pod 'KakaoSDK'

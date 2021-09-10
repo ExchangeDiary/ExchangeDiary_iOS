@@ -52,6 +52,7 @@ PODS:
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
+  - SoundWave (0.1.4)
   - SwiftLint (0.43.1)
 
 DEPENDENCIES:
@@ -61,6 +62,7 @@ DEPENDENCIES:
   - Kingfisher
   - lottie-ios
   - Moya
+  - SoundWave
   - SwiftLint
 
 SPEC REPOS:
@@ -83,6 +85,7 @@ SPEC REPOS:
     - Kingfisher
     - lottie-ios
     - Moya
+    - SoundWave
     - SwiftLint
 
 SPEC CHECKSUMS:
@@ -104,8 +107,9 @@ SPEC CHECKSUMS:
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  SoundWave: d98ffaa863570b29d991da32a09b7ce1b4aaf2d4
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: a871c81062d4ecda7e481e031154a9118468586e
+PODFILE CHECKSUM: 30935f48c5c2b890ee19e61e6a2093e189a1d632
 
 COCOAPODS: 1.10.1

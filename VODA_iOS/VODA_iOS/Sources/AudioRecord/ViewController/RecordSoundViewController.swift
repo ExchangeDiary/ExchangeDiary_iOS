@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import SoundWave
 
 class RecordSoundViewController: UIViewController {
     @IBOutlet weak var voiceRecordTitleLabel: UILabel!
@@ -17,6 +18,7 @@ class RecordSoundViewController: UIViewController {
     private var audioRecorder = VodaAudioRecorder.shared
     private var recordStatus: AudioRecordStatus?
     private var recordedAudioUrl: URL?
+    private var audioWaveView: AudioVisualizationView?
     var recordedDuration: TimeInterval?
     var completionHandler: ((AudioData) -> Void)?
     
@@ -51,6 +53,8 @@ class RecordSoundViewController: UIViewController {
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
         
         voiceRecordTitleLabel.text = "Untitle_\(getCurrentDate())"
+        
+        setAudioWaveViewUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,6 +87,19 @@ class RecordSoundViewController: UIViewController {
         }
     }
     
+    private func setAudioWaveViewUI() {
+        audioWaveView = AudioVisualizationView(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth, height: DeviceInfo.screenHeight * 0.2))
+        
+        if let audioVisualizationView = audioWaveView {
+            audioVisualizationView.center.y = recordButton.center.y + (recordButton.bounds.height * 0.5)
+            audioVisualizationView.backgroundColor = .clear
+            audioVisualizationView.gradientStartColor = UIColor.CustomColor.vodaMainBlue
+            audioVisualizationView.gradientEndColor = UIColor.CustomColor.vodaMainBlue
+            audioVisualizationView.audioVisualizationMode = .write
+            view.insertSubview(audioVisualizationView, at: 0)
+        }
+    }
+    
     private func getCurrentDate() -> String {
         let nowDate = Date()
         
@@ -101,6 +118,8 @@ class RecordSoundViewController: UIViewController {
     @IBAction func stopRecording(_ sender: Any) {
         recordedDuration = audioRecorder.currentTime
         audioRecorder.stop()
+        
+        audioWaveView?.reset()
     }
 }
 
@@ -124,5 +143,7 @@ extension RecordSoundViewController: AudioRecordable {
     func audioRecorder(_ audioPlayer: VodaAudioRecorder, didUpdateCurrentTime currentTime: TimeInterval) {
         recordTimeLabel.text = currentTime.stringFromTimeInterval()
         recordedDuration = currentTime
+        
+        audioWaveView?.add(meteringLevel: 0.5)
     }
 }
