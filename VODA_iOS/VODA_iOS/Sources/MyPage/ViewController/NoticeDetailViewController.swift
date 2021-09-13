@@ -8,11 +8,15 @@
 import UIKit
 
 class NoticeDetailViewController: UIViewController {
-
+    @IBOutlet weak var noticeContentsTextView: UITextView!
+    var noticeContentsText: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpNavigationUI()
+        
+        noticeContentsTextView.text = noticeContentsText
     }
     
     private func setUpNavigationUI() {

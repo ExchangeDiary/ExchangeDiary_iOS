@@ -14,6 +14,19 @@ class NoticeViewController: UIViewController {
         setUpNavigationUI()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == SegueIdentifier.showNoticeDetail {
+            guard let noticeDetailViewController = segue.destination as? NoticeDetailViewController else {
+                return
+            }
+            if let indexPath = sender as? Int {
+                //FIXME: 서버 연동후 변경
+                noticeDetailViewController.noticeContentsText = "test notice"
+            }
+        }
+    }
+    
     private func setUpNavigationUI() {
         self.setBackButton(color: .black)
         self.setNavigationBarTransparency()
@@ -37,6 +50,10 @@ extension NoticeViewController: UICollectionViewDataSource {
         noticeCollectionViewCell?.noticeDateLabel.text = "210703"
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: SegueIdentifier.showNoticeDetail, sender: indexPath.item)
     }
 }
 

@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="32" width="375" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTR-eh-DV0">
-                                        <rect key="frame" x="23.333333333333332" y="26" width="44.333333333333343" height="30"/>
+                                        <rect key="frame" x="23.333333333333332" y="21" width="45.666666666666671" height="35"/>
                                         <fontDescription key="fontDescription" name="Volte-Bold" family="Volte" pointSize="30"/>
                                         <color key="textColor" name="vodaMainBlue"/>
                                         <nil key="highlightedColor"/>
@@ -613,7 +613,6 @@ Lottie</string>
                                             <outlet property="noticeDateLabel" destination="3Bl-gT-DUg" id="RUE-1k-bn4"/>
                                             <outlet property="noticeIconImageView" destination="rFO-Wo-F0u" id="TlO-nW-Ufw"/>
                                             <outlet property="noticeTitleLabel" destination="GiR-lb-qM7" id="kXi-TP-ZQP"/>
-                                            <segue destination="xGv-BY-ZvQ" kind="show" id="6v8-Sm-A8L"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -637,6 +636,9 @@ Lottie</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="공지사항" id="wOd-NF-itq"/>
+                    <connections>
+                        <segue destination="xGv-BY-ZvQ" kind="show" identifier="showNoticeDetail" id="G14-L6-L3D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwa-p5-tRd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -650,7 +652,7 @@ Lottie</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="공지사항입니다다앙아" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpW-fA-Qf1">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpW-fA-Qf1">
                                 <rect key="frame" x="24" y="112" width="327" height="642"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -668,6 +670,9 @@ Lottie</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sLM-Lz-0RD"/>
+                    <connections>
+                        <outlet property="noticeContentsTextView" destination="CpW-fA-Qf1" id="Y2c-4q-v7y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zIV-md-wEr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
