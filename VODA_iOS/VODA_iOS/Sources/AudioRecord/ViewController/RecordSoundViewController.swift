@@ -88,13 +88,13 @@ class RecordSoundViewController: UIViewController {
     }
     
     private func setAudioWaveViewUI() {
-        audioWaveView = AudioVisualizationView(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth, height: DeviceInfo.screenHeight * 0.2))
+        audioWaveView = AudioVisualizationView(frame: CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth, height: DeviceInfo.screenHeight * 0.17))
         
         if let audioVisualizationView = audioWaveView {
             audioVisualizationView.center.y = recordButton.center.y + (recordButton.bounds.height * 0.5)
             audioVisualizationView.backgroundColor = .clear
-            audioVisualizationView.gradientStartColor = UIColor.CustomColor.vodaMainBlue
-            audioVisualizationView.gradientEndColor = UIColor.CustomColor.vodaMainBlue
+            audioVisualizationView.gradientStartColor = UIColor.CustomColor.vodaSubBlue
+            audioVisualizationView.gradientEndColor = UIColor.CustomColor.vodaSubBlue
             audioVisualizationView.audioVisualizationMode = .write
             view.insertSubview(audioVisualizationView, at: 0)
         }
