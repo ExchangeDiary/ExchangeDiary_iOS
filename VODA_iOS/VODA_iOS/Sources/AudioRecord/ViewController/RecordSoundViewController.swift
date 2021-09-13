@@ -125,7 +125,7 @@ class RecordSoundViewController: UIViewController {
 
 // MARK: AudioRecordable
 extension RecordSoundViewController: AudioRecordable {
-    func audioRecorder(_ audioPlayer: VodaAudioRecorder, didFinishedWithUrl url: URL?) {
+    func audioRecorder(_ audioRecorder: VodaAudioRecorder, didFinishedWithUrl url: URL?) {
         guard let recordedUrl = url else {
             return
         }
@@ -135,12 +135,12 @@ extension RecordSoundViewController: AudioRecordable {
         performSegue(withIdentifier: SegueIdentifier.stopRecording, sender: self)
     }
     
-    func audioRecorder(_ audioPlayer: VodaAudioRecorder, didChangedStatus status: AudioRecordStatus) {
+    func audioRecorder(_ audioRecorder: VodaAudioRecorder, didChangedStatus status: AudioRecordStatus) {
         print("recordStatus: \(status)")
         setUpRecordButtonUI(status)
     }
     
-    func audioRecorder(_ audioPlayer: VodaAudioRecorder, didUpdateCurrentTime currentTime: TimeInterval) {
+    func audioRecorder(_ audioRecorder: VodaAudioRecorder, didUpdateCurrentTime currentTime: TimeInterval) {
         recordTimeLabel.text = currentTime.stringFromTimeInterval()
         recordedDuration = currentTime
         

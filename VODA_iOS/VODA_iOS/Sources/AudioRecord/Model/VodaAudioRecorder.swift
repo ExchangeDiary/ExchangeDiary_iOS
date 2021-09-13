@@ -9,9 +9,9 @@ import Foundation
 import AVFoundation
 
 public protocol AudioRecordable: AnyObject {
-    func audioRecorder(_ audioPlayer: VodaAudioRecorder, didChangedStatus status: AudioRecordStatus)
-    func audioRecorder(_ audioPlayer: VodaAudioRecorder, didFinishedWithUrl url: URL?)
-    func audioRecorder(_ audioPlayer: VodaAudioRecorder, didUpdateCurrentTime currentTime: TimeInterval)
+    func audioRecorder(_ audioRecorder: VodaAudioRecorder, didChangedStatus status: AudioRecordStatus)
+    func audioRecorder(_ audioRecorder: VodaAudioRecorder, didFinishedWithUrl url: URL?)
+    func audioRecorder(_ audioRecorder: VodaAudioRecorder, didUpdateCurrentTime currentTime: TimeInterval)
 }
 
 public class VodaAudioRecorder: NSObject {
