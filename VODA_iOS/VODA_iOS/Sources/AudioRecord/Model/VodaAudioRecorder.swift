@@ -12,6 +12,7 @@ public protocol AudioRecordable: AnyObject {
     func audioRecorder(_ audioRecorder: VodaAudioRecorder, didChangedStatus status: AudioRecordStatus)
     func audioRecorder(_ audioRecorder: VodaAudioRecorder, didFinishedWithUrl url: URL?)
     func audioRecorder(_ audioRecorder: VodaAudioRecorder, didUpdateCurrentTime currentTime: TimeInterval)
+    func audioRecorder(_ audioRecorder: VodaAudioRecorder, didUpdateDecibel decibel: Float)
 }
 
 public class VodaAudioRecorder: NSObject {
@@ -26,25 +27,47 @@ public class VodaAudioRecorder: NSObject {
         audioRecorder?.currentTime ?? 0
     }
     
+    public var averageDecibel: Float? {
+        audioRecorder?.averagePower(forChannel: 0)
+    }
+    
     public var status: AudioRecordStatus = .idle {
         didSet {
             delegate?.audioRecorder(self, didChangedStatus: status)
         }
     }
     
-    private override init() { }
+    private override init() {
+        audioRecorder?.isMeteringEnabled = true
+    }
     
     @objc private func getCurrentTime() {
         delegate?.audioRecorder(self, didUpdateCurrentTime: currentTime)
+        
+        audioRecorder?.updateMeters()
+        
+        guard let decibel = averageDecibel else {
+            return
+        }
+        
+        delegate?.audioRecorder(self, didUpdateDecibel: normalizedPowerLevel(from: decibel))
         
         let isReachedToMaxTime = currentTime >= 30.0
         if isReachedToMaxTime {
             stop()
         }
     }
-    
+   
     private func addTimer() {
         recordTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(getCurrentTime), userInfo: nil, repeats: true)
+    }
+    
+    private func normalizedPowerLevel(from decibel: Float) -> Float {
+        if decibel < -60.0 || decibel == 0.0 {
+            return 0.0
+        }
+        
+        return powf((powf(10.0, 0.05 * decibel) - powf(10.0, 0.05 * -60.0)) * (1.0 / (1.0 - powf(10.0, 0.05 * -60.0))), 1.0 / 2.0) * 10
     }
 }
 

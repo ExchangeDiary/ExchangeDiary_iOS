@@ -143,7 +143,9 @@ extension RecordSoundViewController: AudioRecordable {
     func audioRecorder(_ audioRecorder: VodaAudioRecorder, didUpdateCurrentTime currentTime: TimeInterval) {
         recordTimeLabel.text = currentTime.stringFromTimeInterval()
         recordedDuration = currentTime
-        
-        audioWaveView?.add(meteringLevel: 0.5)
+    }
+    
+    func audioRecorder(_ audioRecorder: VodaAudioRecorder, didUpdateDecibel decibel: Float) {
+        audioWaveView?.add(meteringLevel: decibel)
     }
 }
