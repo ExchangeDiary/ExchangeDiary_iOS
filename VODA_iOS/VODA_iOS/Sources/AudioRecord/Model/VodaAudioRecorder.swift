@@ -50,7 +50,7 @@ public class VodaAudioRecorder: NSObject {
             return
         }
         
-        delegate?.audioRecorder(self, didUpdateDecibel: normalizedPowerLevel(from: decibel))
+        delegate?.audioRecorder(self, didUpdateDecibel: normalizeDecibelLevel(from: decibel))
         
         let isReachedToMaxTime = currentTime >= 30.0
         if isReachedToMaxTime {
@@ -62,7 +62,7 @@ public class VodaAudioRecorder: NSObject {
         recordTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(getCurrentTime), userInfo: nil, repeats: true)
     }
     
-    private func normalizedPowerLevel(from decibel: Float) -> Float {
+    private func normalizeDecibelLevel(from decibel: Float) -> Float {
         if decibel < -60.0 || decibel == 0.0 {
             return 0.0
         }
