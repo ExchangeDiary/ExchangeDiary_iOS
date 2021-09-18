@@ -9,4 +9,5 @@ import Foundation
 
 public struct SegueIdentifier {
     static let stopRecording = "stopRecording"
+    static let showNoticeDetail = "showNoticeDetail"
 }

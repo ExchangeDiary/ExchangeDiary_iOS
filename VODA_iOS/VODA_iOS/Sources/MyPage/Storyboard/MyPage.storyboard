@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="32" width="375" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTR-eh-DV0">
-                                        <rect key="frame" x="23.333333333333332" y="26" width="44.333333333333343" height="30"/>
+                                        <rect key="frame" x="23.333333333333332" y="21" width="45.666666666666671" height="35"/>
                                         <fontDescription key="fontDescription" name="Volte-Bold" family="Volte" pointSize="30"/>
                                         <color key="textColor" name="vodaMainBlue"/>
                                         <nil key="highlightedColor"/>
@@ -636,10 +636,47 @@ Lottie</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="공지사항" id="wOd-NF-itq"/>
+                    <connections>
+                        <segue destination="xGv-BY-ZvQ" kind="show" identifier="showNoticeDetail" id="G14-L6-L3D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwa-p5-tRd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2991.1999999999998" y="-294.0886699507389"/>
+        </scene>
+        <!--Notice Detail View Controller-->
+        <scene sceneID="Xqq-2j-cnx">
+            <objects>
+                <viewController id="xGv-BY-ZvQ" customClass="NoticeDetailViewController" customModule="VODA_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kMB-nL-YMn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpW-fA-Qf1">
+                                <rect key="frame" x="24" y="112" width="327" height="642"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bkI-KY-gkt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CpW-fA-Qf1" firstAttribute="top" secondItem="bkI-KY-gkt" secondAttribute="top" constant="24" id="58a-cf-KPe"/>
+                            <constraint firstItem="bkI-KY-gkt" firstAttribute="trailing" secondItem="CpW-fA-Qf1" secondAttribute="trailing" constant="24" id="5HF-qN-4w4"/>
+                            <constraint firstItem="bkI-KY-gkt" firstAttribute="bottom" secondItem="CpW-fA-Qf1" secondAttribute="bottom" constant="24" id="Pjm-J0-uLx"/>
+                            <constraint firstItem="CpW-fA-Qf1" firstAttribute="leading" secondItem="bkI-KY-gkt" secondAttribute="leading" constant="24" id="l4J-H6-fV9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sLM-Lz-0RD"/>
+                    <connections>
+                        <outlet property="noticeContentsTextView" destination="CpW-fA-Qf1" id="Y2c-4q-v7y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zIV-md-wEr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3816.8000000000002" y="-294.0886699507389"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4NA-tb-Egh">
@@ -675,6 +712,9 @@ Lottie</string>
         <namedColor name="vodaMainBlue">
             <color red="0.25098039215686274" green="0.50588235294117645" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
