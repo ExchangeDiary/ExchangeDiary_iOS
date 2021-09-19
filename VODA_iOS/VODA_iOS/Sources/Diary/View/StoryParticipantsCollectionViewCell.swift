@@ -19,6 +19,5 @@ class StoryParticipantsCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         self.makeCircleView()
         self.profileImageView.makeCircleImageView()
-        
     }
 }
