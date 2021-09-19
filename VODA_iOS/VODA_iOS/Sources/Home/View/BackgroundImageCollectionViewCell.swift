@@ -8,9 +8,6 @@
 import UIKit
 
 class BackgroundImageCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var backgroundImageView: UIImageView!
-    
     override func layoutSubviews() {
         super.layoutSubviews()
 
@@ -35,6 +32,5 @@ class BackgroundImageCollectionViewCell: UICollectionViewCell {
         self.layer.masksToBounds = false
         self.layer.shadowColor = UIColor.CustomColor.vodaMainBlue.cgColor
         self.addShadow(width: 2, height: 2, radius: 5, opacity: 0.15)
-        
     }
 }

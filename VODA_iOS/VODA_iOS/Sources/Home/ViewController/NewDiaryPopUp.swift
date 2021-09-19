@@ -19,6 +19,7 @@ class NewDiaryPopUp: UIViewController {
         self.newDiaryCollectionView.isScrollEnabled = false
         
         let gesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapCollectionView(_:)))
+        gesture.cancelsTouchesInView = false
         self.newDiaryCollectionView.addGestureRecognizer(gesture)
     }
     

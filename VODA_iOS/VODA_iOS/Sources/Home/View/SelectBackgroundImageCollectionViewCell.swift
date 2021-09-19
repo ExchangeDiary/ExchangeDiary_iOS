@@ -8,10 +8,8 @@
 import UIKit
 
 class SelectBackgroundImageCollectionViewCell: UICollectionViewCell {
-    
     let backgroundImageCollectionViewCellIdentifier = "backgroundImageCollectionViewCell"
-    let dummyImageViewList = ["themeBackground1", "themeBackground2", "themeBackground3"]
-    
+    let dummyImageViewList = ["themeBackground1", "themeBackground2", "themeBackground3", "themeBackground1", "themeBackground2", "themeBackground3"]
     @IBOutlet weak var backgroundCollectionView: UICollectionView!
     
     @IBOutlet weak var prevButton: UIButton!
@@ -20,8 +18,8 @@ class SelectBackgroundImageCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.backgroundCollectionView.delegate = self
         self.backgroundCollectionView.dataSource = self
+        self.backgroundCollectionView.delegate = self
     }
     
     override func layoutSubviews() {
@@ -29,11 +27,7 @@ class SelectBackgroundImageCollectionViewCell: UICollectionViewCell {
         
         setStyle()
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-          self.endEditing(true)
-    }
-    
+
     func setStyle() {
         self.contentView.layer.cornerRadius = 16
         self.contentView.layer.masksToBounds = true
@@ -48,16 +42,12 @@ class SelectBackgroundImageCollectionViewCell: UICollectionViewCell {
 
 extension SelectBackgroundImageCollectionViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(dummyImageViewList.count)
         return self.dummyImageViewList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let backgroundImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: backgroundImageCollectionViewCellIdentifier, for: indexPath) as? BackgroundImageCollectionViewCell {
-            if indexPath.row == 0 {
-                backgroundImageCollectionViewCell.isSelected = true
-            }
-            
-            backgroundImageCollectionViewCell.backgroundImageView.image = UIImage(named: self.dummyImageViewList[indexPath.row])
             return backgroundImageCollectionViewCell
         }
         return UICollectionViewCell()
@@ -67,7 +57,7 @@ extension SelectBackgroundImageCollectionViewCell: UICollectionViewDataSource {
 extension SelectBackgroundImageCollectionViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let selectedCell = collectionView.cellForItem(at: indexPath) as? BackgroundImageCollectionViewCell {
-            selectedCell.layer.borderWidth = 2
+            print("\(indexPath.row)")
         }
     }
 }
