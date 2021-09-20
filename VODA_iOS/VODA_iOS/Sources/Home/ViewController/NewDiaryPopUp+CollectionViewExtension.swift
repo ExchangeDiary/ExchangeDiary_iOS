@@ -20,7 +20,7 @@ extension NewDiaryPopUp: UICollectionViewDataSource {
             }
         } else if indexPath.row == 1 {
             if let selectBackgroundIamgeCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: selectBackgroundIamgeCollectionViewCellIdentifier, for: indexPath) as? SelectBackgroundImageCollectionViewCell {
-                    return selectBackgroundIamgeCollectionViewCell
+                return selectBackgroundIamgeCollectionViewCell
             }
         } else {
             if let inputJoinCodeCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: inputJoinCodeCollectionViewCellIdentifier, for: indexPath) as? InputJoinCodeCollectionViewCell {

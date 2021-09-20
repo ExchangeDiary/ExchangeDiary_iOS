@@ -15,7 +15,7 @@ class JoinedDiaryCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var sectionTitleView: UIView!
     
     private let deadLineDiaryCVCellIdentifier = "deadLineDiaryCollectionViewCell"
-    let dummydDayList = ["D-day", "D-1", "D-2"]
+    let dummydDayList = ["D-DAY", "D-1", "D-2"]
     let dummyTitleList = ["주린이는 오늘도 뚠뚠", "나만 고양이 있어 방", "넥스터즈 다이어리 소모임", "일상 공유", "오늘의 맛집", "오늘의 운동"]
     let dummyImageViewList = ["themeBackground1", "themeBackground2", "themeBackground3"]
     
@@ -41,6 +41,14 @@ extension JoinedDiaryCollectionReusableView: UICollectionViewDataSource {
         if let deadLineDiaryCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: deadLineDiaryCVCellIdentifier, for: indexPath) as? DeadLineDiaryCollectionViewCell {
             
             deadLineDiaryCollectionViewCell.dDayLabel.text = self.dummydDayList[indexPath.row % dummydDayList.count]
+            if deadLineDiaryCollectionViewCell.dDayLabel.text == "D-DAY" {
+                deadLineDiaryCollectionViewCell.dDayLabel.textColor = UIColor.CustomColor.vodaMainBlue
+                deadLineDiaryCollectionViewCell.dDayView.backgroundColor = UIColor.white
+            } else {
+                deadLineDiaryCollectionViewCell.dDayLabel.textColor = UIColor.white
+                deadLineDiaryCollectionViewCell.dDayView.backgroundColor = UIColor.CustomColor.vodaMainBlue
+            }
+            
             deadLineDiaryCollectionViewCell.diaryTitleLabel.text = dummyTitleList[indexPath.row]
             deadLineDiaryCollectionViewCell.coverImageView.image = UIImage(named: self.dummyImageViewList[indexPath.row % dummyImageViewList.count])
             return deadLineDiaryCollectionViewCell
@@ -51,8 +59,7 @@ extension JoinedDiaryCollectionReusableView: UICollectionViewDataSource {
 
 extension JoinedDiaryCollectionReusableView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // ISSUE: collectionView 내의 collectionView에서 didSelectItemAt 함수가 정상적으로 구현되지 않는다.
-//        delegate?.pushDiaryViewController()
+        print("\(indexPath.row)")
     }
 }
 

@@ -39,6 +39,7 @@
 		12DFB9E126BE7AA9009C23D1 /* SocialLoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DFB9E026BE7AA9009C23D1 /* SocialLoginType.swift */; };
 		12DFB9E326BE85A7009C23D1 /* SocialLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DFB9E226BE85A7009C23D1 /* SocialLoginManager.swift */; };
 		4C17688326D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C17688226D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift */; };
+		4C3328D426F746DD004A5A92 /* StoryCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3328D326F746DD004A5A92 /* StoryCollectionViewFlowLayout.swift */; };
 		4CE24ED226D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED126D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift */; };
 		4CE24ED426D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED326D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift */; };
 		4CE24ED826D107C600F1DB62 /* NewDiaryPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED726D107C600F1DB62 /* NewDiaryPopUp.swift */; };
@@ -133,6 +134,7 @@
 		12DFB9E026BE7AA9009C23D1 /* SocialLoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginType.swift; sourceTree = "<group>"; };
 		12DFB9E226BE85A7009C23D1 /* SocialLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginManager.swift; sourceTree = "<group>"; };
 		4C17688226D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiaryCollectionViewCell.swift; sourceTree = "<group>"; };
+		4C3328D326F746DD004A5A92 /* StoryCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		4CBFAC7F26A44D0600924F64 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4CE24ED126D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CollectionViewExtension.swift"; sourceTree = "<group>"; };
 		4CE24ED326D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryViewController+CollectionViewExtnesion.swift"; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				12603DD326C952AF0077F859 /* StoryCollectionViewCell.swift */,
+				4C3328D326F746DD004A5A92 /* StoryCollectionViewFlowLayout.swift */,
 				12603DD726C9531B0077F859 /* StoryWritingTurnCollectionViewCell.swift */,
 				12603DD926C9537A0077F859 /* StoryReadingTurnCollectionViewCell.swift */,
 				12603DDB26C9552B0077F859 /* DiaryCollectionReusableView.swift */,
@@ -917,6 +920,7 @@
 				9B60618226C1886D008C84DC /* UIView+Extension.swift in Sources */,
 				12603DCA26C900DE0077F859 /* JoinedDiaryCollectionReusableView.swift in Sources */,
 				4C17688326D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift in Sources */,
+				4C3328D426F746DD004A5A92 /* StoryCollectionViewFlowLayout.swift in Sources */,
 				9B6BD2E126C839ED007619BE /* PhotoPopUpViewController.swift in Sources */,
 				9B6BD2EA26CD0B52007619BE /* WriteStoryViewController.swift in Sources */,
 				9B60617A26C184C2008C84DC /* SegueIdentifier.swift in Sources */,

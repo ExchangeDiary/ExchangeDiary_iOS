@@ -7,12 +7,17 @@
 
 import UIKit
 
-class DiaryViewController: UIViewController {
+class DiaryViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var diaryCollectionView: UICollectionView!
-
     var status: String = "writing"
     let participantsDummy: [String] = ["yoonyoung", "soyoung"]
 
+    let participantCollectionViewCellIdentifier = "storyParticipantsCollectionViewCell"
+    let storyCollectionViewCellIdentifier = "storyCollectionviewCell"
+    let writingTurnCollectionViewCellIdentifier = "storyWritingTurnCollectionViewCell"
+    let readingTurnCollectionViewCellIdentifier = "storyReadingTurnCollectionViewCell"
+    let diaryCollectionViewHeaderIdentifier = "diaryCollectionReusableView"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

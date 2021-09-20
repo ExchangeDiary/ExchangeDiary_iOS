@@ -165,13 +165,16 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고영희" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2F-gm-7hh">
-                                            <rect key="frame" x="32" y="30" width="78" height="36"/>
+                                            <rect key="frame" x="32" y="28" width="78" height="36"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="Qwc-3J-WiW"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="30"/>
                                             <color key="textColor" name="vodaMainBlue"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="님이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lt1-PN-crG">
-                                            <rect key="frame" x="115.00000000000001" y="33.666666666666664" width="41.666666666666671" height="29"/>
+                                            <rect key="frame" x="115.00000000000001" y="31.666666666666671" width="41.666666666666671" height="29"/>
                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="24"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -221,10 +224,10 @@
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </imageView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f39-qQ-qUK">
-                                                                <rect key="frame" x="8" y="11" width="39.333333333333336" height="23"/>
+                                                                <rect key="frame" x="8" y="11" width="36.333333333333336" height="23"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIE-Xi-QC0">
-                                                                        <rect key="frame" x="8.9999999999999982" y="3.3333333333333339" width="23.333333333333329" height="16.333333333333329"/>
+                                                                        <rect key="frame" x="8.9999999999999982" y="4.6666666666666661" width="20.333333333333329" height="13.999999999999998"/>
                                                                         <fontDescription key="fontDescription" name="Volte-Bold" family="Volte" pointSize="14"/>
                                                                         <color key="textColor" name="vodaMainBlue"/>
                                                                         <nil key="highlightedColor"/>
@@ -274,7 +277,7 @@
                                                     <size key="customSize" width="122" height="170.5"/>
                                                     <connections>
                                                         <outlet property="coverImageView" destination="X7u-tv-GWP" id="QK8-QG-Tns"/>
-                                                        <outlet property="dDayLabel" destination="dIE-Xi-QC0" id="11c-jN-ie2"/>
+                                                        <outlet property="dDayLabel" destination="dIE-Xi-QC0" id="st7-TQ-kZf"/>
                                                         <outlet property="dDayView" destination="f39-qQ-qUK" id="601-Es-lK9"/>
                                                         <outlet property="diaryTitleLabel" destination="ujY-eR-uSo" id="A8X-Co-4kR"/>
                                                     </connections>
@@ -291,10 +294,10 @@
                                         <constraint firstItem="lt1-PN-crG" firstAttribute="centerY" secondItem="S2F-gm-7hh" secondAttribute="centerY" id="ChY-Y3-8xv"/>
                                         <constraint firstItem="rBH-jg-ChJ" firstAttribute="top" secondItem="B4N-5a-lBL" secondAttribute="top" id="E10-eh-dDn"/>
                                         <constraint firstAttribute="trailing" secondItem="dQi-O3-eWQ" secondAttribute="trailing" id="HeZ-iI-2Wg"/>
-                                        <constraint firstItem="vHz-zj-a39" firstAttribute="top" secondItem="S2F-gm-7hh" secondAttribute="top" multiplier="30/70" id="I4r-Ba-Rsg"/>
+                                        <constraint firstItem="vHz-zj-a39" firstAttribute="top" secondItem="S2F-gm-7hh" secondAttribute="bottom" id="I4r-Ba-Rsg"/>
                                         <constraint firstItem="S2F-gm-7hh" firstAttribute="leading" secondItem="B4N-5a-lBL" secondAttribute="trailingMargin" multiplier="24/375" id="MgU-9G-3cx"/>
                                         <constraint firstItem="dQi-O3-eWQ" firstAttribute="height" secondItem="B4N-5a-lBL" secondAttribute="height" multiplier="0.486486" id="XJ0-8x-B1a"/>
-                                        <constraint firstItem="S2F-gm-7hh" firstAttribute="top" secondItem="B4N-5a-lBL" secondAttribute="topMargin" constant="22" id="byu-Bg-x75"/>
+                                        <constraint firstItem="S2F-gm-7hh" firstAttribute="bottom" secondItem="rBH-jg-ChJ" secondAttribute="centerY" id="Ys6-57-Txs"/>
                                         <constraint firstItem="dQi-O3-eWQ" firstAttribute="leading" secondItem="B4N-5a-lBL" secondAttribute="leading" id="cxz-id-uMd"/>
                                         <constraint firstItem="lt1-PN-crG" firstAttribute="leading" secondItem="S2F-gm-7hh" secondAttribute="leading" multiplier="115/32" id="fgf-oM-cEQ"/>
                                         <constraint firstItem="lgy-Xo-va1" firstAttribute="leading" secondItem="B4N-5a-lBL" secondAttribute="leading" id="hn9-9x-i8q"/>
@@ -594,38 +597,25 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="backgroundImageCollectionViewCell" id="bQ0-Zf-S5d" customClass="BackgroundImageCollectionViewCell" customModule="VODA_iOS" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="94" height="140"/>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="backgroundImageCollectionViewCell" id="0EG-3M-ch7" customClass="BackgroundImageCollectionViewCell" customModule="VODA_iOS" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="95" height="125"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oet-AN-Z1o">
-                                                                <rect key="frame" x="0.0" y="0.0" width="94" height="140"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cpZ-BQ-4eg">
+                                                                <rect key="frame" x="0.0" y="0.0" width="95" height="125"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 준비중이에요" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuC-95-UcU">
-                                                                        <rect key="frame" x="10" y="55.666666666666657" width="74" height="29"/>
-                                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
-                                                                        <color key="textColor" name="Gray6"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_default_cat" translatesAutoresizingMaskIntoConstraints="NO" id="8Gx-Ig-9dc">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="94" height="140"/>
-                                                                        <color key="backgroundColor" name="Gray3"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w10-oc-EXh">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="95" height="125"/>
                                                                     </imageView>
                                                                 </subviews>
+                                                                <color key="backgroundColor" red="0.64313725489999995" green="0.8980392157" blue="0.89999997620000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="8Gx-Ig-9dc" firstAttribute="top" secondItem="oet-AN-Z1o" secondAttribute="top" id="0SK-qg-p3c"/>
-                                                                    <constraint firstItem="8Gx-Ig-9dc" firstAttribute="leading" secondItem="oet-AN-Z1o" secondAttribute="leading" id="BpT-io-Ttw"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="8Gx-Ig-9dc" secondAttribute="trailing" id="Bqr-c2-ByK"/>
-                                                                    <constraint firstItem="DuC-95-UcU" firstAttribute="leading" secondItem="oet-AN-Z1o" secondAttribute="leading" constant="10" id="Gg0-Zd-hlg"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="8Gx-Ig-9dc" secondAttribute="bottom" id="a0C-Hm-pzJ"/>
-                                                                    <constraint firstItem="DuC-95-UcU" firstAttribute="centerY" secondItem="oet-AN-Z1o" secondAttribute="centerY" id="i8V-rR-KiN"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="DuC-95-UcU" secondAttribute="trailing" constant="10" id="w64-5o-ify"/>
+                                                                    <constraint firstItem="w10-oc-EXh" firstAttribute="top" secondItem="cpZ-BQ-4eg" secondAttribute="top" id="Hwx-za-AYh"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="w10-oc-EXh" secondAttribute="trailing" id="Qqj-K4-n27"/>
+                                                                    <constraint firstItem="w10-oc-EXh" firstAttribute="leading" secondItem="cpZ-BQ-4eg" secondAttribute="leading" id="RHu-G9-SMW"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="w10-oc-EXh" secondAttribute="bottom" id="ii8-kV-pZs"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
-                                                            <size key="customSize" width="94" height="140"/>
-                                                            <connections>
-                                                                <outlet property="backgroundImageView" destination="8Gx-Ig-9dc" id="CEu-Qp-yn6"/>
-                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
@@ -697,7 +687,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="backgroundCollectionView" destination="JUQ-Il-beO" id="6Pl-iL-Uck"/>
+                                            <outlet property="backgroundCollectionView" destination="JUQ-Il-beO" id="Fxj-bo-eoM"/>
                                             <outlet property="nextButton" destination="MGM-FH-b8f" id="zCQ-xy-BcT"/>
                                             <outlet property="prevButton" destination="Gwi-zX-8Yy" id="kdo-gZ-Tg6"/>
                                         </connections>
@@ -705,21 +695,21 @@
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="createDiaryCollectionViewCell" id="GDR-ZQ-3mU" customClass="CreateDiaryCollectionViewCell" customModule="VODA_iOS" customModuleProvider="target">
                                         <rect key="frame" x="642" y="119" width="311" height="496"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="JJT-fu-qdI">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JJT-fu-qdI">
                                             <rect key="frame" x="0.0" y="0.0" width="311" height="496"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pF2-4c-m2C">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pF2-4c-m2C">
                                                     <rect key="frame" x="0.0" y="0.0" width="311" height="496"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUZ-dk-woA">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUZ-dk-woA">
                                                             <rect key="frame" x="24" y="84" width="7" height="22"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <color key="textColor" name="vodaYellow"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="다이어리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Lb-7b-W01">
-                                                            <rect key="frame" x="24" y="24" width="83.333333333333314" height="29"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다이어리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Lb-7b-W01">
+                                                            <rect key="frame" x="23.999999999999993" y="24" width="83.333333333333314" height="29"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="29" id="xNn-dh-eAl"/>
                                                             </constraints>
@@ -727,25 +717,25 @@
                                                             <color key="textColor" name="vodaMainBlue"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="만들기" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5O-kC-6ux">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="만들기" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5O-kC-6ux">
                                                             <rect key="frame" x="111.33333333333331" y="24" width="63" height="29"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="24"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" progress="0.33000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="niM-lR-Qs3">
+                                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.33000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="niM-lR-Qs3">
                                                             <rect key="frame" x="24" y="56" width="261" height="4"/>
                                                         </progressView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="다이어리 테마" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vlb-fS-IMT">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다이어리 테마" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vlb-fS-IMT">
                                                             <rect key="frame" x="30.999999999999993" y="84" width="98.333333333333314" height="22"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mjO-e1-GxC">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mjO-e1-GxC">
                                                             <rect key="frame" x="24" y="114" width="261" height="36"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="테마를 설정해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aeb-Ei-7eu">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="테마를 설정해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aeb-Ei-7eu">
                                                                     <rect key="frame" x="16" y="8.6666666666666732" width="245" height="18.666666666666671"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
@@ -758,16 +748,16 @@
                                                                 <constraint firstItem="Aeb-Ei-7eu" firstAttribute="leading" secondItem="mjO-e1-GxC" secondAttribute="leading" constant="16" id="wj3-Pt-lZ5"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="다이어리 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wma-05-bIH">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다이어리 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wma-05-bIH">
                                                             <rect key="frame" x="31" y="210.66666666666666" width="93" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pMn-1p-sED">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMn-1p-sED">
                                                             <rect key="frame" x="24" y="239.66666666666663" width="261" height="36"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="다이어리 이름을 적어주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M4l-ZI-Qib">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="다이어리 이름을 적어주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M4l-ZI-Qib">
                                                                     <rect key="frame" x="16" y="8.6666666666666874" width="245" height="18.666666666666671"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
@@ -780,40 +770,40 @@
                                                                 <constraint firstAttribute="trailing" secondItem="M4l-ZI-Qib" secondAttribute="trailing" id="edG-S8-dQh"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="작성 주기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acF-bN-iAY">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작성 주기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acF-bN-iAY">
                                                             <rect key="frame" x="30.999999999999993" y="335.66666666666669" width="67.333333333333314" height="21.666666666666686"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHg-dU-yBG">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHg-dU-yBG">
                                                             <rect key="frame" x="24" y="210" width="7" height="22"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <color key="textColor" name="vodaYellow"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyP-Xo-jDD">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyP-Xo-jDD">
                                                             <rect key="frame" x="24" y="335.66666666666669" width="7" height="22"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <color key="textColor" name="vodaYellow"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qy1-Qp-hkZ">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qy1-Qp-hkZ">
                                                             <rect key="frame" x="24" y="359.66666666666669" width="261" height="36"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="1일" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuO-0t-FEX">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1일" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuO-0t-FEX">
                                                                     <rect key="frame" x="15.999999999999998" y="9.3333333333333144" width="17.333333333333329" height="17"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
                                                                     <color key="textColor" name="Gray5"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="arrow_down_inactivate" translatesAutoresizingMaskIntoConstraints="NO" id="T0J-La-bli">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_down_inactivate" translatesAutoresizingMaskIntoConstraints="NO" id="T0J-La-bli">
                                                                     <rect key="frame" x="234.66666666666669" y="12" width="14.666666666666657" height="11.666666666666664"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="T0J-La-bli" secondAttribute="height" multiplier="14:11" id="bYy-pV-ruR"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeZ-pW-bLa">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeZ-pW-bLa">
                                                                     <rect key="frame" x="0.0" y="0.0" width="261" height="36"/>
                                                                     <connections>
                                                                         <action selector="cycleSelectionButtonTouchUpInsideAction:" destination="GDR-ZQ-3mU" eventType="touchUpInside" id="kNg-IU-HdQ"/>
@@ -833,7 +823,7 @@
                                                                 <constraint firstItem="QeZ-pW-bLa" firstAttribute="leading" secondItem="Qy1-Qp-hkZ" secondAttribute="leading" id="ykT-PF-5oc"/>
                                                             </constraints>
                                                         </view>
-                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRf-T7-kD2">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRf-T7-kD2">
                                                             <rect key="frame" x="199" y="428" width="88" height="44"/>
                                                             <color key="backgroundColor" name="vodaMainBlue"/>
                                                             <constraints>
@@ -846,10 +836,10 @@
                                                                 <action selector="nextButtonTouchUpInsideAction:" destination="GDR-ZQ-3mU" eventType="touchUpInside" id="yoN-0B-lcS"/>
                                                             </connections>
                                                         </button>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="close1" translatesAutoresizingMaskIntoConstraints="NO" id="EON-Ma-ozz">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close1" translatesAutoresizingMaskIntoConstraints="NO" id="EON-Ma-ozz">
                                                             <rect key="frame" x="263" y="16" width="32" height="32"/>
                                                         </imageView>
-                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJD-3H-2PV">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJD-3H-2PV">
                                                             <rect key="frame" x="263" y="16" width="32" height="32"/>
                                                             <connections>
                                                                 <action selector="closeButtonTouchUpInsideAction:" destination="Wwu-74-7fK" eventType="touchUpInside" id="ZUH-ar-pcA"/>
@@ -928,7 +918,7 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="Wwu-74-7fK" id="84T-RG-WhT"/>
-                                    <outlet property="delegate" destination="Wwu-74-7fK" id="ti2-mX-C88"/>
+                                    <outlet property="delegate" destination="Wwu-74-7fK" id="ha2-0N-BmV"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -985,17 +975,11 @@
         <namedColor name="Gray2">
             <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Gray3">
-            <color red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="Gray4">
             <color red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Gray5">
             <color red="0.74117647058823533" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Gray6">
-            <color red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="vodaMainBlue">
             <color red="0.25098039215686274" green="0.50588235294117645" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
