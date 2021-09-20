@@ -54,15 +54,13 @@ extension DiaryViewController: UICollectionViewDataSource {
             return CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenHeight / 2.9)
     }
         
-        func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-            switch kind {
-            case UICollectionView.elementKindSectionHeader:
-                let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: diaryCollectionViewHeaderIdentifier, for: indexPath)
-
-                return headerView
-            default:
-                assert(false, "default")
-            }
-            return UICollectionReusableView()
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: diaryCollectionViewHeaderIdentifier, for: indexPath)
+            return headerView
+        default: assert(false, "default")
         }
+        return UICollectionReusableView()
+    }
 }

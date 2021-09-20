@@ -56,8 +56,9 @@ extension DiaryCollectionReusableView: UICollectionViewDataSource {
         if let participantCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: participantCollectionViewCellIdentifier, for: indexPath) as? StoryParticipantsCollectionViewCell {
             participantCollectionViewCell.profileImageView.image = UIImage(named: dummyProfileImageList[indexPath.row % dummyProfileImageList.count])
             
-            if indexPath.row == 0 { participantCollectionViewCell.contentView.backgroundColor = UIColor.CustomColor.vodaMainBlue }
-            else { participantCollectionViewCell.contentView.backgroundColor = UIColor.clear }
+            if indexPath.row == 0 {
+                participantCollectionViewCell.contentView.backgroundColor = UIColor.CustomColor.vodaMainBlue
+            } else { participantCollectionViewCell.contentView.backgroundColor = UIColor.clear }
         
             return participantCollectionViewCell
         }
@@ -73,7 +74,7 @@ extension DiaryCollectionReusableView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return DeviceInfo.screenWidth / 37.5
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width / 6.69
         let height = width
