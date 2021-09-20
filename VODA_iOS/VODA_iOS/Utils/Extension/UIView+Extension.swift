@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView {
     func makeCircleView() {
-        self.layer.cornerRadius = self.frame.height / 2
+        self.layer.cornerRadius = self.frame.size.height / 2
         self.layer.masksToBounds = true
     }
     

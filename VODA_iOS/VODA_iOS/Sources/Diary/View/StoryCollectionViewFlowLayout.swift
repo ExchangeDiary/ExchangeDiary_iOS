@@ -31,7 +31,7 @@ class StoryCollectionViewFlowLayout: UICollectionViewFlowLayout {
             if index > 1 {let upperImage = attributesList[index - 2]
                 frameY = upperImage.frame.origin.y + upperImage.frame.size.height + verticalSpace
             } else {
-                frameY = DeviceInfo.screenHeight / 3
+                frameY = DeviceInfo.screenHeight / 2.6
             }
             
             let frame = CGRect(x: isOdd ? horizontalInset : DeviceInfo.screenWidth - width - horizontalInset, y: frameY, width: width, height: height)
@@ -44,7 +44,7 @@ class StoryCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
     private func setInsetForSection() {
         if let collectionView = self.collectionView {
-            let inset = DeviceInfo.screenHeight / 10
+            let inset =  DeviceInfo.screenHeight / 5.2 + (DeviceInfo.screenHeight / 33.8 * 2)
             collectionView.contentInset = .init(top: 0, left: 0, bottom: inset, right: 0)
         }
     }
@@ -56,7 +56,7 @@ class StoryCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
         let headerAtrributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, with: IndexPath(item: 0, section: 0))
         if let collectionView = self.collectionView {
-            headerAtrributes.frame = CGRect(x: 0, y: 0, width: collectionView.bounds.size.width, height: DeviceInfo.screenHeight / 3)
+            headerAtrributes.frame = CGRect(x: 0, y: 0, width: collectionView.bounds.size.width, height: DeviceInfo.screenHeight / 2.8)
         }
         
         layoutAttributes.append(headerAtrributes)
@@ -64,7 +64,6 @@ class StoryCollectionViewFlowLayout: UICollectionViewFlowLayout {
         for attributes in layoutCache {
             if attributes.frame.intersects(rect) { layoutAttributes.append(attributes) }
         }
-        
         return layoutAttributes
     }
 }

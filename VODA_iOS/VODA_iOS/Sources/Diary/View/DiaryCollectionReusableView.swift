@@ -33,7 +33,11 @@ class DiaryCollectionReusableView: UICollectionReusableView {
        
     override func layoutSubviews() {
         super.layoutSubviews()
-           
+        
+        if let parentView = self.superview {
+            self.participantsCollectionView.frame.size.height = parentView.frame.size.height / 6.69
+        }
+    
         self.diaryTagView.makeCircleView()
         self.diaryTurnView.makeCircleView()
         self.diaryTurnDescriptionView.makeCircleView()
