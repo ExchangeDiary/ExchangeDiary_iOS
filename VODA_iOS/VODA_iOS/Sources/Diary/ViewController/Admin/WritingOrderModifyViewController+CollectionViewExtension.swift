@@ -23,14 +23,9 @@ extension WritingOrderModifyViewController: UICollectionViewDataSource {
 }
 
 extension WritingOrderModifyViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, canHandle session: UIDropSession) -> Bool {
-        return true
-    }
-    
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let item = participants.remove(at: sourceIndexPath.item)
         participants.insert(item, at: destinationIndexPath.item)
-        print(participants)
     }
 }
 
@@ -46,37 +41,40 @@ extension WritingOrderModifyViewController: UICollectionViewDragDelegate {
 }
 
 extension WritingOrderModifyViewController: UICollectionViewDropDelegate {
+    func collectionView(_ collectionView: UICollectionView, canHandle session: UIDropSession) -> Bool {
+        return true
+    }
+    
     func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
         if collectionView.hasActiveDrag {
             return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
         }
+
         return UICollectionViewDropProposal(operation: .forbidden)
     }
     
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
         guard let destinationIndexPath = coordinator.destinationIndexPath else { return }
         
-        if coordinator.proposal.operation == .move {
-            self.reorderItems(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView)
+        coordinator.items.forEach { dropItem in
+            guard let sourceIndexPath = dropItem.sourceIndexPath else { return }
+            self.reorderItems(coordinator: coordinator, sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath, dropItem: dropItem, collectionView: collectionView)
         }
     }
     
-    fileprivate func reorderItems(coordinator: UICollectionViewDropCoordinator, destinationIndexPath: IndexPath, collectionView: UICollectionView) {
-        if let item = coordinator.items.first,
-           let sourceIndexPath = item.sourceIndexPath {
-            collectionView.performBatchUpdates({
-                participants.remove(at: sourceIndexPath.item)
+    fileprivate func reorderItems(coordinator: UICollectionViewDropCoordinator, sourceIndexPath: IndexPath, destinationIndexPath: IndexPath, dropItem: UICollectionViewDropItem, collectionView: UICollectionView) {
+        collectionView.performBatchUpdates({
+            participants.remove(at: sourceIndexPath.item)
                 
-                if let itemLocalObject = item.dragItem.localObject as? String {
-                    participants.insert(itemLocalObject, at: destinationIndexPath.item)
-                }
+            if let itemLocalObject = dropItem.dragItem.localObject as? String {
+                participants.insert(itemLocalObject, at: destinationIndexPath.item)
+            }
                 
-                collectionView.deleteItems(at: [sourceIndexPath])
-                collectionView.insertItems(at: [destinationIndexPath])
-            }, completion: nil)
-            coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
-
-        }
+            collectionView.deleteItems(at: [sourceIndexPath])
+            collectionView.insertItems(at: [destinationIndexPath])
+        }, completion: { _ in
+            coordinator.drop(dropItem.dragItem, toItemAt: destinationIndexPath)
+        })
     }
 }
 
@@ -85,7 +83,7 @@ extension WritingOrderModifyViewController: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: DeviceInfo.screenHeight / 22.5, left: collectionView.frame.width / 23.4, bottom: DeviceInfo.screenHeight / 22.5, right: collectionView.frame.width / 23.4)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
@@ -96,4 +94,3 @@ extension WritingOrderModifyViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: width, height: height)
     }
 }
-

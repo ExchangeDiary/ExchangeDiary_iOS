@@ -16,7 +16,8 @@ class UpdateInvitationCodeViewController: UIViewController {
     @IBOutlet weak var completeButtonView: UIView!
     @IBOutlet weak var completeButton: UIButton!
     
-    var originConstant: CGFloat = 0
+    private var originConstant: CGFloat = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,14 +33,14 @@ class UpdateInvitationCodeViewController: UIViewController {
         setStyle()
     }
     
-    func setStyle() {
+    private func setStyle() {
         self.popUpView.makeCornerRadius(radius: 16)
         self.codeInputView.makeCornerRadius(radius: 8)
         self.hintInputView.makeCornerRadius(radius: 8)
         self.completeButtonView.makeCornerRadius(radius: 8)
     }
     
-    @objc func keyboardWillAppear(notification: NSNotification) {
+    @objc private func keyboardWillAppear(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
         guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         
@@ -52,7 +53,7 @@ class UpdateInvitationCodeViewController: UIViewController {
         }
     }
     
-    @objc func keyboardWillDisappear(notification: NSNotification) {
+    @objc private func keyboardWillDisappear(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
         guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         

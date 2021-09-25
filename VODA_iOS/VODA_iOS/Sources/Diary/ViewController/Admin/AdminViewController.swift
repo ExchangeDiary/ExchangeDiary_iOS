@@ -9,12 +9,14 @@ import UIKit
 
 class AdminViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var writePeriodLabel: UILabel!
+    
     private let writePeriodPopUpViewcontrollerIdentifier = "WritePeriodPopUpViewController"
     private let updateInvitationCodeViewControllerIdentifier = "UpdateInvitationCodeViewController"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillLayoutSubviews() {
@@ -23,7 +25,7 @@ class AdminViewController: UIViewController {
         setStyle()
     }
     
-    func setStyle() {
+    private func setStyle() {
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
         self.setBackButton(color: .black)
         self.setNavigationBarColor(color: UIColor.clear)
@@ -41,9 +43,16 @@ class AdminViewController: UIViewController {
     }
     
     @IBAction func writingPreiodTouchUpInsideAction(_ sender: Any) {
-        let dvc = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: writePeriodPopUpViewcontrollerIdentifier)
-        dvc.modalPresentationStyle = .overCurrentContext
-        dvc.modalTransitionStyle = .crossDissolve
-        self.present(dvc, animated: true, completion: nil)
+        let dvc = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: writePeriodPopUpViewcontrollerIdentifier) as? WritePeriodPopUpViewController
+        dvc?.modalPresentationStyle = .overCurrentContext
+        dvc?.modalTransitionStyle = .crossDissolve
+        dvc?.writePeriodDelegate = self
+        self.present(dvc ?? UIViewController(), animated: true, completion: nil)
+    }
+}
+
+extension AdminViewController: WritePeriodPopUpDelegate {
+    func changeWritePeriod(_ period: String) {
+        self.writePeriodLabel.text = period
     }
 }

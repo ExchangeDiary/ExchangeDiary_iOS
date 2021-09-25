@@ -645,6 +645,7 @@
                     <navigationItem key="navigationItem" title="방장 설정화면" id="gvp-sa-ad9"/>
                     <connections>
                         <outlet property="headerView" destination="lRd-A7-c6R" id="feq-9D-T7E"/>
+                        <outlet property="writePeriodLabel" destination="ldM-2y-D5A" id="YIK-Mw-P8l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXZ-5W-gfJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -668,12 +669,22 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqS-YI-Far">
+                                        <rect key="frame" x="0.0" y="0.0" width="257" height="50"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="vodaMainBlue"/>
                                 <constraints>
                                     <constraint firstItem="Qet-ff-put" firstAttribute="centerY" secondItem="dwD-ET-eO1" secondAttribute="centerY" id="F3I-Bt-LSf"/>
                                     <constraint firstAttribute="width" secondItem="dwD-ET-eO1" secondAttribute="height" multiplier="257:50" id="MID-Ke-kHM"/>
+                                    <constraint firstItem="qqS-YI-Far" firstAttribute="top" secondItem="dwD-ET-eO1" secondAttribute="top" id="MPF-NJ-U3h"/>
+                                    <constraint firstAttribute="bottom" secondItem="qqS-YI-Far" secondAttribute="bottom" id="NqV-TO-GAy"/>
                                     <constraint firstItem="Qet-ff-put" firstAttribute="centerX" secondItem="dwD-ET-eO1" secondAttribute="centerX" id="hoa-SZ-9ig"/>
+                                    <constraint firstItem="qqS-YI-Far" firstAttribute="leading" secondItem="dwD-ET-eO1" secondAttribute="leading" id="jwU-fR-8IB"/>
+                                    <constraint firstAttribute="trailing" secondItem="qqS-YI-Far" secondAttribute="trailing" id="q2W-wy-0n3"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Y4v-gi-eJH">
@@ -768,8 +779,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="작성순서 변경" id="HjO-Ck-Wlx"/>
                     <connections>
-                        <outlet property="completButtonView" destination="dwD-ET-eO1" id="ntG-Wh-fKv"/>
-                        <outlet property="wrtingOrderCollectionView" destination="Y4v-gi-eJH" id="qjS-BQ-Udv"/>
+                        <outlet property="completeButtonView" destination="dwD-ET-eO1" id="ywc-9L-We5"/>
+                        <outlet property="writingOrderCollectionView" destination="Y4v-gi-eJH" id="hzT-Ni-4Wb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ftj-wt-qbN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -904,6 +915,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cd-ke-V0A">
                                                 <rect key="frame" x="0.0" y="0.0" width="88" height="44"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
                                             </button>
@@ -1017,7 +1029,7 @@
         <image name="arrowBackward1" width="32" height="32"/>
         <image name="arrowForward1" width="32" height="32"/>
         <image name="close1" width="32" height="32"/>
-        <image name="diary_cat" width="136" height="136"/>
+        <image name="diary_cat" width="104" height="120"/>
         <image name="diary_reading_cat" width="104" height="120"/>
         <image name="dummy_profile1" width="106.66666412353516" height="106.33333587646484"/>
         <image name="home_writing_cat" width="104" height="120"/>

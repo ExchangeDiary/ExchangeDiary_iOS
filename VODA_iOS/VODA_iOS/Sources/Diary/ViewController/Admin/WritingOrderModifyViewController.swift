@@ -8,13 +8,15 @@
 import UIKit
 
 class WritingOrderModifyViewController: UIViewController {
-    @IBOutlet weak var completButtonView: UIView!
-    @IBOutlet weak var wrtingOrderCollectionView: UICollectionView!
+    @IBOutlet weak var completeButtonView: UIView!
+    @IBOutlet weak var writingOrderCollectionView: UICollectionView!
     let writingOrderModifyCellIdentifier = "WritingOrderModifyCell"
     var participants = ["조윤영1", "조윤영2", "조윤영3", "조윤영4", "조윤영5", "조윤영6", "조윤영7", "조윤영8"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.writingOrderCollectionView.dragInteractionEnabled = true
     }
     
     override func viewWillLayoutSubviews() {
@@ -28,6 +30,6 @@ class WritingOrderModifyViewController: UIViewController {
         self.setNavigationBarColor(color: UIColor.clear)
         self.setBackButton(color: .black)
         
-        self.completButtonView.makeCornerRadius(radius: 16)
+        self.completeButtonView.makeCornerRadius(radius: 16)
     }
 }

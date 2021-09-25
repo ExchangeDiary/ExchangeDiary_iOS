@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol WritePeriodPopUpDelegate: AnyObject {
+  func changeWritePeriod(_ period: String)
+}
+
 class WritePeriodPopUpViewController: UIViewController {
     @IBOutlet weak var writePeriodPickerView: UIPickerView!
     private let periodList = ["1일", "2일", "3일", "4일", "5일", "6일", "7일"]
     private var selectedRow = 0
+    weak var writePeriodDelegate: WritePeriodPopUpDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +33,7 @@ class WritePeriodPopUpViewController: UIViewController {
     }
     
     @IBAction func selectWritePeriod(_ sender: Any) {
-        //TODO: 선택된 작성 주기 전달하기
-        //        periodList[selectedRow]
+        writePeriodDelegate?.changeWritePeriod(periodList[selectedRow])
         self.dismiss(animated: false, completion: nil)
     }
     

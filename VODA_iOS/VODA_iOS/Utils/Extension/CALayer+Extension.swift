@@ -22,7 +22,6 @@ extension CALayer {
             default: break
             }
             
-            print("addCALayer")
             border.backgroundColor = color.cgColor
             self.addSublayer(border)
         }
