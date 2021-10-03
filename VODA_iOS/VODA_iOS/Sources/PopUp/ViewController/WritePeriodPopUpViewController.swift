@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol WritePeriodPopUpDelegate: AnyObject {
+  func changeWritePeriod(_ period: String)
+}
+
 class WritePeriodPopUpViewController: UIViewController {
     @IBOutlet weak var writePeriodPickerView: UIPickerView!
     private let periodList = ["1일", "2일", "3일", "4일", "5일", "6일", "7일"]
     private var selectedRow = 0
+    weak var writePeriodDelegate: WritePeriodPopUpDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +28,12 @@ class WritePeriodPopUpViewController: UIViewController {
         writePeriodPickerView.subviews[1].isHidden = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+    }
+    
     @IBAction func selectWritePeriod(_ sender: Any) {
-        //TODO: 선택된 작성 주기 전달하기
-        //        periodList[selectedRow]
+        writePeriodDelegate?.changeWritePeriod(periodList[selectedRow])
         self.dismiss(animated: false, completion: nil)
     }
     
@@ -53,8 +61,13 @@ extension WritePeriodPopUpViewController: UIPickerViewDelegate {
         let label = UILabel()
         label.textAlignment = .center
         
-        label.layer.borderColor = UIColor.CustomColor.vodaGray3.cgColor
-        label.layer.borderWidth = 1
+        label.layer.addBorder([.bottom], color: UIColor.CustomColor.vodaGray3, width: 1)
+        label.layoutIfNeeded()
+        label.setNeedsLayout()
+
+        let lineView = UIView(frame: CGRect(x: 0, y: label.frame.height - 3, width: label.frame.width, height: 3.0))
+        lineView.backgroundColor = UIColor.black
+        label.addSubview(lineView)
         
         //TODO: 추후 font명 따라 변경해야 함
         label.font = UIFont(name: "SFProDisplay-Semibold", size: 20)

@@ -28,11 +28,10 @@ class StoryCollectionViewFlowLayout: UICollectionViewFlowLayout {
             let attributes = UICollectionViewLayoutAttributes(forCellWith: IndexPath(item: index, section: 0))
             
             var frameY: CGFloat = 0
-            if index > 1 {let upperImage = attributesList[index - 2]
+            if index > 1 {
+                let upperImage = attributesList[index - 2]
                 frameY = upperImage.frame.origin.y + upperImage.frame.size.height + verticalSpace
-            } else {
-                frameY = DeviceInfo.screenHeight / 2.6
-            }
+            } else { frameY = DeviceInfo.screenHeight / 2.6 }
             
             let frame = CGRect(x: isOdd ? horizontalInset : DeviceInfo.screenWidth - width - horizontalInset, y: frameY, width: width, height: height)
             attributes.frame = frame
