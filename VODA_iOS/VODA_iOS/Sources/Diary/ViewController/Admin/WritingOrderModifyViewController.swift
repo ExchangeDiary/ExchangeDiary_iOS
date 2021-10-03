@@ -25,7 +25,7 @@ class WritingOrderModifyViewController: UIViewController {
         setStyle()
     }
     
-    func setStyle() {
+    private func setStyle() {
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
         self.setNavigationBarColor(color: UIColor.clear)
         self.setBackButton(color: .black)

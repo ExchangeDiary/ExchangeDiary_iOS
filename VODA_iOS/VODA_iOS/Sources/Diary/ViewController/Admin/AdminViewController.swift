@@ -16,7 +16,6 @@ class AdminViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func viewWillLayoutSubviews() {
@@ -35,19 +34,19 @@ class AdminViewController: UIViewController {
     }
     
     @IBAction func modifyCodeTouchUpInsideAction(_ sender: Any) {
-        let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: updateInvitationCodeViewControllerIdentifier)
-        dvc.modalPresentationStyle = .overCurrentContext
-        dvc.modalTransitionStyle = .crossDissolve
-        self.present(dvc, animated: true, completion: nil)
+        let updateInvitationCodeViewController = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: updateInvitationCodeViewControllerIdentifier)
+        updateInvitationCodeViewController.modalPresentationStyle = .overCurrentContext
+        updateInvitationCodeViewController.modalTransitionStyle = .crossDissolve
+        self.present(updateInvitationCodeViewController, animated: true, completion: nil)
 
     }
     
     @IBAction func writingPreiodTouchUpInsideAction(_ sender: Any) {
-        let dvc = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: writePeriodPopUpViewcontrollerIdentifier) as? WritePeriodPopUpViewController
-        dvc?.modalPresentationStyle = .overCurrentContext
-        dvc?.modalTransitionStyle = .crossDissolve
-        dvc?.writePeriodDelegate = self
-        self.present(dvc ?? UIViewController(), animated: true, completion: nil)
+        let writePeriodPopUpViewcontroller = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: writePeriodPopUpViewcontrollerIdentifier) as? WritePeriodPopUpViewController
+        writePeriodPopUpViewcontroller?.modalPresentationStyle = .overCurrentContext
+        writePeriodPopUpViewcontroller?.modalTransitionStyle = .crossDissolve
+        writePeriodPopUpViewcontroller?.writePeriodDelegate = self
+        self.present(writePeriodPopUpViewcontroller ?? UIViewController(), animated: true, completion: nil)
     }
 }
 

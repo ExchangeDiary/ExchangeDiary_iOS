@@ -62,7 +62,7 @@ extension WritingOrderModifyViewController: UICollectionViewDropDelegate {
         }
     }
     
-    fileprivate func reorderItems(coordinator: UICollectionViewDropCoordinator, sourceIndexPath: IndexPath, destinationIndexPath: IndexPath, dropItem: UICollectionViewDropItem, collectionView: UICollectionView) {
+    private func reorderItems(coordinator: UICollectionViewDropCoordinator, sourceIndexPath: IndexPath, destinationIndexPath: IndexPath, dropItem: UICollectionViewDropItem, collectionView: UICollectionView) {
         collectionView.performBatchUpdates({
             participants.remove(at: sourceIndexPath.item)
                 

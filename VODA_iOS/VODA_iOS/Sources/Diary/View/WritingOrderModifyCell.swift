@@ -9,4 +9,11 @@ import UIKit
 
 class WritingOrderModifyCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.profileImageView.makeCircleView()
+    }
 }
