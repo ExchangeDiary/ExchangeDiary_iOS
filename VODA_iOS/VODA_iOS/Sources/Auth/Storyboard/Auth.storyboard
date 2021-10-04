@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -233,7 +234,7 @@
         <!--User Profile View Controller-->
         <scene sceneID="h1m-UW-xAe">
             <objects>
-                <viewController storyboardIdentifier="UserProfileViewController" id="DF9-qg-JwB" customClass="UserProfileViewController" customModule="VODA_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DF9-qg-JwB" customClass="UserProfileViewController" customModule="VODA_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HIb-6o-Acc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -296,7 +297,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="mwN-v9-McB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -320,7 +321,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="completeButtonView" destination="UEc-b5-YT3" id="gw7-xB-E2X"/>
                         <outlet property="userNickNameTextField" destination="WWh-jb-9XH" id="CSH-Ow-ffj"/>
+                        <outlet property="userNickNameTextFieldView" destination="VQB-p0-dU6" id="cTw-KZ-hfc"/>
                         <outlet property="userProfileEditImageView" destination="8IO-0r-LkP" id="pXF-yd-bO7"/>
                         <outlet property="userProfileImageView" destination="iUP-zu-ib6" id="zel-2O-22b"/>
                     </connections>
