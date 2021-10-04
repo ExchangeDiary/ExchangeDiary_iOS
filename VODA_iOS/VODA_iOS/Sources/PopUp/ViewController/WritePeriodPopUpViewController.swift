@@ -69,7 +69,7 @@ extension WritePeriodPopUpViewController: UIPickerViewDelegate {
         lineView.backgroundColor = UIColor.black
         label.addSubview(lineView)
         
-        //TODO: 추후 font명 따라 변경해야 함
+        // TODO: 추후 font명 따라 변경해야 함
         label.font = UIFont(name: "SFProDisplay-Semibold", size: 20)
         label.text = periodList[row]
         
