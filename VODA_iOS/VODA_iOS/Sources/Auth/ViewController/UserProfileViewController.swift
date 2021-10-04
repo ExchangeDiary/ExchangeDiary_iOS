@@ -10,18 +10,28 @@ import UIKit
 class UserProfileViewController: UIViewController {
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var userProfileEditImageView: UIImageView!
+    @IBOutlet weak var userNickNameTextFieldView: UIView!
     @IBOutlet weak var userNickNameTextField: UITextField!
+    @IBOutlet weak var completeButtonView: UIView!
     var pageCase: String?
     var completionHandler: ((UserProfileData) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addTapGesture()
-        userProfileImageView.makeCircleView()
         self.setBackButton(color: .black)
-        
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.userProfileImageView.makeCircleView()
+        self.userNickNameTextFieldView.makeCornerRadius(radius: 8)
+        self.completeButtonView.makeCornerRadius(radius: 16)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     private func addTapGesture() {
@@ -36,12 +46,17 @@ class UserProfileViewController: UIViewController {
     }
     
     @IBAction func completeUserInfoSetting(_ sender: UIButton) {
-        //TODO: 이미지, 닉네임 nil체크 버튼 비활성화 추가
         if pageCase == "myPage" {
             if let profileUserImage = userProfileImageView.image {
-                completionHandler?(UserProfileData(userNickName: "\(userNickNameTextField.text)님", userProfileImage: profileUserImage, userProfileImageUrl: nil, userEmail: nil))
+                completionHandler?(UserProfileData(userNickName: "\(String(describing: userNickNameTextField.text))님", userProfileImage: profileUserImage, userProfileImageUrl: nil, userEmail: nil))
+                navigationController?.popViewController(animated: false)
+            }
+        } else if pageCase == "Auth" {
+            if let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController {
+                mainViewController.modalPresentationStyle = .fullScreen
+                mainViewController.modalTransitionStyle = .crossDissolve
+                self.present(mainViewController, animated: true)
             }
         }
-        navigationController?.popViewController(animated: false)
     }
 }
