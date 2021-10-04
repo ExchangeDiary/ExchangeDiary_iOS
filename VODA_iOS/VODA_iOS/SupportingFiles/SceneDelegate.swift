@@ -17,14 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-//        if let onBoardingViewController = UIStoryboard(name: "OnBoarding", bundle: nil).instantiateViewController(withIdentifier: "OnBoardingViewController") as? OnBoardingViewController {
-//            window?.rootViewController = onBoardingViewController
-//            window?.makeKeyAndVisible()
-//        }
-        
-        //임시
-        if let userProfileViewController = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as? UserProfileViewController {
-            window?.rootViewController = userProfileViewController
+        if let onBoardingViewController = UIStoryboard(name: "OnBoarding", bundle: nil).instantiateViewController(withIdentifier: "OnBoardingViewController") as? OnBoardingViewController {
+            window?.rootViewController = onBoardingViewController
             window?.makeKeyAndVisible()
         }
     }
