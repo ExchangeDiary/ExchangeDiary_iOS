@@ -321,6 +321,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="completeButton" destination="Snh-Ct-Zbu" id="zO8-fx-nLy"/>
                         <outlet property="completeButtonView" destination="UEc-b5-YT3" id="gw7-xB-E2X"/>
                         <outlet property="userNickNameTextField" destination="WWh-jb-9XH" id="CSH-Ow-ffj"/>
                         <outlet property="userNickNameTextFieldView" destination="VQB-p0-dU6" id="cTw-KZ-hfc"/>

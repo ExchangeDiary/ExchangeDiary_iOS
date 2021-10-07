@@ -13,6 +13,8 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var userNickNameTextFieldView: UIView!
     @IBOutlet weak var userNickNameTextField: UITextField!
     @IBOutlet weak var completeButtonView: UIView!
+    @IBOutlet weak var completeButton: UIButton!
+    
     var pageCase: String?
     var completionHandler: ((UserProfileData) -> Void)?
     
@@ -23,6 +25,8 @@ class UserProfileViewController: UIViewController {
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
         
         addTapGesture()
+        self.userNickNameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: .editingChanged)
+        makeCompleteButtonDisabled()
     }
     
     override func viewWillLayoutSubviews() {
@@ -34,6 +38,16 @@ class UserProfileViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    @objc func textFieldDidChange(_ sender: UITextField) {
+        if let userNickNameLength = self.userNickNameTextField.text?.count {
+            if userNickNameLength > 0 {
+                makeCompleteButtonEnabled()
+            } else {
+                makeCompleteButtonDisabled()
+            }
+        }
     }
     
     private func addTapGesture() {
@@ -60,5 +74,15 @@ class UserProfileViewController: UIViewController {
                 self.present(mainViewController, animated: true)
             }
         }
+    }
+    
+    private func makeCompleteButtonDisabled() {
+        self.completeButtonView.backgroundColor = #colorLiteral(red: 0.8784313725, green: 0.8784313725, blue: 0.8784313725, alpha: 1)
+        self.completeButton.isEnabled = false
+    }
+    
+    private func makeCompleteButtonEnabled() {
+        self.completeButtonView.backgroundColor = UIColor.CustomColor.vodaMainBlue
+        self.completeButton.isEnabled = true
     }
 }
