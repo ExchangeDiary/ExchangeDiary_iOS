@@ -18,6 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         KakaoSDKCommon.initSDK(appKey: SocialLoginType.kakao.appKey)
         registerForRemoteNotifications()
         
+        
+        if #available(iOS 13, *) {
+            print("set in SceneDelegate")
+        } else {
+            let window = UIWindow(frame: UIScreen.main.bounds)
+            if let onBoardingViewController = UIStoryboard(name: "OnBoarding", bundle: nil).instantiateViewController(withIdentifier: "OnBoardingViewController") as? OnBoardingViewController {
+                window.rootViewController = onBoardingViewController
+                self.window = window
+                window.makeKeyAndVisible()
+            }
+        }
+
         return true
     }
     
