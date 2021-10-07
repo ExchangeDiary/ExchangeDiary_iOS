@@ -324,7 +324,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="onBoardingpageControl" destination="S18-hj-TFX" id="bAq-On-BBb"/>
+                        <outlet property="onBoardingPageControl" destination="S18-hj-TFX" id="Muw-KN-vNB"/>
                         <outlet property="onboardingCollectionView" destination="UvM-eK-3m7" id="UAb-Bv-DLU"/>
                     </connections>
                 </viewController>

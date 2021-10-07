@@ -10,7 +10,7 @@ import UIKit
 class OnBoardingViewController: UIViewController {
 
     @IBOutlet weak var onboardingCollectionView: UICollectionView!
-    @IBOutlet weak var onBoardingpageControl: UIPageControl!
+    @IBOutlet weak var onBoardingPageControl: UIPageControl!
     
     let onBoardingCell1Identifier = "onBoardingCell1Identifier"
     let onBoardingCell2Identifier = "onBoardingCell2Identifier"
@@ -23,12 +23,8 @@ class OnBoardingViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        self.onBoardingpageControl.backgroundStyle = .minimal
-        self.onBoardingpageControl.allowsContinuousInteraction = false
-    }
-    
-    private func visibleCellIndexPath() -> IndexPath {
-        return self.onboardingCollectionView.indexPathsForVisibleItems[0]
+        self.onBoardingPageControl.backgroundStyle = .minimal
+        self.onBoardingPageControl.allowsContinuousInteraction = false
     }
     
     @IBAction func skipTouchUpInsideAction(_ sender: Any) {

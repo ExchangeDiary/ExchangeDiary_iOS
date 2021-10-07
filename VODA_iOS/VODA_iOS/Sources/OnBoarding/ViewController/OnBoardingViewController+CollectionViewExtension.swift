@@ -35,7 +35,7 @@ extension OnBoardingViewController: UICollectionViewDataSource {
 extension OnBoardingViewController: UICollectionViewDelegate {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let page = Int(targetContentOffset.pointee.x / self.onboardingCollectionView.frame.width)
-        self.onBoardingpageControl.currentPage = page
+        self.onBoardingPageControl.currentPage = page
       }
 }
 
