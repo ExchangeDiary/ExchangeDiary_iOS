@@ -21,6 +21,8 @@ class UserProfileViewController: UIViewController {
         
         self.setBackButton(color: .black)
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
+        
+        addTapGesture()
     }
     
     override func viewWillLayoutSubviews() {
@@ -47,8 +49,8 @@ class UserProfileViewController: UIViewController {
     
     @IBAction func completeUserInfoSetting(_ sender: UIButton) {
         if pageCase == "myPage" {
-            if let profileUserImage = userProfileImageView.image {
-                completionHandler?(UserProfileData(userNickName: "\(String(describing: userNickNameTextField.text))님", userProfileImage: profileUserImage, userProfileImageUrl: nil, userEmail: nil))
+            if let profileUserImage = userProfileImageView.image, let userNickName = userNickNameTextField.text {
+                completionHandler?(UserProfileData(userNickName: "\(userNickName)님", userProfileImage: profileUserImage, userProfileImageUrl: nil, userEmail: nil))
                 navigationController?.popViewController(animated: false)
             }
         } else if pageCase == "Auth" {
