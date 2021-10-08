@@ -36,6 +36,12 @@ class UserProfileViewController: UIViewController {
         makeCompleteButtonDisabled()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        checkUserNickNameLength(userNickNameTextField)
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         self.userProfileImageView.makeCircleView()
