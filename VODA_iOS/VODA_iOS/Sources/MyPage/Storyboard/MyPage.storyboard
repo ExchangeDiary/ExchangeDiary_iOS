@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Sm-cY-KSz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Sm-cY-KSz">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -27,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="32" width="375" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTR-eh-DV0">
-                                        <rect key="frame" x="23.333333333333332" y="21" width="45.666666666666671" height="35"/>
+                                        <rect key="frame" x="23.333333333333332" y="26" width="44.333333333333343" height="30"/>
                                         <fontDescription key="fontDescription" name="Volte-Bold" family="Volte" pointSize="30"/>
                                         <color key="textColor" name="vodaMainBlue"/>
                                         <nil key="highlightedColor"/>
@@ -54,9 +55,9 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고영희님" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6S-Qd-ZHk">
-                                <rect key="frame" x="145.66666666666666" y="180.66666666666666" width="84" height="29"/>
+                                <rect key="frame" x="145.66666666666666" y="180.66666666666666" width="84" height="26.666666666666657"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="F6S-Qd-ZHk" secondAttribute="height" multiplier="84:29" id="yQ2-dU-BiH"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="84" id="9O9-JI-8Ta"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="22"/>
                                 <nil key="textColor"/>
@@ -296,7 +297,6 @@
                             <constraint firstItem="sxP-DR-bv6" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" id="2ki-j8-Ook"/>
                             <constraint firstItem="EA1-C4-zmI" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="550/812" id="70E-Me-jMn"/>
                             <constraint firstItem="nL5-pd-euh" firstAttribute="trailing" secondItem="NFV-ea-rOo" secondAttribute="trailing" id="9X9-jq-j2l"/>
-                            <constraint firstItem="F6S-Qd-ZHk" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="84/375" id="9u9-NE-fNJ"/>
                             <constraint firstItem="sxP-DR-bv6" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="B3L-M1-y60"/>
                             <constraint firstItem="nL5-pd-euh" firstAttribute="bottom" secondItem="NFV-ea-rOo" secondAttribute="bottom" id="KxY-Lt-5AI"/>
                             <constraint firstItem="EA1-C4-zmI" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" id="Lwb-a7-VbI"/>
