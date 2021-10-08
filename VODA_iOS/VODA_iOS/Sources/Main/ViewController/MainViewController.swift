@@ -21,6 +21,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabBarUI()
+
+        setRootViewController(rootViewController: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

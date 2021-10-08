@@ -10,18 +10,44 @@ import UIKit
 class UserProfileViewController: UIViewController {
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var userProfileEditImageView: UIImageView!
+    @IBOutlet weak var userNickNameTextFieldView: UIView!
     @IBOutlet weak var userNickNameTextField: UITextField!
+    @IBOutlet weak var completeButtonView: UIView!
+    @IBOutlet weak var completeButton: UIButton!
+    
     var pageCase: String?
     var completionHandler: ((UserProfileData) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addTapGesture()
-        userProfileImageView.makeCircleView()
         self.setBackButton(color: .black)
-        
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
+        
+        addTapGesture()
+        self.userNickNameTextField.addTarget(self, action: #selector(self.checkUserNickNameLength), for: .editingChanged)
+        makeCompleteButtonDisabled()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.userProfileImageView.makeCircleView()
+        self.userNickNameTextFieldView.makeCornerRadius(radius: 8)
+        self.completeButtonView.makeCornerRadius(radius: 16)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    @objc func checkUserNickNameLength(_ sender: UITextField) {
+        if let userNickNameLength = self.userNickNameTextField.text?.count {
+            if userNickNameLength > 0 {
+                makeCompleteButtonEnabled()
+            } else {
+                makeCompleteButtonDisabled()
+            }
+        }
     }
     
     private func addTapGesture() {
@@ -36,12 +62,27 @@ class UserProfileViewController: UIViewController {
     }
     
     @IBAction func completeUserInfoSetting(_ sender: UIButton) {
-        //TODO: 이미지, 닉네임 nil체크 버튼 비활성화 추가
         if pageCase == "myPage" {
-            if let profileUserImage = userProfileImageView.image {
-                completionHandler?(UserProfileData(userNickName: "\(userNickNameTextField.text)님", userProfileImage: profileUserImage, userProfileImageUrl: nil, userEmail: nil))
+            if let profileUserImage = userProfileImageView.image, let userNickName = userNickNameTextField.text {
+                completionHandler?(UserProfileData(userNickName: "\(userNickName)님", userProfileImage: profileUserImage, userProfileImageUrl: nil, userEmail: nil))
+                navigationController?.popViewController(animated: false)
+            }
+        } else if pageCase == "Auth" {
+            if let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController {
+                mainViewController.modalPresentationStyle = .fullScreen
+                mainViewController.modalTransitionStyle = .crossDissolve
+                self.present(mainViewController, animated: true)
             }
         }
-        navigationController?.popViewController(animated: false)
+    }
+    
+    private func makeCompleteButtonDisabled() {
+        self.completeButtonView.backgroundColor = #colorLiteral(red: 0.8784313725, green: 0.8784313725, blue: 0.8784313725, alpha: 1)
+        self.completeButton.isEnabled = false
+    }
+    
+    private func makeCompleteButtonEnabled() {
+        self.completeButtonView.backgroundColor = UIColor.CustomColor.vodaMainBlue
+        self.completeButton.isEnabled = true
     }
 }

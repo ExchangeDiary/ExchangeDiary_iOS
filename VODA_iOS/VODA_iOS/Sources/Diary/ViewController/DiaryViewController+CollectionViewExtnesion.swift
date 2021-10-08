@@ -31,12 +31,10 @@ extension DiaryViewController: UICollectionViewDataSource {
         if indexPath.row == 0 {
             if status == "writing" {
                 if let storyWritingTurnCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: writingTurnCollectionViewCellIdentifier, for: indexPath) as? StoryWritingTurnCollectionViewCell {
-                    storyWritingTurnCollectionViewCell.layoutIfNeeded()
                     return storyWritingTurnCollectionViewCell
                 }
             } else {
                 if let storyReadingTurnCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: readingTurnCollectionViewCellIdentifier, for: indexPath) as? StoryReadingTurnCollectionViewCell {
-                    storyReadingTurnCollectionViewCell.layoutIfNeeded()
                     return storyReadingTurnCollectionViewCell
                 }
             }
