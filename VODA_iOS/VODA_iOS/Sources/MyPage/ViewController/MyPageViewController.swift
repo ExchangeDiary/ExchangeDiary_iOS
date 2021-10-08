@@ -51,6 +51,9 @@ class MyPageViewController: UIViewController {
             self?.userNickNameLabel.text = data.userNickName
         }
         
+        userProfileViewController.userProfileImage = userProfileImageView.image
+        userProfileViewController.userNickName = "\(userNickNameLabel.text?.dropLast() ?? " ")"
+        
         self.navigationController?.pushViewController(userProfileViewController, animated: false)
     }
     
