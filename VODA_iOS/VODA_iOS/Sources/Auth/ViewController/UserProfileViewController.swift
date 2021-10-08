@@ -25,7 +25,7 @@ class UserProfileViewController: UIViewController {
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
         
         addTapGesture()
-        self.userNickNameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: .editingChanged)
+        self.userNickNameTextField.addTarget(self, action: #selector(self.checkUserNickNameLength), for: .editingChanged)
         makeCompleteButtonDisabled()
     }
     
@@ -40,7 +40,7 @@ class UserProfileViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    @objc func textFieldDidChange(_ sender: UITextField) {
+    @objc func checkUserNickNameLength(_ sender: UITextField) {
         if let userNickNameLength = self.userNickNameTextField.text?.count {
             if userNickNameLength > 0 {
                 makeCompleteButtonEnabled()
