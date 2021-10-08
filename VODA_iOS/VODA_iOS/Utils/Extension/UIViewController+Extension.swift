@@ -10,7 +10,7 @@ import UIKit
 extension UIViewController {
     var rootViewController: UIViewController? {
         if #available(iOS 13.0, *) {
-            if let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as? SceneDelegate {
+            if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
                 return sceneDelegate.window?.rootViewController
             }
         } else {
