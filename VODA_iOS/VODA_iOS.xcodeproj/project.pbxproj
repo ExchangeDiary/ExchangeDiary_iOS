@@ -60,6 +60,7 @@
 		9B03D57E26E7B356005BE354 /* NoticeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03D57D26E7B356005BE354 /* NoticeCollectionViewCell.swift */; };
 		9B03D58126E89BF2005BE354 /* PushCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03D58026E89BF2005BE354 /* PushCollectionViewCell.swift */; };
 		9B03D58326EF9883005BE354 /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03D58226EF9883005BE354 /* NoticeDetailViewController.swift */; };
+		9B2601482769F64100BCE87B /* StoryDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2601472769F64100BCE87B /* StoryDataResponse.swift */; };
 		9B26C20026D92BAA00ECECF8 /* AudioPitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C1FF26D92BAA00ECECF8 /* AudioPitch.swift */; };
 		9B26C20226DE2C5300ECECF8 /* PushSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C20126DE2C5200ECECF8 /* PushSettingViewController.swift */; };
 		9B26C20426DE707E00ECECF8 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26C20326DE707D00ECECF8 /* NoticeViewController.swift */; };
@@ -186,6 +187,7 @@
 		9B03D57D26E7B356005BE354 /* NoticeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCollectionViewCell.swift; sourceTree = "<group>"; };
 		9B03D58026E89BF2005BE354 /* PushCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushCollectionViewCell.swift; sourceTree = "<group>"; };
 		9B03D58226EF9883005BE354 /* NoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewController.swift; sourceTree = "<group>"; };
+		9B2601472769F64100BCE87B /* StoryDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDataResponse.swift; sourceTree = "<group>"; };
 		9B26C1FF26D92BAA00ECECF8 /* AudioPitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPitch.swift; sourceTree = "<group>"; };
 		9B26C20126DE2C5200ECECF8 /* PushSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushSettingViewController.swift; sourceTree = "<group>"; };
 		9B26C20326DE707D00ECECF8 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
@@ -823,6 +825,7 @@
 			isa = PBXGroup;
 			children = (
 				9BEB68C626D37CBE00A7F786 /* StoryData.swift */,
+				9B2601472769F64100BCE87B /* StoryDataResponse.swift */,
 				9B26C20D26E687EC00ECECF8 /* FileDownloader.swift */,
 			);
 			path = Model;
@@ -1056,6 +1059,7 @@
 				4C1E9D5C26F9B56B003C2F63 /* WritingOrderModifyViewController.swift in Sources */,
 				12BB18AE26D51CB100A9DF2A /* BackgroundImageCollectionViewCell.swift in Sources */,
 				9B6BD2E326C83A3E007619BE /* WritePeriodPopUpViewController.swift in Sources */,
+				9B2601482769F64100BCE87B /* StoryDataResponse.swift in Sources */,
 				9B6C8B4726AC829800D089D3 /* VodaAudioPlayer.swift in Sources */,
 				12C3938626D78D1C0056A616 /* NewDiaryPopUp+CollectionViewExtension.swift in Sources */,
 				9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */,
