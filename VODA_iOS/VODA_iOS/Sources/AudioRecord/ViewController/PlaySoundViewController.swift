@@ -35,6 +35,7 @@ class PlaySoundViewController: UIViewController {
     var recordedAudioUrl: URL?
     var playDuration: TimeInterval?
     var recordingTitle: String?
+    var recordedFileName: String?
     var completionHandler: ((AudioData) -> Void)?
     var pageCase: String?
     var audioData: AudioData?
@@ -304,9 +305,12 @@ class PlaySoundViewController: UIViewController {
             }
             print("AVAudioEngine offline rendering completed")
             print("passAudioUrl: \(url)")
+            guard let audioFileName = recordedFileName else {
+                return
+            }
             
             if let writeStoryViewController = navigationController?.viewControllers[2] {
-                completionHandler?(AudioData(audioTitle: audioTitleTextField.text ?? "", pitch: audioPlayer.pitch, audioUrl: url.absoluteString))
+                completionHandler?(AudioData(audioTitle: audioTitleTextField.text ?? "", audioFileName: audioFileName, pitch: audioPlayer.pitch, audioUrl: url.absoluteString))
                 self.navigationController?.popToViewController(writeStoryViewController, animated: false)
             }
         }

@@ -14,8 +14,10 @@ struct StoryData {
     let storyLocation: String
     let storyContentsText: String?
     let storyAudioTitle: String?
+    let storyAudioFileName: String?
     let storyAudioPitch: Float?
     let storyAudioUrl: String?
+    let storyAudioData: Data?
     let storyPhotoImage: UIImage?
     let storyPhotoUrl: String?
     let storyTemplete: Int?

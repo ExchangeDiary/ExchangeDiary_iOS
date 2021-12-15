@@ -10,7 +10,7 @@ import AVFoundation
 
 public protocol AudioRecordable: AnyObject {
     func audioRecorder(_ audioRecorder: VodaAudioRecorder, didChangedStatus status: AudioRecordStatus)
-    func audioRecorder(_ audioRecorder: VodaAudioRecorder, didFinishedWithUrl url: URL?)
+    func audioRecorder(_ audioRecorder: VodaAudioRecorder, didFinishedWithUrl url: URL?, didFinishedWithRecordingFileName recordingFileName: String)
     func audioRecorder(_ audioRecorder: VodaAudioRecorder, didUpdateCurrentTime currentTime: TimeInterval)
     func audioRecorder(_ audioRecorder: VodaAudioRecorder, didUpdateDecibel decibel: Float)
 }
@@ -19,6 +19,7 @@ public class VodaAudioRecorder: NSObject {
     private var audioRecorder: AVAudioRecorder?
     private var recordTimer: Timer?
     private let audioSession = AVAudioSession.sharedInstance()
+    private var recordingName = ""
    
     public static let shared = VodaAudioRecorder()
     public weak var delegate: AudioRecordable?
@@ -78,7 +79,7 @@ extension VodaAudioRecorder {
             return
         }
         print(directoryPath)
-        let recordingName = "\(UUID()).m4a"
+        recordingName = "\(UUID()).m4a"
         
         guard let filePath = URL(string: [directoryPath, recordingName].joined(separator: "/")) else {
             return
@@ -125,7 +126,7 @@ extension VodaAudioRecorder {
 extension VodaAudioRecorder: AVAudioRecorderDelegate {
     public func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
-            delegate?.audioRecorder(self, didFinishedWithUrl: audioRecorder?.url)
+            delegate?.audioRecorder(self, didFinishedWithUrl: audioRecorder?.url, didFinishedWithRecordingFileName: recordingName)
         } else {
             print("recording was not succesful")
         }
