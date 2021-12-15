@@ -31,7 +31,7 @@ enum VodaAPI {
 extension VodaAPI: TargetType {
     var baseURL: URL {
         switch self {
-        case .testGetStoryDetail(index: 1):
+        case .testGetStoryDetail:
             return URL(string: "https://raw.githubusercontent.com/ExchangeDiary/ExchangeDiary_iOS/3f287c57f5c42e89d6fad4aa7f7d4dd540e03dd8/VODA_iOS/VODA_iOS/Utils/Network/Mock/Mock.json")!
         default:
             return URL(string: "")!
@@ -52,7 +52,7 @@ extension VodaAPI: TargetType {
             return "/diary"
         case .getStory:
             return "/story"
-        case .getStoryDetail:
+        case .getStoryDetail(let index):
             return "/story/\(index)"
         case .setStoryWriteTurn:
             return "/story/WriteTurn"
@@ -86,7 +86,7 @@ extension VodaAPI: TargetType {
   
     var sampleData: Data {
         switch self {
-        case .testGetStoryDetail(let index):
+        case .testGetStoryDetail:
             return Data(
                 """
                 {
@@ -166,7 +166,7 @@ extension VodaAPI: TargetType {
     
     var headers: [String: String]? {
         switch self {
-        case .login, .testGetStoryDetail(index: 1):
+        case .login, .testGetStoryDetail:
             return nil
         default:
             return ["Content-type": "application/json",
