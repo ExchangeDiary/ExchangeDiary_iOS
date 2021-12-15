@@ -180,17 +180,8 @@ class WriteStoryViewController: UIViewController {
             if audioTitleLabel.text == "음성으로 기록하기" {
                 audioTitle = "Untitle_\(getCurrentDate(dateUseCase: "record"))"
             }
-            
-            guard let storyAudioUrl = URL(string: audioUrl ?? "") else {
-                return
-            }
-            
-            do {
-                audioData = try Data(contentsOf: storyAudioUrl)
-            } catch {
-                print("Unable to load data: \(error)")
-            }
-            
+
+            audioData = FileManager.default.contents(atPath: audioUrl ?? "")
             guard let storyAudioData = audioData else {
                 return
             }
