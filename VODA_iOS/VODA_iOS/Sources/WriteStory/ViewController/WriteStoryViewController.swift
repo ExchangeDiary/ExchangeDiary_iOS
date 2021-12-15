@@ -487,6 +487,6 @@ extension WriteStoryViewController: AudioPlayable {
     }
     
     func audioPlayer(_ audioPlayer: VodaAudioPlayer, didUpdateCurrentTime currentTime: TimeInterval) {
-        audioPlayingTimeLabel.text = currentTime.stringFromTimeInterval()
+        audioPlayingTimeLabel.text = currentTime.convertString()
     }
 }

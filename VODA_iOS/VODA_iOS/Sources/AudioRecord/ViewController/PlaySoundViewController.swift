@@ -115,7 +115,7 @@ class PlaySoundViewController: UIViewController {
                 currentPlayingTimeLabel.text = "00:00"
                 progressBarWidth.constant = 0
             } else {
-                currentPlayingTimeLabel.text = seekingTime.stringFromTimeInterval()
+                currentPlayingTimeLabel.text = seekingTime.convertString()
                 progressBarWidth.constant = CGFloat((seekingTime / duration)) * progressView.frame.size.width
             }
         } else {
@@ -133,8 +133,8 @@ class PlaySoundViewController: UIViewController {
             return
         }
         
-        totalDurationLabel.text = duration.stringFromTimeInterval()
-        remainingPlayingTimeLabel.text = "-\(duration.stringFromTimeInterval())"
+        totalDurationLabel.text = duration.convertString()
+        remainingPlayingTimeLabel.text = "-\(duration.convertString())"
     }
     
     private func changeStatusButtonImage(_ playStatus: AudioPlayerStatus) {
@@ -327,7 +327,7 @@ extension PlaySoundViewController: AudioPlayable {
         
         if status == .stopped {
             isPlaying = false
-            currentPlayingTimeLabel.text = duration.stringFromTimeInterval()
+            currentPlayingTimeLabel.text = duration.convertString()
             remainingPlayingTimeLabel.text = "-00:00"
         }
         
@@ -335,14 +335,14 @@ extension PlaySoundViewController: AudioPlayable {
     }
     
     func audioPlayer(_ audioPlayer: VodaAudioPlayer, didUpdateCurrentTime currentTime: TimeInterval) {
-        currentPlayingTimeLabel.text = currentTime.stringFromTimeInterval()
+        currentPlayingTimeLabel.text = currentTime.convertString()
         storyPreviewSeekingTime = currentTime
         
         guard let duration = playDuration else {
             return
         }
         
-        let remainingTime = (duration - currentTime).stringFromTimeInterval()
+        let remainingTime = (duration - currentTime).convertString()
         remainingPlayingTimeLabel.text = "-\(remainingTime)"
         progressBarWidth.constant = CGFloat((currentTime / duration)) * progressView.frame.size.width
     }

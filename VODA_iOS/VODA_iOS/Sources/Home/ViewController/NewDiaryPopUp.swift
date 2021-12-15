@@ -14,6 +14,7 @@ class NewDiaryPopUp: UIViewController {
     let inputJoinCodeCollectionViewCellIdentifier = "inputJoinCodeCollectionViewCell"
     
     @IBOutlet weak var newDiaryCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.newDiaryCollectionView.isScrollEnabled = false

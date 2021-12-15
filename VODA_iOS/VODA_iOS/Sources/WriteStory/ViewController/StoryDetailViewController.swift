@@ -75,7 +75,7 @@ class StoryDetailViewController: UIViewController {
         if status == .prepared || status == .stopped {
             miniAudioPlayerPlayingTimeLabel.text = "00:00"
         } else {
-            miniAudioPlayerPlayingTimeLabel.text = miniAudioPlayerCurrentTime.stringFromTimeInterval()
+            miniAudioPlayerPlayingTimeLabel.text = miniAudioPlayerCurrentTime.convertString()
         }
         
         if status == .playing {
@@ -262,7 +262,7 @@ extension StoryDetailViewController: AudioPlayable {
     }
     
     func audioPlayer(_ audioPlayer: VodaAudioPlayer, didUpdateCurrentTime currentTime: TimeInterval) {
-        miniAudioPlayerPlayingTimeLabel.text = currentTime.stringFromTimeInterval()
+        miniAudioPlayerPlayingTimeLabel.text = currentTime.convertString()
     }
 }
 
