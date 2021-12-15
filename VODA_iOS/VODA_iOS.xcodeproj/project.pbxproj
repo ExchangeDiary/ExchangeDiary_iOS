@@ -73,6 +73,12 @@
 		9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */; };
 		9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BF46C2699E3CC00FA072C /* MainViewController.swift */; };
 		9B2BF4722699E3CF00FA072C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BF4712699E3CF00FA072C /* Assets.xcassets */; };
+		9B40EA0727611931000D5733 /* VodaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40EA0627611931000D5733 /* VodaAPI.swift */; };
+		9B40EA09276213CF000D5733 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40EA08276213CF000D5733 /* APIService.swift */; };
+		9B40EA0F2767B02B000D5733 /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40EA0E2767B02B000D5733 /* DefaultSession.swift */; };
+		9B40EA1927687103000D5733 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40EA1827687103000D5733 /* APIServiceTests.swift */; };
+		9B40EA2127687181000D5733 /* ProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40EA2027687181000D5733 /* ProviderProtocol.swift */; };
+		9B40EA2327687C1B000D5733 /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40EA2227687C1B000D5733 /* MockAPIService.swift */; };
 		9B44A97E26D166830078B561 /* AudioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A97D26D166820078B561 /* AudioData.swift */; };
 		9B44A98026D177DD0078B561 /* StoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A97F26D177DC0078B561 /* StoryDetailViewController.swift */; };
 		9B60617326C184AF008C84DC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B60617226C184AF008C84DC /* Home.storyboard */; };
@@ -106,11 +112,22 @@
 		9B904DC626A95DF8004F5B99 /* RecordSoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904DC526A95DF8004F5B99 /* RecordSoundViewController.swift */; };
 		9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904DC726A95E14004F5B99 /* PlaySoundViewController.swift */; };
 		9B904DCA26A95E82004F5B99 /* AudioRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */; };
+		9BD10F752769B684009009BC /* Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BD10F742769B684009009BC /* Mock.json */; };
 		9BE0A875269A2080005314C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */; };
 		9BE0A886269A2A4E005314C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A885269A2A4E005314C0 /* Main.storyboard */; };
 		9BEB68C726D37CBE00A7F786 /* StoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB68C626D37CBE00A7F786 /* StoryData.swift */; };
 		D62B1705EB94FBB77F6FF5CF /* Pods_VODA_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE202DC320DB2B380F3FF7CC /* Pods_VODA_iOS.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9B40EA1A27687103000D5733 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B2BF45D2699E3CC00FA072C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B2BF4642699E3CC00FA072C;
+			remoteInfo = VODA_iOS;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		12053F312709D204003C5E6F /* OnBoardingViewController+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnBoardingViewController+CollectionViewExtension.swift"; sourceTree = "<group>"; };
@@ -183,6 +200,13 @@
 		9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
 		9B2BF46C2699E3CC00FA072C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9B2BF4712699E3CF00FA072C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9B40EA0627611931000D5733 /* VodaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VodaAPI.swift; sourceTree = "<group>"; };
+		9B40EA08276213CF000D5733 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		9B40EA0E2767B02B000D5733 /* DefaultSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSession.swift; sourceTree = "<group>"; };
+		9B40EA1627687102000D5733 /* APIServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APIServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B40EA1827687103000D5733 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
+		9B40EA2027687181000D5733 /* ProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProtocol.swift; sourceTree = "<group>"; };
+		9B40EA2227687C1B000D5733 /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
 		9B44A97D26D166820078B561 /* AudioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioData.swift; sourceTree = "<group>"; };
 		9B44A97F26D177DC0078B561 /* StoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailViewController.swift; sourceTree = "<group>"; };
 		9B60617226C184AF008C84DC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -215,6 +239,7 @@
 		9B904DC526A95DF8004F5B99 /* RecordSoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundViewController.swift; sourceTree = "<group>"; };
 		9B904DC726A95E14004F5B99 /* PlaySoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundViewController.swift; sourceTree = "<group>"; };
 		9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AudioRecord.storyboard; sourceTree = "<group>"; };
+		9BD10F742769B684009009BC /* Mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Mock.json; sourceTree = "<group>"; };
 		9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BE0A885269A2A4E005314C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9BEB68C626D37CBE00A7F786 /* StoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryData.swift; sourceTree = "<group>"; };
@@ -228,6 +253,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D62B1705EB94FBB77F6FF5CF /* Pods_VODA_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B40EA1327687102000D5733 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +464,7 @@
 				12BFEBB326BC258500E70DD7 /* credentials.plist */,
 				4CBFAC7F26A44D0600924F64 /* .swiftlint.yml */,
 				9B2BF4672699E3CC00FA072C /* VODA_iOS */,
+				9B40EA1727687103000D5733 /* APIServiceTests */,
 				9B2BF4662699E3CC00FA072C /* Products */,
 				5A21726285A1D8F37056E326 /* Pods */,
 				A9128262FA506F3E1424ABFB /* Frameworks */,
@@ -442,6 +475,7 @@
 			isa = PBXGroup;
 			children = (
 				9B2BF4652699E3CC00FA072C /* VODA_iOS.app */,
+				9B40EA1627687102000D5733 /* APIServiceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -524,6 +558,24 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		9B40EA1727687103000D5733 /* APIServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				9B40EA1827687103000D5733 /* APIServiceTests.swift */,
+			);
+			path = APIServiceTests;
+			sourceTree = "<group>";
+		};
+		9B40EA1F27687152000D5733 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				9B40EA2027687181000D5733 /* ProviderProtocol.swift */,
+				9B40EA2227687C1B000D5733 /* MockAPIService.swift */,
+				9BD10F742769B684009009BC /* Mock.json */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		9B60617126C184AF008C84DC /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,6 +612,10 @@
 		9B60617726C184C2008C84DC /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				9B40EA1F27687152000D5733 /* Mock */,
+				9B40EA0627611931000D5733 /* VodaAPI.swift */,
+				9B40EA08276213CF000D5733 /* APIService.swift */,
+				9B40EA0E2767B02B000D5733 /* DefaultSession.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -803,17 +859,39 @@
 			productReference = 9B2BF4652699E3CC00FA072C /* VODA_iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9B40EA1527687102000D5733 /* APIServiceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B40EA1C27687103000D5733 /* Build configuration list for PBXNativeTarget "APIServiceTests" */;
+			buildPhases = (
+				9B40EA1227687102000D5733 /* Sources */,
+				9B40EA1327687102000D5733 /* Frameworks */,
+				9B40EA1427687102000D5733 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B40EA1B27687103000D5733 /* PBXTargetDependency */,
+			);
+			name = APIServiceTests;
+			productName = APIServiceTests;
+			productReference = 9B40EA1627687102000D5733 /* APIServiceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		9B2BF45D2699E3CC00FA072C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
 					9B2BF4642699E3CC00FA072C = {
 						CreatedOnToolsVersion = 12.3;
+					};
+					9B40EA1527687102000D5733 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 9B2BF4642699E3CC00FA072C;
 					};
 				};
 			};
@@ -831,6 +909,7 @@
 			projectRoot = "";
 			targets = (
 				9B2BF4642699E3CC00FA072C /* VODA_iOS */,
+				9B40EA1527687102000D5733 /* APIServiceTests */,
 			);
 		};
 /* End PBXProject section */
@@ -847,6 +926,7 @@
 				9B6C8B5B26B3F01A00D089D3 /* Push.storyboard in Resources */,
 				126BE6CB26C4CFB300756266 /* Volte Medium.otf in Resources */,
 				9B6C8B4A26B3E58B00D089D3 /* .swiftlint.yml in Resources */,
+				9BD10F752769B684009009BC /* Mock.json in Resources */,
 				9BE0A886269A2A4E005314C0 /* Main.storyboard in Resources */,
 				9B6C8B5F26B3F03700D089D3 /* MyPage.storyboard in Resources */,
 				9B26C21026E722D400ECECF8 /* loading.json in Resources */,
@@ -867,6 +947,13 @@
 				126BE6C826C4CFA700756266 /* Volte Light Italic.otf in Resources */,
 				126BE6CA26C4CFAF00756266 /* Volte Medium Italic.otf in Resources */,
 				126BE6CF26C4CFC000756266 /* Volte.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B40EA1427687102000D5733 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -952,6 +1039,7 @@
 				12BB18AC26D5187E00A9DF2A /* InputJoinCodeCollectionViewCell.swift in Sources */,
 				9B26C20226DE2C5300ECECF8 /* PushSettingViewController.swift in Sources */,
 				9B60617926C184C2008C84DC /* TimeInterval+Extension.swift in Sources */,
+				9B40EA09276213CF000D5733 /* APIService.swift in Sources */,
 				9B26C20E26E687EF00ECECF8 /* FileDownloader.swift in Sources */,
 				9B03D58326EF9883005BE354 /* NoticeDetailViewController.swift in Sources */,
 				1279629726B93D080027EB8C /* SignInViewController.swift in Sources */,
@@ -972,11 +1060,14 @@
 				12C3938626D78D1C0056A616 /* NewDiaryPopUp+CollectionViewExtension.swift in Sources */,
 				9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */,
 				12053F322709D204003C5E6F /* OnBoardingViewController+CollectionViewExtension.swift in Sources */,
+				9B40EA2327687C1B000D5733 /* MockAPIService.swift in Sources */,
 				4CC73B4826F9F76F009359DC /* UpdateInvitationCodeViewController.swift in Sources */,
 				9B60618026C1886D008C84DC /* UIImageView+Extension.swift in Sources */,
 				4C4978C626FA145000C0C627 /* WritingOrderModifyCell.swift in Sources */,
 				12603DDC26C9552B0077F859 /* DiaryCollectionReusableView.swift in Sources */,
 				126BE6D426C4D2DE00756266 /* JoinedDiaryCollectionViewCell.swift in Sources */,
+				9B40EA0727611931000D5733 /* VodaAPI.swift in Sources */,
+				9B40EA2127687181000D5733 /* ProviderProtocol.swift in Sources */,
 				12603DD126C935B30077F859 /* DiaryViewController.swift in Sources */,
 				12053F352709D595003C5E6F /* OnBoardingCollectionViewCell1.swift in Sources */,
 				12053F392709D5CE003C5E6F /* OnBoardingCollectionViewCell3.swift in Sources */,
@@ -1003,6 +1094,7 @@
 				9B6061D726C39504008C84DC /* AudioPlayerStatus.swift in Sources */,
 				9BEB68C726D37CBE00A7F786 /* StoryData.swift in Sources */,
 				9B03D57B26E730C0005BE354 /* LoadingViewController.swift in Sources */,
+				9B40EA0F2767B02B000D5733 /* DefaultSession.swift in Sources */,
 				4C4978C826FA151A00C0C627 /* WritingOrderModifyViewController+CollectionViewExtension.swift in Sources */,
 				9B60618226C1886D008C84DC /* UIView+Extension.swift in Sources */,
 				12603DCA26C900DE0077F859 /* JoinedDiaryCollectionReusableView.swift in Sources */,
@@ -1015,7 +1107,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9B40EA1227687102000D5733 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B40EA1927687103000D5733 /* APIServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9B40EA1B27687103000D5733 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B2BF4642699E3CC00FA072C /* VODA_iOS */;
+			targetProxy = 9B40EA1A27687103000D5733 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		129FCE9E26BC222B000E20BE /* Info.plist */ = {
@@ -1190,6 +1298,56 @@
 			};
 			name = Release;
 		};
+		9B40EA1D27687103000D5733 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 577SG3C42S;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = soyeong.APIServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VODA_iOS.app/VODA_iOS";
+			};
+			name = Debug;
+		};
+		9B40EA1E27687103000D5733 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 577SG3C42S;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = soyeong.APIServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VODA_iOS.app/VODA_iOS";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1207,6 +1365,15 @@
 			buildConfigurations = (
 				9B2BF47A2699E3CF00FA072C /* Debug */,
 				9B2BF47B2699E3CF00FA072C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B40EA1C27687103000D5733 /* Build configuration list for PBXNativeTarget "APIServiceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B40EA1D27687103000D5733 /* Debug */,
+				9B40EA1E27687103000D5733 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
