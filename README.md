@@ -17,7 +17,7 @@
   ```
   git clone https://github.com/ExchangeDiary/ExchangeDiary_iOS.git
   ```
-### 2.CocoaPods 구성
+### 2. CocoaPods 구성
   ```
   pod install 'Moya'
               'Kingfisher'
