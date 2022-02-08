@@ -1,14 +1,13 @@
 //
-//  StoryData.swift
+//  StoryDataResponse.swift
 //  VODA_iOS
 //
-//  Created by 전소영 on 2021/08/23.
+//  Created by 전소영 on 2021/12/15.
 //
 
 import Foundation
-import UIKit
 
-struct StoryData {
+struct StoryDataResponse: Codable {
     let storyWriteDate: String
     let storyTitle: String
     let storyLocation: String
@@ -17,8 +16,6 @@ struct StoryData {
     let storyAudioFileName: String?
     let storyAudioPitch: Float?
     let storyAudioUrl: String?
-    let storyAudioData: Data?
-    let storyPhotoImage: UIImage?
     let storyPhotoUrl: String?
     let storyTemplete: Int?
 }

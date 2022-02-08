@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Moya
+
 class WriteStoryViewController: UIViewController {
     @IBOutlet weak var currentDateLabel: UILabel!
     @IBOutlet weak var locationTextField: UITextField!
@@ -31,6 +33,8 @@ class WriteStoryViewController: UIViewController {
     private var audioTitle: String?
     private var audioPitch: Float = 0
     private var audioUrl: String?
+    private var audioFileName: String?
+    private var audioData: Data?
     private var selectedTemplete = 0
     private var audioPlayer = VodaAudioPlayer.shared
     private var isPlaying = false
@@ -51,7 +55,7 @@ class WriteStoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         scrollView.delegate = self
         locationTextField.delegate = self
         titleTextField.delegate = self
@@ -176,9 +180,13 @@ class WriteStoryViewController: UIViewController {
             if audioTitleLabel.text == "음성으로 기록하기" {
                 audioTitle = "Untitle_\(getCurrentDate(dateUseCase: "record"))"
             }
+
+            audioData = FileManager.default.contents(atPath: audioUrl ?? "")
+            guard let storyAudioData = audioData else {
+                return
+            }
             
-            // FIXME: storyTemplete 서버 형식이랑 통일하기
-            let storyData = StoryData(storyWriteDate: currentDateLabel.text ?? "", storyTitle: titleTextField.text ?? "", storyLocation: locationTextField.text ?? "", storyContentsText: contentTextView.text, storyAudioTitle: audioTitle, storyAudioPitch: audioPitch, storyAudioUrl: audioUrl, storyPhotoImage: storyPhotoImageView.image, storyPhotoUrl: nil, storyTemplete: selectedTemplete)
+            let storyData = StoryData(storyWriteDate: currentDateLabel.text ?? "", storyTitle: titleTextField.text ?? "", storyLocation: locationTextField.text ?? "", storyContentsText: contentTextView.text, storyAudioTitle: audioTitle, storyAudioFileName: audioFileName, storyAudioPitch: audioPitch, storyAudioUrl: audioUrl, storyAudioData: storyAudioData, storyPhotoImage: storyPhotoImageView.image, storyPhotoUrl: nil, storyTemplete: selectedTemplete)
             
             storyDetailViewController.storyData = storyData
             storyDetailViewController.pageCase = "storyPreview"
@@ -224,7 +232,6 @@ class WriteStoryViewController: UIViewController {
             guard let pitch = data.pitch else {
                 return
             }
-            
             self?.audioPitch = pitch
             
             switch pitch {
@@ -241,8 +248,12 @@ class WriteStoryViewController: UIViewController {
             guard let audioDataUrl = data.audioUrl else {
                 return
             }
-            
             self?.audioUrl = "\(audioDataUrl)"
+            
+            guard let audioDataFileName = data.audioFileName else {
+                return
+            }
+            self?.audioFileName = audioDataFileName
         }
         
         if audioTitleLabelPlaceHolder.isHidden {
@@ -467,6 +478,6 @@ extension WriteStoryViewController: AudioPlayable {
     }
     
     func audioPlayer(_ audioPlayer: VodaAudioPlayer, didUpdateCurrentTime currentTime: TimeInterval) {
-        audioPlayingTimeLabel.text = currentTime.stringFromTimeInterval()
+        audioPlayingTimeLabel.text = currentTime.convertString()
     }
 }

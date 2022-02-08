@@ -75,7 +75,7 @@ class StoryDetailViewController: UIViewController {
         if status == .prepared || status == .stopped {
             miniAudioPlayerPlayingTimeLabel.text = "00:00"
         } else {
-            miniAudioPlayerPlayingTimeLabel.text = miniAudioPlayerCurrentTime.stringFromTimeInterval()
+            miniAudioPlayerPlayingTimeLabel.text = miniAudioPlayerCurrentTime.convertString()
         }
         
         if status == .playing {
@@ -211,9 +211,9 @@ class StoryDetailViewController: UIViewController {
         playSoundViewController.pageCase = "storyPreview"
         
         if pageCase == "storyPreview" {
-            playSoundViewController.audioData = AudioData(audioTitle: storyData?.storyAudioTitle, pitch: storyData?.storyAudioPitch, audioUrl: storyData?.storyAudioUrl)
+            playSoundViewController.audioData = AudioData(audioTitle: storyData?.storyAudioTitle, audioFileName: storyData?.storyAudioFileName, pitch: storyData?.storyAudioPitch, audioUrl: storyData?.storyAudioUrl)
         } else {
-            playSoundViewController.audioData = AudioData(audioTitle: storyData?.storyAudioTitle, pitch: storyData?.storyAudioPitch, audioUrl: downloadedAudioUrl?.absoluteString)
+            playSoundViewController.audioData = AudioData(audioTitle: storyData?.storyAudioTitle, audioFileName: storyData?.storyAudioFileName, pitch: storyData?.storyAudioPitch, audioUrl: downloadedAudioUrl?.absoluteString)
         }
         playSoundViewController.storyPreviewSeekingTime = miniAudioPlayerCurrentTime
         self.navigationController?.pushViewController(playSoundViewController, animated: false)
@@ -262,7 +262,7 @@ extension StoryDetailViewController: AudioPlayable {
     }
     
     func audioPlayer(_ audioPlayer: VodaAudioPlayer, didUpdateCurrentTime currentTime: TimeInterval) {
-        miniAudioPlayerPlayingTimeLabel.text = currentTime.stringFromTimeInterval()
+        miniAudioPlayerPlayingTimeLabel.text = currentTime.convertString()
     }
 }
 

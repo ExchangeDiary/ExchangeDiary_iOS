@@ -9,6 +9,7 @@ import Foundation
 
 struct AudioData {
     let audioTitle: String?
+    let audioFileName: String?
     let pitch: Float?
     let audioUrl: String?
 }

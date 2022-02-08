@@ -35,6 +35,7 @@ class PlaySoundViewController: UIViewController {
     var recordedAudioUrl: URL?
     var playDuration: TimeInterval?
     var recordingTitle: String?
+    var recordedFileName: String?
     var completionHandler: ((AudioData) -> Void)?
     var pageCase: String?
     var audioData: AudioData?
@@ -114,7 +115,7 @@ class PlaySoundViewController: UIViewController {
                 currentPlayingTimeLabel.text = "00:00"
                 progressBarWidth.constant = 0
             } else {
-                currentPlayingTimeLabel.text = seekingTime.stringFromTimeInterval()
+                currentPlayingTimeLabel.text = seekingTime.convertString()
                 progressBarWidth.constant = CGFloat((seekingTime / duration)) * progressView.frame.size.width
             }
         } else {
@@ -132,8 +133,8 @@ class PlaySoundViewController: UIViewController {
             return
         }
         
-        totalDurationLabel.text = duration.stringFromTimeInterval()
-        remainingPlayingTimeLabel.text = "-\(duration.stringFromTimeInterval())"
+        totalDurationLabel.text = duration.convertString()
+        remainingPlayingTimeLabel.text = "-\(duration.convertString())"
     }
     
     private func changeStatusButtonImage(_ playStatus: AudioPlayerStatus) {
@@ -304,9 +305,12 @@ class PlaySoundViewController: UIViewController {
             }
             print("AVAudioEngine offline rendering completed")
             print("passAudioUrl: \(url)")
+            guard let audioFileName = recordedFileName else {
+                return
+            }
             
             if let writeStoryViewController = navigationController?.viewControllers[2] {
-                completionHandler?(AudioData(audioTitle: audioTitleTextField.text ?? "", pitch: audioPlayer.pitch, audioUrl: url.absoluteString))
+                completionHandler?(AudioData(audioTitle: audioTitleTextField.text ?? "", audioFileName: audioFileName, pitch: audioPlayer.pitch, audioUrl: url.absoluteString))
                 self.navigationController?.popToViewController(writeStoryViewController, animated: false)
             }
         }
@@ -323,7 +327,7 @@ extension PlaySoundViewController: AudioPlayable {
         
         if status == .stopped {
             isPlaying = false
-            currentPlayingTimeLabel.text = duration.stringFromTimeInterval()
+            currentPlayingTimeLabel.text = duration.convertString()
             remainingPlayingTimeLabel.text = "-00:00"
         }
         
@@ -331,14 +335,14 @@ extension PlaySoundViewController: AudioPlayable {
     }
     
     func audioPlayer(_ audioPlayer: VodaAudioPlayer, didUpdateCurrentTime currentTime: TimeInterval) {
-        currentPlayingTimeLabel.text = currentTime.stringFromTimeInterval()
+        currentPlayingTimeLabel.text = currentTime.convertString()
         storyPreviewSeekingTime = currentTime
         
         guard let duration = playDuration else {
             return
         }
         
-        let remainingTime = (duration - currentTime).stringFromTimeInterval()
+        let remainingTime = (duration - currentTime).convertString()
         remainingPlayingTimeLabel.text = "-\(remainingTime)"
         progressBarWidth.constant = CGFloat((currentTime / duration)) * progressView.frame.size.width
     }

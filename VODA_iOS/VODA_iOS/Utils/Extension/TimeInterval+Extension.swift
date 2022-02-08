@@ -8,7 +8,7 @@
 import Foundation
 
 extension TimeInterval {
-    func stringFromTimeInterval() -> String {
+    func convertString() -> String {
         let time = NSInteger(self)
         
         let milliseconds = Int((self.truncatingRemainder(dividingBy: 1)) * 100)

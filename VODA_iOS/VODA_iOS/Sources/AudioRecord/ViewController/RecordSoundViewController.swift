@@ -18,6 +18,7 @@ class RecordSoundViewController: UIViewController {
     private var audioRecorder = VodaAudioRecorder.shared
     private var recordStatus: AudioRecordStatus?
     private var recordedAudioUrl: URL?
+    private var recordedFileName: String?
     private var audioWaveView: AudioVisualizationView?
     var recordedDuration: TimeInterval?
     var completionHandler: ((AudioData) -> Void)?
@@ -38,6 +39,7 @@ class RecordSoundViewController: UIViewController {
             let playSoundViewController = segue.destination as? PlaySoundViewController
             playSoundViewController?.recordedAudioUrl = recordedAudioUrl
             playSoundViewController?.playDuration = recordedDuration
+            playSoundViewController?.recordedFileName = recordedFileName
             playSoundViewController?.recordingTitle = "Untitle_\(getCurrentDate())"
             playSoundViewController?.completionHandler = completionHandler
         }
@@ -125,12 +127,14 @@ class RecordSoundViewController: UIViewController {
 
 // MARK: AudioRecordable
 extension RecordSoundViewController: AudioRecordable {
-    func audioRecorder(_ audioRecorder: VodaAudioRecorder, didFinishedWithUrl url: URL?) {
+    func audioRecorder(_ audioRecorder: VodaAudioRecorder, didFinishedWithUrl url: URL?, didFinishedWithRecordingFileName recordingFileName: String) {
         guard let recordedUrl = url else {
             return
         }
         recordedAudioUrl = recordedUrl
         print("recordedAudioURL: \(recordedUrl)")
+   
+        recordedFileName = recordingFileName
         
         performSegue(withIdentifier: SegueIdentifier.stopRecording, sender: self)
     }
@@ -141,7 +145,7 @@ extension RecordSoundViewController: AudioRecordable {
     }
     
     func audioRecorder(_ audioRecorder: VodaAudioRecorder, didUpdateCurrentTime currentTime: TimeInterval) {
-        recordTimeLabel.text = currentTime.stringFromTimeInterval()
+        recordTimeLabel.text = currentTime.convertString()
         recordedDuration = currentTime
     }
     
