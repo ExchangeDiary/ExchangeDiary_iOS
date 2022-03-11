@@ -8,7 +8,6 @@
 import Foundation
 import Security
 
-//TODO: 이거 로그인하면서 토큰값 저장하는 부분 구현하기
 class KeyChainManager {
     func setTokenValue(_ service: String, account: String, value: String) {
         let keyChainQuery: NSDictionary = [
@@ -36,13 +35,14 @@ class KeyChainManager {
         var dataTypeRef: AnyObject?
         let status = SecItemCopyMatching(keyChainQuery, &dataTypeRef)
             
-        if (status == errSecSuccess) {
-            let retrievedData = dataTypeRef as! Data
-            let value = String(data: retrievedData, encoding: String.Encoding.utf8)
-            return value
-        } else {
-            return nil
+        if status == errSecSuccess {
+            if let retrievedData = dataTypeRef as? Data {
+                let value = String(data: retrievedData, encoding: String.Encoding.utf8)
+                return value
+            }
         }
+        
+        return nil
     }
     
     func deleteTokenValue(_ service: String, account: String) {
@@ -56,4 +56,3 @@ class KeyChainManager {
         print(status)
     }
 }
-
