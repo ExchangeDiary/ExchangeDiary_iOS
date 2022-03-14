@@ -82,7 +82,7 @@ class PlaySoundViewController: UIViewController {
     }
     
     private func setUpAudioPlayUI() {
-        if pageCase == "storyPreview" {
+        if pageCase == "storyPreview" || pageCase == "storyDetail" {
             editButton.isHidden = true
             audioEffectGuideLabel.isHidden = true
             rowPitchButton.isHidden = true
@@ -239,7 +239,7 @@ class PlaySoundViewController: UIViewController {
         
         audioPlayer.stop()
         audioPlayer.pitchEnabled = true
-        audioPlayer.pitch = 1000
+        audioPlayer.pitch = AudioPitch.high
         progressBarWidth.constant = 0
         
         if sender.isSelected {
