@@ -182,11 +182,8 @@ class WriteStoryViewController: UIViewController {
             }
 
             audioData = FileManager.default.contents(atPath: audioUrl ?? "")
-            guard let storyAudioData = audioData else {
-                return
-            }
             
-            let storyData = StoryData(storyWriteDate: currentDateLabel.text ?? "", storyTitle: titleTextField.text ?? "", storyLocation: locationTextField.text ?? "", storyContentsText: contentTextView.text, storyAudioTitle: audioTitle, storyAudioFileName: audioFileName, storyAudioPitch: audioPitch, storyAudioUrl: audioUrl, storyAudioData: storyAudioData, storyPhotoImage: storyPhotoImageView.image, storyPhotoUrl: nil, storyTemplete: selectedTemplete)
+            let storyData = StoryData(storyWriteDate: currentDateLabel.text ?? "", storyTitle: titleTextField.text ?? "", storyLocation: locationTextField.text ?? "", storyContentsText: contentTextView.text, storyAudioTitle: audioTitle, storyAudioFileName: audioFileName, storyAudioPitch: audioPitch, storyAudioUrl: audioUrl, storyAudioData: audioData, storyPhotoImage: storyPhotoImageView.image, storyPhotoUrl: nil, storyTemplete: selectedTemplete)
             
             storyDetailViewController.storyData = storyData
             storyDetailViewController.pageCase = "storyPreview"
@@ -376,21 +373,7 @@ extension WriteStoryViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let locationText = locationTextField.text else {
-            return
-        }
-        
-        guard let titleText = titleTextField.text else {
-            return
-        }
-        
-        if !titleText.isEmpty, !locationText.isEmpty {
-            if contentTextViewCharacterCountLabel.text != "0/5000자" || audioTitleLabel.text != "음성으로 기록하기" {
-                rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
-            }
-        } else {
-            rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
-        }
+        rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
     }
 }
 
