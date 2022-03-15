@@ -1,17 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "darkWriteStory.png",
       "scale" : "1x",
-      "idiom" : "universal",
-      "filename" : "WriteStory.png"
-    },
-    {
-      "filename" : "WriteStory@2x.png",
-      "scale" : "2x",
       "idiom" : "universal"
     },
     {
-      "filename" : "WriteStory@3x.png",
+      "scale" : "2x",
+      "idiom" : "universal",
+      "filename" : "darkWriteStory@2x.png"
+    },
+    {
+      "filename" : "darkWriteStory@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
