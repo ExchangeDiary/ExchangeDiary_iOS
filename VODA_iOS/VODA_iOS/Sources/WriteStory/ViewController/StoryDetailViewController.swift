@@ -108,7 +108,7 @@ class StoryDetailViewController: UIViewController {
         if storyContentsText == "내용을 적어주세요" || storyContentsText.isEmpty {
             storyTextView.text = ""
             if storyData?.storyPhotoImage == nil {
-                storyPhotoImageView.image = UIImage(named: "noStoryText")
+                storyPhotoImageView.image = UIImage(named: "noTextDefaultCat")
             } else {
                 storyPhotoImageView.topAnchor.constraint(equalToSystemSpacingBelow: storyTextView.topAnchor, multiplier: 0).isActive = true
             }
