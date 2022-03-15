@@ -25,12 +25,6 @@ class NewDiaryPopUpViewController: UIViewController {
         self.newDiaryCollectionView.addGestureRecognizer(gesture)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        //        (rootViewController as? MainViewController)?.setTabBarHidden(true)
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         
