@@ -9,10 +9,7 @@ import UIKit
 import DropDown
 
 class HomeViewController: UIViewController {
-    private let newDiaryPopUpIdentifier = "NewDiaryPopUpViewController"
-    
     @IBOutlet weak var joinedDiaryCollectionView: UICollectionView!
-    @IBOutlet weak var createNewDiaryButton: UIBarButtonItem!
     var participants = [UIImageView]()
 
     override func viewDidLoad() {
@@ -28,19 +25,16 @@ class HomeViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         self.navigationController?.setNavigationBarTransparency()
-        self.createNewDiaryButton.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
     
     func pushDiaryViewController() {
-        let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryViewController")
-        dvc.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(dvc, animated: true)
+        let diaryViewController = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryViewController")
+        diaryViewController.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(diaryViewController, animated: true)
     }
     
-    @IBAction func createNewDiaryTouchUpInsideAction(_ sender: Any) {
-        guard let newDiaryPopUp = self.storyboard?.instantiateViewController(identifier: "NewDiaryPopUpViewController") else { return }
-        newDiaryPopUp.modalPresentationStyle = .overCurrentContext
-        newDiaryPopUp.modalTransitionStyle = .crossDissolve
-        self.present(newDiaryPopUp, animated: true, completion: nil)
+    @IBAction func pushPushViewController(_ sender: UIBarButtonItem) {
+        let pushViewController = UIStoryboard(name: "Push", bundle: nil).instantiateViewController(withIdentifier: "PushViewController")
+        self.navigationController?.pushViewController(pushViewController, animated: true)
     }
 }
