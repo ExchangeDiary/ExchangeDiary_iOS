@@ -236,11 +236,11 @@ class WriteStoryViewController: UIViewController {
             
             switch pitch {
             case AudioPitch.zero:
-                self?.addRecordButton.setImage(UIImage(named: "noEffectHover"), for: .normal)
+                self?.addRecordButton.setImage(UIImage(named: "seletedZeroPitchCat"), for: .normal)
             case AudioPitch.row:
-                self?.addRecordButton.setImage(UIImage(named: "thickHover"), for: .normal)
+                self?.addRecordButton.setImage(UIImage(named: "seletedRowPitchCat"), for: .normal)
             case AudioPitch.high:
-                self?.addRecordButton.setImage(UIImage(named: "thinHover"), for: .normal)
+                self?.addRecordButton.setImage(UIImage(named: "seletedHighPitchCat"), for: .normal)
             default:
                 break
             }

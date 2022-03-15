@@ -157,11 +157,11 @@ class StoryDetailViewController: UIViewController {
         
         switch storyData?.storyAudioPitch {
         case AudioPitch.row:
-            miniAudioPlayerPitchImageView.image = UIImage(named: "thickHover")
+            miniAudioPlayerPitchImageView.image = UIImage(named: "seletedRowPitchCat")
         case AudioPitch.high:
-            miniAudioPlayerPitchImageView.image = UIImage(named: "thinHover")
+            miniAudioPlayerPitchImageView.image = UIImage(named: "seletedHighPitchCat")
         default:
-            miniAudioPlayerPitchImageView.image = UIImage(named: "noEffectHover")
+            miniAudioPlayerPitchImageView.image = UIImage(named: "seletedZeroPitchCat")
         }
         
         miniAudioPlayerTitleLabel.text = storyData?.storyAudioTitle

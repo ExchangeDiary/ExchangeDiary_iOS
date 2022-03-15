@@ -253,7 +253,7 @@
                                             <constraint firstAttribute="width" secondItem="SZr-QR-hXe" secondAttribute="height" multiplier="1:1" id="oQM-h5-rc4"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="rowPitchCat"/>
-                                        <state key="selected" image="thickHover"/>
+                                        <state key="selected" image="seletedRowPitchCat"/>
                                         <connections>
                                             <action selector="setRowPitch:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="rU3-H0-Dhk"/>
                                         </connections>
@@ -264,7 +264,7 @@
                                             <constraint firstAttribute="width" secondItem="IXT-Rm-N57" secondAttribute="height" multiplier="1:1" id="wOh-j0-INe"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="highPitchCat"/>
-                                        <state key="selected" image="thinHover"/>
+                                        <state key="selected" image="seletedHighPitchCat"/>
                                         <connections>
                                             <action selector="setHighPitch:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="HXY-Oh-U7C"/>
                                         </connections>
@@ -275,7 +275,7 @@
                                             <constraint firstAttribute="width" secondItem="ATR-pd-K6t" secondAttribute="height" multiplier="1:1" id="4CW-Vq-ZVP"/>
                                         </constraints>
                                         <state key="normal" title="효과없음" image="zeroPitchCat"/>
-                                        <state key="selected" image="noEffectHover"/>
+                                        <state key="selected" image="seletedZeroPitchCat"/>
                                         <connections>
                                             <action selector="setNoPitch:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="YyM-Do-LIa"/>
                                         </connections>
@@ -356,13 +356,13 @@
         <image name="5SecFast" width="32" height="26"/>
         <image name="edit" width="24" height="24"/>
         <image name="highPitchCat" width="88" height="88"/>
-        <image name="noEffectHover" width="88" height="88"/>
         <image name="resume" width="44" height="44"/>
         <image name="rowPitchCat" width="88" height="88"/>
+        <image name="seletedHighPitchCat" width="88" height="88"/>
+        <image name="seletedRowPitchCat" width="88" height="88"/>
+        <image name="seletedZeroPitchCat" width="88" height="88"/>
         <image name="singingCat" width="375" height="290"/>
         <image name="stop" width="100" height="100"/>
-        <image name="thickHover" width="88" height="88"/>
-        <image name="thinHover" width="88" height="88"/>
         <image name="voice" width="100" height="100"/>
         <image name="zeroPitchCat" width="88" height="88"/>
         <systemColor name="systemBackgroundColor">

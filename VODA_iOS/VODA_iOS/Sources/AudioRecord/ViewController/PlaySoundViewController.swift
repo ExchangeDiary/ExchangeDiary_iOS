@@ -92,11 +92,11 @@ class PlaySoundViewController: UIViewController {
             
             switch audioData?.pitch {
             case AudioPitch.row:
-                recordImageView.image = UIImage(named: "thickHover")
+                recordImageView.image = UIImage(named: "seletedRowPitchCat")
             case AudioPitch.high:
-                recordImageView.image = UIImage(named: "thinHover")
+                recordImageView.image = UIImage(named: "seletedHighPitchCat")
             default:
-                recordImageView.image = UIImage(named: "noEffectHover")
+                recordImageView.image = UIImage(named: "seletedZeroPitchCat")
             }
             
             audioTitleTextField.text = audioData?.audioTitle
