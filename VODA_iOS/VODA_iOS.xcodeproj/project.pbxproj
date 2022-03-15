@@ -41,7 +41,7 @@
 		12BB18AC26D5187E00A9DF2A /* InputJoinCodeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB18AB26D5187E00A9DF2A /* InputJoinCodeCollectionViewCell.swift */; };
 		12BB18AE26D51CB100A9DF2A /* BackgroundImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB18AD26D51CB100A9DF2A /* BackgroundImageCollectionViewCell.swift */; };
 		12BFEBB426BC258500E70DD7 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12BFEBB326BC258500E70DD7 /* credentials.plist */; };
-		12C3938626D78D1C0056A616 /* NewDiaryPopUp+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3938526D78D1C0056A616 /* NewDiaryPopUp+CollectionViewExtension.swift */; };
+		12C3938626D78D1C0056A616 /* NewDiaryPopUpViewController+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3938526D78D1C0056A616 /* NewDiaryPopUpViewController+CollectionViewExtension.swift */; };
 		12DFB9E126BE7AA9009C23D1 /* SocialLoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DFB9E026BE7AA9009C23D1 /* SocialLoginType.swift */; };
 		12DFB9E326BE85A7009C23D1 /* SocialLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DFB9E226BE85A7009C23D1 /* SocialLoginManager.swift */; };
 		4C09162126F9A17A0055CD18 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C09162026F9A17A0055CD18 /* AdminViewController.swift */; };
@@ -54,7 +54,7 @@
 		4CC73B4826F9F76F009359DC /* UpdateInvitationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC73B4726F9F76F009359DC /* UpdateInvitationCodeViewController.swift */; };
 		4CE24ED226D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED126D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift */; };
 		4CE24ED426D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED326D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift */; };
-		4CE24ED826D107C600F1DB62 /* NewDiaryPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED726D107C600F1DB62 /* NewDiaryPopUp.swift */; };
+		4CE24ED826D107C600F1DB62 /* NewDiaryPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED726D107C600F1DB62 /* NewDiaryPopUpViewController.swift */; };
 		9B03D57926E7309E005BE354 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B03D57826E7309E005BE354 /* Loading.storyboard */; };
 		9B03D57B26E730C0005BE354 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03D57A26E730C0005BE354 /* LoadingViewController.swift */; };
 		9B03D57E26E7B356005BE354 /* NoticeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03D57D26E7B356005BE354 /* NoticeCollectionViewCell.swift */; };
@@ -110,6 +110,7 @@
 		9B6C8B5D26B3F02600D089D3 /* PushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B5C26B3F02600D089D3 /* PushViewController.swift */; };
 		9B6C8B5F26B3F03700D089D3 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6C8B5E26B3F03700D089D3 /* MyPage.storyboard */; };
 		9B6C8B6126B3F04500D089D3 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C8B6026B3F04500D089D3 /* MyPageViewController.swift */; };
+		9B7D411A27DF87A2004D8964 /* NewDiary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B7D411927DF87A2004D8964 /* NewDiary.storyboard */; };
 		9B904DC626A95DF8004F5B99 /* RecordSoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904DC526A95DF8004F5B99 /* RecordSoundViewController.swift */; };
 		9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904DC726A95E14004F5B99 /* PlaySoundViewController.swift */; };
 		9B904DCA26A95E82004F5B99 /* AudioRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */; };
@@ -166,7 +167,7 @@
 		12BB18AB26D5187E00A9DF2A /* InputJoinCodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputJoinCodeCollectionViewCell.swift; sourceTree = "<group>"; };
 		12BB18AD26D51CB100A9DF2A /* BackgroundImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		12BFEBB326BC258500E70DD7 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
-		12C3938526D78D1C0056A616 /* NewDiaryPopUp+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewDiaryPopUp+CollectionViewExtension.swift"; sourceTree = "<group>"; };
+		12C3938526D78D1C0056A616 /* NewDiaryPopUpViewController+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewDiaryPopUpViewController+CollectionViewExtension.swift"; sourceTree = "<group>"; };
 		12DFB9E026BE7AA9009C23D1 /* SocialLoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginType.swift; sourceTree = "<group>"; };
 		12DFB9E226BE85A7009C23D1 /* SocialLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginManager.swift; sourceTree = "<group>"; };
 		4C09162026F9A17A0055CD18 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
@@ -180,7 +181,7 @@
 		4CC73B4726F9F76F009359DC /* UpdateInvitationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInvitationCodeViewController.swift; sourceTree = "<group>"; };
 		4CE24ED126D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CollectionViewExtension.swift"; sourceTree = "<group>"; };
 		4CE24ED326D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryViewController+CollectionViewExtnesion.swift"; sourceTree = "<group>"; };
-		4CE24ED726D107C600F1DB62 /* NewDiaryPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryPopUp.swift; sourceTree = "<group>"; };
+		4CE24ED726D107C600F1DB62 /* NewDiaryPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryPopUpViewController.swift; sourceTree = "<group>"; };
 		835C0E5BB6D174B1D03C169F /* Pods-VODA_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.release.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		9B03D57826E7309E005BE354 /* Loading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
 		9B03D57A26E730C0005BE354 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +239,7 @@
 		9B6C8B5C26B3F02600D089D3 /* PushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushViewController.swift; sourceTree = "<group>"; };
 		9B6C8B5E26B3F03700D089D3 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		9B6C8B6026B3F04500D089D3 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		9B7D411927DF87A2004D8964 /* NewDiary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewDiary.storyboard; sourceTree = "<group>"; };
 		9B904DC526A95DF8004F5B99 /* RecordSoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundViewController.swift; sourceTree = "<group>"; };
 		9B904DC726A95E14004F5B99 /* PlaySoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundViewController.swift; sourceTree = "<group>"; };
 		9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AudioRecord.storyboard; sourceTree = "<group>"; };
@@ -350,13 +352,9 @@
 		126BE6D226C4D2C700756266 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4C17688226D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift */,
 				12603DC926C900DE0077F859 /* JoinedDiaryCollectionReusableView.swift */,
 				126BE6D026C4D2C100756266 /* DeadLineDiaryCollectionViewCell.swift */,
 				126BE6D326C4D2DE00756266 /* JoinedDiaryCollectionViewCell.swift */,
-				12BB18A926D5185600A9DF2A /* SelectBackgroundImageCollectionViewCell.swift */,
-				12BB18AB26D5187E00A9DF2A /* InputJoinCodeCollectionViewCell.swift */,
-				12BB18AD26D51CB100A9DF2A /* BackgroundImageCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -501,6 +499,7 @@
 				1279629126B93C730027EB8C /* Auth */,
 				9B2BF4852699E97200FA072C /* Main */,
 				9B6C8B4E26B3EF7A00D089D3 /* Home */,
+				9B7D411627DF86CB004D8964 /* NewDiary */,
 				12603DCB26C935410077F859 /* Diary */,
 				9B6BD2E426CD02AA007619BE /* WriteStory */,
 				9B904DC026A95CDD004F5B99 /* AudioRecord */,
@@ -736,8 +735,6 @@
 			children = (
 				9B6C8B5826B3EFFF00D089D3 /* HomeViewController.swift */,
 				4CE24ED126D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift */,
-				4CE24ED726D107C600F1DB62 /* NewDiaryPopUp.swift */,
-				12C3938526D78D1C0056A616 /* NewDiaryPopUp+CollectionViewExtension.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -761,6 +758,44 @@
 				9B03D58226EF9883005BE354 /* NoticeDetailViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9B7D411627DF86CB004D8964 /* NewDiary */ = {
+			isa = PBXGroup;
+			children = (
+				9B7D411B27DF8A35004D8964 /* View */,
+				9B7D411727DF86F7004D8964 /* Storyboard */,
+				9B7D411827DF8701004D8964 /* ViewController */,
+			);
+			path = NewDiary;
+			sourceTree = "<group>";
+		};
+		9B7D411727DF86F7004D8964 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9B7D411927DF87A2004D8964 /* NewDiary.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9B7D411827DF8701004D8964 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4CE24ED726D107C600F1DB62 /* NewDiaryPopUpViewController.swift */,
+				12C3938526D78D1C0056A616 /* NewDiaryPopUpViewController+CollectionViewExtension.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9B7D411B27DF8A35004D8964 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				12BB18AB26D5187E00A9DF2A /* InputJoinCodeCollectionViewCell.swift */,
+				4C17688226D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift */,
+				12BB18A926D5185600A9DF2A /* SelectBackgroundImageCollectionViewCell.swift */,
+				12BB18AD26D51CB100A9DF2A /* BackgroundImageCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		9B904DC026A95CDD004F5B99 /* AudioRecord */ = {
@@ -922,6 +957,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B7D411A27DF87A2004D8964 /* NewDiary.storyboard in Resources */,
 				126BE6C926C4CFAB00756266 /* Volte Light.otf in Resources */,
 				1279629426B93C9C0027EB8C /* Auth.storyboard in Resources */,
 				126BE6C626C4CFA100756266 /* Volte Bold Italic.otf in Resources */,
@@ -1028,7 +1064,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B60618426C1886D008C84DC /* UILabel+Extension.swift in Sources */,
-				4CE24ED826D107C600F1DB62 /* NewDiaryPopUp.swift in Sources */,
+				4CE24ED826D107C600F1DB62 /* NewDiaryPopUpViewController.swift in Sources */,
 				9B26C20C26DF535B00ECECF8 /* UserProfileData.swift in Sources */,
 				9B6C8B5926B3EFFF00D089D3 /* HomeViewController.swift in Sources */,
 				126BE6D126C4D2C100756266 /* DeadLineDiaryCollectionViewCell.swift in Sources */,
@@ -1061,7 +1097,7 @@
 				9B6BD2E326C83A3E007619BE /* WritePeriodPopUpViewController.swift in Sources */,
 				9B2601482769F64100BCE87B /* StoryDataResponse.swift in Sources */,
 				9B6C8B4726AC829800D089D3 /* VodaAudioPlayer.swift in Sources */,
-				12C3938626D78D1C0056A616 /* NewDiaryPopUp+CollectionViewExtension.swift in Sources */,
+				12C3938626D78D1C0056A616 /* NewDiaryPopUpViewController+CollectionViewExtension.swift in Sources */,
 				9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */,
 				12053F322709D204003C5E6F /* OnBoardingViewController+CollectionViewExtension.swift in Sources */,
 				9B40EA2327687C1B000D5733 /* MockAPIService.swift in Sources */,

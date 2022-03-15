@@ -9,7 +9,7 @@ import UIKit
 import DropDown
 
 class HomeViewController: UIViewController {
-    private let newDiaryPopUpIdentifier = "newDiaryPopUp"
+    private let newDiaryPopUpIdentifier = "NewDiaryPopUpViewController"
     
     @IBOutlet weak var joinedDiaryCollectionView: UICollectionView!
     @IBOutlet weak var createNewDiaryButton: UIBarButtonItem!
@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func createNewDiaryTouchUpInsideAction(_ sender: Any) {
-        guard let newDiaryPopUp = self.storyboard?.instantiateViewController(identifier: "newDiaryPopUp") else { return }
+        guard let newDiaryPopUp = self.storyboard?.instantiateViewController(identifier: "NewDiaryPopUpViewController") else { return }
         newDiaryPopUp.modalPresentationStyle = .overCurrentContext
         newDiaryPopUp.modalTransitionStyle = .crossDissolve
         self.present(newDiaryPopUp, animated: true, completion: nil)
