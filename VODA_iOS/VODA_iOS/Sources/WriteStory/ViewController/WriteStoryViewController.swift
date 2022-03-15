@@ -26,8 +26,8 @@ class WriteStoryViewController: UIViewController {
     @IBOutlet weak var contentTextViewCharacterCountLabel: UILabel!
     @IBOutlet weak var storyPhotoImageView: UIImageView!
     @IBOutlet weak var noSelectTempleteButton: UIButton!
-    @IBOutlet weak var pinkCatTempleteButton: UIButton!
-    @IBOutlet weak var yellowCatTempleteButton: UIButton!
+    @IBOutlet weak var catTempleteButton: UIButton!
+    @IBOutlet weak var cloudTempleteButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     private var textViewHeight: CGFloat = 0
     private var audioTitle: String?
@@ -120,8 +120,8 @@ class WriteStoryViewController: UIViewController {
     
     private func setUpStoryTemplete() {
         noSelectTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
-        pinkCatTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
-        yellowCatTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
+        catTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
+        cloudTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
         
         noSelectTempleteButton.isSelected = true
     }
@@ -311,41 +311,41 @@ class WriteStoryViewController: UIViewController {
         selectedTemplete = 0
         
         if sender.isSelected {
-            pinkCatTempleteButton.isSelected = false
-            yellowCatTempleteButton.isSelected = false
+            catTempleteButton.isSelected = false
+            cloudTempleteButton.isSelected = false
         }
         
-        if !sender.isSelected, !pinkCatTempleteButton.isSelected, !yellowCatTempleteButton.isSelected {
+        if !sender.isSelected, !catTempleteButton.isSelected, !cloudTempleteButton.isSelected {
             sender.isSelected = true
         }
     }
     
-    @IBAction func selectPinkCatTemplete(_ sender: UIButton) {
+    @IBAction func selectCatTemplete(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
         selectedTemplete = 1
         
         if sender.isSelected {
             noSelectTempleteButton.isSelected = false
-            yellowCatTempleteButton.isSelected = false
+            cloudTempleteButton.isSelected = false
         }
         
-        if !sender.isSelected, !pinkCatTempleteButton.isSelected, !yellowCatTempleteButton.isSelected {
+        if !sender.isSelected, !catTempleteButton.isSelected, !cloudTempleteButton.isSelected {
             sender.isSelected = true
         }
     }
     
-    @IBAction func selectYellowCatTemplete(_ sender: UIButton) {
+    @IBAction func selectCloudTemplete(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
         selectedTemplete = 2
         
         if sender.isSelected {
             noSelectTempleteButton.isSelected = false
-            pinkCatTempleteButton.isSelected = false
+            catTempleteButton.isSelected = false
         }
         
-        if !sender.isSelected, !pinkCatTempleteButton.isSelected, !yellowCatTempleteButton.isSelected {
+        if !sender.isSelected, !catTempleteButton.isSelected, !cloudTempleteButton.isSelected {
             sender.isSelected = true
         }
     }

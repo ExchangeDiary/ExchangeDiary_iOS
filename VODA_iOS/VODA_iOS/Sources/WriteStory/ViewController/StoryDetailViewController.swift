@@ -136,11 +136,11 @@ class StoryDetailViewController: UIViewController {
                     let templeteImageView = UIImageView(frame: CGRect(x: 0, y: templeteMaxY, width: DeviceInfo.screenWidth, height: storyTempleteImageView.bounds.maxY))
                     switch storyData?.storyTemplete {
                     case 1:
-                        storyTempleteImageView.image = UIImage(named: "pinkCatTemplete")
-                        templeteImageView.image = UIImage(named: "pinkCatTemplete")
+                        storyTempleteImageView.image = UIImage(named: "catTemplete")
+                        templeteImageView.image = UIImage(named: "catTemplete")
                     case 2:
-                        storyTempleteImageView.image = UIImage(named: "yellowCatTemplete")
-                        templeteImageView.image = UIImage(named: "yellowCatTemplete")
+                        storyTempleteImageView.image = UIImage(named: "cloudTemplete")
+                        templeteImageView.image = UIImage(named: "cloudTemplete")
                     default:
                         break
                     }
