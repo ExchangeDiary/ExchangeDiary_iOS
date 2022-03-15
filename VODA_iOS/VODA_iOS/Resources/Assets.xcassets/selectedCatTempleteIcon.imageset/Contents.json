@@ -2,18 +2,18 @@
   "images" : [
     {
       "scale" : "1x",
-      "filename" : "noTempleteIcon.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "selectedCatTempleteIcon.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "noTempleteIcon@2x.png",
+      "filename" : "selectedCatTempleteIcon@2x.png",
       "scale" : "2x"
     },
     {
       "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "noTempleteIcon@3x.png"
+      "filename" : "selectedCatTempleteIcon@3x.png"
     }
   ],
   "info" : {
