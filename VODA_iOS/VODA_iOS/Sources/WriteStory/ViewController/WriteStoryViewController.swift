@@ -144,6 +144,17 @@ class WriteStoryViewController: UIViewController {
         }
     }
     
+    private func setRecordButtonImage(pitch: AudioPitch) {
+        switch pitch {
+        case AudioPitch.zero:
+            self.addRecordButton.setImage(UIImage(named: "seletedZeroPitchCat"), for: .normal)
+        case AudioPitch.row:
+            self.addRecordButton.setImage(UIImage(named: "seletedRowPitchCat"), for: .normal)
+        case AudioPitch.high:
+            self.addRecordButton.setImage(UIImage(named: "seletedHighPitchCat"), for: .normal)
+        }
+    }
+    
     @objc func noSaveStory() {
         showButtonPopUp(with: .noSaveStory, completionHandler: {
             self.dismiss(animated: false, completion: nil)
@@ -202,11 +213,8 @@ class WriteStoryViewController: UIViewController {
             self?.audioPlayerView.backgroundColor = .white
             self?.audioPlayerView.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
             
-            guard let locationText = self?.locationTextField.text else {
-                return
-            }
-            
-            guard let titleText = self?.titleTextField.text else {
+            guard let locationText = self?.locationTextField.text,
+                  let titleText = self?.titleTextField.text else {
                 return
             }
             
@@ -231,15 +239,8 @@ class WriteStoryViewController: UIViewController {
             }
             self?.audioPitch = pitch
             
-            switch pitch {
-            case AudioPitch.zero:
-                self?.addRecordButton.setImage(UIImage(named: "seletedZeroPitchCat"), for: .normal)
-            case AudioPitch.row:
-                self?.addRecordButton.setImage(UIImage(named: "seletedRowPitchCat"), for: .normal)
-            case AudioPitch.high:
-                self?.addRecordButton.setImage(UIImage(named: "seletedHighPitchCat"), for: .normal)
-            default:
-                break
+            if let pitchValue = AudioPitch(rawValue: pitch) {
+                self?.setRecordButtonImage(pitch: pitchValue)
             }
             
             guard let audioDataUrl = data.audioUrl else {

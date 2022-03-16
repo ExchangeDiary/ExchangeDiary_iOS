@@ -90,13 +90,8 @@ class PlaySoundViewController: UIViewController {
             noPitchButton.isHidden = true
             rightBarButton.isHidden = true
             
-            switch audioData?.pitch {
-            case AudioPitch.row:
-                recordImageView.image = UIImage(named: "seletedRowPitchCat")
-            case AudioPitch.high:
-                recordImageView.image = UIImage(named: "seletedHighPitchCat")
-            default:
-                recordImageView.image = UIImage(named: "seletedZeroPitchCat")
+            if let pitch = audioData?.pitch, let pitchValue = AudioPitch(rawValue: pitch) {
+                setRecordImage(pitch: pitchValue)
             }
             
             audioTitleTextField.text = audioData?.audioTitle
@@ -135,6 +130,17 @@ class PlaySoundViewController: UIViewController {
         
         totalDurationLabel.text = duration.convertString()
         remainingPlayingTimeLabel.text = "-\(duration.convertString())"
+    }
+    
+    private func setRecordImage(pitch: AudioPitch) {
+        switch pitch {
+        case AudioPitch.zero:
+            recordImageView.image = UIImage(named: "seletedZeroPitchCat")
+        case AudioPitch.row:
+            recordImageView.image = UIImage(named: "seletedRowPitchCat")
+        case AudioPitch.high:
+            recordImageView.image = UIImage(named: "seletedHighPitchCat")
+        }
     }
     
     private func changeStatusButtonImage(_ playStatus: AudioPlayerStatus) {
@@ -239,7 +245,7 @@ class PlaySoundViewController: UIViewController {
         
         audioPlayer.stop()
         audioPlayer.pitchEnabled = true
-        audioPlayer.pitch = AudioPitch.high
+        audioPlayer.pitch = AudioPitch.high.rawValue
         progressBarWidth.constant = 0
         
         if sender.isSelected {
@@ -260,7 +266,7 @@ class PlaySoundViewController: UIViewController {
         
         audioPlayer.stop()
         audioPlayer.pitchEnabled = true
-        audioPlayer.pitch = AudioPitch.row
+        audioPlayer.pitch = AudioPitch.row.rawValue
         progressBarWidth.constant = 0
         
         if sender.isSelected {
