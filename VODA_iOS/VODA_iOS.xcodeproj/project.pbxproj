@@ -82,6 +82,7 @@
 		9B40EA2327687C1B000D5733 /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40EA2227687C1B000D5733 /* MockAPIService.swift */; };
 		9B44A97E26D166830078B561 /* AudioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A97D26D166820078B561 /* AudioData.swift */; };
 		9B44A98026D177DD0078B561 /* StoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A97F26D177DC0078B561 /* StoryDetailViewController.swift */; };
+		9B4A628327E20D3500BF8A55 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4A628227E20D3500BF8A55 /* Storyboard.swift */; };
 		9B60617326C184AF008C84DC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B60617226C184AF008C84DC /* Home.storyboard */; };
 		9B60617926C184C2008C84DC /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60617626C184C2008C84DC /* TimeInterval+Extension.swift */; };
 		9B60617A26C184C2008C84DC /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60617826C184C2008C84DC /* SegueIdentifier.swift */; };
@@ -212,6 +213,7 @@
 		9B40EA2227687C1B000D5733 /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
 		9B44A97D26D166820078B561 /* AudioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioData.swift; sourceTree = "<group>"; };
 		9B44A97F26D177DC0078B561 /* StoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailViewController.swift; sourceTree = "<group>"; };
+		9B4A628227E20D3500BF8A55 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		9B60617226C184AF008C84DC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		9B60617626C184C2008C84DC /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
 		9B60617826C184C2008C84DC /* SegueIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
@@ -592,6 +594,7 @@
 				9B60617726C184C2008C84DC /* Network */,
 				9B60617826C184C2008C84DC /* SegueIdentifier.swift */,
 				9B6BD2DE26C66420007619BE /* DeviceInfo.swift */,
+				9B4A628227E20D3500BF8A55 /* Storyboard.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1089,6 +1092,7 @@
 				4CE24ED226D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift in Sources */,
 				12DFB9E126BE7AA9009C23D1 /* SocialLoginType.swift in Sources */,
 				4C4978CA26FA3F7900C0C627 /* CALayer+Extension.swift in Sources */,
+				9B4A628327E20D3500BF8A55 /* Storyboard.swift in Sources */,
 				9B6C8B5D26B3F02600D089D3 /* PushViewController.swift in Sources */,
 				9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */,
 				9B26C20626DE7D0300ECECF8 /* QuestionViewController.swift in Sources */,
