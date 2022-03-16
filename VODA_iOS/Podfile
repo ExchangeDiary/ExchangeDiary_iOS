@@ -10,11 +10,13 @@ target 'VODA_iOS' do
     pod 'SwiftLint'
     pod 'lottie-ios'
     pod 'SoundWave'
-    
+   
     pod 'GoogleSignIn'
     pod 'KakaoSDK'
     
     pod 'DropDown'
+
+    pod 'Firebase/Messaging'
     
   # Pods for VODA_iOS
 
