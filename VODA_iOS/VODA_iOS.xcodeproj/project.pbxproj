@@ -405,8 +405,6 @@
 				12DFB9E226BE85A7009C23D1 /* SocialLoginManager.swift */,
 				120B28B026BAD5550058A568 /* AppleLoginManager.swift */,
 				9B26C20B26DF535A00ECECF8 /* UserProfileData.swift */,
-				4CA911FB27DA0B0000CD3FC3 /* TokenManager.swift */,
-				4CA911FF27DA298100CD3FC3 /* KeyChainManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -427,6 +425,24 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4C4F588F27E1FCC700A3E8BF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4C1FF1B227DF8C990096530F /* AuthorizationAPI.swift */,
+				9B40EA0627611931000D5733 /* VodaAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		4C4F589027E1FCE500A3E8BF /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				4CA911FB27DA0B0000CD3FC3 /* TokenManager.swift */,
+				4CA911FF27DA298100CD3FC3 /* KeyChainManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		4CA911F527D9D84B00CD3FC3 /* Constants */ = {
@@ -541,7 +557,6 @@
 		9B2BF47D2699E4BA00FA072C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				4CA911F527D9D84B00CD3FC3 /* Constants */,
 				1235B40E2709AC7C00C750DF /* OnBoarding */,
 				1279629126B93C730027EB8C /* Auth */,
 				9B2BF4852699E97200FA072C /* Main */,
@@ -636,6 +651,7 @@
 			children = (
 				9B60617526C184C2008C84DC /* Extension */,
 				9B60617726C184C2008C84DC /* Network */,
+				4C4F589027E1FCE500A3E8BF /* Manager */,
 				9B60617826C184C2008C84DC /* SegueIdentifier.swift */,
 				9B6BD2DE26C66420007619BE /* DeviceInfo.swift */,
 			);
@@ -660,8 +676,8 @@
 			isa = PBXGroup;
 			children = (
 				9B40EA1F27687152000D5733 /* Mock */,
-				9B40EA0627611931000D5733 /* VodaAPI.swift */,
-				4C1FF1B227DF8C990096530F /* AuthorizationAPI.swift */,
+				4CA911F527D9D84B00CD3FC3 /* Constants */,
+				4C4F588F27E1FCC700A3E8BF /* API */,
 				9B40EA08276213CF000D5733 /* APIService.swift */,
 				9B40EA0E2767B02B000D5733 /* DefaultSession.swift */,
 			);
