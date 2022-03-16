@@ -52,12 +52,12 @@ class MainViewController: UIViewController {
     
     private func presentNewDiaryPopUpViewController() {
         let storyboard = UIStoryboard(name: "NewDiary", bundle: nil)
-        guard let newDiaryPopUp = storyboard.instantiateViewController(identifier: "NewDiaryPopUpViewController") as? NewDiaryPopUpViewController else {
+        guard let newDiaryPopUpViewController = storyboard.instantiateViewController(identifier: "NewDiaryPopUpViewController") as? NewDiaryPopUpViewController else {
             return
         }
-        newDiaryPopUp.modalPresentationStyle = .overCurrentContext
-        newDiaryPopUp.modalTransitionStyle = .crossDissolve
-        self.present(newDiaryPopUp, animated: true, completion: nil)
+        newDiaryPopUpViewController.modalPresentationStyle = .overCurrentContext
+        newDiaryPopUpViewController.modalTransitionStyle = .crossDissolve
+        self.present(newDiaryPopUpViewController, animated: true, completion: nil)
     }
     
     func setTabBarHidden(_ isHidden: Bool) {
