@@ -10,11 +10,13 @@ import Security
 
 class KeyChainManager {
     func setTokenValue(_ service: String, account: String, value: String) {
+        guard let valueData = value.data(using: .utf8, allowLossyConversion: false) else { return }
+        
         let keyChainQuery: NSDictionary = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrService: service,
             kSecAttrAccount: account,
-            kSecValueData: value.data(using: .utf8, allowLossyConversion: false)!
+            kSecValueData: valueData
         ]
          
         SecItemDelete(keyChainQuery)

@@ -47,6 +47,7 @@
 		4C09162126F9A17A0055CD18 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C09162026F9A17A0055CD18 /* AdminViewController.swift */; };
 		4C17688326D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C17688226D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift */; };
 		4C1E9D5C26F9B56B003C2F63 /* WritingOrderModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E9D5B26F9B56B003C2F63 /* WritingOrderModifyViewController.swift */; };
+		4C1FF1B327DF8C990096530F /* AuthorizationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1FF1B227DF8C990096530F /* AuthorizationAPI.swift */; };
 		4C3328D426F746DD004A5A92 /* StoryCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3328D326F746DD004A5A92 /* StoryCollectionViewFlowLayout.swift */; };
 		4C4978C626FA145000C0C627 /* WritingOrderModifyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4978C526FA145000C0C627 /* WritingOrderModifyCell.swift */; };
 		4C4978C826FA151A00C0C627 /* WritingOrderModifyViewController+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4978C726FA151A00C0C627 /* WritingOrderModifyViewController+CollectionViewExtension.swift */; };
@@ -176,6 +177,7 @@
 		4C09162026F9A17A0055CD18 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		4C17688226D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiaryCollectionViewCell.swift; sourceTree = "<group>"; };
 		4C1E9D5B26F9B56B003C2F63 /* WritingOrderModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingOrderModifyViewController.swift; sourceTree = "<group>"; };
+		4C1FF1B227DF8C990096530F /* AuthorizationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationAPI.swift; sourceTree = "<group>"; };
 		4C3328D326F746DD004A5A92 /* StoryCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		4C4978C526FA145000C0C627 /* WritingOrderModifyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingOrderModifyCell.swift; sourceTree = "<group>"; };
 		4C4978C726FA151A00C0C627 /* WritingOrderModifyViewController+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingOrderModifyViewController+CollectionViewExtension.swift"; sourceTree = "<group>"; };
@@ -659,6 +661,7 @@
 			children = (
 				9B40EA1F27687152000D5733 /* Mock */,
 				9B40EA0627611931000D5733 /* VodaAPI.swift */,
+				4C1FF1B227DF8C990096530F /* AuthorizationAPI.swift */,
 				9B40EA08276213CF000D5733 /* APIService.swift */,
 				9B40EA0E2767B02B000D5733 /* DefaultSession.swift */,
 			);
@@ -1091,6 +1094,7 @@
 				9B26C20E26E687EF00ECECF8 /* FileDownloader.swift in Sources */,
 				9B03D58326EF9883005BE354 /* NoticeDetailViewController.swift in Sources */,
 				1279629726B93D080027EB8C /* SignInViewController.swift in Sources */,
+				4C1FF1B327DF8C990096530F /* AuthorizationAPI.swift in Sources */,
 				120B28B126BAD5550058A568 /* AppleLoginManager.swift in Sources */,
 				12603DD426C952AF0077F859 /* StoryCollectionViewCell.swift in Sources */,
 				9B6C8B6126B3F04500D089D3 /* MyPageViewController.swift in Sources */,

@@ -20,7 +20,7 @@ class APIService {
             switch result {
             case .success(let response):
                 do {
-                    let parsedResponse = try JSONDecoder().decode(responseType, from: response.data)
+                    let parsedResponse = try self.jsonDecoder.decode(responseType, from: response.data)
                     completion(.success(parsedResponse))
                 } catch {
                     print(error.localizedDescription)
