@@ -8,8 +8,8 @@
 import Foundation
 
 enum ButtonPopUpType {
-    case emailCheck
-    case outRoom
+    case checkEmail
+    case exitRoom
     case completeWriteStory
     case checkStoryContentNil
     case checkStoryLocationTitleNil
@@ -22,9 +22,9 @@ enum ButtonPopUpType {
     
     var message: String {
         switch self {
-        case .emailCheck:
+        case .checkEmail:
             return "이미 가입된 이메일 계정입니다."
-        case .outRoom:
+        case .exitRoom:
             return "다이어리 방을 나가면\n활동 내용이 모두 삭제됩니다."
         case .completeWriteStory:
             return "교환 일기 작성이 완료되었어요!\n지금 바로 확인해보세요:)"
@@ -51,7 +51,7 @@ enum ButtonPopUpType {
         switch self {
         case .completeWriteStory, .checkStoryContentNil, .checkStoryLocationTitleNil, .networkError, .serverError:
             return 1
-        case .emailCheck, .outRoom, .noSaveStory, .reRecord, .logout, .withdrawal:
+        case .checkEmail, .exitRoom, .noSaveStory, .reRecord, .logout, .withdrawal:
             return 2
         }
     }
@@ -75,9 +75,9 @@ enum ButtonPopUpType {
         let popUpViewHeight = Float(DeviceInfo.screenHeight * 0.2216)
         
         switch self {
-        case .logout, .emailCheck:
+        case .logout, .checkEmail:
             return popUpViewHeight * 0.3055
-        case .outRoom,.completeWriteStory, .checkStoryContentNil, .checkStoryLocationTitleNil, .reRecord:
+        case .exitRoom,.completeWriteStory, .checkStoryContentNil, .checkStoryLocationTitleNil, .reRecord:
             return popUpViewHeight * 0.2222
         case .noSaveStory, .networkError, .serverError, .withdrawal:
             return popUpViewHeight * 0.1444
