@@ -52,6 +52,7 @@
 		4C4978C626FA145000C0C627 /* WritingOrderModifyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4978C526FA145000C0C627 /* WritingOrderModifyCell.swift */; };
 		4C4978C826FA151A00C0C627 /* WritingOrderModifyViewController+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4978C726FA151A00C0C627 /* WritingOrderModifyViewController+CollectionViewExtension.swift */; };
 		4C4978CA26FA3F7900C0C627 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4978C926FA3F7900C0C627 /* CALayer+Extension.swift */; };
+		4C4F589227E2105100A3E8BF /* HeaderInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F589127E2105100A3E8BF /* HeaderInfomation.swift */; };
 		4CA911F727D9D87100CD3FC3 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA911F627D9D87100CD3FC3 /* KeyValue.swift */; };
 		4CA911FC27DA0B0000CD3FC3 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA911FB27DA0B0000CD3FC3 /* TokenManager.swift */; };
 		4CA911FE27DA239100CD3FC3 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA911FD27DA239100CD3FC3 /* Token.swift */; };
@@ -182,6 +183,7 @@
 		4C4978C526FA145000C0C627 /* WritingOrderModifyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingOrderModifyCell.swift; sourceTree = "<group>"; };
 		4C4978C726FA151A00C0C627 /* WritingOrderModifyViewController+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingOrderModifyViewController+CollectionViewExtension.swift"; sourceTree = "<group>"; };
 		4C4978C926FA3F7900C0C627 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
+		4C4F589127E2105100A3E8BF /* HeaderInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderInfomation.swift; sourceTree = "<group>"; };
 		4CA911F627D9D87100CD3FC3 /* KeyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		4CA911FB27DA0B0000CD3FC3 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		4CA911FD27DA239100CD3FC3 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -680,6 +682,7 @@
 				4C4F588F27E1FCC700A3E8BF /* API */,
 				9B40EA08276213CF000D5733 /* APIService.swift */,
 				9B40EA0E2767B02B000D5733 /* DefaultSession.swift */,
+				4C4F589127E2105100A3E8BF /* HeaderInfomation.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1158,6 +1161,7 @@
 				12603DD826C9531B0077F859 /* StoryWritingTurnCollectionViewCell.swift in Sources */,
 				9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */,
 				9B26C20026D92BAA00ECECF8 /* AudioPitch.swift in Sources */,
+				4C4F589227E2105100A3E8BF /* HeaderInfomation.swift in Sources */,
 				9B26C20826DE7D5400ECECF8 /* OpenSourceLicenseViewController.swift in Sources */,
 				9B60618326C1886D008C84DC /* UIViewController+Extension.swift in Sources */,
 				9B03D57E26E7B356005BE354 /* NoticeCollectionViewCell.swift in Sources */,

@@ -9,13 +9,6 @@ import Foundation
 import Moya
 
 enum VodaAPI {
-    case socialSignIn(authType: String, accessCode: String)
-    case appleSignIn(authorizationCode: String, identityToken: String)
-    case refreshToken(accessToken: String)
-    case signOut(accessToken: String)
-    case withDrawal(accessToken: String)
-    case setProfile(nickName: String, profileImage: UIImage)
-    
     case createDiary(theme: String, name: String, period: Int, diaryCoverImage: Int, participationCode: String, codeHint: String)
     case getDiaryCoverImage
     case getDiary
@@ -37,12 +30,6 @@ extension VodaAPI: TargetType {
     
     var path: String {
         switch self {
-        case .socialSignIn: return "/auth/socialSingnIn"
-        case .appleSignIn: return "/auth/appleSignIn"
-        case .refreshToken: return "/auth/refreshToken"
-        case .signOut: return "/auth/signOut"
-        case .withDrawal: return "/auth/withDrawl"
-        case .setProfile: return "/api/profile"
         case .createDiary: return "/diary"
         case .getDiaryCoverImage: return "/diaryCoverImage"
         case .getDiary: return "/diary"
@@ -62,7 +49,7 @@ extension VodaAPI: TargetType {
         switch self {
         case .getDiaryCoverImage, .getDiary, .getStory, .getStoryDetail, .getNotice, .testGetStoryDetail:
             return .get
-        case .socialSignIn, .appleSignIn, .refreshToken, .signOut, .withDrawal, .setProfile, .createDiary, .setStoryWriteTurn, .setStoryWritePeriod, .setStoryParticipationCode, .writeStory, .setPush:
+        case .createDiary, .setStoryWriteTurn, .setStoryWritePeriod, .setStoryParticipationCode, .writeStory, .setPush:
             return .post
         }
     }
@@ -73,37 +60,6 @@ extension VodaAPI: TargetType {
     
     var task: Task {
         switch self {
-        case .signOut, .withDrawal:
-            return .requestPlain
-            
-        case .socialSignIn(let authType, let accessCode):
-            let parameters: [String: Any] = [
-                "authType": authType,
-                "accessCode": accessCode
-            ]
-            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-            
-        case .appleSignIn(let authorizationCode, let identityToken):
-            let parameters: [String: Any] = [
-                "authorizationCode": authorizationCode,
-                "identityToken": identityToken
-            ]
-            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-            
-        case .refreshToken(let refreshToken):
-            return .requestParameters(
-                parameters: ["refreshToken": refreshToken],
-                encoding: JSONEncoding.default
-            )
-            
-        case .setProfile(let nickName, let profileImage):
-            let nickNameData = MultipartFormData(provider: .data(nickName.data(using: .utf8)!), name: "nickName")
-            let profileImageData = MultipartFormData(
-                provider: .data(profileImage.jpegData(compressionQuality: 0.1)!),
-                name: "profileImage")
-            let multipartData = [nickNameData, profileImageData]
-            return .uploadMultipart(multipartData)
-            
         case .createDiary(let theme, let name, let period, let diaryCoverImage, let participationCode, let codeHint):
             return .requestParameters(parameters: ["theme": theme,
                                                    "name": name,
@@ -144,19 +100,10 @@ extension VodaAPI: TargetType {
         }
     }
 
-    private var authorization: String {
-        return "Bearer " + "token"
-    }
-    
     var headers: [String: String]? {
-        switch self {
-        case .appleSignIn, .socialSignIn, .testGetStoryDetail:
-            return ["Content-type": "application/json"]
-        default:
-            return [
-                "Content-type": "application/json",
-                "Authorization": ""
-            ]
-        }
+        return [
+            HeaderInformation.HeaderKey.contentType: HeaderInformation.HeaderValue.json,
+            HeaderInformation.HeaderValue.authoization: HeaderInformation.HeaderValue.authoization
+        ]
     }
 }

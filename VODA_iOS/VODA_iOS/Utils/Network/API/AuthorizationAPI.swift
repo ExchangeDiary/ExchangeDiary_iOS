@@ -76,18 +76,14 @@ extension AuthorizationAPI: TargetType {
         }
     }
 
-    private var authorization: String {
-        return "Bearer " + "token"
-    }
-    
     var headers: [String: String]? {
         switch self {
         case .appleSignIn, .socialSignIn:
-            return ["Content-type": "application/json"]
+            return [HeaderInformation.HeaderKey.contentType: HeaderInformation.HeaderValue.json]
         default:
             return [
-                "Content-type": "application/json",
-                "Authorization": ""
+                HeaderInformation.HeaderKey.contentType: HeaderInformation.HeaderValue.json,
+                HeaderInformation.HeaderValue.authoization: HeaderInformation.HeaderValue.authoization
             ]
         }
     }
