@@ -34,7 +34,7 @@ class AdminViewController: UIViewController {
     }
     
     @IBAction func modifyCodeTouchUpInsideAction(_ sender: Any) {
-        let updateInvitationCodeViewController = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: updateInvitationCodeViewControllerIdentifier)
+        let updateInvitationCodeViewController = UIStoryboard(name: Storyboard.diary.name, bundle: nil).instantiateViewController(withIdentifier: updateInvitationCodeViewControllerIdentifier)
         updateInvitationCodeViewController.modalPresentationStyle = .overCurrentContext
         updateInvitationCodeViewController.modalTransitionStyle = .crossDissolve
         self.present(updateInvitationCodeViewController, animated: true, completion: nil)
@@ -42,7 +42,7 @@ class AdminViewController: UIViewController {
     }
     
     @IBAction func writingPreiodTouchUpInsideAction(_ sender: Any) {
-        let writePeriodPopUpViewcontroller = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: writePeriodPopUpViewcontrollerIdentifier) as? WritePeriodPopUpViewController
+        let writePeriodPopUpViewcontroller = UIStoryboard(name: Storyboard.popUp.name, bundle: nil).instantiateViewController(withIdentifier: writePeriodPopUpViewcontrollerIdentifier) as? WritePeriodPopUpViewController
         writePeriodPopUpViewcontroller?.modalPresentationStyle = .overCurrentContext
         writePeriodPopUpViewcontroller?.modalTransitionStyle = .crossDissolve
         writePeriodPopUpViewcontroller?.writePeriodDelegate = self

@@ -91,7 +91,7 @@ class UserProfileViewController: UIViewController {
                 navigationController?.popViewController(animated: false)
             }
         } else if pageCase == "Auth" {
-            if let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController {
+            if let mainViewController = UIStoryboard(name: Storyboard.main.name, bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController {
                 mainViewController.modalPresentationStyle = .fullScreen
                 mainViewController.modalTransitionStyle = .crossDissolve
                 self.present(mainViewController, animated: true)

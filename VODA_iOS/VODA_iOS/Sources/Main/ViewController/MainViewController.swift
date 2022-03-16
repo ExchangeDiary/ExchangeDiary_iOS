@@ -51,7 +51,7 @@ class MainViewController: UIViewController {
     }
     
     private func presentNewDiaryPopUpViewController() {
-        let storyboard = UIStoryboard(name: "NewDiary", bundle: nil)
+        let storyboard = UIStoryboard(name: Storyboard.newDiary.name, bundle: nil)
         guard let newDiaryPopUpViewController = storyboard.instantiateViewController(identifier: "NewDiaryPopUpViewController") as? NewDiaryPopUpViewController else {
             return
         }

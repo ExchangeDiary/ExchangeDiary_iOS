@@ -1,59 +1,59 @@
 PODS:
-  - Alamofire (5.4.3)
+  - Alamofire (5.5.0)
   - AppAuth (1.4.0):
     - AppAuth/Core (= 1.4.0)
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
   - DropDown (2.3.13)
-  - GoogleSignIn (6.0.1):
+  - GoogleSignIn (6.1.0):
     - AppAuth (~> 1.4)
     - GTMAppAuth (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
   - GTMAppAuth (1.2.2):
     - AppAuth/Core (~> 1.4)
     - GTMSessionFetcher/Core (~> 1.5)
-  - GTMSessionFetcher/Core (1.6.1)
-  - KakaoSDK (2.5.6):
-    - KakaoSDKAuth (= 2.5.6)
-    - KakaoSDKCommon (= 2.5.6)
-    - KakaoSDKLink (= 2.5.6)
-    - KakaoSDKNavi (= 2.5.6)
-    - KakaoSDKStory (= 2.5.6)
-    - KakaoSDKTalk (= 2.5.6)
-    - KakaoSDKTemplate (= 2.5.6)
-    - KakaoSDKUser (= 2.5.6)
-  - KakaoSDKAuth (2.5.6):
-    - KakaoSDKCommon (= 2.5.6)
-  - KakaoSDKCommon (2.5.6):
-    - KakaoSDKCommon/Common (= 2.5.6)
-    - KakaoSDKCommon/Network (= 2.5.6)
-  - KakaoSDKCommon/Common (2.5.6)
-  - KakaoSDKCommon/Network (2.5.6):
+  - GTMSessionFetcher/Core (1.7.0)
+  - KakaoSDK (2.8.6):
+    - KakaoSDKAuth (= 2.8.6)
+    - KakaoSDKCommon (= 2.8.6)
+    - KakaoSDKLink (= 2.8.6)
+    - KakaoSDKNavi (= 2.8.6)
+    - KakaoSDKStory (= 2.8.6)
+    - KakaoSDKTalk (= 2.8.6)
+    - KakaoSDKTemplate (= 2.8.6)
+    - KakaoSDKUser (= 2.8.6)
+  - KakaoSDKAuth (2.8.6):
+    - KakaoSDKCommon (= 2.8.6)
+  - KakaoSDKCommon (2.8.6):
+    - KakaoSDKCommon/Common (= 2.8.6)
+    - KakaoSDKCommon/Network (= 2.8.6)
+  - KakaoSDKCommon/Common (2.8.6)
+  - KakaoSDKCommon/Network (2.8.6):
     - Alamofire (~> 5.1)
-    - KakaoSDKCommon/Common (= 2.5.6)
-  - KakaoSDKLink (2.5.6):
-    - KakaoSDKCommon (= 2.5.6)
-    - KakaoSDKTemplate (= 2.5.6)
-  - KakaoSDKNavi (2.5.6):
-    - KakaoSDKCommon/Common (= 2.5.6)
-  - KakaoSDKStory (2.5.6):
-    - KakaoSDKUser (= 2.5.6)
-  - KakaoSDKTalk (2.5.6):
-    - KakaoSDKTemplate (= 2.5.6)
-    - KakaoSDKUser (= 2.5.6)
-  - KakaoSDKTemplate (2.5.6):
-    - KakaoSDKCommon/Common (= 2.5.6)
-  - KakaoSDKUser (2.5.6):
-    - KakaoSDKAuth (= 2.5.6)
-  - Kingfisher (6.3.0)
-  - lottie-ios (3.2.3)
-  - Moya (14.0.0):
-    - Moya/Core (= 14.0.0)
-  - Moya/Core (14.0.0):
+    - KakaoSDKCommon/Common (= 2.8.6)
+  - KakaoSDKLink (2.8.6):
+    - KakaoSDKCommon (= 2.8.6)
+    - KakaoSDKTemplate (= 2.8.6)
+  - KakaoSDKNavi (2.8.6):
+    - KakaoSDKCommon/Common (= 2.8.6)
+  - KakaoSDKStory (2.8.6):
+    - KakaoSDKUser (= 2.8.6)
+  - KakaoSDKTalk (2.8.6):
+    - KakaoSDKTemplate (= 2.8.6)
+    - KakaoSDKUser (= 2.8.6)
+  - KakaoSDKTemplate (2.8.6):
+    - KakaoSDKCommon/Common (= 2.8.6)
+  - KakaoSDKUser (2.8.6):
+    - KakaoSDKAuth (= 2.8.6)
+  - Kingfisher (7.2.0)
+  - lottie-ios (3.3.0)
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
   - SoundWave (0.1.4)
-  - SwiftLint (0.43.1)
+  - SwiftLint (0.46.5)
 
 DEPENDENCIES:
   - DropDown
@@ -89,27 +89,27 @@ SPEC REPOS:
     - SwiftLint
 
 SPEC CHECKSUMS:
-  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
-  GoogleSignIn: 1b0c4ec33a6fe282f4fa35d8ac64263230ddaf36
+  GoogleSignIn: c90b5bec45e780f54c6a8e1e3c182a86e3dda69d
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
-  GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
-  KakaoSDK: cf7977079b8b2925ee366ebe29aae51921e648ce
-  KakaoSDKAuth: 1e1fa737e78eed3f301ab5c164526781a37a42f9
-  KakaoSDKCommon: cdf340a8f671eef75f4ca012003cb350af3c4b6d
-  KakaoSDKLink: 59336155a065da278ba30dc656506295dc682979
-  KakaoSDKNavi: 8f74b7faad26e632c556bdf0584a30a3948f2c70
-  KakaoSDKStory: 5f32ad8525fa8b209ef91578f4be9c2c45a07f51
-  KakaoSDKTalk: 68c72269e9095afb9582f324b94f99dd6284e361
-  KakaoSDKTemplate: 0370e640abd33d0acb3d7bbe4ef3c02dc42a4576
-  KakaoSDKUser: f488aa4699b3fd3a836ab5c7e25e2cb4cea190c1
-  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
-  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
-  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
+  KakaoSDK: 29ca188341fbb8994586eac73c10209f3889b574
+  KakaoSDKAuth: 53e747a3bf343a3f3e87b14478d5a865d6c2acae
+  KakaoSDKCommon: 7e56600ff4c1bd82bed93fea4299b5a37f47e6a5
+  KakaoSDKLink: 59a6bdf7abd915aacba4c2671672ffe9654798dd
+  KakaoSDKNavi: 4df155701e60822a9f4426630ae2a38328e779be
+  KakaoSDKStory: afd97ece5b6b2a6d342533397654cea773954664
+  KakaoSDKTalk: d5b5a21281fa370f7d273a9140e82ba54aa9531a
+  KakaoSDKTemplate: 23bdcba233dce91fc948353c3b03d94f928d87d1
+  KakaoSDKUser: e79480355fa789f42e628dfba359fc21e9914f4c
+  Kingfisher: 3ac0b75b155cabc0e544877d1a4deea29feece92
+  lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   SoundWave: d98ffaa863570b29d991da32a09b7ce1b4aaf2d4
-  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  SwiftLint: 2c16e8fa99dac2e440dc0c70ea74d2532048f6cf
 
-PODFILE CHECKSUM: 30935f48c5c2b890ee19e61e6a2093e189a1d632
+PODFILE CHECKSUM: 788f94eb5a2a38e7cbdab235bb8834c879ba3bcd
 
 COCOAPODS: 1.10.1

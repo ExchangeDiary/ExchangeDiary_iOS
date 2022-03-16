@@ -28,13 +28,13 @@ class HomeViewController: UIViewController {
     }
     
     func pushDiaryViewController() {
-        let diaryViewController = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryViewController")
+        let diaryViewController = UIStoryboard(name: Storyboard.diary.name, bundle: nil).instantiateViewController(withIdentifier: "DiaryViewController")
         diaryViewController.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(diaryViewController, animated: true)
     }
     
     @IBAction func pushPushViewController(_ sender: UIBarButtonItem) {
-        let pushViewController = UIStoryboard(name: "Push", bundle: nil).instantiateViewController(withIdentifier: "PushViewController")
+        let pushViewController = UIStoryboard(name: Storyboard.push.name, bundle: nil).instantiateViewController(withIdentifier: "PushViewController")
         self.navigationController?.pushViewController(pushViewController, animated: true)
     }
 }
