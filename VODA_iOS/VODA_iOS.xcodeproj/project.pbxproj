@@ -452,6 +452,7 @@
 			children = (
 				4CA911F627D9D87100CD3FC3 /* KeyValue.swift */,
 				4CA911FD27DA239100CD3FC3 /* Token.swift */,
+				4C4F589127E2105100A3E8BF /* HeaderInfomation.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -682,7 +683,6 @@
 				4C4F588F27E1FCC700A3E8BF /* API */,
 				9B40EA08276213CF000D5733 /* APIService.swift */,
 				9B40EA0E2767B02B000D5733 /* DefaultSession.swift */,
-				4C4F589127E2105100A3E8BF /* HeaderInfomation.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
