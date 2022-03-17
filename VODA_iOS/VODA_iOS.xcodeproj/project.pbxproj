@@ -47,10 +47,16 @@
 		4C09162126F9A17A0055CD18 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C09162026F9A17A0055CD18 /* AdminViewController.swift */; };
 		4C17688326D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C17688226D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift */; };
 		4C1E9D5C26F9B56B003C2F63 /* WritingOrderModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E9D5B26F9B56B003C2F63 /* WritingOrderModifyViewController.swift */; };
+		4C1FF1B327DF8C990096530F /* AuthorizationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1FF1B227DF8C990096530F /* AuthorizationAPI.swift */; };
 		4C3328D426F746DD004A5A92 /* StoryCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3328D326F746DD004A5A92 /* StoryCollectionViewFlowLayout.swift */; };
 		4C4978C626FA145000C0C627 /* WritingOrderModifyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4978C526FA145000C0C627 /* WritingOrderModifyCell.swift */; };
 		4C4978C826FA151A00C0C627 /* WritingOrderModifyViewController+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4978C726FA151A00C0C627 /* WritingOrderModifyViewController+CollectionViewExtension.swift */; };
 		4C4978CA26FA3F7900C0C627 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4978C926FA3F7900C0C627 /* CALayer+Extension.swift */; };
+		4C4F589227E2105100A3E8BF /* HeaderInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F589127E2105100A3E8BF /* HeaderInfomation.swift */; };
+		4CA911F727D9D87100CD3FC3 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA911F627D9D87100CD3FC3 /* KeyValue.swift */; };
+		4CA911FC27DA0B0000CD3FC3 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA911FB27DA0B0000CD3FC3 /* TokenManager.swift */; };
+		4CA911FE27DA239100CD3FC3 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA911FD27DA239100CD3FC3 /* Token.swift */; };
+		4CA9120027DA298100CD3FC3 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA911FF27DA298100CD3FC3 /* KeyChainManager.swift */; };
 		4CC73B4826F9F76F009359DC /* UpdateInvitationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC73B4726F9F76F009359DC /* UpdateInvitationCodeViewController.swift */; };
 		4CE24ED226D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED126D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift */; };
 		4CE24ED426D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED326D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift */; };
@@ -174,10 +180,16 @@
 		4C09162026F9A17A0055CD18 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		4C17688226D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiaryCollectionViewCell.swift; sourceTree = "<group>"; };
 		4C1E9D5B26F9B56B003C2F63 /* WritingOrderModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingOrderModifyViewController.swift; sourceTree = "<group>"; };
+		4C1FF1B227DF8C990096530F /* AuthorizationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationAPI.swift; sourceTree = "<group>"; };
 		4C3328D326F746DD004A5A92 /* StoryCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		4C4978C526FA145000C0C627 /* WritingOrderModifyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingOrderModifyCell.swift; sourceTree = "<group>"; };
 		4C4978C726FA151A00C0C627 /* WritingOrderModifyViewController+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingOrderModifyViewController+CollectionViewExtension.swift"; sourceTree = "<group>"; };
 		4C4978C926FA3F7900C0C627 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
+		4C4F589127E2105100A3E8BF /* HeaderInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderInfomation.swift; sourceTree = "<group>"; };
+		4CA911F627D9D87100CD3FC3 /* KeyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
+		4CA911FB27DA0B0000CD3FC3 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		4CA911FD27DA239100CD3FC3 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		4CA911FF27DA298100CD3FC3 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		4CBFAC7F26A44D0600924F64 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4CC73B4726F9F76F009359DC /* UpdateInvitationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInvitationCodeViewController.swift; sourceTree = "<group>"; };
 		4CE24ED126D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CollectionViewExtension.swift"; sourceTree = "<group>"; };
@@ -364,7 +376,7 @@
 		1279629126B93C730027EB8C /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				12DFB9E426BE85C0009C23D1 /* Model */,
+				4CA911F827D9F8E900CD3FC3 /* Util */,
 				1279629526B93CCD0027EB8C /* ViewController */,
 				1279629226B93C830027EB8C /* Storyboard */,
 			);
@@ -408,6 +420,57 @@
 				4CC73B4726F9F76F009359DC /* UpdateInvitationCodeViewController.swift */,
 			);
 			path = Admin;
+			sourceTree = "<group>";
+		};
+		4C2AE84427D8BDB4008B32D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4C4F588F27E1FCC700A3E8BF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4C1FF1B227DF8C990096530F /* AuthorizationAPI.swift */,
+				9B40EA0627611931000D5733 /* VodaAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		4C4F589027E1FCE500A3E8BF /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				4CA911FB27DA0B0000CD3FC3 /* TokenManager.swift */,
+				4CA911FF27DA298100CD3FC3 /* KeyChainManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		4CA911F527D9D84B00CD3FC3 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				4CA911F627D9D87100CD3FC3 /* KeyValue.swift */,
+				4CA911FD27DA239100CD3FC3 /* Token.swift */,
+				4C4F589127E2105100A3E8BF /* HeaderInfomation.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		4CA911F827D9F8E900CD3FC3 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				4CA911F927D9F90200CD3FC3 /* Service */,
+				12DFB9E426BE85C0009C23D1 /* Model */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		4CA911F927D9F90200CD3FC3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		5A21726285A1D8F37056E326 /* Pods */ = {
@@ -592,6 +655,7 @@
 			children = (
 				9B60617526C184C2008C84DC /* Extension */,
 				9B60617726C184C2008C84DC /* Network */,
+				4C4F589027E1FCE500A3E8BF /* Manager */,
 				9B60617826C184C2008C84DC /* SegueIdentifier.swift */,
 				9B6BD2DE26C66420007619BE /* DeviceInfo.swift */,
 				9B4A628227E20D3500BF8A55 /* Storyboard.swift */,
@@ -617,7 +681,8 @@
 			isa = PBXGroup;
 			children = (
 				9B40EA1F27687152000D5733 /* Mock */,
-				9B40EA0627611931000D5733 /* VodaAPI.swift */,
+				4CA911F527D9D84B00CD3FC3 /* Constants */,
+				4C4F588F27E1FCC700A3E8BF /* API */,
 				9B40EA08276213CF000D5733 /* APIService.swift */,
 				9B40EA0E2767B02B000D5733 /* DefaultSession.swift */,
 			);
@@ -700,6 +765,7 @@
 		9B6C8B4E26B3EF7A00D089D3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4C2AE84427D8BDB4008B32D3 /* Model */,
 				126BE6D226C4D2C700756266 /* View */,
 				9B60617126C184AF008C84DC /* Storyboard */,
 				9B6C8B5326B3EFBD00D089D3 /* ViewController */,
@@ -1079,12 +1145,14 @@
 				9B6C8B4C26B3EE9C00D089D3 /* MainTab.swift in Sources */,
 				12603DDA26C9537A0077F859 /* StoryReadingTurnCollectionViewCell.swift in Sources */,
 				12BB18AC26D5187E00A9DF2A /* InputJoinCodeCollectionViewCell.swift in Sources */,
+				4CA911FC27DA0B0000CD3FC3 /* TokenManager.swift in Sources */,
 				9B26C20226DE2C5300ECECF8 /* PushSettingViewController.swift in Sources */,
 				9B60617926C184C2008C84DC /* TimeInterval+Extension.swift in Sources */,
 				9B40EA09276213CF000D5733 /* APIService.swift in Sources */,
 				9B26C20E26E687EF00ECECF8 /* FileDownloader.swift in Sources */,
 				9B03D58326EF9883005BE354 /* NoticeDetailViewController.swift in Sources */,
 				1279629726B93D080027EB8C /* SignInViewController.swift in Sources */,
+				4C1FF1B327DF8C990096530F /* AuthorizationAPI.swift in Sources */,
 				120B28B126BAD5550058A568 /* AppleLoginManager.swift in Sources */,
 				12603DD426C952AF0077F859 /* StoryCollectionViewCell.swift in Sources */,
 				9B6C8B6126B3F04500D089D3 /* MyPageViewController.swift in Sources */,
@@ -1095,6 +1163,7 @@
 				9B4A628327E20D3500BF8A55 /* Storyboard.swift in Sources */,
 				9B6C8B5D26B3F02600D089D3 /* PushViewController.swift in Sources */,
 				9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */,
+				4CA9120027DA298100CD3FC3 /* KeyChainManager.swift in Sources */,
 				9B26C20626DE7D0300ECECF8 /* QuestionViewController.swift in Sources */,
 				4C1E9D5C26F9B56B003C2F63 /* WritingOrderModifyViewController.swift in Sources */,
 				12BB18AE26D51CB100A9DF2A /* BackgroundImageCollectionViewCell.swift in Sources */,
@@ -1102,12 +1171,14 @@
 				9B2601482769F64100BCE87B /* StoryDataResponse.swift in Sources */,
 				9B6C8B4726AC829800D089D3 /* VodaAudioPlayer.swift in Sources */,
 				12C3938626D78D1C0056A616 /* NewDiaryPopUpViewController+CollectionViewExtension.swift in Sources */,
+				4CA911F727D9D87100CD3FC3 /* KeyValue.swift in Sources */,
 				9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */,
 				12053F322709D204003C5E6F /* OnBoardingViewController+CollectionViewExtension.swift in Sources */,
 				9B40EA2327687C1B000D5733 /* MockAPIService.swift in Sources */,
 				4CC73B4826F9F76F009359DC /* UpdateInvitationCodeViewController.swift in Sources */,
 				9B60618026C1886D008C84DC /* UIImageView+Extension.swift in Sources */,
 				4C4978C626FA145000C0C627 /* WritingOrderModifyCell.swift in Sources */,
+				4CA911FE27DA239100CD3FC3 /* Token.swift in Sources */,
 				12603DDC26C9552B0077F859 /* DiaryCollectionReusableView.swift in Sources */,
 				126BE6D426C4D2DE00756266 /* JoinedDiaryCollectionViewCell.swift in Sources */,
 				9B40EA0727611931000D5733 /* VodaAPI.swift in Sources */,
@@ -1130,6 +1201,7 @@
 				12603DD826C9531B0077F859 /* StoryWritingTurnCollectionViewCell.swift in Sources */,
 				9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */,
 				9B26C20026D92BAA00ECECF8 /* AudioPitch.swift in Sources */,
+				4C4F589227E2105100A3E8BF /* HeaderInfomation.swift in Sources */,
 				9B26C20826DE7D5400ECECF8 /* OpenSourceLicenseViewController.swift in Sources */,
 				9B60618326C1886D008C84DC /* UIViewController+Extension.swift in Sources */,
 				9B03D57E26E7B356005BE354 /* NoticeCollectionViewCell.swift in Sources */,
