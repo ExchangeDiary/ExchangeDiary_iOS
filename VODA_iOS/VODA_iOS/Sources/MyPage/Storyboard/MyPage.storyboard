@@ -408,20 +408,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="19" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFb-V9-e8f">
-                                <rect key="frame" x="26" y="117.99999999999999" width="90" height="249.66666666666663"/>
+                                <rect key="frame" x="26" y="118.00000000000003" width="134.66666666666666" height="326.66666666666674"/>
                                 <string key="text">SwiftLint
+
+Moya
 
 Kingfisher
 
-Moya
+Lottie
+
+SoundWave
+
+DropDown
 
 KakaoSDK
 
 GoogleSignIn
 
-DropDown
-
-Lottie</string>
+Firebase/Messaging</string>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
