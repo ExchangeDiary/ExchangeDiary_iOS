@@ -11,19 +11,21 @@ import Moya
 
 class APIService {
     static let shared = APIService()
+    private let jsonDecoder = JSONDecoder()
     
-    func request<T: Codable, API: TargetType>(_ target: API, responseType: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
-        let provider = MoyaProvider<API>(session: DefaultSession.sharedSession)
+    func request<C: Codable, T: TargetType>(target: T, responseType: C.Type, completion: @escaping (Result<C, Error>) -> Void) {
+        let provider = MoyaProvider<T>(session: DefaultSession.sharedSession)
+        
         provider.request(target) { result in
             switch result {
-            case let .success(response):
+            case .success(let response):
                 do {
-                    let parsedResponse = try JSONDecoder().decode(responseType, from: response.data)
+                    let parsedResponse = try self.jsonDecoder.decode(responseType, from: response.data)
                     completion(.success(parsedResponse))
                 } catch {
                     print(error.localizedDescription)
                 }
-            case let .failure(error):
+            case .failure(let error):
                 print(error.localizedDescription)
             }
         }

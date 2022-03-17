@@ -7,8 +7,8 @@
 
 import Foundation
 
-public struct AudioPitch {
-    static let zero: Float = 0
-    static let row: Float = -800
-    static let high: Float = 1000
+enum AudioPitch: Float {
+    case zero = 0
+    case row = -800
+    case high = 1000
 }

@@ -26,8 +26,8 @@ class WriteStoryViewController: UIViewController {
     @IBOutlet weak var contentTextViewCharacterCountLabel: UILabel!
     @IBOutlet weak var storyPhotoImageView: UIImageView!
     @IBOutlet weak var noSelectTempleteButton: UIButton!
-    @IBOutlet weak var pinkCatTempleteButton: UIButton!
-    @IBOutlet weak var yellowCatTempleteButton: UIButton!
+    @IBOutlet weak var catTempleteButton: UIButton!
+    @IBOutlet weak var cloudTempleteButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     private var textViewHeight: CGFloat = 0
     private var audioTitle: String?
@@ -120,8 +120,8 @@ class WriteStoryViewController: UIViewController {
     
     private func setUpStoryTemplete() {
         noSelectTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
-        pinkCatTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
-        yellowCatTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
+        catTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
+        cloudTempleteButton.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
         
         noSelectTempleteButton.isSelected = true
     }
@@ -141,6 +141,17 @@ class WriteStoryViewController: UIViewController {
             audioPlayImageVIew.image = UIImage(named: "pause")
         default:
             break
+        }
+    }
+    
+    private func setRecordButtonImage(pitch: AudioPitch) {
+        switch pitch {
+        case AudioPitch.zero:
+            self.addRecordButton.setImage(UIImage(named: "seletedZeroPitchCat"), for: .normal)
+        case AudioPitch.row:
+            self.addRecordButton.setImage(UIImage(named: "seletedRowPitchCat"), for: .normal)
+        case AudioPitch.high:
+            self.addRecordButton.setImage(UIImage(named: "seletedHighPitchCat"), for: .normal)
         }
     }
     
@@ -182,11 +193,8 @@ class WriteStoryViewController: UIViewController {
             }
 
             audioData = FileManager.default.contents(atPath: audioUrl ?? "")
-            guard let storyAudioData = audioData else {
-                return
-            }
             
-            let storyData = StoryData(storyWriteDate: currentDateLabel.text ?? "", storyTitle: titleTextField.text ?? "", storyLocation: locationTextField.text ?? "", storyContentsText: contentTextView.text, storyAudioTitle: audioTitle, storyAudioFileName: audioFileName, storyAudioPitch: audioPitch, storyAudioUrl: audioUrl, storyAudioData: storyAudioData, storyPhotoImage: storyPhotoImageView.image, storyPhotoUrl: nil, storyTemplete: selectedTemplete)
+            let storyData = StoryData(storyWriteDate: currentDateLabel.text ?? "", storyTitle: titleTextField.text ?? "", storyLocation: locationTextField.text ?? "", storyContentsText: contentTextView.text, storyAudioTitle: audioTitle, storyAudioFileName: audioFileName, storyAudioPitch: audioPitch, storyAudioUrl: audioUrl, storyAudioData: audioData, storyPhotoImage: storyPhotoImageView.image, storyPhotoUrl: nil, storyTemplete: selectedTemplete)
             
             storyDetailViewController.storyData = storyData
             storyDetailViewController.pageCase = "storyPreview"
@@ -196,7 +204,7 @@ class WriteStoryViewController: UIViewController {
     }
     
     @IBAction func addStoryRecord(_ sender: UITapGestureRecognizer) {
-        let storyboard = UIStoryboard(name: "AudioRecord", bundle: nil)
+        let storyboard = UIStoryboard(name: Storyboard.audioRecord.name, bundle: nil)
         guard let recordSoundViewController = storyboard.instantiateViewController(identifier: "RecordSoundViewController") as? RecordSoundViewController else {
             return
         }
@@ -205,11 +213,8 @@ class WriteStoryViewController: UIViewController {
             self?.audioPlayerView.backgroundColor = .white
             self?.audioPlayerView.addShadow(width: 2, height: 2, radius: 2, opacity: 0.2)
             
-            guard let locationText = self?.locationTextField.text else {
-                return
-            }
-            
-            guard let titleText = self?.titleTextField.text else {
+            guard let locationText = self?.locationTextField.text,
+                  let titleText = self?.titleTextField.text else {
                 return
             }
             
@@ -234,15 +239,8 @@ class WriteStoryViewController: UIViewController {
             }
             self?.audioPitch = pitch
             
-            switch pitch {
-            case AudioPitch.zero:
-                self?.addRecordButton.setImage(UIImage(named: "noEffectHover"), for: .normal)
-            case AudioPitch.row:
-                self?.addRecordButton.setImage(UIImage(named: "thickHover"), for: .normal)
-            case AudioPitch.high:
-                self?.addRecordButton.setImage(UIImage(named: "thinHover"), for: .normal)
-            default:
-                break
+            if let pitchValue = AudioPitch(rawValue: pitch) {
+                self?.setRecordButtonImage(pitch: pitchValue)
             }
             
             guard let audioDataUrl = data.audioUrl else {
@@ -311,41 +309,41 @@ class WriteStoryViewController: UIViewController {
         selectedTemplete = 0
         
         if sender.isSelected {
-            pinkCatTempleteButton.isSelected = false
-            yellowCatTempleteButton.isSelected = false
+            catTempleteButton.isSelected = false
+            cloudTempleteButton.isSelected = false
         }
         
-        if !sender.isSelected, !pinkCatTempleteButton.isSelected, !yellowCatTempleteButton.isSelected {
+        if !sender.isSelected, !catTempleteButton.isSelected, !cloudTempleteButton.isSelected {
             sender.isSelected = true
         }
     }
     
-    @IBAction func selectPinkCatTemplete(_ sender: UIButton) {
+    @IBAction func selectCatTemplete(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
         selectedTemplete = 1
         
         if sender.isSelected {
             noSelectTempleteButton.isSelected = false
-            yellowCatTempleteButton.isSelected = false
+            cloudTempleteButton.isSelected = false
         }
         
-        if !sender.isSelected, !pinkCatTempleteButton.isSelected, !yellowCatTempleteButton.isSelected {
+        if !sender.isSelected, !catTempleteButton.isSelected, !cloudTempleteButton.isSelected {
             sender.isSelected = true
         }
     }
     
-    @IBAction func selectYellowCatTemplete(_ sender: UIButton) {
+    @IBAction func selectCloudTemplete(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
         selectedTemplete = 2
         
         if sender.isSelected {
             noSelectTempleteButton.isSelected = false
-            pinkCatTempleteButton.isSelected = false
+            catTempleteButton.isSelected = false
         }
         
-        if !sender.isSelected, !pinkCatTempleteButton.isSelected, !yellowCatTempleteButton.isSelected {
+        if !sender.isSelected, !catTempleteButton.isSelected, !cloudTempleteButton.isSelected {
             sender.isSelected = true
         }
     }
@@ -376,21 +374,7 @@ extension WriteStoryViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let locationText = locationTextField.text else {
-            return
-        }
-        
-        guard let titleText = titleTextField.text else {
-            return
-        }
-        
-        if !titleText.isEmpty, !locationText.isEmpty {
-            if contentTextViewCharacterCountLabel.text != "0/5000자" || audioTitleLabel.text != "음성으로 기록하기" {
-                rightBarButton.backgroundColor = UIColor.CustomColor.vodaMainBlue
-            }
-        } else {
-            rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
-        }
+        rightBarButton.backgroundColor = UIColor.CustomColor.vodaGray4
     }
 }
 

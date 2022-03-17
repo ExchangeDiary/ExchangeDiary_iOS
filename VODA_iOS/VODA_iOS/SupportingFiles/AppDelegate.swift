@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        KakaoSDKCommon.initSDK(appKey: SocialLoginType.kakao.appKey)
+        KakaoSDK.initSDK(appKey: SocialLoginType.kakao.appKey)
         registerForRemoteNotifications()
         
         
@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("set in SceneDelegate")
         } else {
             let window = UIWindow(frame: UIScreen.main.bounds)
-            if let onBoardingViewController = UIStoryboard(name: "OnBoarding", bundle: nil).instantiateViewController(withIdentifier: "OnBoardingViewController") as? OnBoardingViewController {
+            if let onBoardingViewController = UIStoryboard(name: Storyboard.onBoarding.name, bundle: nil).instantiateViewController(withIdentifier: "OnBoardingViewController") as? OnBoardingViewController {
                 window.rootViewController = onBoardingViewController
                 self.window = window
                 window.makeKeyAndVisible()

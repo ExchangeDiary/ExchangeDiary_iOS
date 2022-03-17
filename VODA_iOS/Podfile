@@ -1,3 +1,5 @@
+
+   
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '11.0'
 
@@ -10,7 +12,7 @@ target 'VODA_iOS' do
     pod 'SwiftLint'
     pod 'lottie-ios'
     pod 'SoundWave'
-    
+
     pod 'GoogleSignIn'
     pod 'KakaoSDK'
     

@@ -13,7 +13,7 @@ let dummyStoryTitleList = ["오늘 삼성전자 주식 뭐냐", "공모주 청�
 
 extension DiaryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "WriteStory", bundle: nil)
+        let storyboard = UIStoryboard(name: Storyboard.writeStory.name, bundle: nil)
         guard let writeStoryViewController = storyboard.instantiateViewController(identifier: "WriteStoryViewController") as? WriteStoryViewController else {
             return
         }
