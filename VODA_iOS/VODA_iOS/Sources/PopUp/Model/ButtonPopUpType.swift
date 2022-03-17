@@ -8,6 +8,8 @@
 import Foundation
 
 enum ButtonPopUpType {
+    case checkEmail
+    case exitRoom
     case completeWriteStory
     case checkStoryContentNil
     case checkStoryLocationTitleNil
@@ -16,9 +18,14 @@ enum ButtonPopUpType {
     case networkError
     case serverError
     case logout
+    case withdrawal
     
     var message: String {
         switch self {
+        case .checkEmail:
+            return "이미 가입된 이메일 계정입니다."
+        case .exitRoom:
+            return "다이어리 방을 나가면\n활동 내용이 모두 삭제됩니다."
         case .completeWriteStory:
             return "교환 일기 작성이 완료되었어요!\n지금 바로 확인해보세요:)"
         case .checkStoryContentNil:
@@ -35,6 +42,8 @@ enum ButtonPopUpType {
             return "서버 오류가 발생하였습니다.\n이전 화면으로 돌아가거나\n앱을 다시 실행해 주세요."
         case .logout:
             return "정말 로그아웃 하시겠습니까?"
+        case .withdrawal:
+            return "회원 탈퇴와 함께 VODA에\n등록된 모든 정보는 삭제, 폐기\n처리되며 복구되지 않습니다."
         }
     }
   
@@ -42,7 +51,7 @@ enum ButtonPopUpType {
         switch self {
         case .completeWriteStory, .checkStoryContentNil, .checkStoryLocationTitleNil, .networkError, .serverError:
             return 1
-        case .noSaveStory, .reRecord, .logout:
+        case .checkEmail, .exitRoom, .noSaveStory, .reRecord, .logout, .withdrawal:
             return 2
         }
     }
@@ -55,6 +64,8 @@ enum ButtonPopUpType {
             return "돌아가기"
         case .logout:
             return "로그아웃"
+        case .withdrawal:
+            return "탈퇴하기"
         default:
             return "확인"
         }
@@ -64,11 +75,11 @@ enum ButtonPopUpType {
         let popUpViewHeight = Float(DeviceInfo.screenHeight * 0.2216)
         
         switch self {
-        case .logout:
+        case .logout, .checkEmail:
             return popUpViewHeight * 0.3055
-        case .completeWriteStory, .checkStoryContentNil, .checkStoryLocationTitleNil, .reRecord:
+        case .exitRoom,.completeWriteStory, .checkStoryContentNil, .checkStoryLocationTitleNil, .reRecord:
             return popUpViewHeight * 0.2222
-        case .noSaveStory, .networkError, .serverError:
+        case .noSaveStory, .networkError, .serverError, .withdrawal:
             return popUpViewHeight * 0.1444
         }
     }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -70,8 +71,8 @@
                                 <color key="textColor" red="0.70588235294117641" green="0.70588235294117641" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voiceCat" translatesAutoresizingMaskIntoConstraints="NO" id="Vea-kC-F1W">
-                                <rect key="frame" x="97.666666666666686" y="632" width="180" height="180"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="singingCat" translatesAutoresizingMaskIntoConstraints="NO" id="Vea-kC-F1W">
+                                <rect key="frame" x="0.0" y="437" width="375" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Vea-kC-F1W" secondAttribute="height" multiplier="1:1" id="9Ec-It-0q6"/>
                                 </constraints>
@@ -86,7 +87,7 @@
                             <constraint firstItem="Vea-kC-F1W" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="bottom" id="Kou-cj-LLM"/>
                             <constraint firstItem="n9f-Vy-DQE" firstAttribute="top" secondItem="Jzo-5I-yud" secondAttribute="bottom" constant="24" id="Mo7-ai-TBd"/>
                             <constraint firstItem="n9f-Vy-DQE" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.123152" id="OJe-Fa-zf3"/>
-                            <constraint firstItem="Vea-kC-F1W" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.48" id="Rm7-ve-s2H"/>
+                            <constraint firstItem="Vea-kC-F1W" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" id="Rm7-ve-s2H"/>
                             <constraint firstItem="OuA-lB-ALI" firstAttribute="top" secondItem="n9f-Vy-DQE" secondAttribute="top" id="SKx-mb-obE"/>
                             <constraint firstItem="rmK-XZ-UTg" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="TTe-1z-KYV"/>
                             <constraint firstItem="n9f-Vy-DQE" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="aj4-DO-kGb"/>
@@ -251,8 +252,8 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="SZr-QR-hXe" secondAttribute="height" multiplier="1:1" id="oQM-h5-rc4"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="thick"/>
-                                        <state key="selected" image="thickHover"/>
+                                        <state key="normal" title="Button" image="rowPitchCat"/>
+                                        <state key="selected" image="seletedRowPitchCat"/>
                                         <connections>
                                             <action selector="setRowPitch:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="rU3-H0-Dhk"/>
                                         </connections>
@@ -262,8 +263,8 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="IXT-Rm-N57" secondAttribute="height" multiplier="1:1" id="wOh-j0-INe"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="thin"/>
-                                        <state key="selected" image="thinHover"/>
+                                        <state key="normal" title="Button" image="highPitchCat"/>
+                                        <state key="selected" image="seletedHighPitchCat"/>
                                         <connections>
                                             <action selector="setHighPitch:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="HXY-Oh-U7C"/>
                                         </connections>
@@ -273,8 +274,8 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ATR-pd-K6t" secondAttribute="height" multiplier="1:1" id="4CW-Vq-ZVP"/>
                                         </constraints>
-                                        <state key="normal" title="효과없음" image="noEffect"/>
-                                        <state key="selected" image="noEffectHover"/>
+                                        <state key="normal" title="효과없음" image="zeroPitchCat"/>
+                                        <state key="selected" image="seletedZeroPitchCat"/>
                                         <connections>
                                             <action selector="setNoPitch:" destination="LIK-ew-Ac3" eventType="touchUpInside" id="YyM-Do-LIa"/>
                                         </connections>
@@ -354,16 +355,16 @@
         <image name="5SecDelay" width="32" height="26"/>
         <image name="5SecFast" width="32" height="26"/>
         <image name="edit" width="24" height="24"/>
-        <image name="noEffect" width="88" height="88"/>
-        <image name="noEffectHover" width="88" height="88"/>
+        <image name="highPitchCat" width="88" height="88"/>
         <image name="resume" width="44" height="44"/>
+        <image name="rowPitchCat" width="88" height="88"/>
+        <image name="seletedHighPitchCat" width="88" height="88"/>
+        <image name="seletedRowPitchCat" width="88" height="88"/>
+        <image name="seletedZeroPitchCat" width="88" height="88"/>
+        <image name="singingCat" width="375" height="290"/>
         <image name="stop" width="100" height="100"/>
-        <image name="thick" width="88" height="88"/>
-        <image name="thickHover" width="88" height="88"/>
-        <image name="thin" width="88" height="88"/>
-        <image name="thinHover" width="88" height="88"/>
         <image name="voice" width="100" height="100"/>
-        <image name="voiceCat" width="184" height="187"/>
+        <image name="zeroPitchCat" width="88" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

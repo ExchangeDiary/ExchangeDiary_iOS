@@ -8,16 +8,16 @@
 import Foundation
 
 enum MainTab {
-    case push
     case home
+    case newDiary
     case myPage
     
     var segueIdentifier: String {
         switch self {
-        case .push:
-            return "PushSegue"
         case .home:
             return "HomeSegue"
+        case .newDiary:
+            return ""
         case .myPage:
             return "MyPageSegue"
         }
@@ -25,9 +25,9 @@ enum MainTab {
     
     var index: Int {
         switch self {
-        case .push:
-            return 0
         case .home:
+            return 0
+        case .newDiary:
             return 1
         case .myPage:
             return 2

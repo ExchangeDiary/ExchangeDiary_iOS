@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.4.3)
+  - Alamofire (5.5.0)
   - AppAuth (1.4.0):
     - AppAuth/Core (= 1.4.0)
     - AppAuth/ExternalUserAgent (= 1.4.0)
@@ -38,7 +38,7 @@ PODS:
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleSignIn (6.0.1):
+  - GoogleSignIn (6.1.0):
     - AppAuth (~> 1.4)
     - GTMAppAuth (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
@@ -62,7 +62,7 @@ PODS:
   - GTMAppAuth (1.2.2):
     - AppAuth/Core (~> 1.4)
     - GTMSessionFetcher/Core (~> 1.5)
-  - GTMSessionFetcher/Core (1.6.1)
+  - GTMSessionFetcher/Core (1.7.0)
   - KakaoSDK (2.5.6):
     - KakaoSDKAuth (= 2.5.6)
     - KakaoSDKCommon (= 2.5.6)
@@ -95,11 +95,11 @@ PODS:
     - KakaoSDKCommon/Common (= 2.5.6)
   - KakaoSDKUser (2.5.6):
     - KakaoSDKAuth (= 2.5.6)
-  - Kingfisher (6.3.0)
-  - lottie-ios (3.2.3)
-  - Moya (14.0.0):
-    - Moya/Core (= 14.0.0)
-  - Moya/Core (14.0.0):
+  - Kingfisher (7.2.0)
+  - lottie-ios (3.3.0)
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
@@ -108,13 +108,13 @@ PODS:
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
   - SoundWave (0.1.4)
-  - SwiftLint (0.43.1)
+  - SwiftLint (0.46.5)
 
 DEPENDENCIES:
   - DropDown
   - Firebase/Messaging
   - GoogleSignIn
-  - KakaoSDK
+  - KakaoSDK (= 2.5.6)
   - Kingfisher
   - lottie-ios
   - Moya
@@ -154,7 +154,7 @@ SPEC REPOS:
     - SwiftLint
 
 SPEC CHECKSUMS:
-  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   Firebase: ee9b1d9b1801371e29f5591eda89eb5a314ab599
@@ -163,10 +163,10 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 60edbf7e11d91ae4c751d26c200dfd037099abe0
   FirebaseMessaging: 8cddb4c478663611d58c03b353e10dd0ed6468f6
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
-  GoogleSignIn: 1b0c4ec33a6fe282f4fa35d8ac64263230ddaf36
+  GoogleSignIn: c90b5bec45e780f54c6a8e1e3c182a86e3dda69d
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
-  GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
+  GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
   KakaoSDK: cf7977079b8b2925ee366ebe29aae51921e648ce
   KakaoSDKAuth: 1e1fa737e78eed3f301ab5c164526781a37a42f9
   KakaoSDKCommon: cdf340a8f671eef75f4ca012003cb350af3c4b6d
@@ -176,14 +176,14 @@ SPEC CHECKSUMS:
   KakaoSDKTalk: 68c72269e9095afb9582f324b94f99dd6284e361
   KakaoSDKTemplate: 0370e640abd33d0acb3d7bbe4ef3c02dc42a4576
   KakaoSDKUser: f488aa4699b3fd3a836ab5c7e25e2cb4cea190c1
-  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
-  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
-  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  Kingfisher: 3ac0b75b155cabc0e544877d1a4deea29feece92
+  lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   SoundWave: d98ffaa863570b29d991da32a09b7ce1b4aaf2d4
-  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  SwiftLint: 2c16e8fa99dac2e440dc0c70ea74d2532048f6cf
 
-PODFILE CHECKSUM: d69def63cc4b0966a1999b50c2a0a44aaa7ddebe
+PODFILE CHECKSUM: 640f234f4a6d932fb6b7c3d04eb0de6ae7be0efa
 
 COCOAPODS: 1.10.1
