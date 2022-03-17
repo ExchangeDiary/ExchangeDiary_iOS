@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        KakaoSDK.initSDK(appKey: SocialLoginType.kakao.appKey)
+        KakaoSDKCommon.initSDK(appKey: SocialLoginType.kakao.appKey)
         registerForRemoteNotifications()
         
         
