@@ -42,13 +42,13 @@
                                     <constraint firstAttribute="bottom" secondItem="sTR-eh-DV0" secondAttribute="bottom" constant="5" id="tbx-ov-fEH"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profile_cat" translatesAutoresizingMaskIntoConstraints="NO" id="NFV-ea-rOo">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="NFV-ea-rOo">
                                 <rect key="frame" x="147.66666666666666" y="92" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NFV-ea-rOo" secondAttribute="height" multiplier="1:1" id="tni-xM-eBf"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_edit_pencil" translatesAutoresizingMaskIntoConstraints="NO" id="nL5-pd-euh">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userProfileEditImage" translatesAutoresizingMaskIntoConstraints="NO" id="nL5-pd-euh">
                                 <rect key="frame" x="209.33333333333334" y="154" width="18.333333333333343" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nL5-pd-euh" secondAttribute="height" multiplier="1:1" id="Atc-kH-RQV"/>
@@ -673,10 +673,10 @@ Lottie</string>
     </scenes>
     <resources>
         <image name="arrowGray" width="24" height="24"/>
-        <image name="default_profile_cat" width="140" height="140"/>
         <image name="emailLink" width="44" height="44"/>
         <image name="newNotice" width="16" height="16"/>
-        <image name="profile_edit_pencil" width="32" height="32"/>
+        <image name="userProfileEditImage" width="32" height="32"/>
+        <image name="userProfileImage" width="100" height="100"/>
         <namedColor name="Gray2">
             <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
