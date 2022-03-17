@@ -244,6 +244,8 @@ class StoryDetailViewController: UIViewController {
                 } else {
                     if let playAudioUrl = downloadedAudioUrl {
                         audioPlayer.play(with: playAudioUrl)
+//                    FIXME: pitch 받아서
+                        audioPlayer.pitch = AudioPitch.zero
                     }
                 }
             }
