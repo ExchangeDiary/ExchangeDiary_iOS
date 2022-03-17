@@ -8,30 +8,28 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    @IBOutlet weak var pushView: UIView!
     @IBOutlet weak var homeView: UIView!
     @IBOutlet weak var myPageView: UIView!
     @IBOutlet weak var tabBar: UITabBar!
     @IBOutlet weak var homeTabBarItem: UITabBarItem!
+    @IBOutlet weak var myPageTabBarItem: UITabBarItem!
     @IBOutlet weak var shadowView: UIView!
-    private var pushViewController: PushViewController?
     private var homeViewController: HomeViewController?
     private var myPageViewController: MyPageViewController?
+    private var selectedTabBarItemIndex = MainTab.home.index
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabBarUI()
-
+       
         setRootViewController(rootViewController: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case MainTab.push.segueIdentifier:
-            let navigationController = segue.destination as? UINavigationController
-            pushViewController = navigationController?.topViewController as? PushViewController
         case MainTab.home.segueIdentifier:
-            homeViewController = segue.destination as? HomeViewController
+            let navigationController = segue.destination as? UINavigationController
+            homeViewController = navigationController?.topViewController as? HomeViewController
         case MainTab.myPage.segueIdentifier:
             let navigationController = segue.destination as? UINavigationController
             myPageViewController = navigationController?.topViewController as? MyPageViewController
@@ -52,10 +50,32 @@ class MainViewController: UIViewController {
         view.bringSubviewToFront(shadowView)
     }
     
+    private func presentNewDiaryPopUpViewController() {
+        let storyboard = UIStoryboard(name: Storyboard.newDiary.name, bundle: nil)
+        guard let newDiaryPopUpViewController = storyboard.instantiateViewController(identifier: "NewDiaryPopUpViewController") as? NewDiaryPopUpViewController else {
+            return
+        }
+        newDiaryPopUpViewController.modalPresentationStyle = .overCurrentContext
+        newDiaryPopUpViewController.modalTransitionStyle = .crossDissolve
+        self.present(newDiaryPopUpViewController, animated: true, completion: nil)
+    }
+    
     func setTabBarHidden(_ isHidden: Bool) {
         tabBar.isHidden = isHidden
         shadowView.isHidden = isHidden
         tabBar.isTranslucent = isHidden
+    }
+    
+    func getSelectedTabBarItemIndex() -> Int {
+        return selectedTabBarItemIndex
+    }
+    
+    func setTabBarItem(index: Int) {
+        if index == MainTab.home.index {
+            tabBar.selectedItem = homeTabBarItem
+        } else if index == MainTab.myPage.index {
+            tabBar.selectedItem = myPageTabBarItem
+        }
     }
 }
 
@@ -63,12 +83,19 @@ class MainViewController: UIViewController {
 extension MainViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         switch item.tag {
-        case MainTab.push.index:
-            view.bringSubviewToFront(pushView)
         case MainTab.home.index:
             view.bringSubviewToFront(homeView)
+            selectedTabBarItemIndex = MainTab.home.index
+        case MainTab.newDiary.index:
+            presentNewDiaryPopUpViewController()
+            if selectedTabBarItemIndex == MainTab.home.index {
+                tabBar.selectedItem = homeTabBarItem
+            } else {
+                tabBar.selectedItem = myPageTabBarItem
+            }
         case MainTab.myPage.index:
             view.bringSubviewToFront(myPageView)
+            selectedTabBarItemIndex = MainTab.myPage.index
         default:
             break
         }

@@ -1,5 +1,5 @@
 //
-//  NewDiaryPopUp+CollectionViewExtension.swift
+//  NewDiaryPopUpViewController+CollectionViewExtension.swift
 //  VODA_iOS
 //
 //  Created by 조윤영 on 2021/08/26.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension NewDiaryPopUp: UICollectionViewDataSource {
+extension NewDiaryPopUpViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
@@ -31,7 +31,7 @@ extension NewDiaryPopUp: UICollectionViewDataSource {
     }
 }
 
-extension NewDiaryPopUp: UICollectionViewDelegateFlowLayout {
+extension NewDiaryPopUpViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: DeviceInfo.screenHeight / 5.13, left: DeviceInfo.screenWidth / 11.3, bottom: DeviceInfo.screenHeight / 5.13, right: DeviceInfo.screenWidth / 11.3)
     }
