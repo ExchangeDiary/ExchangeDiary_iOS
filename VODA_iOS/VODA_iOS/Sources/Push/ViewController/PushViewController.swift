@@ -13,8 +13,8 @@ class PushViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.setNavigationBarColor(color: .clear)
+        
+        self.setBackButton(color: .black)
         pushView.addShadow(width: 0, height: -4, radius: 8, opacity: 0.1)
         currentDateLabel.text = getCurrentDate()
     }
