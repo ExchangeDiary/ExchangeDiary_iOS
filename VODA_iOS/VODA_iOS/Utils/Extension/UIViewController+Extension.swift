@@ -101,7 +101,7 @@ extension UIViewController {
     }
     
     func showButtonPopUp(with type: ButtonPopUpType, completionHandler: (() -> Void)? = nil) {
-        let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
+        let storyboard = UIStoryboard(name: Storyboard.popUp.name, bundle: nil)
         guard let buttonPopUpViewController = storyboard.instantiateViewController(withIdentifier: "ButtonPopUpViewController") as? ButtonPopUpViewController else {
             return
         }
@@ -112,7 +112,7 @@ extension UIViewController {
     }
     
     func showAddPhotoPopUp(completionHandler: ((UIImage) -> Void)? = nil) {
-        let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
+        let storyboard = UIStoryboard(name: Storyboard.popUp.name, bundle: nil)
         guard let photoPopUpViewController = storyboard.instantiateViewController(withIdentifier: "PhotoPopUpViewController") as? PhotoPopUpViewController else {
             return
         }
@@ -122,7 +122,7 @@ extension UIViewController {
     }
     
     func showWritePeriodPopUp() {
-        let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
+        let storyboard = UIStoryboard(name: Storyboard.popUp.name, bundle: nil)
         guard let writePeriodPopUpViewController = storyboard.instantiateViewController(withIdentifier: "WritePeriodPopUpViewController") as? WritePeriodPopUpViewController else {
             return
         }
@@ -131,7 +131,7 @@ extension UIViewController {
     }
     
     func showLoadingView() {
-        let storyboard = UIStoryboard(name: "Loading", bundle: nil)
+        let storyboard = UIStoryboard(name: Storyboard.loading.name, bundle: nil)
         guard let loadingViewController = storyboard.instantiateViewController(identifier: "LoadingViewController") as? LoadingViewController else {
             return
         }

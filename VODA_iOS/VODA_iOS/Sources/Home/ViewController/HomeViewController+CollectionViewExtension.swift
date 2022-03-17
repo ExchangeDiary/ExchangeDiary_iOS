@@ -49,7 +49,7 @@ extension HomeViewController: UICollectionViewDataSource {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryViewController")
+        let dvc = UIStoryboard(name: Storyboard.diary.name, bundle: nil).instantiateViewController(withIdentifier: "DiaryViewController")
         dvc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(dvc, animated: true)
     }

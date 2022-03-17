@@ -18,13 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Owg-lT-kvj" userLabel="pushView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <connections>
-                                    <segue destination="pHD-oG-CKR" kind="embed" identifier="PushSegue" id="dG7-QY-SWc"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xou-ye-Ndf" userLabel="MyPageView">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xou-ye-Ndf" userLabel="myPageView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <connections>
                                     <segue destination="eea-ax-N18" kind="embed" identifier="MyPageSegue" id="jhd-WN-OCj"/>
@@ -55,10 +49,10 @@
                                             <constraint firstAttribute="height" constant="49" id="wNQ-97-0yt"/>
                                         </constraints>
                                         <items>
-                                            <tabBarItem title="" image="push" selectedImage="selectedPush" id="IJH-FB-jdb">
+                                            <tabBarItem title="" image="home" selectedImage="selectedHome" id="IJH-FB-jdb">
                                                 <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                                             </tabBarItem>
-                                            <tabBarItem tag="1" title="" image="home" selectedImage="selectedHome" id="t11-pQ-60H" userLabel="home Tab Item">
+                                            <tabBarItem tag="1" title="" image="makeRoom" selectedImage="makeRoom" id="t11-pQ-60H" userLabel="home Tab Item">
                                                 <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                                             </tabBarItem>
                                             <tabBarItem tag="2" title="" image="mypage" selectedImage="selectedMypage" id="YwV-Dd-2Io">
@@ -110,28 +104,24 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vcl-M8-MJb" firstAttribute="trailing" secondItem="AKW-6H-VuP" secondAttribute="trailing" id="1zi-r5-A0a"/>
-                            <constraint firstAttribute="top" secondItem="Owg-lT-kvj" secondAttribute="top" id="5xN-x9-jEs"/>
                             <constraint firstItem="AKW-6H-VuP" firstAttribute="leading" secondItem="vcl-M8-MJb" secondAttribute="leading" id="7Vg-2a-wBh"/>
                             <constraint firstItem="edF-ti-yXJ" firstAttribute="bottom" secondItem="QXl-gp-Vt6" secondAttribute="bottom" id="CJo-iv-1qJ"/>
                             <constraint firstItem="edF-ti-yXJ" firstAttribute="trailing" secondItem="vcl-M8-MJb" secondAttribute="trailing" id="ILY-Jn-1me"/>
                             <constraint firstItem="Bb2-yF-DDG" firstAttribute="bottom" secondItem="vcl-M8-MJb" secondAttribute="bottom" id="Jod-1h-Jx7"/>
                             <constraint firstAttribute="top" secondItem="AKW-6H-VuP" secondAttribute="top" id="NDc-sE-HcZ"/>
                             <constraint firstAttribute="bottom" secondItem="AKW-6H-VuP" secondAttribute="bottom" id="QEn-to-Yvq"/>
-                            <constraint firstItem="Owg-lT-kvj" firstAttribute="leading" secondItem="vcl-M8-MJb" secondAttribute="leading" id="UJc-U8-84g"/>
                             <constraint firstItem="vcl-M8-MJb" firstAttribute="trailing" secondItem="xou-ye-Ndf" secondAttribute="trailing" id="aUD-NQ-fiZ"/>
                             <constraint firstAttribute="bottom" secondItem="xou-ye-Ndf" secondAttribute="bottom" id="emi-nR-4OX"/>
                             <constraint firstAttribute="top" secondItem="xou-ye-Ndf" secondAttribute="top" id="ff6-ZU-YlQ"/>
-                            <constraint firstItem="vcl-M8-MJb" firstAttribute="trailing" secondItem="Owg-lT-kvj" secondAttribute="trailing" id="haZ-4v-ELS"/>
-                            <constraint firstAttribute="bottom" secondItem="Owg-lT-kvj" secondAttribute="bottom" id="npy-Ra-vt4"/>
                             <constraint firstItem="xou-ye-Ndf" firstAttribute="leading" secondItem="vcl-M8-MJb" secondAttribute="leading" id="p2r-YQ-hb9"/>
                             <constraint firstItem="vcl-M8-MJb" firstAttribute="leading" secondItem="edF-ti-yXJ" secondAttribute="leading" id="rer-R9-rkK"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="homeTabBarItem" destination="t11-pQ-60H" id="Qtg-XD-xfV"/>
+                        <outlet property="homeTabBarItem" destination="IJH-FB-jdb" id="VRb-QI-y5L"/>
                         <outlet property="homeView" destination="AKW-6H-VuP" id="kPT-rS-MhP"/>
+                        <outlet property="myPageTabBarItem" destination="YwV-Dd-2Io" id="WDc-Cu-qqU"/>
                         <outlet property="myPageView" destination="xou-ye-Ndf" id="EXG-mG-qF4"/>
-                        <outlet property="pushView" destination="Owg-lT-kvj" id="AFG-T9-W1X"/>
                         <outlet property="shadowView" destination="edF-ti-yXJ" id="zih-jN-PkC"/>
                         <outlet property="tabBar" destination="Bb2-yF-DDG" id="fKb-UD-G9L"/>
                     </connections>
@@ -140,21 +130,13 @@
             </objects>
             <point key="canvasLocation" x="286" y="60"/>
         </scene>
-        <!--Push-->
-        <scene sceneID="CWK-1N-XRw">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Push" id="pHD-oG-CKR" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3py-dk-4K8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1080" y="-86"/>
-        </scene>
         <!--Home-->
         <scene sceneID="UPs-lH-zHz">
             <objects>
                 <viewControllerPlaceholder storyboardName="Home" id="vVu-eb-ctB" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejs-AH-gli" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080" y="1"/>
+            <point key="canvasLocation" x="1007" y="-128"/>
         </scene>
         <!--MyPage-->
         <scene sceneID="BDK-8W-zWU">
@@ -162,16 +144,15 @@
                 <viewControllerPlaceholder storyboardName="MyPage" id="eea-ax-N18" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feR-bl-MFA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1081" y="89"/>
+            <point key="canvasLocation" x="1059" y="124"/>
         </scene>
     </scenes>
     <resources>
         <image name="home" width="44" height="44"/>
+        <image name="makeRoom" width="40" height="40"/>
         <image name="mypage" width="44" height="44"/>
-        <image name="push" width="44" height="44"/>
         <image name="selectedHome" width="44" height="44"/>
         <image name="selectedMypage" width="44" height="44"/>
-        <image name="selectedPush" width="44" height="44"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

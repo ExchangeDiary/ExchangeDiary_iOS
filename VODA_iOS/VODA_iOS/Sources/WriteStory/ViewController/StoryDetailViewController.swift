@@ -203,7 +203,7 @@ class StoryDetailViewController: UIViewController {
     }
     
     @objc private func moveToPlaySoundViewController() {
-        let storyboard = UIStoryboard(name: "AudioRecord", bundle: nil)
+        let storyboard = UIStoryboard(name: Storyboard.audioRecord.name, bundle: nil)
         guard let playSoundViewController = storyboard.instantiateViewController(identifier: "PlaySoundViewController") as? PlaySoundViewController else {
             return
         }

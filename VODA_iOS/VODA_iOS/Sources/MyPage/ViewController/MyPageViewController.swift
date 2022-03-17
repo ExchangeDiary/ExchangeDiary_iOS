@@ -39,7 +39,7 @@ class MyPageViewController: UIViewController {
     }
     
     @objc private func moveToUserProfileViewController(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+        let storyboard = UIStoryboard(name: Storyboard.auth.name, bundle: nil)
         guard let userProfileViewController = storyboard.instantiateViewController(identifier: "UserProfileViewController") as? UserProfileViewController else {
             return
         }
