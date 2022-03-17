@@ -108,7 +108,7 @@ class StoryDetailViewController: UIViewController {
         if storyContentsText == "내용을 적어주세요" || storyContentsText.isEmpty {
             storyTextView.text = ""
             if storyData?.storyPhotoImage == nil {
-                storyPhotoImageView.image = UIImage(named: "noStoryText")
+                storyPhotoImageView.image = UIImage(named: "noTextDefaultCat")
             } else {
                 storyPhotoImageView.topAnchor.constraint(equalToSystemSpacingBelow: storyTextView.topAnchor, multiplier: 0).isActive = true
             }
@@ -136,11 +136,11 @@ class StoryDetailViewController: UIViewController {
                     let templeteImageView = UIImageView(frame: CGRect(x: 0, y: templeteMaxY, width: DeviceInfo.screenWidth, height: storyTempleteImageView.bounds.maxY))
                     switch storyData?.storyTemplete {
                     case 1:
-                        storyTempleteImageView.image = UIImage(named: "pinkCatTemplete")
-                        templeteImageView.image = UIImage(named: "pinkCatTemplete")
+                        storyTempleteImageView.image = UIImage(named: "catTemplete")
+                        templeteImageView.image = UIImage(named: "catTemplete")
                     case 2:
-                        storyTempleteImageView.image = UIImage(named: "yellowCatTemplete")
-                        templeteImageView.image = UIImage(named: "yellowCatTemplete")
+                        storyTempleteImageView.image = UIImage(named: "cloudTemplete")
+                        templeteImageView.image = UIImage(named: "cloudTemplete")
                     default:
                         break
                     }
@@ -155,16 +155,22 @@ class StoryDetailViewController: UIViewController {
             miniAudioPlayerView.isHidden = true
         }
         
-        switch storyData?.storyAudioPitch {
-        case AudioPitch.row:
-            miniAudioPlayerPitchImageView.image = UIImage(named: "thickHover")
-        case AudioPitch.high:
-            miniAudioPlayerPitchImageView.image = UIImage(named: "thinHover")
-        default:
-            miniAudioPlayerPitchImageView.image = UIImage(named: "noEffectHover")
+        if let pitch = storyData?.storyAudioPitch, let pitchValue = AudioPitch(rawValue: pitch) {
+            setMiniAudioPlayerPitchImage(pitch: pitchValue)
         }
         
         miniAudioPlayerTitleLabel.text = storyData?.storyAudioTitle
+    }
+    
+    private func setMiniAudioPlayerPitchImage(pitch: AudioPitch) {
+        switch pitch {
+        case AudioPitch.zero:
+            miniAudioPlayerPitchImageView.image = UIImage(named: "seletedZeroPitchCat")
+        case AudioPitch.row:
+            miniAudioPlayerPitchImageView.image = UIImage(named: "seletedRowPitchCat")
+        case AudioPitch.high:
+            miniAudioPlayerPitchImageView.image = UIImage(named: "seletedHighPitchCat")
+        }
     }
     
     private func setUpAudioPlayerUI() {
@@ -245,7 +251,7 @@ class StoryDetailViewController: UIViewController {
                     if let playAudioUrl = downloadedAudioUrl {
                         audioPlayer.play(with: playAudioUrl)
 //                    FIXME: pitch 받아서
-                        audioPlayer.pitch = AudioPitch.zero
+                        audioPlayer.pitch = AudioPitch.zero.rawValue
                     }
                 }
             }

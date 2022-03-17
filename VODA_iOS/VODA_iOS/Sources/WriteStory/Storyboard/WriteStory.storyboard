@@ -368,8 +368,8 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tR7-cN-w8l">
                                                                 <rect key="frame" x="0.0" y="0.0" width="138" height="110"/>
-                                                                <state key="normal" image="noSelcet"/>
-                                                                <state key="selected" image="selectedNoSelected"/>
+                                                                <state key="normal" image="noTempleteIcon"/>
+                                                                <state key="selected" image="selectedNoTempleteIcon"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                         <integer key="value" value="8"/>
@@ -380,19 +380,19 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04U-tU-sHj">
-                                                                <rect key="frame" x="154" y="0.0" width="150" height="110"/>
-                                                                <state key="normal" image="pinkCat"/>
-                                                                <state key="selected" image="selectedPinkCat"/>
+                                                                <rect key="frame" x="154" y="0.0" width="150" height="110.33333333333333"/>
+                                                                <state key="normal" image="catTempleteIcon"/>
+                                                                <state key="selected" image="selectedCatTempleteIcon"/>
                                                                 <connections>
-                                                                    <action selector="selectPinkCatTemplete:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="T2h-Ii-Krh"/>
+                                                                    <action selector="selectCatTemplete:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Exf-Ms-ZWz"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qx-wg-YOP">
-                                                                <rect key="frame" x="320" y="0.0" width="138" height="110"/>
-                                                                <state key="normal" image="yellowCat"/>
-                                                                <state key="selected" image="selectedYellowCat"/>
+                                                                <rect key="frame" x="320" y="0.0" width="138" height="110.33333333333333"/>
+                                                                <state key="normal" image="cloudTempleteIcon"/>
+                                                                <state key="selected" image="selectedCloudTempleteIcon"/>
                                                                 <connections>
-                                                                    <action selector="selectYellowCatTemplete:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="oCx-TF-eUi"/>
+                                                                    <action selector="selectCloudTemplete:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lZy-0X-gQY"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -496,18 +496,18 @@
                         <outlet property="audioPlayingTimeLabel" destination="92i-rf-sl8" id="CaL-yp-U7T"/>
                         <outlet property="audioTitleLabel" destination="Zur-hq-oHu" id="Ji1-5u-luy"/>
                         <outlet property="audioTitleLabelPlaceHolder" destination="rib-QN-UHK" id="5rR-95-gek"/>
+                        <outlet property="catTempleteButton" destination="04U-tU-sHj" id="bkd-Z5-I1d"/>
+                        <outlet property="cloudTempleteButton" destination="5qx-wg-YOP" id="ufe-H6-G5M"/>
                         <outlet property="contentTextView" destination="rcc-ea-3NC" id="1Ss-3I-hGi"/>
                         <outlet property="contentTextViewCharacterCountLabel" destination="vR2-YM-hkf" id="qrF-Bd-aS0"/>
                         <outlet property="contentTextViewHeight" destination="iiK-Go-c4i" id="vjZ-S8-ELV"/>
                         <outlet property="currentDateLabel" destination="7ui-bF-ESa" id="TpV-Jf-u9u"/>
                         <outlet property="locationTextField" destination="fFe-AP-eoI" id="dlc-14-dni"/>
                         <outlet property="noSelectTempleteButton" destination="tR7-cN-w8l" id="paB-4F-inS"/>
-                        <outlet property="pinkCatTempleteButton" destination="04U-tU-sHj" id="bkd-Z5-I1d"/>
                         <outlet property="scrollView" destination="hD1-Ts-KP3" id="Nme-NU-e3O"/>
                         <outlet property="storyPhotoImageView" destination="cc4-u1-Sp5" id="ha8-g4-shv"/>
                         <outlet property="titleTextField" destination="tKV-j9-WmK" id="zQX-gK-doR"/>
                         <outlet property="totalViewHeight" destination="zBj-LQ-2Jy" id="5D2-kh-uJP"/>
-                        <outlet property="yellowCatTempleteButton" destination="5qx-wg-YOP" id="ufe-H6-G5M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -586,7 +586,7 @@
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SFy-74-vez">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SFy-74-vez">
                                                 <rect key="frame" x="36.666666666666657" y="202.33333333333331" width="354.66666666666674" height="354.99999999999994"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="SFy-74-vez" secondAttribute="height" multiplier="1:1" id="D1U-eT-xgd"/>
@@ -742,16 +742,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="noSelcet" width="138" height="110"/>
-        <image name="pinkCat" width="150" height="110"/>
+        <image name="catTempleteIcon" width="150" height="110.33333587646484"/>
+        <image name="cloudTempleteIcon" width="150" height="110.33333587646484"/>
+        <image name="noTempleteIcon" width="150" height="110"/>
         <image name="plus" width="32" height="32"/>
         <image name="resume" width="44" height="44"/>
-        <image name="selectedNoSelected" width="138" height="110"/>
-        <image name="selectedPinkCat" width="150" height="110"/>
-        <image name="selectedYellowCat" width="138" height="110"/>
+        <image name="selectedCatTempleteIcon" width="150" height="110"/>
+        <image name="selectedCloudTempleteIcon" width="150" height="110"/>
+        <image name="selectedNoTempleteIcon" width="150" height="110.33333587646484"/>
         <image name="userDefaultsImage" width="36" height="36"/>
         <image name="voiceAdd" width="38" height="38"/>
-        <image name="yellowCat" width="138" height="110"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
