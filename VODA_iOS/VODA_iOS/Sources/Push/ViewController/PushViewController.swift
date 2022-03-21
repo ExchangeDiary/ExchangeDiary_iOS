@@ -19,6 +19,11 @@ class PushViewController: UIViewController {
         currentDateLabel.text = getCurrentDate()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
+    
     private func setUpNavigationUI() {
         self.setBackButton(color: .black)
         self.setNavigationBarColor(color: .clear)
