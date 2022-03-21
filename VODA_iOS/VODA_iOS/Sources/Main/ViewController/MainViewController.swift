@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var homeTabBarItem: UITabBarItem!
     @IBOutlet weak var myPageTabBarItem: UITabBarItem!
     @IBOutlet weak var shadowView: UIView!
-    private var homeViewController: HomeViewController?
+    var homeViewController: HomeViewController?
     private var myPageViewController: MyPageViewController?
     private var selectedTabBarItemIndex = MainTab.home.index
 
