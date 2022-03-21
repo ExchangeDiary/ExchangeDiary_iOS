@@ -62,4 +62,10 @@ class MyPageViewController: UIViewController {
             //TODO: 서버 로그아웃 처리
         })
     }
+   
+    @IBAction func withdrawal(_ sender: UIButton) {
+        showButtonPopUp(with: .withdrawal, completionHandler: {
+            //TODO: 서버 회원탈퇴 처리
+        })
+    }
 }

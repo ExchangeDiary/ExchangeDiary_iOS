@@ -214,6 +214,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0k-a2-4eh">
                                         <rect key="frame" x="327" y="452.66666666666663" width="24" height="24"/>
                                         <state key="normal" image="arrowGray"/>
+                                        <connections>
+                                            <action selector="withdrawal:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="FaM-YB-3UM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
