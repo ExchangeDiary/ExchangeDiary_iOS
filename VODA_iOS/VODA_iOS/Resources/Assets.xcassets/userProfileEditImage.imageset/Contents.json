@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "userProfileEditImage.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "scale" : "2x",
+      "filename" : "userProfileEditImage@2x.png",
+      "idiom" : "universal"
+    },
+    {
+      "filename" : "userProfileEditImage@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

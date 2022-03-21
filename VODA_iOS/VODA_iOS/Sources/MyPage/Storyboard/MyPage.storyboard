@@ -42,13 +42,13 @@
                                     <constraint firstAttribute="bottom" secondItem="sTR-eh-DV0" secondAttribute="bottom" constant="5" id="tbx-ov-fEH"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profile_cat" translatesAutoresizingMaskIntoConstraints="NO" id="NFV-ea-rOo">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="NFV-ea-rOo">
                                 <rect key="frame" x="147.66666666666666" y="92" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NFV-ea-rOo" secondAttribute="height" multiplier="1:1" id="tni-xM-eBf"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_edit_pencil" translatesAutoresizingMaskIntoConstraints="NO" id="nL5-pd-euh">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userProfileEditImage" translatesAutoresizingMaskIntoConstraints="NO" id="nL5-pd-euh">
                                 <rect key="frame" x="209.33333333333334" y="154" width="18.333333333333343" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nL5-pd-euh" secondAttribute="height" multiplier="1:1" id="Atc-kH-RQV"/>
@@ -214,6 +214,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0k-a2-4eh">
                                         <rect key="frame" x="327" y="452.66666666666663" width="24" height="24"/>
                                         <state key="normal" image="arrowGray"/>
+                                        <connections>
+                                            <action selector="withdrawal:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="FaM-YB-3UM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -408,20 +411,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="19" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFb-V9-e8f">
-                                <rect key="frame" x="26" y="117.99999999999999" width="90" height="249.66666666666663"/>
+                                <rect key="frame" x="26" y="118.00000000000003" width="134.66666666666666" height="326.66666666666674"/>
                                 <string key="text">SwiftLint
+
+Moya
 
 Kingfisher
 
-Moya
+Lottie
+
+SoundWave
+
+DropDown
 
 KakaoSDK
 
 GoogleSignIn
 
-DropDown
-
-Lottie</string>
+Firebase/Messaging</string>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -673,10 +680,10 @@ Lottie</string>
     </scenes>
     <resources>
         <image name="arrowGray" width="24" height="24"/>
-        <image name="default_profile_cat" width="140" height="140"/>
         <image name="emailLink" width="44" height="44"/>
         <image name="newNotice" width="16" height="16"/>
-        <image name="profile_edit_pencil" width="32" height="32"/>
+        <image name="userProfileEditImage" width="32" height="32"/>
+        <image name="userProfileImage" width="100" height="100"/>
         <namedColor name="Gray2">
             <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
