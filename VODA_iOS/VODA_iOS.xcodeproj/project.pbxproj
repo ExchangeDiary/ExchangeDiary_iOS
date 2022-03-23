@@ -88,6 +88,7 @@
 		9B44A97E26D166830078B561 /* AudioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A97D26D166820078B561 /* AudioData.swift */; };
 		9B44A98026D177DD0078B561 /* StoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A97F26D177DC0078B561 /* StoryDetailViewController.swift */; };
 		9B4A627E27E0D75800BF8A55 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B4A627D27E0D75800BF8A55 /* loading.json */; };
+		9B4A628127E1A69D00BF8A55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B4A627F27E1A69D00BF8A55 /* GoogleService-Info.plist */; };
 		9B4A628327E20D3500BF8A55 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4A628227E20D3500BF8A55 /* Storyboard.swift */; };
 		9B60617326C184AF008C84DC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B60617226C184AF008C84DC /* Home.storyboard */; };
 		9B60617926C184C2008C84DC /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60617626C184C2008C84DC /* TimeInterval+Extension.swift */; };
@@ -225,6 +226,7 @@
 		9B44A97D26D166820078B561 /* AudioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioData.swift; sourceTree = "<group>"; };
 		9B44A97F26D177DC0078B561 /* StoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailViewController.swift; sourceTree = "<group>"; };
 		9B4A627D27E0D75800BF8A55 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		9B4A628027E1A69D00BF8A55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9B4A628227E20D3500BF8A55 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		9B60617226C184AF008C84DC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		9B60617626C184C2008C84DC /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
@@ -590,6 +592,7 @@
 			isa = PBXGroup;
 			children = (
 				129FCE9E26BC222B000E20BE /* Info.plist */,
+				9B4A627F27E1A69D00BF8A55 /* GoogleService-Info.plist */,
 				9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */,
 				9B2BF4682699E3CC00FA072C /* AppDelegate.swift */,
 				9B2BF46A2699E3CC00FA072C /* SceneDelegate.swift */,
@@ -1031,6 +1034,7 @@
 				1279629426B93C9C0027EB8C /* Auth.storyboard in Resources */,
 				126BE6C626C4CFA100756266 /* Volte Bold Italic.otf in Resources */,
 				9B60617326C184AF008C84DC /* Home.storyboard in Resources */,
+				9B4A628127E1A69D00BF8A55 /* GoogleService-Info.plist in Resources */,
 				9B6C8B5B26B3F01A00D089D3 /* Push.storyboard in Resources */,
 				126BE6CB26C4CFB300756266 /* Volte Medium.otf in Resources */,
 				9B6C8B4A26B3E58B00D089D3 /* .swiftlint.yml in Resources */,
@@ -1250,6 +1254,14 @@
 			name = Info.plist;
 			path = VODA_iOS/SupportingFiles/Base.lproj;
 			sourceTree = SOURCE_ROOT;
+		};
+		9B4A627F27E1A69D00BF8A55 /* GoogleService-Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B4A628027E1A69D00BF8A55 /* Base */,
+			);
+			name = "GoogleService-Info.plist";
+			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 

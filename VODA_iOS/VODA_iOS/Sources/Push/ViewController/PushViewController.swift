@@ -14,9 +14,18 @@ class PushViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setBackButton(color: .black)
+        setUpNavigationUI()
         pushView.addShadow(width: 0, height: -4, radius: 8, opacity: 0.1)
         currentDateLabel.text = getCurrentDate()
+        
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
+    
+    private func setUpNavigationUI() {
+        self.setBackButton(color: .black)
+        self.setNavigationBarColor(color: .clear)
+        navigationItem.title = "알림"
+        self.navigationController?.navigationBar.titleTextAttributes = [.font: UIFont(name: "AppleSDGothicNeo-SemiBold", size: 20.0) as Any, .foregroundColor: UIColor.CustomColor.vodaGray9]
     }
     
     private func getCurrentDate() -> String {
