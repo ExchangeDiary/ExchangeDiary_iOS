@@ -17,10 +17,7 @@ class PushViewController: UIViewController {
         setUpNavigationUI()
         pushView.addShadow(width: 0, height: -4, radius: 8, opacity: 0.1)
         currentDateLabel.text = getCurrentDate()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
     

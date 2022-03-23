@@ -1,10 +1,11 @@
 PODS:
   - Alamofire (5.5.0)
-  - AppAuth (1.4.0):
-    - AppAuth/Core (= 1.4.0)
-    - AppAuth/ExternalUserAgent (= 1.4.0)
-  - AppAuth/Core (1.4.0)
-  - AppAuth/ExternalUserAgent (1.4.0)
+  - AppAuth (1.5.0):
+    - AppAuth/Core (= 1.5.0)
+    - AppAuth/ExternalUserAgent (= 1.5.0)
+  - AppAuth/Core (1.5.0)
+  - AppAuth/ExternalUserAgent (1.5.0):
+    - AppAuth/Core
   - DropDown (2.3.13)
   - Firebase/CoreOnly (8.13.0):
     - FirebaseCore (= 8.13.0)
@@ -155,7 +156,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
-  AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
+  AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   Firebase: ee9b1d9b1801371e29f5591eda89eb5a314ab599
   FirebaseCore: c7e3fa30492e50ccdeef280bf0d5584af38da3e1
