@@ -77,7 +77,7 @@ enum ButtonPopUpType {
         switch self {
         case .logout, .checkEmail:
             return popUpViewHeight * 0.3055
-        case .exitRoom,.completeWriteStory, .checkStoryContentNil, .checkStoryLocationTitleNil, .reRecord:
+        case .exitRoom, .completeWriteStory, .checkStoryContentNil, .checkStoryLocationTitleNil, .reRecord:
             return popUpViewHeight * 0.2222
         case .noSaveStory, .networkError, .serverError, .withdrawal:
             return popUpViewHeight * 0.1444

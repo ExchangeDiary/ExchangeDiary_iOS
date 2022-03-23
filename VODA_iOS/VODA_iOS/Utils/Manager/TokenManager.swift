@@ -7,6 +7,6 @@
 
 import Foundation
 
-//MARK: 토큰 관리 매니저 클래스
+// MARK: 토큰 관리 매니저 클래스
 final class TokenManager {
 }

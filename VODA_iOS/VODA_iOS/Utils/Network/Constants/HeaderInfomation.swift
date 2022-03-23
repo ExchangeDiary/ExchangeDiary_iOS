@@ -13,7 +13,7 @@ enum HeaderInformation {
         static let authorization = "Authorization"
     }
     
-    //TODO: tokenManager에서 값 뽑아서 삽입
+    // TODO: tokenManager에서 값 뽑아서 삽입
     enum HeaderValue {
         static let json = "application/json"
         static let authoization = "Bearer " + "token"
