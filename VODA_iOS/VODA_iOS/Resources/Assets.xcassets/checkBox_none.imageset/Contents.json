@@ -2,18 +2,18 @@
   "images" : [
     {
       "scale" : "1x",
-      "idiom" : "universal",
-      "filename" : "slice84.png"
+      "filename" : "checkBoxNone.png",
+      "idiom" : "universal"
     },
     {
-      "filename" : "slice84@2x.png",
       "scale" : "2x",
+      "filename" : "checkBoxNone@2x.png",
       "idiom" : "universal"
     },
     {
       "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "slice84@3x.png"
+      "filename" : "checkBoxNone@3x.png"
     }
   ],
   "info" : {

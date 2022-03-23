@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "onboardingWrite.png",
+      "filename" : "homeWritingCat.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "universal",
-      "filename" : "onboardingWrite@2x.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "homeWritingCat@2x.png",
+      "idiom" : "universal"
     },
     {
       "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "onboardingWrite@3x.png"
+      "filename" : "homeWritingCat@3x.png"
     }
   ],
   "info" : {
