@@ -1,12 +1,12 @@
 PODS:
-  - Alamofire (5.5.0)
+  - Alamofire (5.4.4)
   - AppAuth (1.4.0):
     - AppAuth/Core (= 1.4.0)
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
   - DropDown (2.3.13)
-  - GoogleSignIn (6.1.0):
+  - GoogleSignIn (6.0.2):
     - AppAuth (~> 1.4)
     - GTMAppAuth (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
@@ -46,14 +46,14 @@ PODS:
     - KakaoSDKCommon/Common (= 2.5.6)
   - KakaoSDKUser (2.5.6):
     - KakaoSDKAuth (= 2.5.6)
-  - Kingfisher (7.2.0)
-  - lottie-ios (3.3.0)
+  - Kingfisher (7.0.0)
+  - lottie-ios (3.2.3)
   - Moya (15.0.0):
     - Moya/Core (= 15.0.0)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
   - SoundWave (0.1.4)
-  - SwiftLint (0.46.5)
+  - SwiftLint (0.44.0)
 
 DEPENDENCIES:
   - DropDown
@@ -89,10 +89,10 @@ SPEC REPOS:
     - SwiftLint
 
 SPEC CHECKSUMS:
-  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
-  GoogleSignIn: c90b5bec45e780f54c6a8e1e3c182a86e3dda69d
+  GoogleSignIn: fd381840dbe7c1137aa6dc30849a5c3e070c034a
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
   KakaoSDK: cf7977079b8b2925ee366ebe29aae51921e648ce
@@ -104,12 +104,12 @@ SPEC CHECKSUMS:
   KakaoSDKTalk: 68c72269e9095afb9582f324b94f99dd6284e361
   KakaoSDKTemplate: 0370e640abd33d0acb3d7bbe4ef3c02dc42a4576
   KakaoSDKUser: f488aa4699b3fd3a836ab5c7e25e2cb4cea190c1
-  Kingfisher: 3ac0b75b155cabc0e544877d1a4deea29feece92
-  lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
+  Kingfisher: 5efc54fec3980f92354898532e562cc17f31efb4
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   SoundWave: d98ffaa863570b29d991da32a09b7ce1b4aaf2d4
-  SwiftLint: 2c16e8fa99dac2e440dc0c70ea74d2532048f6cf
+  SwiftLint: e96c0a8c770c7ebbc4d36c55baf9096bb65c4584
 
 PODFILE CHECKSUM: 65d062e07a6e0cc3c7aef4a5307225bf635889d1
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
