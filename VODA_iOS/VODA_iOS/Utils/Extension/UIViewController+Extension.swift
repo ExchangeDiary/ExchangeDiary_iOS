@@ -67,7 +67,7 @@ extension UIViewController {
     
     func setNavigationBarTransparency() {
         let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.backgroundColor = UIColor.white
+        navigationBar?.backgroundColor = UIColor.clear
             
         navigationBar?.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationBar?.shadowImage = UIImage()

@@ -53,7 +53,10 @@
 		4C4978C826FA151A00C0C627 /* WritingOrderModifyViewController+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4978C726FA151A00C0C627 /* WritingOrderModifyViewController+CollectionViewExtension.swift */; };
 		4C4978CA26FA3F7900C0C627 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4978C926FA3F7900C0C627 /* CALayer+Extension.swift */; };
 		4C4F589227E2105100A3E8BF /* HeaderInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F589127E2105100A3E8BF /* HeaderInfomation.swift */; };
-		4CA911F727D9D87100CD3FC3 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA911F627D9D87100CD3FC3 /* KeyValue.swift */; };
+		4C8FBA6327E759A700DF56BA /* TOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8FBA6227E759A700DF56BA /* TOSViewController.swift */; };
+		4C8FBA6527E766C000DF56BA /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8FBA6427E766C000DF56BA /* KeyValue.swift */; };
+		4C9B03F527EA0568005A43A1 /* TOSNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B03F427EA0568005A43A1 /* TOSNavigationController.swift */; };
+		4C9B03F727EB41C7005A43A1 /* TOSUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B03F627EB41C7005A43A1 /* TOSUrl.swift */; };
 		4CA911FC27DA0B0000CD3FC3 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA911FB27DA0B0000CD3FC3 /* TokenManager.swift */; };
 		4CA911FE27DA239100CD3FC3 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA911FD27DA239100CD3FC3 /* Token.swift */; };
 		4CA9120027DA298100CD3FC3 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA911FF27DA298100CD3FC3 /* KeyChainManager.swift */; };
@@ -61,6 +64,7 @@
 		4CE24ED226D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED126D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift */; };
 		4CE24ED426D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED326D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift */; };
 		4CE24ED826D107C600F1DB62 /* NewDiaryPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE24ED726D107C600F1DB62 /* NewDiaryPopUpViewController.swift */; };
+		4CF687FA27E7762D00728E77 /* TOSWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF687F927E7762D00728E77 /* TOSWebViewController.swift */; };
 		9B03D57926E7309E005BE354 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B03D57826E7309E005BE354 /* Loading.storyboard */; };
 		9B03D57B26E730C0005BE354 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03D57A26E730C0005BE354 /* LoadingViewController.swift */; };
 		9B03D57E26E7B356005BE354 /* NoticeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03D57D26E7B356005BE354 /* NoticeCollectionViewCell.swift */; };
@@ -187,7 +191,10 @@
 		4C4978C726FA151A00C0C627 /* WritingOrderModifyViewController+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingOrderModifyViewController+CollectionViewExtension.swift"; sourceTree = "<group>"; };
 		4C4978C926FA3F7900C0C627 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
 		4C4F589127E2105100A3E8BF /* HeaderInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderInfomation.swift; sourceTree = "<group>"; };
-		4CA911F627D9D87100CD3FC3 /* KeyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
+		4C8FBA6227E759A700DF56BA /* TOSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSViewController.swift; sourceTree = "<group>"; };
+		4C8FBA6427E766C000DF56BA /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
+		4C9B03F427EA0568005A43A1 /* TOSNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSNavigationController.swift; sourceTree = "<group>"; };
+		4C9B03F627EB41C7005A43A1 /* TOSUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSUrl.swift; sourceTree = "<group>"; };
 		4CA911FB27DA0B0000CD3FC3 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		4CA911FD27DA239100CD3FC3 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		4CA911FF27DA298100CD3FC3 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
@@ -196,6 +203,7 @@
 		4CE24ED126D0CFA100F1DB62 /* HomeViewController+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CollectionViewExtension.swift"; sourceTree = "<group>"; };
 		4CE24ED326D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryViewController+CollectionViewExtnesion.swift"; sourceTree = "<group>"; };
 		4CE24ED726D107C600F1DB62 /* NewDiaryPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryPopUpViewController.swift; sourceTree = "<group>"; };
+		4CF687F927E7762D00728E77 /* TOSWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSWebViewController.swift; sourceTree = "<group>"; };
 		835C0E5BB6D174B1D03C169F /* Pods-VODA_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.release.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		9B03D57826E7309E005BE354 /* Loading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
 		9B03D57A26E730C0005BE354 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -398,6 +406,9 @@
 			children = (
 				1279629626B93D080027EB8C /* SignInViewController.swift */,
 				9B26C20926DE98C600ECECF8 /* UserProfileViewController.swift */,
+				4C8FBA6227E759A700DF56BA /* TOSViewController.swift */,
+				4CF687F927E7762D00728E77 /* TOSWebViewController.swift */,
+				4C9B03F427EA0568005A43A1 /* TOSNavigationController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -409,6 +420,7 @@
 				12DFB9E226BE85A7009C23D1 /* SocialLoginManager.swift */,
 				120B28B026BAD5550058A568 /* AppleLoginManager.swift */,
 				9B26C20B26DF535A00ECECF8 /* UserProfileData.swift */,
+				4C9B03F627EB41C7005A43A1 /* TOSUrl.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -452,7 +464,7 @@
 		4CA911F527D9D84B00CD3FC3 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				4CA911F627D9D87100CD3FC3 /* KeyValue.swift */,
+				4C8FBA6427E766C000DF56BA /* KeyValue.swift */,
 				4CA911FD27DA239100CD3FC3 /* Token.swift */,
 				4C4F589127E2105100A3E8BF /* HeaderInfomation.swift */,
 			);
@@ -1137,6 +1149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B60618426C1886D008C84DC /* UILabel+Extension.swift in Sources */,
+				4C9B03F527EA0568005A43A1 /* TOSNavigationController.swift in Sources */,
 				4CE24ED826D107C600F1DB62 /* NewDiaryPopUpViewController.swift in Sources */,
 				9B26C20C26DF535B00ECECF8 /* UserProfileData.swift in Sources */,
 				9B6C8B5926B3EFFF00D089D3 /* HomeViewController.swift in Sources */,
@@ -1168,6 +1181,7 @@
 				9B6C8B5D26B3F02600D089D3 /* PushViewController.swift in Sources */,
 				9B2BF46D2699E3CC00FA072C /* MainViewController.swift in Sources */,
 				4CA9120027DA298100CD3FC3 /* KeyChainManager.swift in Sources */,
+				4C8FBA6327E759A700DF56BA /* TOSViewController.swift in Sources */,
 				9B26C20626DE7D0300ECECF8 /* QuestionViewController.swift in Sources */,
 				4C1E9D5C26F9B56B003C2F63 /* WritingOrderModifyViewController.swift in Sources */,
 				12BB18AE26D51CB100A9DF2A /* BackgroundImageCollectionViewCell.swift in Sources */,
@@ -1175,7 +1189,6 @@
 				9B2601482769F64100BCE87B /* StoryDataResponse.swift in Sources */,
 				9B6C8B4726AC829800D089D3 /* VodaAudioPlayer.swift in Sources */,
 				12C3938626D78D1C0056A616 /* NewDiaryPopUpViewController+CollectionViewExtension.swift in Sources */,
-				4CA911F727D9D87100CD3FC3 /* KeyValue.swift in Sources */,
 				9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */,
 				12053F322709D204003C5E6F /* OnBoardingViewController+CollectionViewExtension.swift in Sources */,
 				9B40EA2327687C1B000D5733 /* MockAPIService.swift in Sources */,
@@ -1201,6 +1214,7 @@
 				9B6BD2DF26C66420007619BE /* DeviceInfo.swift in Sources */,
 				9B26C20A26DE98C700ECECF8 /* UserProfileViewController.swift in Sources */,
 				9B6BD2DA26C64914007619BE /* ButtonPopUpType.swift in Sources */,
+				4C8FBA6527E766C000DF56BA /* KeyValue.swift in Sources */,
 				9B2BF4692699E3CC00FA072C /* AppDelegate.swift in Sources */,
 				12603DD826C9531B0077F859 /* StoryWritingTurnCollectionViewCell.swift in Sources */,
 				9B2BF46B2699E3CC00FA072C /* SceneDelegate.swift in Sources */,
@@ -1214,6 +1228,7 @@
 				9B6061D726C39504008C84DC /* AudioPlayerStatus.swift in Sources */,
 				9BEB68C726D37CBE00A7F786 /* StoryData.swift in Sources */,
 				9B03D57B26E730C0005BE354 /* LoadingViewController.swift in Sources */,
+				4C9B03F727EB41C7005A43A1 /* TOSUrl.swift in Sources */,
 				9B40EA0F2767B02B000D5733 /* DefaultSession.swift in Sources */,
 				4C4978C826FA151A00C0C627 /* WritingOrderModifyViewController+CollectionViewExtension.swift in Sources */,
 				9B60618226C1886D008C84DC /* UIView+Extension.swift in Sources */,
@@ -1221,6 +1236,7 @@
 				4C17688326D111D800F0D6B3 /* CreateDiaryCollectionViewCell.swift in Sources */,
 				4C3328D426F746DD004A5A92 /* StoryCollectionViewFlowLayout.swift in Sources */,
 				12053F372709D5B9003C5E6F /* OnBoardingCollectionViewCell2.swift in Sources */,
+				4CF687FA27E7762D00728E77 /* TOSWebViewController.swift in Sources */,
 				9B6BD2E126C839ED007619BE /* PhotoPopUpViewController.swift in Sources */,
 				9B6BD2EA26CD0B52007619BE /* WriteStoryViewController.swift in Sources */,
 				9B60617A26C184C2008C84DC /* SegueIdentifier.swift in Sources */,
