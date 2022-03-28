@@ -11,12 +11,12 @@ import WebKit
 class TOSViewController: UIViewController {
     @IBOutlet weak var fullAgreementCheckBoxButton: UIButton!
     @IBOutlet weak var over14yearsOldCheckBoxButton: UIButton!
-    @IBOutlet weak var TOSAgreementCheckBoxButton: UIButton!
+    @IBOutlet weak var tosAgreementCheckBoxButton: UIButton!
     @IBOutlet weak var privacyPolicyAgreementCheckBoxButton: UIButton!
     @IBOutlet weak var completeButton: UIButton!
-    
     @IBOutlet weak var showTOSAgreementDetailButton: UIButton!
     @IBOutlet weak var showPrivacyAgreementDetailButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +34,7 @@ class TOSViewController: UIViewController {
             let agreement = !self.fullAgreementCheckBoxButton.isSelected
             self.fullAgreementCheckBoxButton.isSelected = agreement
             self.over14yearsOldCheckBoxButton.isSelected = agreement
-            self.TOSAgreementCheckBoxButton.isSelected = agreement
+            self.tosAgreementCheckBoxButton.isSelected = agreement
             self.privacyPolicyAgreementCheckBoxButton.isSelected = agreement
         } else { sender.isSelected.toggle() }
         
@@ -48,7 +48,7 @@ class TOSViewController: UIViewController {
     }
     
     func checkIsCheckBoxAllSelected() -> Bool {
-        if self.over14yearsOldCheckBoxButton.isSelected && self.TOSAgreementCheckBoxButton.isSelected && self.privacyPolicyAgreementCheckBoxButton.isSelected {
+        if self.over14yearsOldCheckBoxButton.isSelected && self.tosAgreementCheckBoxButton.isSelected && self.privacyPolicyAgreementCheckBoxButton.isSelected {
             return true
         }
         
@@ -78,8 +78,8 @@ class TOSViewController: UIViewController {
         self.fullAgreementCheckBoxButton.setImage(checkBoxActiveImage, for: .selected)
         self.over14yearsOldCheckBoxButton.setImage(checkBoxNoneImage, for: .normal)
         self.over14yearsOldCheckBoxButton.setImage(checkBoxActiveImage, for: .selected)
-        self.TOSAgreementCheckBoxButton.setImage(checkBoxNoneImage, for: .normal)
-        self.TOSAgreementCheckBoxButton.setImage(checkBoxActiveImage, for: .selected)
+        self.tosAgreementCheckBoxButton.setImage(checkBoxNoneImage, for: .normal)
+        self.tosAgreementCheckBoxButton.setImage(checkBoxActiveImage, for: .selected)
         self.privacyPolicyAgreementCheckBoxButton.setImage(checkBoxNoneImage, for: .normal)
         self.privacyPolicyAgreementCheckBoxButton.setImage(checkBoxActiveImage, for: .selected)
     }

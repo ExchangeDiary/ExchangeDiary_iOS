@@ -428,18 +428,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="jMR-ou-dW0"/>
                     <connections>
-                        <outlet property="TOSAgreementCheckBoxButton" destination="d4l-Nn-8PK" id="DVc-BS-xMB"/>
                         <outlet property="completeButton" destination="jeK-nt-acY" id="QzH-5f-74o"/>
                         <outlet property="fullAgreementCheckBoxButton" destination="22j-cr-Fc3" id="bxc-MY-Tng"/>
                         <outlet property="over14yearsOldCheckBoxButton" destination="xGE-zX-KAa" id="f7d-Y8-ZcQ"/>
-                        <outlet property="privacyPolicyAgreementCheckBoxButton" destination="jKu-lG-d3j" id="ll5-9C-92V"/>
+                        <outlet property="privacyPolicyAgreementCheckBoxButton" destination="jKu-lG-d3j" id="uud-Ph-bx1"/>
                         <outlet property="showPrivacyAgreementDetailButton" destination="dcG-g0-Ai2" id="XJZ-ff-hnn"/>
                         <outlet property="showTOSAgreementDetailButton" destination="jBz-Fh-Lnr" id="qQE-x4-lht"/>
+                        <outlet property="tosAgreementCheckBoxButton" destination="d4l-Nn-8PK" id="KP4-XO-ECm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fck-mn-hKY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1735" y="117"/>
+            <point key="canvasLocation" x="1733.5999999999999" y="116.74876847290641"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="EFc-CS-YFQ">
