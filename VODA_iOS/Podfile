@@ -7,17 +7,17 @@ target 'VODA_iOS' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-    pod 'Moya'
-    pod 'Kingfisher'
-    pod 'SwiftLint'
-    pod 'lottie-ios'
-    pod 'SoundWave'
+    pod 'Moya', '~> 15.0.0'
+    pod 'Kingfisher', '~> 7.2.0'
+    pod 'SwiftLint', '0.46.5'
+    pod 'lottie-ios', '3.3.0'
+    pod 'SoundWave', '0.1.4'
 
-    pod 'GoogleSignIn'
+    pod 'GoogleSignIn', '6.1.0'
     pod 'KakaoSDK', '2.5.6'
-    pod 'Firebase/Messaging'
+    pod 'Firebase/Messaging', '8.14.0'
 
-    pod 'DropDown'
+    pod 'DropDown', '2.3.13'
     
   # Pods for VODA_iOS
 

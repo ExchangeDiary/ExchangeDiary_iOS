@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         KakaoSDKCommon.initSDK(appKey: SocialLoginType.kakao.appKey)
         
-        registerNotification(application: application)
-        
+        checkFirstAppLaunch(application: application)
+
         if #available(iOS 13, *) {
             print("set in SceneDelegate")
         } else {
@@ -53,8 +53,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Messaging.messaging().apnsToken = deviceToken
     }
     
-    private func registerNotification(application: UIApplication) {
-        FirebaseApp.configure()
+    private func getAppLaunchCount() -> Int {
+        let appLaunchCount = UserDefaults.standard.integer(forKey: "appLaunchCount")
+        
+        return appLaunchCount
+    }
+    
+    private func setAppLaunchCount() {
+        let appLaunchCount = getAppLaunchCount()
+        UserDefaults.standard.set(appLaunchCount + 1, forKey: "appLaunchCount")
+    }
+    
+    private func checkFirstAppLaunch(application: UIApplication) {
+        let appLaunchCount = getAppLaunchCount()
+        
+        if appLaunchCount < 1 {
+            UserDefaults.standard.set(true, forKey: "pushFlag")
+            registerNotification(application: application)
+        } else {
+            if UIApplication.shared.isRegisteredForRemoteNotifications {
+                registerNotification(application: application)
+            }
+        }
+        
+        setAppLaunchCount()
+    }
+    
+    public func registerNotification(application: UIApplication) {
+        if FirebaseApp.app() == nil {
+          FirebaseApp.configure()
+        }
+        
         Messaging.messaging().delegate = self
         
         UNUserNotificationCenter.current().delegate = self

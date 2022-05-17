@@ -25,7 +25,7 @@ class PushSettingViewController: UIViewController {
     }
     
     private func setPushSettingSwitch() {
-        if UIApplication.shared.isRegisteredForRemoteNotifications {
+        if UserDefaults.standard.bool(forKey: "pushFlag") {
             pushSettingSwitch.isOn = true
         } else {
             pushSettingSwitch.isOn = false
@@ -33,8 +33,11 @@ class PushSettingViewController: UIViewController {
     }
  
     @IBAction func togglePushSettingSwitch(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "pushFlag")
+        
         if sender.isOn {
-            UIApplication.shared.registerForRemoteNotifications()
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            appDelegate?.registerNotification(application: UIApplication.shared)
         } else {
             UIApplication.shared.unregisterForRemoteNotifications()
         }
