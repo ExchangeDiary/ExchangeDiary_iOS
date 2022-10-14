@@ -10,34 +10,26 @@ import XCTest
 @testable import VODA_iOS
 
 class APIServiceTests: XCTestCase {
-    var sut: MockAPIService!
-    
-    override func setUpWithError() throws {
-        sut = MockAPIService(isStub: true)
-    }
-    
-    func testVodaAPI() throws {
-        let expectation = XCTestExpectation()
+    func testMockAPIService() {
+        // Given
+        let sut = MockAPIService()
         
-        let expectedStoryDetailData = VodaAPI.testGetStoryDetail(index: 1).sampleData
-        
-        guard let storyDetailData = try? JSONDecoder().decode(StoryDataResponse.self, from: expectedStoryDetailData) else {
-            return
-        }
-        print("storyDetailData: \(storyDetailData)")
-       
-        sut.testGetStoryDetail(index: 1) { response in
+        // When
+        sut.request(VodaAPI.testGetStoryDetail(index: 1), responseType: StoryDataResponse.self) { response in
             guard let storyDataResponse = try? response.get() else {
                 return
             }
-            print("storyDataResponse: \(storyDataResponse)")
-            XCTAssertEqual(storyDetailData.storyTitle, storyDataResponse.storyTitle)
-            expectation.fulfill()
+            
+            // Then
+            XCTAssertEqual(storyDataResponse.storyWriteDate, "210102")
+            XCTAssertEqual(storyDataResponse.storyLocation, "home")
+            XCTAssertEqual(storyDataResponse.storyContentsText, "testText")
+            XCTAssertEqual(storyDataResponse.storyAudioTitle, "testAudioTitle")
+            XCTAssertEqual(storyDataResponse.storyAudioFileName, "testFileName")
+            XCTAssertEqual(storyDataResponse.storyAudioPitch, 0.5)
+            XCTAssertEqual(storyDataResponse.storyAudioUrl, "https://github.com/ExchangeDiary/ExchangeDiary_iOS")
+            XCTAssertEqual(storyDataResponse.storyPhotoUrl, "https://github.com/ExchangeDiary/ExchangeDiary_iOS")
+            XCTAssertEqual(storyDataResponse.storyTemplete, 1)
         }
-        wait(for: [expectation], timeout: 2.0)
-    }
-
-    func testExample() throws {
-
     }
 }

@@ -55,7 +55,27 @@ extension VodaAPI: TargetType {
     }
   
     var sampleData: Data {
-        return Data()
+        switch self {
+        case .testGetStoryDetail(index: 1):
+            return Data(
+                            """
+                            {
+                               "storyWriteDate": "210102",
+                               "storyTitle": "testTitle",
+                               "storyLocation": "home",
+                               "storyContentsText": "testText",
+                               "storyAudioTitle": "testAudioTitle",
+                               "storyAudioFileName": "testFileName",
+                               "storyAudioPitch": 0.5,
+                               "storyAudioUrl": "https://github.com/ExchangeDiary/ExchangeDiary_iOS",
+                               "storyPhotoUrl": "https://github.com/ExchangeDiary/ExchangeDiary_iOS",
+                               "storyTemplete": 1,
+                            }
+                            """.utf8
+            )
+        default:
+            return Data()
+        }
     }
     
     var task: Task {
