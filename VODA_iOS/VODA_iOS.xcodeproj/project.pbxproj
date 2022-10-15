@@ -87,7 +87,6 @@
 		9B40EA09276213CF000D5733 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40EA08276213CF000D5733 /* APIService.swift */; };
 		9B40EA0F2767B02B000D5733 /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40EA0E2767B02B000D5733 /* DefaultSession.swift */; };
 		9B40EA1927687103000D5733 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40EA1827687103000D5733 /* APIServiceTests.swift */; };
-		9B40EA2127687181000D5733 /* ProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40EA2027687181000D5733 /* ProviderProtocol.swift */; };
 		9B40EA2327687C1B000D5733 /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40EA2227687C1B000D5733 /* MockAPIService.swift */; };
 		9B44A97E26D166830078B561 /* AudioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A97D26D166820078B561 /* AudioData.swift */; };
 		9B44A98026D177DD0078B561 /* StoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A97F26D177DC0078B561 /* StoryDetailViewController.swift */; };
@@ -126,10 +125,10 @@
 		9B904DC626A95DF8004F5B99 /* RecordSoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904DC526A95DF8004F5B99 /* RecordSoundViewController.swift */; };
 		9B904DC826A95E14004F5B99 /* PlaySoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904DC726A95E14004F5B99 /* PlaySoundViewController.swift */; };
 		9B904DCA26A95E82004F5B99 /* AudioRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */; };
-		9BD10F752769B684009009BC /* Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BD10F742769B684009009BC /* Mock.json */; };
 		9BE0A875269A2080005314C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */; };
 		9BE0A886269A2A4E005314C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0A885269A2A4E005314C0 /* Main.storyboard */; };
 		9BEB68C726D37CBE00A7F786 /* StoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB68C626D37CBE00A7F786 /* StoryData.swift */; };
+		C4F0F161D308FCC79029F665 /* Pods_APIServiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA6FC2856BF11552155DF80 /* Pods_APIServiceTests.framework */; };
 		D62B1705EB94FBB77F6FF5CF /* Pods_VODA_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE202DC320DB2B380F3FF7CC /* Pods_VODA_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -204,6 +203,7 @@
 		4CE24ED326D0D31400F1DB62 /* DiaryViewController+CollectionViewExtnesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryViewController+CollectionViewExtnesion.swift"; sourceTree = "<group>"; };
 		4CE24ED726D107C600F1DB62 /* NewDiaryPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryPopUpViewController.swift; sourceTree = "<group>"; };
 		4CF687F927E7762D00728E77 /* TOSWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSWebViewController.swift; sourceTree = "<group>"; };
+		5B58DEEEACDAB1276572462C /* Pods-APIServiceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIServiceTests.release.xcconfig"; path = "Target Support Files/Pods-APIServiceTests/Pods-APIServiceTests.release.xcconfig"; sourceTree = "<group>"; };
 		835C0E5BB6D174B1D03C169F /* Pods-VODA_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.release.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		9B03D57826E7309E005BE354 /* Loading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
 		9B03D57A26E730C0005BE354 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -229,7 +229,6 @@
 		9B40EA0E2767B02B000D5733 /* DefaultSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSession.swift; sourceTree = "<group>"; };
 		9B40EA1627687102000D5733 /* APIServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APIServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B40EA1827687103000D5733 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
-		9B40EA2027687181000D5733 /* ProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProtocol.swift; sourceTree = "<group>"; };
 		9B40EA2227687C1B000D5733 /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
 		9B44A97D26D166820078B561 /* AudioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioData.swift; sourceTree = "<group>"; };
 		9B44A97F26D177DC0078B561 /* StoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailViewController.swift; sourceTree = "<group>"; };
@@ -267,11 +266,12 @@
 		9B904DC526A95DF8004F5B99 /* RecordSoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundViewController.swift; sourceTree = "<group>"; };
 		9B904DC726A95E14004F5B99 /* PlaySoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundViewController.swift; sourceTree = "<group>"; };
 		9B904DC926A95E82004F5B99 /* AudioRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AudioRecord.storyboard; sourceTree = "<group>"; };
-		9BD10F742769B684009009BC /* Mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Mock.json; sourceTree = "<group>"; };
+		9BA6FC2856BF11552155DF80 /* Pods_APIServiceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIServiceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE0A874269A2080005314C0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BE0A885269A2A4E005314C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9BEB68C626D37CBE00A7F786 /* StoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryData.swift; sourceTree = "<group>"; };
 		C4ACB85E518139A990B1D58A /* Pods-VODA_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VODA_iOS.debug.xcconfig"; path = "Target Support Files/Pods-VODA_iOS/Pods-VODA_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E820942D861042DEF90AA841 /* Pods-APIServiceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIServiceTests.debug.xcconfig"; path = "Target Support Files/Pods-APIServiceTests/Pods-APIServiceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EE202DC320DB2B380F3FF7CC /* Pods_VODA_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VODA_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -288,6 +288,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4F0F161D308FCC79029F665 /* Pods_APIServiceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +493,8 @@
 			children = (
 				C4ACB85E518139A990B1D58A /* Pods-VODA_iOS.debug.xcconfig */,
 				835C0E5BB6D174B1D03C169F /* Pods-VODA_iOS.release.xcconfig */,
+				E820942D861042DEF90AA841 /* Pods-APIServiceTests.debug.xcconfig */,
+				5B58DEEEACDAB1276572462C /* Pods-APIServiceTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 		9B40EA1727687103000D5733 /* APIServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				9B40EA1F27687152000D5733 /* Mock */,
 				9B40EA1827687103000D5733 /* APIServiceTests.swift */,
 			);
 			path = APIServiceTests;
@@ -650,9 +654,7 @@
 		9B40EA1F27687152000D5733 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				9B40EA2027687181000D5733 /* ProviderProtocol.swift */,
 				9B40EA2227687C1B000D5733 /* MockAPIService.swift */,
-				9BD10F742769B684009009BC /* Mock.json */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -695,7 +697,6 @@
 		9B60617726C184C2008C84DC /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				9B40EA1F27687152000D5733 /* Mock */,
 				4CA911F527D9D84B00CD3FC3 /* Constants */,
 				4C4F588F27E1FCC700A3E8BF /* API */,
 				9B40EA08276213CF000D5733 /* APIService.swift */,
@@ -954,6 +955,7 @@
 			isa = PBXGroup;
 			children = (
 				EE202DC320DB2B380F3FF7CC /* Pods_VODA_iOS.framework */,
+				9BA6FC2856BF11552155DF80 /* Pods_APIServiceTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -985,6 +987,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B40EA1C27687103000D5733 /* Build configuration list for PBXNativeTarget "APIServiceTests" */;
 			buildPhases = (
+				0277EB23F5B1E132E20BFACE /* [CP] Check Pods Manifest.lock */,
 				9B40EA1227687102000D5733 /* Sources */,
 				9B40EA1327687102000D5733 /* Frameworks */,
 				9B40EA1427687102000D5733 /* Resources */,
@@ -1050,7 +1053,6 @@
 				9B6C8B5B26B3F01A00D089D3 /* Push.storyboard in Resources */,
 				126BE6CB26C4CFB300756266 /* Volte Medium.otf in Resources */,
 				9B6C8B4A26B3E58B00D089D3 /* .swiftlint.yml in Resources */,
-				9BD10F752769B684009009BC /* Mock.json in Resources */,
 				9BE0A886269A2A4E005314C0 /* Main.storyboard in Resources */,
 				9B6C8B5F26B3F03700D089D3 /* MyPage.storyboard in Resources */,
 				126BE6C726C4CFA400756266 /* Volte Bold.otf in Resources */,
@@ -1084,6 +1086,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0277EB23F5B1E132E20BFACE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-APIServiceTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		0E01266D7C3617CA50DD498C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1199,7 +1223,6 @@
 				12603DDC26C9552B0077F859 /* DiaryCollectionReusableView.swift in Sources */,
 				126BE6D426C4D2DE00756266 /* JoinedDiaryCollectionViewCell.swift in Sources */,
 				9B40EA0727611931000D5733 /* VodaAPI.swift in Sources */,
-				9B40EA2127687181000D5733 /* ProviderProtocol.swift in Sources */,
 				12603DD126C935B30077F859 /* DiaryViewController.swift in Sources */,
 				12053F352709D595003C5E6F /* OnBoardingCollectionViewCell1.swift in Sources */,
 				12053F392709D5CE003C5E6F /* OnBoardingCollectionViewCell3.swift in Sources */,
@@ -1444,6 +1467,7 @@
 		};
 		9B40EA1D27687103000D5733 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E820942D861042DEF90AA841 /* Pods-APIServiceTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -1469,6 +1493,7 @@
 		};
 		9B40EA1E27687103000D5733 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B58DEEEACDAB1276572462C /* Pods-APIServiceTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
